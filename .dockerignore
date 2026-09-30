@@ -1,0 +1,17 @@
+# Dependências e build locais nunca entram na imagem.
+node_modules
+.next
+out
+coverage
+
+# Segredos e ambiente local nunca entram na imagem.
+.env
+.env.*
+!.env.example
+
+# Logs e git nunca entram na imagem.
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.git
+.gitignore
