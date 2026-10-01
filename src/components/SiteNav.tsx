@@ -38,7 +38,7 @@ export function SiteNav({
           <LogoMark className="h-8 w-8 shrink-0" />
           <span className="hidden font-extrabold tracking-tight text-zinc-900 sm:inline">MODEL ARENA</span>
         </a>
-        <ul className="flex min-w-0 flex-1 items-center justify-center gap-1 overflow-x-auto text-xs font-semibold text-stone-500 sm:gap-4 sm:text-[13px]">
+        <ul className="flex min-w-0 flex-1 items-center justify-start gap-1 overflow-x-auto text-xs font-semibold text-stone-500 sm:justify-center sm:gap-4 sm:text-[13px]">
           {ANCORA_LINKS.map(({ href, rotulo }) => (
             <li key={href} className="shrink-0">
               <a href={`${base}${href}`} className="nav-link whitespace-nowrap">

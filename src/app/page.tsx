@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import {
-  ChevronDown,
   Database,
   Dices,
   Scale,
@@ -18,8 +17,7 @@ import {
   buildCatalogo,
   buildProviderOptions,
 } from "@/data/models";
-import type { AIModel } from "@/types/ai-model";
-import { headline, placarConfronto } from "@/lib/comparar";
+import { placarConfronto } from "@/lib/comparar";
 import {
   buscarAaVivo,
   buscarCatalogoVivo,
@@ -40,7 +38,6 @@ import { Reveal } from "@/components/Reveal";
 import { HeroStats } from "@/components/HeroStats";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
-import { LogoMark } from "@/components/SiteLogo";
 
 /** Rótulo minimalista de secção (sem numeração nem adornos). */
 function Kicker({ label }: { label: string }) {
@@ -84,95 +81,6 @@ function TituloLetras({
  * Estado central (useState) para as seleções e o modal; dados
  * derivados (useMemo) para modelos e veredito (placar central).
  */
-/** Cartão do duelo em destaque (#1 × #2 do ranking) no hero. */
-function DueloDestaque({
-  topA,
-  topB,
-  onAbrir,
-}: {
-  topA: AIModel | undefined;
-  topB: AIModel | undefined;
-  onAbrir: (a: string, b: string) => void;
-}) {
-  if (!topA || !topB) return null;
-  const p = placarConfronto(topA, topB);
-  const pct = p.vitoriasA + p.vitoriasB > 0
-    ? (p.vitoriasA / (p.vitoriasA + p.vitoriasB)) * 100
-    : 50;
-  const linha = (m: typeof topA, lado: "A" | "B") => {
-    const h = headline(m);
-    const cor = "#18181b";
-    return (
-      <div className="flex min-w-0 items-center gap-3">
-        <ModelLogo
-          nome={m.nomeCurto}
-          dominio={m.dominioLogo}
-          cor={m.cor}
-          tamanho={40}
-        />
-        <div className="min-w-0 flex-1">
-          <p
-            className="text-[10px] font-extrabold tracking-[0.22em] uppercase"
-            style={{ color: cor }}
-          >
-            #{m.rank} · Lado {lado}
-          </p>
-          <p className="truncate text-base font-extrabold text-zinc-900">
-            {m.nomeCurto}
-          </p>
-          <p className="truncate text-xs text-stone-500">
-            {m.empresa} · {h.valor} {h.valor !== "—" ? `· ${h.rotulo}` : ""}
-          </p>
-        </div>
-      </div>
-    );
-  };
-  return (
-    <aside
-      aria-label="Duelo em destaque"
-      className="glass-card sheen card-enter relative w-full overflow-hidden p-5 text-left sm:p-6"
-      style={{ animationDelay: "350ms" }}
-    >
-      <p className="flex items-center gap-2 text-[11px] font-extrabold tracking-[0.25em] text-stone-500 uppercase">
-        <span aria-hidden="true" className="pulse-neon inline-block h-2 w-2 rounded-full bg-indigo-600" />
-        Duelo em destaque
-      </p>
-      <div className="mt-4 flex flex-col gap-4">
-        {linha(topA, "A")}
-        <div className="flex items-center gap-3" aria-hidden="true">
-          <div className="h-px flex-1 bg-stone-200" />
-          <span className="duel-medal flex h-9 w-9 items-center justify-center rounded-full bg-zinc-900 text-[10px] font-black text-white">
-            VS
-          </span>
-          <div className="h-px flex-1 bg-stone-200" />
-        </div>
-        {linha(topB, "B")}
-      </div>
-      <div
-        className="score-track mt-4 h-1.5 rounded-full"
-        style={{ "--pct-a": `${pct}%` } as CSSProperties}
-        aria-hidden="true"
-      />
-      <p className="mt-2 text-center text-xs font-bold text-zinc-600">
-        {p.vencedor ? (
-          <>{p.vencedor.nomeCurto} vence {p.vitoriasA}×{p.vitoriasB} nos quesitos</>
-        ) : p.semDados ? (
-          <>Sem métrica pública em comum</>
-        ) : (
-          <>Empate técnico {p.vitoriasA}×{p.vitoriasB}</>
-        )}
-      </p>
-      <button
-        type="button"
-        onClick={() => onAbrir(topA.id, topB.id)}
-        className="btn-primary cta-glow mt-4 w-full rounded-xl px-4 py-2.5 text-sm"
-      >
-        Abrir este duelo na arena
-      </button>
-    </aside>
-  );
-}
-
 /** Estado vazio: ringue sem lutadores, com ações para começar. */
 function EmptyDuel({
   onPickA,
@@ -400,12 +308,9 @@ export default function Home() {
         <div aria-hidden="true" className="spotlight" />
         <div aria-hidden="true" className="hero-grid absolute inset-0" />
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pt-12 pb-8 sm:px-6 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="text-center lg:text-left">
-            <span className="bob inline-flex" aria-hidden="true">
-              <LogoMark className="h-14 w-14 sm:h-16 sm:w-16" />
-            </span>
-            <p className="mx-auto mt-4 inline-flex items-center gap-2 rounded-full border border-indigo-600/25 bg-indigo-600/5 px-3 py-1 text-xs font-bold text-indigo-700 lg:mx-0">
+        <div className="relative mx-auto max-w-3xl px-4 pt-12 pb-8 text-center sm:px-6">
+          <div>
+            <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-indigo-600/25 bg-indigo-600/5 px-3 py-1 text-xs font-bold text-indigo-700">
               <span
                 aria-hidden="true"
                 className="pulse-neon inline-block h-2 w-2 rounded-full bg-indigo-600"
@@ -423,7 +328,7 @@ export default function Home() {
             </h1>
 
             <p
-              className="card-enter mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-zinc-600 lg:mx-0"
+              className="card-enter mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-zinc-600"
               style={{ animationDelay: "150ms" }}
             >
               AA + LMArena + OpenRouter num só ringue: escolha dois modelos e
@@ -432,7 +337,7 @@ export default function Home() {
             </p>
 
             <div
-              className="card-enter mt-6 flex flex-wrap items-center justify-center gap-2.5 lg:justify-start"
+              className="card-enter mt-6 flex flex-wrap items-center justify-center gap-2.5"
               style={{ animationDelay: "280ms" }}
             >
               <a
@@ -476,29 +381,10 @@ export default function Home() {
               {dataArena}
             </p>
           </div>
-
-          <DueloDestaque
-            topA={modelos[0]}
-            topB={modelos[1]}
-            onAbrir={(a, b) => {
-              setIds({ a, b });
-              document
-                .getElementById("comparar")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          />
         </div>
 
         <div className="relative mx-auto max-w-6xl px-4 pb-8 text-center sm:px-6">
           <HeroStats models={modelos} />
-
-          <a
-            href="#comparar"
-            className="mt-7 inline-flex flex-col items-center gap-1 text-[11px] font-bold tracking-[0.25em] text-stone-400 uppercase transition hover:text-indigo-600"
-          >
-            Explorar a arena
-            <ChevronDown size={16} aria-hidden="true" className="bounce-y" />
-          </a>
         </div>
 
       </header>
@@ -707,9 +593,6 @@ export default function Home() {
                       {placar.semConfronto} sem métrica comum
                     </span>
                   )}
-                  <span className="text-stone-500">
-                    Preço e contexto entram como vantagens na tabela
-                  </span>
                 </p>
               </div>
             </section>

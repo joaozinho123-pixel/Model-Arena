@@ -668,22 +668,6 @@ body::before {
 }
 
 /* ============================================================
-   ANIMAÇÃO 29 — Indicador de scroll (bounce)
-   ============================================================ */
-@keyframes bounceY {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(6px);
-  }
-}
-.bounce-y {
-  animation: bounceY 1.6s ease-in-out infinite;
-}
-
-/* ============================================================
    ANIMAÇÃO 31 — Holofotes suaves do hero
    ============================================================ */
 @keyframes beamSpin {

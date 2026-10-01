@@ -96,8 +96,8 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
       </div>
 
       <p role="status" className="text-xs text-stone-500">
-        {filtrados.length} resultado(s) · selos teal/céu/rosa = 100% reais, âmbar =
-        parcial, cinzento = sem dados
+        {filtrados.length} resultado(s) · selos esmeralda = dados verificados,
+        âmbar = parcial, cinzento = sem dados
       </p>
 
       <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
