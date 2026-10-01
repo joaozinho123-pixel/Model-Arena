@@ -128,15 +128,13 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
                     <span
                       title={headline(m).rotulo}
                       className={`ml-2 rounded-md px-1.5 py-0.5 text-[11px] font-bold tabular-nums ${
-                        m.fonte === "aa"
-                          ? "bg-teal-700/10 text-teal-700"
-                          : m.fonte === "openrouter"
-                            ? "bg-sky-700/10 text-sky-700"
-                            : m.fonte === "arena"
-                              ? "bg-rose-600/10 text-rose-600"
-                              : m.fonte === "mista"
-                                ? "bg-amber-600/10 text-amber-700"
-                                : "bg-stone-100 text-stone-500"
+                        m.fonte === "aa" ||
+                        m.fonte === "openrouter" ||
+                        m.fonte === "arena"
+                          ? "bg-emerald-700/10 text-emerald-700"
+                          : m.fonte === "mista"
+                            ? "bg-amber-600/10 text-amber-700"
+                            : "bg-stone-100 text-stone-500"
                       }`}
                     >
                       {headline(m).valor}
@@ -169,7 +167,7 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
                 type="button"
                 onClick={() => onAssign("A", m.id)}
                 aria-label={`Usar ${m.nomeCurto} como Modelo A`}
-                className="flex-1 rounded-lg border border-sky-600/30 py-1.5 text-xs font-bold text-sky-700 transition hover:border-sky-600 hover:bg-sky-600/10 active:scale-95"
+                className="flex-1 rounded-lg bg-zinc-900 py-1.5 text-xs font-bold text-white transition hover:bg-zinc-700 active:scale-95"
               >
                 Usar em A
               </button>
@@ -177,7 +175,7 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
                 type="button"
                 onClick={() => onAssign("B", m.id)}
                 aria-label={`Usar ${m.nomeCurto} como Modelo B`}
-                className="flex-1 rounded-lg border border-violet-600/30 py-1.5 text-xs font-bold text-violet-700 transition hover:border-violet-600 hover:bg-violet-600/10 active:scale-95"
+                className="flex-1 rounded-lg border border-stone-300 py-1.5 text-xs font-bold text-stone-500 transition hover:border-zinc-900 hover:text-zinc-900 active:scale-95"
               >
                 Usar em B
               </button>

@@ -35,7 +35,7 @@ function SelectorCard({
   rotulo: string;
   onAbrir: () => void;
 }) {
-  const corLado = badge === "A" ? "#0284c7" : "#7c3aed";
+  const corLado = "#18181b";
   if (!model) {
     return (
       <button

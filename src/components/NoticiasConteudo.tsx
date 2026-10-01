@@ -33,21 +33,15 @@ function dominio(url: string): string {
 }
 
 function CartaoNoticia({ noticia }: { noticia: Noticia }) {
-  const hn = noticia.fonte === "Hacker News";
   return (
     <article className="glass-card card-hover flex flex-col p-5">
       <div className="flex items-center justify-between gap-2 text-[11px]">
         <span
-          className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 font-extrabold tracking-wide uppercase ${
-            hn
-              ? "bg-orange-600/10 text-orange-700"
-              : "bg-zinc-900/[0.06] text-zinc-700"
-          }`}
+          className="inline-flex items-center gap-1.5 rounded-full bg-zinc-900/[0.06] px-2.5 py-0.5 font-extrabold tracking-wide text-zinc-700 uppercase"
         >
           <span
             aria-hidden="true"
-            className="inline-block h-1.5 w-1.5 rounded-full"
-            style={{ backgroundColor: hn ? "#ea580c" : "#18181b" }}
+            className="inline-block h-1.5 w-1.5 rounded-full bg-zinc-900"
           />
           {noticia.fonte}
         </span>

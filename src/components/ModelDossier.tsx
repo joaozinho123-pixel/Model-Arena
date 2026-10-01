@@ -57,7 +57,7 @@ function DossierCard({ model, badge }: { model: AIModel; badge: "A" | "B" }) {
   const [expandida, setExpandida] = useState(false);
   const longa = model.descricao.length > 220;
   const h = headline(model);
-  const corLado = badge === "A" ? "#0284c7" : "#7c3aed";
+  const corLado = "#18181b";
 
   return (
     <article
@@ -111,15 +111,13 @@ function DossierCard({ model, badge }: { model: AIModel; badge: "A" | "B" }) {
         <span
           title="Origem das métricas: AA direto, OpenRouter, LMArena ou sem dados"
           className={`chip-in rounded-full border px-2 py-0.5 text-[11px] font-semibold ${
-            model.fonte === "aa"
-              ? "border-teal-700/30 bg-teal-700/5 text-teal-700"
-              : model.fonte === "openrouter"
-                ? "border-sky-700/30 bg-sky-700/5 text-sky-700"
-                : model.fonte === "arena"
-                  ? "border-rose-600/30 bg-rose-600/5 text-rose-600"
-                  : model.fonte === "mista"
-                    ? "border-amber-600/40 bg-amber-600/5 text-amber-700"
-                    : "border-stone-300 text-stone-500"
+            model.fonte === "aa" ||
+            model.fonte === "openrouter" ||
+            model.fonte === "arena"
+              ? "border-emerald-700/30 bg-emerald-700/5 text-emerald-700"
+              : model.fonte === "mista"
+                ? "border-amber-600/40 bg-amber-600/5 text-amber-700"
+                : "border-stone-300 text-stone-500"
           }`}
         >
           {model.fonte === "aa"
@@ -263,7 +261,7 @@ function DossierCard({ model, badge }: { model: AIModel; badge: "A" | "B" }) {
             target="_blank"
             rel="noopener noreferrer"
             title={`Hugging Face: ${model.hf.hf}`}
-            className="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-500 transition hover:text-amber-600"
+            className="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-500 transition hover:text-indigo-600"
           >
             HF ·{" "}
             {[

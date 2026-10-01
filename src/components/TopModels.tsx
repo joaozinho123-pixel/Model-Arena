@@ -170,7 +170,7 @@ export function TopModels({
                 type="button"
                 onClick={() => onAssign("A", m.id)}
                 aria-label={`Usar ${m.nomeCurto} como Modelo A`}
-                className="rounded-md border border-sky-600/30 px-2 py-1 text-[11px] font-bold text-sky-700 transition hover:border-sky-600 hover:bg-sky-600/10 active:scale-95"
+                className="rounded-md bg-zinc-900 px-2 py-1 text-[11px] font-bold text-white transition hover:bg-zinc-700 active:scale-95"
               >
                 A
               </button>
@@ -178,7 +178,7 @@ export function TopModels({
                 type="button"
                 onClick={() => onAssign("B", m.id)}
                 aria-label={`Usar ${m.nomeCurto} como Modelo B`}
-                className="rounded-md border border-violet-600/30 px-2 py-1 text-[11px] font-bold text-violet-700 transition hover:border-violet-600 hover:bg-violet-600/10 active:scale-95"
+                className="rounded-md border border-stone-300 px-2 py-1 text-[11px] font-bold text-stone-500 transition hover:border-zinc-900 hover:text-zinc-900 active:scale-95"
               >
                 B
               </button>

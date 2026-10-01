@@ -132,7 +132,7 @@ export function DesempenhoTempoReal({
       tputA != null &&
       tputB != null &&
       ((lado === "A" && tputA > tputB) || (lado === "B" && tputB > tputA));
-    const corLado = lado === "A" ? "#0284c7" : "#7c3aed";
+    const corLado = "#18181b";
     return (
       <div className="glass-card p-5">
         <div className="flex items-center gap-2.5">
@@ -266,10 +266,10 @@ export function DesempenhoTempoReal({
           <Gauge size={18} aria-hidden="true" className="text-indigo-600" />
           Desempenho em tempo real
         </h2>
-        <span className="live-stripes inline-flex items-center gap-1.5 rounded-full border border-teal-700/30 px-2.5 py-1 text-[11px] font-bold text-teal-700">
+        <span className="live-stripes inline-flex items-center gap-1.5 rounded-full border border-emerald-700/30 px-2.5 py-1 text-[11px] font-bold text-emerald-700">
           <span
             aria-hidden="true"
-            className="ring-pulse dot-pulse inline-block h-1.5 w-1.5 rounded-full bg-teal-600"
+            className="ring-pulse dot-pulse inline-block h-1.5 w-1.5 rounded-full bg-emerald-600"
           />
           <Activity size={11} aria-hidden="true" />
           Ao vivo via OpenRouter
