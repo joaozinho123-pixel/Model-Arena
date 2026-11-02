@@ -304,83 +304,80 @@ export default function Home() {
       />
 
       {/* ===== Cabeçalho hero: MODEL ARENA ===== */}
-      <header className="relative overflow-hidden border-b border-stone-200 pt-14">
+      <header className="relative overflow-hidden border-b border-stone-200 pt-12">
         <div aria-hidden="true" className="spotlight" />
-        <div aria-hidden="true" className="hero-grid absolute inset-0" />
 
-        <div className="relative mx-auto max-w-3xl px-4 pt-12 pb-8 text-center sm:px-6">
-          <div>
-            <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-indigo-600/25 bg-indigo-600/5 px-3 py-1 text-xs font-bold text-indigo-700">
-              <span
-                aria-hidden="true"
-                className="pulse-neon inline-block h-2 w-2 rounded-full bg-indigo-600"
-              />
-              Duelo de gigantes da IA · Benchmarks reais
-            </p>
+        <div className="relative mx-auto max-w-3xl px-4 pt-10 pb-8 text-center sm:px-6">
+          <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-indigo-600/25 bg-indigo-600/5 px-3 py-1 text-xs font-bold text-indigo-700">
+            <span
+              aria-hidden="true"
+              className="pulse-neon inline-block h-2 w-2 rounded-full bg-indigo-600"
+            />
+            Benchmarks reais · Sem notas inventadas
+          </p>
 
-            <h1 aria-label="Model Arena" className="arena-title mt-6 text-6xl sm:text-7xl">
-              <span className="arena-word-model block">
-                <TituloLetras texto="MODEL" base={0.05} tom="branco" />
-              </span>
-              <span className="arena-word-arena block">
-                <TituloLetras texto="ARENA" base={0.4} tom="marca" />
-              </span>
-            </h1>
+          <h1 aria-label="Model Arena" className="arena-title mt-5 text-5xl sm:text-6xl">
+            <span className="arena-word-model block">
+              <TituloLetras texto="MODEL" base={0.05} tom="branco" />
+            </span>
+            <span className="arena-word-arena block">
+              <TituloLetras texto="ARENA" base={0.4} tom="marca" />
+            </span>
+          </h1>
 
-            <p
-              className="card-enter mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-zinc-600"
-              style={{ animationDelay: "150ms" }}
+          <p
+            className="card-enter mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-zinc-600"
+            style={{ animationDelay: "150ms" }}
+          >
+            Escolha dois modelos e descubra quem vence em código, texto,
+            imagem, raciocínio matemático, velocidade, preço e contexto — com
+            índices da Artificial Analysis e Elos da LMArena.
+          </p>
+
+          <div
+            className="card-enter mt-6 flex flex-wrap items-center justify-center gap-2.5"
+            style={{ animationDelay: "280ms" }}
+          >
+            <a
+              href="#comparar"
+              className="btn-primary inline-flex items-center gap-1.5 rounded-xl px-5 py-2.5 text-sm"
             >
-              AA + LMArena + OpenRouter num só ringue: escolha dois modelos e
-              descubra quem vence em código, texto, imagem, matemática,
-              velocidade, preço e contexto.
-            </p>
-
-            <div
-              className="card-enter mt-6 flex flex-wrap items-center justify-center gap-2.5"
-              style={{ animationDelay: "280ms" }}
+              <Swords size={15} aria-hidden="true" />
+              Escolher os lutadores
+            </a>
+            <button
+              type="button"
+              onClick={sortearDuelo}
+              className="btn-ghost inline-flex items-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-bold"
             >
-              <a
-                href="#comparar"
-                className="btn-primary inline-flex items-center gap-1.5 rounded-xl px-5 py-2.5 text-sm"
-              >
-                <Swords size={15} aria-hidden="true" />
-                Escolher os lutadores
-              </a>
-              <button
-                type="button"
-                onClick={sortearDuelo}
-                className="btn-ghost inline-flex items-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-bold"
-              >
-                <Dices size={15} aria-hidden="true" />
-                Duelo aleatório
-              </button>
-            </div>
-
-            <p className="mt-5 text-xs text-zinc-600">
-              {aoVivo ? (
-                <span
-                  title={
-                    aaVivo
-                      ? "Catálogo OpenRouter e índices Artificial Analysis em tempo real"
-                      : "Catálogo OpenRouter em tempo real · índices AA do snapshot embutido"
-                  }
-                  className="chip-in inline-flex items-center gap-1.5 rounded-full border border-emerald-700/30 bg-emerald-600/10 px-2.5 py-0.5 font-bold text-emerald-700"
-                >
-                  <span aria-hidden="true" className="dot-pulse inline-block h-1.5 w-1.5 rounded-full bg-emerald-600" />
-                  Catálogo ao vivo · atualizado hoje ({dataSnapshot}
-                  {aaVivo ? " · AA em tempo real" : ""})
-                </span>
-              ) : (
-                <>
-                  Snapshot OpenRouter de {dataSnapshot} ({totalBruto}{" "}
-                  registos brutos)
-                </>
-              )}{" "}
-              · {opcoesFornecedor.length} fornecedores · Elo LMArena de{" "}
-              {dataArena}
-            </p>
+              <Dices size={15} aria-hidden="true" />
+              Duelo aleatório
+            </button>
           </div>
+
+          <p className="mt-5 text-xs text-zinc-500">
+            {aoVivo ? (
+              <span
+                title={
+                  aaVivo
+                    ? "Catálogo OpenRouter e índices Artificial Analysis em tempo real"
+                    : "Catálogo OpenRouter em tempo real · índices AA do snapshot embutido"
+                }
+                className="chip-in inline-flex items-center gap-1.5 rounded-full border border-emerald-700/30 bg-emerald-600/10 px-2.5 py-0.5 font-bold text-emerald-700"
+              >
+                <span aria-hidden="true" className="dot-pulse inline-block h-1.5 w-1.5 rounded-full bg-emerald-600" />
+                Catálogo ao vivo · atualizado hoje ({dataSnapshot}
+                {aaVivo ? " · AA em tempo real" : ""})
+              </span>
+            ) : (
+              <>
+                Snapshot OpenRouter de {dataSnapshot} ({totalBruto}{" "}
+                registos brutos)
+              </>
+            )}{" "}
+            · {opcoesFornecedor.length} fornecedores · Elo LMArena de{" "}
+            {dataArena}
+          </p>
         </div>
 
         <div className="relative mx-auto max-w-6xl px-4 pb-8 text-center sm:px-6">

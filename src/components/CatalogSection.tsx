@@ -144,6 +144,23 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
                 <p className="truncate text-xs text-zinc-500">
                   por {m.empresa} · Top {m.rank}
                 </p>
+                {m.tags.slice(0, 2).length > 0 && (
+                  <div className="mt-1.5 flex flex-wrap gap-1">
+                    {m.tags.slice(0, 2).map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex items-center gap-0.5 rounded-md bg-stone-100 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-500"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                {m.destaque && (
+                  <p className="mt-1.5 text-[10px] font-bold text-zinc-500 truncate">
+                    {m.destaque}
+                  </p>
+                )}
               </div>
             </div>
 

@@ -1,0 +1,82 @@
+{
+  "anthropic/claude-opus-5.5": {
+    "descricao": "Modelo flagship da Anthropic para raciocínio complexo, programação avançada e análise de documentos longos. Índice AA #1 em inteligência geral.",
+    "tags": ["raciocínio", "código", "documentos longos", "multimodal"],
+    "destaque": "Melhor em raciocínio geral"
+  },
+  "anthropic/claude-opus-5": {
+    "descricao": "Versão anterior do flagship Opus da Anthropic. Excelente para tarefas que exigem profundidade analítica e janela de contexto grande.",
+    "tags": ["raciocínio", "código", "análise"],
+    "destaque": "Raciocínio profundo"
+  },
+  "anthropic/claude-sonnet-5.5": {
+    "descricao": "Equilíbrio entre inteligência e velocidade. Ideal para uso diário, programação e resumos com bom custo-benefício.",
+    "tags": ["geral", "código", "produtividade"],
+    "destaque": "Custo-benefício"
+  },
+  "anthropic/claude-fable-5.1": {
+    "descricao": "Modelo especializado em codificação da família Claude. Índice AA de código no topo do ranking.",
+    "tags": ["código", "programação", "desenvolvimento"],
+    "destaque": "#1 em código (AA)"
+  },
+  "openai/gpt-6-astra": {
+    "descricao": "Modelo multimodal avançado da OpenAI com foco em raciocínio visual, áudio em tempo real e geração de código complexo.",
+    "tags": ["multimodal", "áudio", "visão", "código"],
+    "destaque": "Multimodal avançado"
+  },
+  "openai/gpt-5.6-sol": {
+    "descricao": "Versão otimizada do GPT-5.6 para tarefas de código e solução de problemas técnicos.",
+    "tags": ["código", "técnico", "resolução de problemas"],
+    "destaque": "Especialista em código"
+  },
+  "openai/gpt-5-image": {
+    "descricao": "Modelo da OpenAI focado em geração e edição de imagens com compreensão de contexto visual avançada.",
+    "tags": ["imagem", "geração", "edição"],
+    "destaque": "Geração de imagens"
+  },
+  "google/gemini-3.8-flash": {
+    "descricao": "Modelo rápido e eficiente do Google com janela de contexto enorme e bom desempenho em múltiplas tarefas.",
+    "tags": ["velocidade", "contexto", "multimodal", "gratuito"],
+    "destaque": "Janela de contexto vasta"
+  },
+  "google/gemini-3.1-flash-image": {
+    "descricao": "Versão especializada do Gemini Flash para geração e interpretação de imagens.",
+    "tags": ["imagem", "visão", "geração"],
+    "destaque": "Visão computacional"
+  },
+  "deepseek/deepseek-v3.2": {
+    "descricao": "Modelo open-weight da DeepSeek com foco em eficiência e raciocínio matemático. Boa alternativa de baixo custo.",
+    "tags": ["open-weight", "matemática", "baixo custo"],
+    "destaque": "Open-weight eficiente"
+  },
+  "moonshotai/kimi-k3": {
+    "descricao": "Modelo da Moonshot AI conhecido pela janela de contexto extremamente longa e bom desempenho em código.",
+    "tags": ["contexto longo", "código", "chinês"],
+    "destaque": "Contexto ultra-longo"
+  },
+  "x-ai/grok-4": {
+    "descricao": "Modelo da xAI com acesso à informação em tempo real via X e foco em raciocínio não filtrado.",
+    "tags": ["tempo real", "raciocínio", "xAI"],
+    "destaque": "Informação em tempo real"
+  },
+  "meta-llama/llama-4-maverick": {
+    "descricao": "Modelo open-weight da Meta com foco em eficiência e implantação local. Boa alternativa para desenvolvedores.",
+    "tags": ["open-weight", "Meta", "local", "eficiência"],
+    "destaque": "Open-weight da Meta"
+  },
+  "qwen/qwen3-max": {
+    "descricao": "Modelo flagship da Alibaba Qwen com forte desempenho em raciocínio, código e múltiplos idiomas.",
+    "tags": ["raciocínio", "código", "multilíngue", "chinês"],
+    "destaque": "Multilíngue avançado"
+  },
+  "mistralai/mistral-large-3": {
+    "descricao": "Modelo da Mistral AI com foco em raciocínio, código e suporte a múltiplos idiomas europeus.",
+    "tags": ["raciocínio", "código", "europeu", "open-weight"],
+    "destaque": "Raciocínio europeu"
+  },
+  "cohere/command-r-plus": {
+    "descricao": "Modelo da Cohere focado em geração aumentada por recuperação (RAG) e tarefas empresariais.",
+    "tags": ["RAG", "empresarial", "busca"],
+    "destaque": "RAG empresarial"
+  }
+}

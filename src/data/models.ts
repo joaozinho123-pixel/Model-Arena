@@ -15,6 +15,7 @@ import {
 } from "@/types/ai-model";
 import ARENA_DATA from "./arena-ratings.json" with { type: "json" };
 import AA_DIRECT_DATA from "./aa-ratings.json" with { type: "json" };
+import DESC_DATA from "./descricoes-modelos.json" with { type: "json" };
 import {
   modelLogoUrl,
   normalizeProvider,
@@ -23,6 +24,12 @@ import {
 } from "@/data/providers";
 import DATA from "./openrouter-models.json" with { type: "json" };
 import HF_DATA from "./hf-stats.json" with { type: "json" };
+
+/** Descrições curadas por modelo (sobrepõem a do OpenRouter quando existem). */
+const DESC = DESC_DATA as Record<
+  string,
+  { descricao?: string; tags?: string[]; destaque?: string }
+>;
 
 /** Registo do snapshot OpenRouter (ficheiro ou API ao vivo, mesmo formato). */
 export interface RawModel {
@@ -141,6 +148,12 @@ function toModel(
 
   const num = (v: unknown): v is number =>
     typeof v === "number" && Number.isFinite(v);
+
+  /** Descrição curada, com fallback para o texto da OpenRouter. */
+  const descCurada =
+    DESC[raw.id]?.descricao ?? raw.descricao ?? "";
+  const tagsModelo = DESC[raw.id]?.tags ?? [];
+  const destaqueModelo = DESC[raw.id]?.destaque ?? "";
 
   // Métrica nativa por quesito (ordem de prioridade abaixo).
   // Sem normalização: sem dado público, exibe "—" (nunca inventa).
@@ -374,6 +387,9 @@ function toModel(
     empresa: providerDisplayName(raw.provider),
     dominioLogo: modelLogoUrl(raw.provider, raw.id),
     cor: providerColor(raw.provider),
+    descricao: descCurada,
+    tags: tagsModelo,
+    destaque: destaqueModelo,
     fontes,
     evidencias,
     arena,

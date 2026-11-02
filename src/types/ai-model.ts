@@ -45,6 +45,12 @@ export interface AIModel extends OpenRouterModel {
   dominioLogo?: string;
   /** Cor de destaque do fornecedor (hex). */
   cor: string;
+  /** Descrição curada (ou fallback da OpenRouter). */
+  descricao: string;
+  /** Tags temáticas (ex.: "código", "open-weight", "multimodal"). */
+  tags: string[];
+  /** Rótulo de destaque curto (ex.: "#1 em código (AA)"). */
+  destaque: string;
   /** Origem por quesito: benchmark público (OpenRouter/LMArena) ou "—". */
   fontes: Record<CategoryKey, ScoreFonte>;
   /** Evidência exibível por quesito (rótulos e tooltips da UI). */

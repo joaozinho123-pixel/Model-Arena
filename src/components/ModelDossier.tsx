@@ -108,6 +108,19 @@ function DossierCard({ model, badge }: { model: AIModel; badge: "A" | "B" }) {
             Top {model.rank} geral
           </span>
         )}
+        {model.destaque && (
+          <span className="chip-in rounded-full bg-zinc-900 px-2 py-0.5 text-[11px] font-bold text-white">
+            {model.destaque}
+          </span>
+        )}
+        {model.tags.slice(0, 3).map((tag) => (
+          <span
+            key={tag}
+            className="chip-in rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5 text-[11px] font-semibold text-zinc-600"
+          >
+            {tag}
+          </span>
+        ))}
         <span
           title="Origem das métricas: AA direto, OpenRouter, LMArena ou sem dados"
           className={`chip-in rounded-full border px-2 py-0.5 text-[11px] font-semibold ${
