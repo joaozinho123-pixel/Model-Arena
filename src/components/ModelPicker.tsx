@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Search, X } from "lucide-react";
+import { X } from "lucide-react";
 import type { AIModel } from "@/types/ai-model";
 import { formatContext, formatPrice } from "@/lib/format";
 import { headline } from "@/lib/comparar";
@@ -69,7 +69,7 @@ export function ModelPicker({
 
   return (
     <div
-      className="backdrop-in fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-stone-950/45 p-4 pt-[8vh] backdrop-blur-sm"
+      className="overlay-fade fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-zinc-950/45 p-4 pt-[10vh]"
       onClick={fechar}
       role="presentation"
     >
@@ -77,11 +77,10 @@ export function ModelPicker({
         role="dialog"
         aria-modal="true"
         aria-label={titulo}
-        className="modal-pop w-full max-w-2xl overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-[0_24px_80px_rgba(28,25,23,0.25)]"
+        className="dialog-fade card w-full max-w-xl overflow-hidden shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center gap-3 border-b border-stone-200 px-5 py-4">
-          <Search size={18} aria-hidden="true" className="shrink-0 text-indigo-600" />
+        <div className="flex items-center gap-3 border-b border-zinc-200 px-4 py-3">
           <input
             ref={inputRef}
             type="search"
@@ -89,19 +88,19 @@ export function ModelPicker({
             onChange={(e) => setPesquisa(e.target.value)}
             placeholder="Pesquisar por nome, id ou fornecedor…"
             aria-label="Pesquisar modelos"
-            className="w-full bg-transparent text-sm text-zinc-900 outline-none placeholder:text-stone-400"
+            className="w-full bg-transparent text-sm text-zinc-900 outline-none placeholder:text-zinc-400"
           />
           <button
             type="button"
             onClick={fechar}
             aria-label="Fechar seleção"
-            className="btn-ghost rounded-lg p-1.5"
+            className="shrink-0 rounded-lg p-1.5 text-zinc-400 transition hover:bg-zinc-100 hover:text-zinc-900"
           >
             <X size={18} aria-hidden="true" />
           </button>
         </div>
 
-        <ul className="picker-list max-h-[50vh] overflow-y-auto p-2" role="listbox" aria-label={titulo}>
+        <ul className="max-h-[52vh] overflow-y-auto p-1.5" role="listbox" aria-label={titulo}>
           {resultados.length === 0 && (
             <li className="px-4 py-10 text-center text-sm text-zinc-500">
               Nenhum modelo encontrado para “{pesquisa}”.
@@ -121,7 +120,7 @@ export function ModelPicker({
                     onSelect(m.id);
                     fechar();
                   }}
-                  className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition hover:bg-stone-100 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
+                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
                 >
                   <ModelLogo
                     nome={m.nomeCurto}
@@ -130,29 +129,22 @@ export function ModelPicker({
                     tamanho={32}
                   />
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate text-sm font-semibold text-zinc-900">
+                    <span className="block truncate text-sm font-medium text-zinc-900">
                       {m.nomeCurto}
-                      {headline(m).valor === "—" ? (
-                        <span
-                          title="Sem benchmark público"
-                          className="ml-2 rounded-md border border-dashed border-stone-300 px-1.5 py-0.5 text-[11px] font-bold text-stone-400"
-                        >
-                          —
-                        </span>
-                      ) : (
+                      {headline(m).valor !== "—" && (
                         <span
                           title={headline(m).rotulo}
-                          className="ml-2 rounded-md bg-stone-100 px-1.5 py-0.5 text-[11px] font-bold tabular-nums text-stone-600"
+                          className="ml-2 rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] font-semibold tabular-nums text-zinc-600"
                         >
                           {headline(m).valor}
                         </span>
                       )}
                     </span>
-                    <span className="block truncate font-mono text-[11px] text-zinc-500">
+                    <span className="block truncate font-mono text-[11px] text-zinc-400">
                       {m.id}
                     </span>
                   </span>
-                  <span className="hidden shrink-0 text-right text-[11px] leading-tight text-zinc-500 sm:block">
+                  <span className="hidden shrink-0 text-right text-[11px] leading-tight text-zinc-500 sm:block tabular-nums">
                     {formatContext(m.contexto)} ctx
                     <br />
                     {formatPrice(m.precoEntrada)}/M
@@ -163,7 +155,7 @@ export function ModelPicker({
           })}
         </ul>
 
-        <p className="border-t border-stone-200 px-5 py-2.5 text-xs text-stone-500">
+        <p className="border-t border-zinc-200 px-4 py-2.5 text-xs text-zinc-400">
           {resultados.length} modelo(s) · o modelo do outro lado fica desabilitado
         </p>
       </div>

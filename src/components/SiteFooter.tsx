@@ -1,7 +1,6 @@
 /**
- * Rodapé minimalista: créditos da Artificial Analysis
- * (fonte dos índices de inteligência) + data da última
- * atualização dos dados + micro-linha do projeto.
+ * Rodapé minimalista: créditos das fontes de dados + data de
+ * atualização + micro-linha do projeto.
  */
 export function SiteFooter({
   totalModelos,
@@ -12,28 +11,24 @@ export function SiteFooter({
   atualizadoEm?: string;
 }) {
   return (
-    <footer className="border-t border-stone-200 bg-white/60 py-8">
+    <footer className="border-t border-zinc-200 bg-white py-6">
       <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
-        <p className="text-sm text-zinc-600">
-          Métricas de inteligência por{" "}
+        <p className="text-xs text-zinc-500">
+          Métricas por{" "}
           <a
             href="https://artificialanalysis.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-zinc-800 underline decoration-stone-300 underline-offset-4 transition hover:text-indigo-600"
+            className="font-medium text-zinc-700 underline decoration-zinc-300 underline-offset-2 hover:text-zinc-900"
           >
             Artificial Analysis
           </a>{" "}
-          (Intelligence Index · API + board público)
+          · Elo LMArena · Catálogo OpenRouter
         </p>
-        {atualizadoEm && (
-          <p className="mt-2 text-xs font-semibold text-stone-500">
-            Dados atualizados em {atualizadoEm}
-          </p>
-        )}
-        <p className="mt-2 text-xs text-stone-400">
-          Model Arena · {totalModelos} modelos · Catálogo OpenRouter · Elos
-          LMArena · Hugging Face · Projeto independente, sem afiliação
+        <p className="mt-1.5 text-xs text-zinc-400">
+          Model Arena · {totalModelos} modelos
+          {atualizadoEm ? ` · dados de ${atualizadoEm}` : ""} · Projeto
+          independente, sem afiliação
         </p>
       </div>
     </footer>

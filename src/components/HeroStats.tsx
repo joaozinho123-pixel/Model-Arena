@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import type { AIModel } from "@/types/ai-model";
 
-/** Estatísticas do catálogo para o hero. */
+/** Estatísticas do catálogo para o hero, em linha sóbria. */
 export function HeroStats({ models }: { models: AIModel[] }) {
   const stats = useMemo(() => {
     const reais = models.filter((m) => m.fonte !== "estimativa").length;
@@ -10,22 +10,20 @@ export function HeroStats({ models }: { models: AIModel[] }) {
   }, [models]);
 
   return (
-    <div className="mt-7">
-      <dl className="flex flex-wrap justify-center gap-x-10 gap-y-3 text-center">
-        {[
-          { valor: stats.modelos, rotulo: "modelos no catálogo" },
-          { valor: stats.fornecedores, rotulo: "fornecedores" },
-          { valor: stats.reais, rotulo: "com benchmarks reais" },
-        ].map((s) => (
-          <div key={s.rotulo}>
-            <dt className="sr-only">{s.rotulo}</dt>
-            <dd className="text-2xl font-extrabold tabular-nums text-zinc-900 sm:text-3xl">
-              {s.valor}
-            </dd>
-            <dd className="text-xs text-stone-500">{s.rotulo}</dd>
-          </div>
-        ))}
-      </dl>
-    </div>
+    <dl className="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-3 text-center">
+      {[
+        { valor: stats.modelos, rotulo: "modelos no catálogo" },
+        { valor: stats.fornecedores, rotulo: "fornecedores" },
+        { valor: stats.reais, rotulo: "com benchmarks reais" },
+      ].map((s) => (
+        <div key={s.rotulo}>
+          <dt className="sr-only">{s.rotulo}</dt>
+          <dd className="text-xl font-semibold tabular-nums text-zinc-900">
+            {s.valor}
+          </dd>
+          <dd className="mt-0.5 text-xs text-zinc-500">{s.rotulo}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }

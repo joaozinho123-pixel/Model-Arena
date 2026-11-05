@@ -1,14 +1,12 @@
-import type { ReactNode } from "react";
 import { LogoMark } from "@/components/SiteLogo";
 
 /** Links-âncora das secções da página inicial. */
 const ANCORA_LINKS = [
   { href: "#comparar", rotulo: "Duelo" },
-  { href: "#veredito", rotulo: "Veredito" },
-  { href: "#analise", rotulo: "Análise" },
-  { href: "#tempo-real", rotulo: "Tempo real" },
-  { href: "#rankings", rotulo: "Rankings" },
-  { href: "#catalogo", rotulo: "Catálogo" },
+  { href: "#veredito-titulo", rotulo: "Veredito" },
+  { href: "#kicker-analise", rotulo: "Análise" },
+  { href: "#kicker-rankings", rotulo: "Rankings" },
+  { href: "#kicker-catalogo", rotulo: "Catálogo" },
 ] as const;
 
 /**
@@ -18,49 +16,43 @@ const ANCORA_LINKS = [
  */
 export function SiteNav({
   pagina,
-  selo,
 }: {
   pagina: "inicio" | "noticias";
-  /** Conteúdo opcional à direita (ex.: data do snapshot). */
-  selo?: ReactNode;
 }) {
   const base = pagina === "inicio" ? "" : "/";
   return (
     <nav
       aria-label="Navegação principal"
-      className="nav-glass fixed inset-x-0 top-0 z-40"
+      className="fixed inset-x-0 top-0 z-40 border-b border-zinc-200 bg-white"
     >
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
         <a
           href={pagina === "inicio" ? "#top" : "/"}
-          className="flex shrink-0 items-center gap-2 text-sm font-extrabold tracking-tight"
+          className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-tight text-zinc-900"
         >
-          <LogoMark className="h-8 w-8 shrink-0" />
-          <span className="hidden font-extrabold tracking-tight text-zinc-900 sm:inline">MODEL ARENA</span>
+          <LogoMark className="h-7 w-7 shrink-0" />
+          <span>Model Arena</span>
         </a>
-        <ul className="flex min-w-0 flex-1 items-center justify-start gap-1 overflow-x-auto text-xs font-semibold text-stone-500 sm:justify-center sm:gap-4 sm:text-[13px]">
+        <ul className="flex min-w-0 flex-1 items-center justify-start gap-4 overflow-x-auto text-[13px] text-zinc-500 sm:justify-center sm:gap-5">
           {ANCORA_LINKS.map(({ href, rotulo }) => (
             <li key={href} className="shrink-0">
-              <a href={`${base}${href}`} className="nav-link whitespace-nowrap">
+              <a href={`${base}${href}`} className="whitespace-nowrap transition-colors hover:text-zinc-900">
                 {rotulo}
               </a>
             </li>
           ))}
-          <li key="noticias" className="shrink-0">
+          <li className="shrink-0">
             <a
               href="/noticias"
               aria-current={pagina === "noticias" ? "page" : undefined}
-              className={`nav-link whitespace-nowrap ${
-                pagina === "noticias" ? "font-extrabold text-indigo-700" : ""
+              className={`whitespace-nowrap transition-colors hover:text-zinc-900 ${
+                pagina === "noticias" ? "font-semibold text-zinc-900" : ""
               }`}
             >
               Notícias
             </a>
           </li>
         </ul>
-        {selo ? (
-          <div className="hidden shrink-0 md:block">{selo}</div>
-        ) : null}
       </div>
     </nav>
   );

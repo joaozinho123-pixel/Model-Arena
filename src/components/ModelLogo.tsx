@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 /**
- * Logótipo do fornecedor: URL de imagem verificada sobre pastilha
- * clara (legível no tema escuro), com fallback para avatar com
- * a inicial quando não há logótipo ou ele falha.
+ * Logótipo do fornecedor: imagem sobre pastilha branca, com
+ * fallback para avatar com a inicial quando não há logótipo ou
+ * ele falha. Sem tilt, sem brilhos — só a pastilha plana.
  */
 interface ModelLogoProps {
   /** Nome para extrair a inicial do fallback. */
@@ -39,37 +39,26 @@ export function ModelLogo({ nome, dominio, cor, tamanho = 32, eager = false }: M
     return (
       <span
         aria-hidden="true"
-        className="logo-tilt relative flex shrink-0 items-center justify-center overflow-hidden rounded-full font-black shadow-sm ring-2 ring-stone-900/10 transition-shadow hover:ring-stone-900/20"
+        className="flex shrink-0 items-center justify-center overflow-hidden rounded-full font-bold"
         style={{
           width: tamanho,
           height: tamanho,
-          background: `linear-gradient(135deg, ${cor} 0%, ${cor}55 130%)`,
+          background: cor,
           color: textoSobre(cor),
           fontSize: tamanho * 0.44,
-          textShadow: "0 1px 6px rgba(0,0,0,0.45)",
         }}
       >
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle at 30% 22%, rgba(255,255,255,0.5), transparent 55%)",
-          }}
-        />
-        <span aria-hidden="true" className="relative">
-          {inicial}
-        </span>
+        {inicial}
       </span>
     );
   }
 
   return (
-      <span
-        aria-hidden="true"
-        className="logo-tilt flex shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-2 ring-stone-200 transition-shadow hover:ring-stone-300"
-        style={{ width: tamanho, height: tamanho }}
-      >
+    <span
+      aria-hidden="true"
+      className="flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-zinc-200 bg-white"
+      style={{ width: tamanho, height: tamanho }}
+    >
       {/* <img> intencional: URLs remotas com fallback onError. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

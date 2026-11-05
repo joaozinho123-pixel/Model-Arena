@@ -1,13 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
-import {
-  Database,
-  Dices,
-  Scale,
-  Swords,
-  Trophy,
-} from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { Dices } from "lucide-react";
 import {
   AI_MODELS,
   ARENA_PUBLISH_DATE,
@@ -25,109 +19,61 @@ import {
   type CatalogoVivo,
 } from "@/lib/catalogo-vivo";
 import { CompareSelectors } from "@/components/CompareSelectors";
+import { CategoryShortcuts } from "@/components/CategoryShortcuts";
 import { ModelPicker } from "@/components/ModelPicker";
 import { ModelLogo } from "@/components/ModelLogo";
-import { CategoryShortcuts } from "@/components/CategoryShortcuts";
 import { ModelDossier } from "@/components/ModelDossier";
 import { ComparisonTable } from "@/components/ComparisonTable";
 import { IndicadoresDesempenho } from "@/components/IndicadoresDesempenho";
 import { DesempenhoTempoReal } from "@/components/DesempenhoTempoReal";
 import { CatalogSection } from "@/components/CatalogSection";
 import { TopModels } from "@/components/TopModels";
-import { Reveal } from "@/components/Reveal";
 import { HeroStats } from "@/components/HeroStats";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
 
-/** Rótulo minimalista de secção (sem numeração nem adornos). */
-function Kicker({ label }: { label: string }) {
+/** Cabeçalho de secção: rótulo pequeno com filete. */
+function Kicker({ id, label }: { id?: string; label: string }) {
   return (
-    <div className="mb-4 border-b border-stone-200 pb-2.5">
-      <span className="text-[11px] font-bold tracking-[0.24em] text-stone-500 uppercase">
+    <div id={id} className="mb-3 scroll-mt-24 border-b border-zinc-200 pb-2.5">
+      <h2 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-500">
         {label}
-      </span>
+      </h2>
     </div>
   );
 }
 
-/** Letras animadas do título gigante (atraso escalonado). */
-function TituloLetras({
-  texto,
-  base,
-  tom,
-}: {
-  texto: string;
-  base: number;
-  tom: "branco" | "marca";
-}) {
-  return (
-    <>
-      {texto.split("").map((l, i) => (
-        <span
-          key={i}
-          aria-hidden="true"
-          className={tom === "marca" ? "letter-brand" : "letter"}
-          style={{ animationDelay: `${base + i * 0.07}s` }}
-        >
-          {l}
-        </span>
-      ))}
-    </>
-  );
-}
-
-/**
- * Página principal: catálogo real do OpenRouter + comparação A/B.
- * Estado central (useState) para as seleções e o modal; dados
- * derivados (useMemo) para modelos e veredito (placar central).
- */
-/** Estado vazio: ringue sem lutadores, com ações para começar. */
+/** Ringue vazio: convidativo e curto. */
 function EmptyDuel({
   onPickA,
   onPickB,
   onAleatorio,
-  compacto = false,
 }: {
   onPickA: () => void;
   onPickB: () => void;
   onAleatorio: () => void;
-  compacto?: boolean;
 }) {
   return (
-    <div
-      className={`glass-card flex flex-col items-center px-6 text-center ${compacto ? "py-8" : "py-12"}`}
-    >
-      <span className="duel-medal inline-flex rounded-full p-3">
-        <Swords size={26} aria-hidden="true" className="text-indigo-600" />
-      </span>
-      <p className={`font-extrabold text-zinc-900 ${compacto ? "mt-4 text-base" : "mt-5 text-xl"}`}>
-        O ringue está vazio
+    <div className="card flex flex-col items-center px-6 py-10 text-center">
+      <p className="text-sm font-semibold text-zinc-900">
+        Nenhum modelo selecionado
       </p>
-      <p className="mt-1.5 max-w-md text-sm text-zinc-500">
-        Escolha dois modelos para começar o duelo — ou deixe o destino
-        decidir com um sorteio.
+      <p className="mt-1 max-w-md text-sm text-zinc-500">
+        Escolha dois modelos — ou arranque com um duelo aleatório.
       </p>
       <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
         <button
           type="button"
           onClick={onAleatorio}
-          className="btn-primary cta-glow inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm"
+          className="btn-primary px-4 py-2 text-sm"
         >
-          <Dices size={16} aria-hidden="true" />
+          <Dices size={15} aria-hidden="true" />
           Duelo aleatório
         </button>
-        <button
-          type="button"
-          onClick={onPickA}
-          className="btn-ghost inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-bold"
-        >
+        <button type="button" onClick={onPickA} className="btn-ghost px-4 py-2 text-sm">
           Escolher A
         </button>
-        <button
-          type="button"
-          onClick={onPickB}
-          className="btn-ghost inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-bold"
-        >
+        <button type="button" onClick={onPickB} className="btn-ghost px-4 py-2 text-sm">
           Escolher B
         </button>
       </div>
@@ -205,7 +151,6 @@ export default function Home() {
     () => buildProviderOptions(modelos),
     [modelos],
   );
-  const totalBruto = vivo?.total ?? DATA_COUNT_TOTAL;
   const geradoEm = vivo?.generatedAt ?? DATA_GENERATED_AT;
 
   // Persiste a escolha para as próximas visitas.
@@ -288,109 +233,59 @@ export default function Home() {
   const pctA =
     placar && decisivos > 0 ? (placar.vitoriasA / decisivos) * 100 : 50;
 
+  const statusDuelo = placar
+    ? placar.semDados
+      ? "Sem dados"
+      : placar.vencedor
+        ? "Vitória"
+        : "Empate"
+    : "";
+
   return (
-    <div id="top" className="min-h-screen text-stone-900">
-      <SiteNav
-        pagina="inicio"
-        selo={
-          <span
-            title={`${aoVivo ? "Catálogo ao vivo" : "Snapshot OpenRouter"} de ${dataSnapshot} · ${totalBruto} registos brutos`}
-            className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3 py-1 text-[11px] font-semibold text-stone-500 shadow-sm"
-          >
-            <Database size={11} aria-hidden="true" className="text-indigo-600" />
-            {dataSnapshot || "snapshot"}
-          </span>
-        }
-      />
+    <div id="top" className="min-h-screen">
+      <SiteNav pagina="inicio" />
 
-      {/* ===== Cabeçalho hero: MODEL ARENA ===== */}
-      <header className="relative overflow-hidden border-b border-stone-200 pt-12">
-        <div aria-hidden="true" className="spotlight" />
-
-        <div className="relative mx-auto max-w-3xl px-4 pt-10 pb-8 text-center sm:px-6">
-          <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-indigo-600/25 bg-indigo-600/5 px-3 py-1 text-xs font-bold text-indigo-700">
-            <span
-              aria-hidden="true"
-              className="pulse-neon inline-block h-2 w-2 rounded-full bg-indigo-600"
-            />
-            Benchmarks reais · Sem notas inventadas
-          </p>
-
-          <h1 aria-label="Model Arena" className="arena-title mt-5 text-5xl sm:text-6xl">
-            <span className="arena-word-model block">
-              <TituloLetras texto="MODEL" base={0.05} tom="branco" />
-            </span>
-            <span className="arena-word-arena block">
-              <TituloLetras texto="ARENA" base={0.4} tom="marca" />
-            </span>
+      {/* ===== Cabeçalho ===== */}
+      <header className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto max-w-3xl px-4 pt-24 pb-10 text-center sm:px-6">
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl">
+            Model Arena
           </h1>
-
-          <p
-            className="card-enter mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-zinc-600"
-            style={{ animationDelay: "150ms" }}
-          >
-            Escolha dois modelos e descubra quem vence em código, texto,
-            imagem, raciocínio matemático, velocidade, preço e contexto — com
-            índices da Artificial Analysis e Elos da LMArena.
+          <p className="mx-auto mt-3.5 max-w-xl text-[15px] leading-relaxed text-zinc-600">
+            Compare dois modelos de IA lado a lado: índices da Artificial
+            Analysis, Elos da LMArena, preço, contexto e velocidade — sem
+            notas inventadas.
           </p>
 
-          <div
-            className="card-enter mt-6 flex flex-wrap items-center justify-center gap-2.5"
-            style={{ animationDelay: "280ms" }}
-          >
-            <a
-              href="#comparar"
-              className="btn-primary inline-flex items-center gap-1.5 rounded-xl px-5 py-2.5 text-sm"
-            >
-              <Swords size={15} aria-hidden="true" />
-              Escolher os lutadores
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5">
+            <a href="#comparar" className="btn-primary px-5 py-2.5 text-sm">
+              Comparar modelos
             </a>
             <button
               type="button"
               onClick={sortearDuelo}
-              className="btn-ghost inline-flex items-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-bold"
+              className="btn-ghost px-5 py-2.5 text-sm"
             >
               <Dices size={15} aria-hidden="true" />
               Duelo aleatório
             </button>
           </div>
 
-          <p className="mt-5 text-xs text-zinc-500">
-            {aoVivo ? (
-              <span
-                title={
-                  aaVivo
-                    ? "Catálogo OpenRouter e índices Artificial Analysis em tempo real"
-                    : "Catálogo OpenRouter em tempo real · índices AA do snapshot embutido"
-                }
-                className="chip-in inline-flex items-center gap-1.5 rounded-full border border-emerald-700/30 bg-emerald-600/10 px-2.5 py-0.5 font-bold text-emerald-700"
-              >
-                <span aria-hidden="true" className="dot-pulse inline-block h-1.5 w-1.5 rounded-full bg-emerald-600" />
-                Catálogo ao vivo · atualizado hoje ({dataSnapshot}
-                {aaVivo ? " · AA em tempo real" : ""})
-              </span>
-            ) : (
-              <>
-                Snapshot OpenRouter de {dataSnapshot} ({totalBruto}{" "}
-                registos brutos)
-              </>
-            )}{" "}
-            · {opcoesFornecedor.length} fornecedores · Elo LMArena de{" "}
-            {dataArena}
+          <HeroStats models={modelos} />
+
+          <p className="mt-7 text-xs text-zinc-400">
+            {aoVivo ? "Catálogo ao vivo" : "Snapshot"} OpenRouter ·{" "}
+            {dataSnapshot} · {opcoesFornecedor.length} fornecedores · Elo
+            LMArena de {dataArena}
           </p>
         </div>
-
-        <div className="relative mx-auto max-w-6xl px-4 pb-8 text-center sm:px-6">
-          <HeroStats models={modelos} />
-        </div>
-
       </header>
 
-      <main className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-8 sm:px-6 sm:py-10">
-        {/* ===== 01 · Duelo ===== */}
-        <div>
-          <Reveal>
-            <Kicker label="Escolha os lutadores" />
+      <main className="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-10 sm:px-6">
+        {/* ===== Comparação ===== */}
+        <section aria-labelledby="kicker-comparar" className="scroll-mt-20">
+          <Kicker id="kicker-comparar" label="Comparação" />
+          <div className="flex flex-col gap-4">
             <CompareSelectors
               modelA={modelA}
               modelB={modelB}
@@ -399,35 +294,24 @@ export default function Home() {
               onTrocar={trocarLados}
               onAleatorio={sortearDuelo}
             />
-          </Reveal>
+            <CategoryShortcuts
+              onSelect={(aId, bId) => {
+                setModelAId(aId);
+                setModelBId(bId);
+              }}
+            />
+          </div>
+        </section>
 
-          <Reveal delay={80}>
-            <div className="mt-4">
-              <CategoryShortcuts
-                onSelect={(aId, bId) => {
-                  setModelAId(aId);
-                  setModelBId(bId);
-                }}
-              />
-            </div>
-          </Reveal>
-        </div>
-
-        {/* ===== 02 · Veredito (placar) ===== */}
-        <div>
-          <Reveal delay={120}>
-            <Kicker label="Veredito do duelo" />
-            {placar && modelA && modelB ? (
-            <section
-              id="veredito"
-              aria-labelledby="veredito-titulo"
-              className="veredito-glow glass-card scroll-mt-20 overflow-hidden"
+        {/* ===== Veredito (placar) ===== */}
+        <section aria-labelledby="veredito-titulo">
+          <Kicker id="veredito-titulo" label="Veredito" />
+          {placar && modelA && modelB ? (
+            <div
+              className="card overflow-hidden"
               role="status"
               aria-live="polite"
             >
-              <h2 id="veredito-titulo" className="sr-only">
-                Veredito do confronto
-              </h2>
               <div className="grid grid-cols-1 items-center gap-5 px-5 py-6 sm:grid-cols-[1fr_auto_1fr] sm:px-8">
                 {/* Lado A */}
                 <div className="flex items-center gap-4">
@@ -435,63 +319,37 @@ export default function Home() {
                     nome={modelA.nomeCurto}
                     dominio={modelA.dominioLogo}
                     cor={modelA.cor}
-                    tamanho={56}
+                    tamanho={52}
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="text-[11px] font-extrabold tracking-[0.22em] text-stone-500 uppercase">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
                       Modelo A
                     </p>
-                    <p className="truncate text-lg font-extrabold text-zinc-900">
+                    <p className="truncate text-base font-semibold text-zinc-900">
                       {modelA.nomeCurto}
                     </p>
-                    <div
-                      aria-hidden="true"
-                      className="bar-shimmer mt-2 h-1.5 overflow-hidden rounded-full bg-stone-200"
-                    >
-                      <div
-                        className="bar-fill h-full rounded-full bg-zinc-900"
-                        style={{ width: `${(placar.vitoriasA / 5) * 100}%` }}
-                      />
-                    </div>
+                    <p className="mt-0.5 text-xs text-zinc-500">
+                      {placar.vitoriasA}/5 quesitos
+                    </p>
                   </div>
                   <p
-                    key={`sa-${placar.vitoriasA}`}
-                    className="score-digit text-6xl text-zinc-900 tabular-nums sm:text-7xl"
                     aria-label={`${placar.vitoriasA} vitórias do Modelo A`}
+                    className="text-4xl font-bold tabular-nums text-zinc-900 sm:text-5xl"
                   >
                     {placar.vitoriasA}
                   </p>
                 </div>
 
                 {/* Centro */}
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex flex-col items-center gap-1.5">
                   <span
-                    key={`${modelA.id}__${modelB.id}`}
                     aria-hidden="true"
-                    className="duel-medal duel-clash flex h-12 w-12 items-center justify-center rounded-full bg-zinc-900 text-xs font-black text-white"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-xs font-bold text-zinc-900"
                   >
                     VS
                   </span>
-                  <span className="text-[10px] font-bold tracking-[0.25em] text-stone-500 uppercase">
-                    {placar.semDados
-                      ? "Sem dados"
-                      : placar.vencedor
-                        ? Math.abs(placar.vitoriasA - placar.vitoriasB) >= 3
-                          ? "Nocaute"
-                          : "Vitória"
-                        : "Empate"}
-                  </span>
-                  <span
-                    className="score-ring"
-                    role="img"
-                    aria-label={`${placar.avaliados} de 5 quesitos comparáveis`}
-                    style={
-                      {
-                        "--p": `${(placar.avaliados / 5) * 100}`,
-                      } as CSSProperties
-                    }
-                  >
-                    <span aria-hidden="true">{placar.avaliados}/5</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                    {statusDuelo}
                   </span>
                 </div>
 
@@ -501,140 +359,102 @@ export default function Home() {
                     nome={modelB.nomeCurto}
                     dominio={modelB.dominioLogo}
                     cor={modelB.cor}
-                    tamanho={56}
+                    tamanho={52}
                   />
                   <div className="min-w-0 flex-1">
-                    <p className="text-[11px] font-extrabold tracking-[0.22em] text-stone-500 uppercase">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
                       Modelo B
                     </p>
-                    <p className="truncate text-lg font-extrabold text-zinc-900">
+                    <p className="truncate text-base font-semibold text-zinc-900">
                       {modelB.nomeCurto}
                     </p>
-                    <div
-                      aria-hidden="true"
-                      className="bar-shimmer mt-2 h-1.5 overflow-hidden rounded-full bg-stone-200"
-                    >
-                      <div
-                        className="bar-fill h-full rounded-full bg-zinc-900"
-                        style={{ width: `${(placar.vitoriasB / 5) * 100}%` }}
-                      />
-                    </div>
+                    <p className="mt-0.5 text-xs text-zinc-500">
+                      {placar.vitoriasB}/5 quesitos
+                    </p>
                   </div>
                   <p
-                    key={`sb-${placar.vitoriasB}`}
-                    className="score-digit text-6xl text-zinc-900 tabular-nums sm:text-7xl"
                     aria-label={`${placar.vitoriasB} vitórias do Modelo B`}
+                    className="text-4xl font-bold tabular-nums text-zinc-900 sm:text-5xl"
                   >
                     {placar.vitoriasB}
                   </p>
                 </div>
               </div>
 
-              <p className="border-t border-stone-200 px-5 py-3.5 text-center text-sm sm:px-8 sm:text-base">
+              <p className="border-t border-zinc-200 px-5 py-3.5 text-center text-sm sm:px-8">
                 {placar.semDados ? (
-                  <span className="text-zinc-600">
-                    <strong className="text-zinc-900">
-                      Sem confronto possível
-                    </strong>{" "}
-                    — nenhuma métrica pública em comum. Desempate por preço e
-                    contexto abaixo.
+                  <span className="text-zinc-500">
+                    Sem confronto possível — nenhuma métrica pública em comum.
+                    O desempate fica pelo preço e contexto abaixo.
                   </span>
                 ) : placar.vencedor ? (
-                  <>
-                    <Trophy
-                      size={16}
-                      aria-hidden="true"
-                      className="bounce-in mr-1.5 inline text-indigo-600"
-                    />
-                    <strong className="text-zinc-900">
+                  <span className="text-zinc-600">
+                    <strong className="font-semibold text-zinc-900">
                       {placar.vencedor.nomeCurto}
                     </strong>{" "}
-                    vence{" "}
-                    <span className="text-zinc-500">
-                      ({placar.vitoriasA}×{placar.vitoriasB} em quesitos
-                      decidíveis)
-                    </span>
-                  </>
+                    vence ({placar.vitoriasA}×{placar.vitoriasB} em quesitos
+                    decidíveis)
+                  </span>
                 ) : (
                   <span className="text-zinc-600">
-                    <Scale
-                      size={16}
-                      aria-hidden="true"
-                      className="mr-1.5 inline text-stone-400"
-                    />
-                    <strong className="text-zinc-900">Empate técnico</strong>{" "}
+                    <strong className="font-semibold text-zinc-900">
+                      Empate técnico
+                    </strong>{" "}
                     ({placar.vitoriasA}×{placar.vitoriasB}
                     {placar.empates > 0 && `, ${placar.empates} empate(s)`})
                   </span>
                 )}
               </p>
 
-              {/* Barra de proporção + chips */}
-              <div className="border-t border-stone-200 px-5 py-3 sm:px-8">
+              <div className="border-t border-zinc-200 px-5 py-3.5 sm:px-8">
                 <div
-                  className="score-track h-1.5 rounded-full"
-                  style={{ "--pct-a": `${pctA}%` } as CSSProperties}
                   aria-hidden="true"
-                />
-                <p className="mt-2.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold text-stone-500">
-                  {placar.empates > 0 && (
-                    <span className="chip-in rounded-full bg-stone-100 px-2 py-0.5 text-stone-600">
-                      {placar.empates} empate(s) exato(s)
-                    </span>
-                  )}
-                  <span className="chip-in rounded-full bg-stone-100 px-2 py-0.5 text-stone-600">
-                    {placar.avaliados}/5 quesitos comparáveis
-                  </span>
-                  {placar.semConfronto > 0 && (
-                    <span className="chip-in rounded-full bg-stone-100 px-2 py-0.5 text-stone-500">
-                      {placar.semConfronto} sem métrica comum
-                    </span>
-                  )}
+                  className="h-1 rounded-full bg-zinc-200"
+                >
+                  <div
+                    className="h-full rounded-full bg-zinc-900"
+                    style={{ width: `${pctA}%` }}
+                  />
+                </div>
+                <p className="mt-2.5 text-center text-[11px] text-zinc-500">
+                  {placar.avaliados}/5 quesitos comparáveis
+                  {placar.empates > 0 && ` · ${placar.empates} empate(s) exato(s)`}
+                  {placar.semConfronto > 0 && ` · ${placar.semConfronto} sem métrica comum`}
                 </p>
               </div>
-            </section>
-            ) : (
-              <EmptyDuel
-                onPickA={() => setPicker("A")}
-                onPickB={() => setPicker("B")}
-                onAleatorio={sortearDuelo}
-              />
-            )}
-          </Reveal>
-        </div>
-
-        {/* ===== 03 · Análise detalhada ===== */}
-        <div id="analise" className="flex scroll-mt-20 flex-col gap-8">
-          <Reveal>
-            <Kicker label="Raio-X dos lutadores" />
-            {modelA && modelB ? (
-              <ModelDossier modelA={modelA} modelB={modelB} />
-            ) : (
-              <EmptyDuel
-                compacto
-                onPickA={() => setPicker("A")}
-                onPickB={() => setPicker("B")}
-                onAleatorio={sortearDuelo}
-              />
-            )}
-          </Reveal>
-
-          {modelA && modelB && (
-            <>
-              <Reveal>
-                <ComparisonTable modelA={modelA} modelB={modelB} />
-              </Reveal>
-
-              <Reveal>
-                <IndicadoresDesempenho modelA={modelA} modelB={modelB} />
-              </Reveal>
-            </>
+            </div>
+          ) : (
+            <EmptyDuel
+              onPickA={() => setPicker("A")}
+              onPickB={() => setPicker("B")}
+              onAleatorio={sortearDuelo}
+            />
           )}
-        </div>
+        </section>
 
-        <div id="tempo-real" className="scroll-mt-20">
-          <Reveal>
-            <Kicker label="Pulso da arena" />
+        {/* ===== Análise detalhada ===== */}
+        <section aria-labelledby="kicker-analise">
+          <Kicker id="kicker-analise" label="Análise" />
+          <div className="flex flex-col gap-5">
+            {modelA && modelB ? (
+              <>
+                <ModelDossier modelA={modelA} modelB={modelB} />
+                <ComparisonTable modelA={modelA} modelB={modelB} />
+                <IndicadoresDesempenho modelA={modelA} modelB={modelB} />
+              </>
+            ) : (
+              <p className="text-sm text-zinc-400">
+                Selecione os modelos para ver as fichas, a tabela comparativa e
+                os indicadores.
+              </p>
+            )}
+          </div>
+        </section>
+
+        {/* ===== Tempo real ===== */}
+        <section aria-labelledby="kicker-tempo-real">
+          <Kicker id="kicker-tempo-real" label="Tempo real" />
+          <div className="pt-3">
             {modelA && modelB ? (
               <DesempenhoTempoReal
                 key={`${modelA.id}__${modelB.id}`}
@@ -642,67 +462,52 @@ export default function Home() {
                 modelB={modelB}
               />
             ) : (
-              <EmptyDuel
-                compacto
-                onPickA={() => setPicker("A")}
-                onPickB={() => setPicker("B")}
-                onAleatorio={sortearDuelo}
-              />
+              <p className="text-sm text-zinc-400">
+                Selecione os modelos para ver latência, produtividade e
+                características ao vivo.
+              </p>
             )}
-          </Reveal>
-        </div>
+          </div>
+        </section>
 
-        <div id="rankings" className="scroll-mt-20">
-          <Reveal>
-            <Kicker label="Hall da fama" />
+        {/* ===== Rankings ===== */}
+        <section aria-labelledby="kicker-rankings">
+          <Kicker id="kicker-rankings" label="Rankings" />
+          <div className="pt-1">
             <TopModels models={modelos} onAssign={atribuirDoCatalogo} />
-          </Reveal>
-        </div>
+          </div>
+        </section>
 
-        <div>
-          <Reveal>
-            <Kicker label="Todos os lutadores" />
+        {/* ===== Catálogo ===== */}
+        <section aria-labelledby="kicker-catalogo">
+          <Kicker id="kicker-catalogo" label="Catálogo" />
+          <div className="pt-2">
             <CatalogSection
               models={modelos}
               totalSnapshot={dataSnapshot}
               onAssign={atribuirDoCatalogo}
             />
-          </Reveal>
-        </div>
+          </div>
+        </section>
 
-        <Reveal>
-          <details className="glass-card group px-5 py-4 text-sm text-zinc-500">
-            <summary className="cursor-pointer font-bold text-zinc-800 transition hover:text-indigo-700">
-              Nota metodológica
-            </summary>
-            <p className="mt-2">
-              Sem notas 0–10: cada quesito exibe o valor{" "}
-              <strong className="text-zinc-800">nativo</strong> — índices
-              Artificial Analysis (API direta com chave + espelho OpenRouter),
-              Elo Design Arena e Elo{" "}
-              <strong className="text-zinc-800">LMArena</strong> (edição de{" "}
-              {dataArena}), com prioridade AA direto → OpenRouter → LMArena. O
-              travessão significa ausência de dado público (sem nota
-              atribuída) — nenhum valor é inventado ou extrapolado. O
-              ranking geral ordena pelo índice AA de Inteligência
-              (modelos sem índice, pelo Elo LMArena). Selos
-              esmeralda = dados verificados, âmbar = parcial,
-              cinzento = sem dados. Índices AA verificados contra o board
-              público da Artificial Analysis; Elos LMArena contra o dataset
-              oficial. Preços, contexto e modalidades vêm do
-              catálogo público (
-              <code className="rounded border border-stone-200 bg-stone-100 px-1.5 py-0.5 font-mono text-xs text-stone-700">
-                npm run models:fetch
-              </code>
-              ); latência, produtividade e fornecedores são lidos em tempo real
-              da API de endpoints (
-              <code className="rounded border border-stone-200 bg-stone-100 px-1.5 py-0.5 font-mono text-xs text-stone-700">
-                /api/v1/models/{"{id}"}/endpoints
-              </code>
-              ).
-            </p>
-          </details>
-        </Reveal>
+        {/* ===== Nota metodológica ===== */}
+        <details className="card px-5 py-4 text-sm text-zinc-500">
+          <summary className="cursor-pointer font-medium text-zinc-800">
+            Nota metodológica
+          </summary>
+          <p className="mt-2 text-[13px] leading-relaxed">
+            Sem notas 0–10: cada quesito exibe o valor{" "}
+            <strong className="font-medium text-zinc-800">nativo</strong> —
+            índices Artificial Analysis, Elo Design Arena e Elo{" "}
+            <strong className="font-medium text-zinc-800">LMArena</strong> (edição de{" "}
+            {dataArena}), com prioridade AA direto → OpenRouter → LMArena. O
+            travessão significa ausência de dado público — nenhum valor é
+            inventado ou extrapolado. O ranking geral ordena pelo índice AA de
+            Inteligência (modelos sem índice, pelo Elo LMArena). Preço,
+            contexto e modalidades vêm do catálogo público OpenRouter; latência
+            e produtividade são lidas em tempo real da API de endpoints.
+          </p>
+        </details>
       </main>
 
       <SiteFooter totalModelos={modelos.length} atualizadoEm={dataSnapshot} />

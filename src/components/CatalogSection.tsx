@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ArrowDownWideNarrow, Library, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import type { AIModel } from "@/types/ai-model";
 import { buildProviderOptions } from "@/data/models";
 import { formatContext, formatPrice } from "@/lib/format";
@@ -12,8 +12,8 @@ const PAGE = 96;
 
 /**
  * Catálogo completo: pesquisa, filtro por fornecedor e cartões
- * com logótipo e informações básicas; botões A/B enviam
- * o modelo para a comparação.
+ * com logótipo e dados essenciais; botões A/B enviam o modelo
+ * para a comparação.
  */
 interface CatalogSectionProps {
   models: AIModel[];
@@ -42,26 +42,29 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
   const lista = filtrados.slice(0, visiveis);
 
   const opcoesFornecedor = useMemo(() => buildProviderOptions(models), [models]);
+  const filtrando = pesquisa.trim() !== "" || provider !== "todos";
 
   return (
-    <section id="catalogo" aria-labelledby="catalogo" className="flex scroll-mt-20 flex-col gap-4">
-      <div className="flex flex-wrap items-end justify-between gap-2">
-        <div>
-          <h2 id="catalogo" className="flex items-center gap-2 text-xl font-extrabold text-zinc-900">
-            <Library size={20} aria-hidden="true" className="text-indigo-600" />
-            Catálogo de modelos
-          </h2>
-          <p className="mt-1 text-sm text-zinc-500">
-            {models.length} modelos base em {opcoesFornecedor.length} fornecedores
-            (snapshot OpenRouter
-            {totalSnapshot ? ` de ${totalSnapshot}` : ""}).
+    <section id="catalogo" aria-labelledby="catalogo" className="flex scroll-mt-24 flex-col gap-4">
+      <h2 id="catalogo" className="sr-only">
+        Catálogo de modelos
+      </h2>
+
+      <div className="flex items-baseline justify-between gap-2">
+        <p className="text-xs text-zinc-500">
+          {models.length} modelos base em {opcoesFornecedor.length} fornecedores
+          {totalSnapshot ? ` · snapshot de ${totalSnapshot}` : ""}
+        </p>
+        {filtrando && (
+          <p role="status" className="text-xs text-zinc-500">
+            {filtrados.length} resultado(s)
           </p>
-        </div>
+        )}
       </div>
 
       <div className="flex flex-col gap-2 sm:flex-row">
-        <label className="input-focus flex flex-1 items-center gap-2 rounded-xl border border-stone-200 bg-white px-3.5 py-2.5 shadow-sm">
-          <Search size={16} aria-hidden="true" className="shrink-0 text-stone-400" />
+        <label className="input flex-1 px-3.5 py-2.5">
+          <Search size={16} aria-hidden="true" className="shrink-0 text-zinc-400" />
           <input
             type="search"
             value={pesquisa}
@@ -71,11 +74,10 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
             }}
             placeholder="Pesquisar modelos…"
             aria-label="Pesquisar no catálogo"
-            className="w-full bg-transparent text-sm text-zinc-900 outline-none placeholder:text-stone-400"
+            className="w-full bg-transparent text-sm text-zinc-900 outline-none placeholder:text-zinc-400"
           />
         </label>
-        <label className="input-focus flex items-center gap-2 rounded-xl border border-stone-200 bg-white px-3.5 py-2.5 shadow-sm">
-          <ArrowDownWideNarrow size={16} aria-hidden="true" className="shrink-0 text-stone-400" />
+        <label className="input px-3.5 py-2.5">
           <select
             value={provider}
             onChange={(e) => {
@@ -83,7 +85,7 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
               setVisiveis(PAGE);
             }}
             aria-label="Filtrar por fornecedor"
-            className="cursor-pointer bg-transparent text-sm font-medium text-zinc-800 outline-none [&>option]:bg-white"
+            className="cursor-pointer bg-transparent text-sm text-zinc-800 outline-none [&>option]:bg-white"
           >
             <option value="todos">Todos os fornecedores</option>
             {opcoesFornecedor.map((p) => (
@@ -95,18 +97,9 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
         </label>
       </div>
 
-      <p role="status" className="text-xs text-stone-500">
-        {filtrados.length} resultado(s) · selos esmeralda = dados verificados,
-        âmbar = parcial, cinzento = sem dados
-      </p>
-
       <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
-        {lista.map((m, i) => (
-          <li
-            key={m.id}
-            style={{ animationDelay: `${Math.min(i, 15) * 45}ms` }}
-            className="card-enter card-hover flex flex-col rounded-2xl border border-stone-200 bg-white p-4 shadow-sm"
-          >
+        {lista.map((m) => (
+          <li key={m.id} className="card card-hover flex flex-col p-4">
             <div className="flex items-center gap-3">
               <ModelLogo
                 nome={m.nomeCurto}
@@ -115,27 +108,12 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
                 tamanho={36}
               />
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-bold text-zinc-900">
+                <p className="flex items-center gap-2 truncate text-sm font-semibold text-zinc-900">
                   {m.nomeCurto}
-                  {headline(m).valor === "—" ? (
-                    <span
-                      title="Sem benchmark público"
-                      className="ml-2 rounded-md border border-dashed border-stone-300 px-1.5 py-0.5 text-[11px] font-bold text-stone-400"
-                    >
-                      —
-                    </span>
-                  ) : (
+                  {headline(m).valor !== "—" && (
                     <span
                       title={headline(m).rotulo}
-                      className={`ml-2 rounded-md px-1.5 py-0.5 text-[11px] font-bold tabular-nums ${
-                        m.fonte === "aa" ||
-                        m.fonte === "openrouter" ||
-                        m.fonte === "arena"
-                          ? "bg-emerald-700/10 text-emerald-700"
-                          : m.fonte === "mista"
-                            ? "bg-amber-600/10 text-amber-700"
-                            : "bg-stone-100 text-stone-500"
-                      }`}
+                      className="shrink-0 rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] font-semibold tabular-nums text-zinc-600"
                     >
                       {headline(m).valor}
                     </span>
@@ -144,36 +122,19 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
                 <p className="truncate text-xs text-zinc-500">
                   por {m.empresa} · Top {m.rank}
                 </p>
-                {m.tags.slice(0, 2).length > 0 && (
-                  <div className="mt-1.5 flex flex-wrap gap-1">
-                    {m.tags.slice(0, 2).map((tag) => (
-                      <span
-                        key={tag}
-                        className="inline-flex items-center gap-0.5 rounded-md bg-stone-100 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-500"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                {m.destaque && (
-                  <p className="mt-1.5 text-[10px] font-bold text-zinc-500 truncate">
-                    {m.destaque}
-                  </p>
-                )}
               </div>
             </div>
 
-            <dl className="mt-3 flex items-center justify-between border-t border-stone-100 pt-3 text-xs">
+            <dl className="mt-3 flex items-center justify-between border-t border-zinc-100 pt-3 text-xs">
               <div>
-                <dt className="text-stone-500">Contexto</dt>
-                <dd className="font-bold tabular-nums text-zinc-800">
+                <dt className="text-zinc-400">Contexto</dt>
+                <dd className="mt-0.5 font-medium tabular-nums text-zinc-800">
                   {formatContext(m.contexto)}
                 </dd>
               </div>
               <div className="text-right">
-                <dt className="text-stone-500">Entrada / Saída /M</dt>
-                <dd className="font-bold tabular-nums text-zinc-800">
+                <dt className="text-zinc-400">Entrada / Saída /1M</dt>
+                <dd className="mt-0.5 font-medium tabular-nums text-zinc-800">
                   {formatPrice(m.precoEntrada)} / {formatPrice(m.precoSaida)}
                 </dd>
               </div>
@@ -184,7 +145,7 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
                 type="button"
                 onClick={() => onAssign("A", m.id)}
                 aria-label={`Usar ${m.nomeCurto} como Modelo A`}
-                className="flex-1 rounded-lg bg-zinc-900 py-1.5 text-xs font-bold text-white transition hover:bg-zinc-700 active:scale-95"
+                className="flex-1 rounded-lg bg-zinc-900 py-1.5 text-xs font-semibold text-white transition hover:bg-zinc-700"
               >
                 Usar em A
               </button>
@@ -192,7 +153,7 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
                 type="button"
                 onClick={() => onAssign("B", m.id)}
                 aria-label={`Usar ${m.nomeCurto} como Modelo B`}
-                className="flex-1 rounded-lg border border-stone-300 py-1.5 text-xs font-bold text-stone-500 transition hover:border-zinc-900 hover:text-zinc-900 active:scale-95"
+                className="flex-1 rounded-lg border border-zinc-300 py-1.5 text-xs font-semibold text-zinc-500 transition hover:border-zinc-900 hover:text-zinc-900"
               >
                 Usar em B
               </button>
@@ -202,7 +163,7 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
       </ul>
 
       {filtrados.length === 0 && (
-        <p className="glass-card py-10 text-center text-sm text-zinc-500">
+        <p className="card px-6 py-10 text-center text-sm text-zinc-500">
           Nenhum modelo corresponde aos filtros.
         </p>
       )}
@@ -211,7 +172,7 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
         <button
           type="button"
           onClick={() => setVisiveis((v) => v + PAGE)}
-          className="btn-primary self-center rounded-xl px-6 py-2.5 text-sm"
+          className="btn-ghost self-center px-5 py-2.5 text-sm"
         >
           Mostrar mais ({filtrados.length - visiveis} restantes)
         </button>

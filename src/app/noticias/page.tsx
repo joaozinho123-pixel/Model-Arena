@@ -3,7 +3,6 @@ import { AI_MODELS } from "@/data/models";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { NoticiasConteudo } from "@/components/NoticiasConteudo";
-import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Radar IA — Notícias do mundo da IA · Model Arena",
@@ -14,33 +13,22 @@ export const metadata: Metadata = {
 /** Página Radar IA: notícias ao vivo + filtros + créditos. */
 export default function Noticias() {
   return (
-    <div id="top" className="flex min-h-screen flex-col text-stone-900">
+    <div id="top" className="flex min-h-screen flex-col">
       <SiteNav pagina="noticias" />
-      <header className="relative overflow-hidden border-b border-stone-200 pt-14">
-        <div aria-hidden="true" className="spotlight" />
-        <div aria-hidden="true" className="hero-grid absolute inset-0" />
-        <div className="relative mx-auto max-w-6xl px-4 pt-12 pb-8 text-center sm:px-6">
-          <p className="inline-flex items-center gap-2 rounded-full border border-indigo-600/25 bg-indigo-600/5 px-3 py-1 text-xs font-bold text-indigo-700">
-            <span
-              aria-hidden="true"
-              className="pulse-neon inline-block h-2 w-2 rounded-full bg-indigo-600"
-            />
-            Atualizado a cada visita · Hacker News + Dev.to
-          </p>
-          <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-balance sm:text-6xl">
-            Radar <span className="text-indigo-600">IA</span>
+      <header className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto max-w-6xl px-4 pt-20 pb-10 text-center sm:px-6">
+          <h1 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+            Radar IA
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-zinc-600">
-            Lançamentos de modelos, benchmarks, open weights e indústria —
-            direto das comunidades que vivem o tema.
+          <p className="mx-auto mt-3 max-w-xl text-[15px] leading-relaxed text-zinc-600">
+            Lançamentos de modelos, benchmarks e indústria — direto de
+            Hacker News e Dev.to, atualizado a cada visita.
           </p>
         </div>
       </header>
 
-      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 py-8 sm:py-10">
-        <Reveal>
-          <NoticiasConteudo />
-        </Reveal>
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-4 py-8 sm:px-6">
+        <NoticiasConteudo />
       </main>
 
       <SiteFooter totalModelos={AI_MODELS.length} />
