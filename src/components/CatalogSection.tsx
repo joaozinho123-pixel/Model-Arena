@@ -125,6 +125,10 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
               </div>
             </div>
 
+            <p title={m.descricao} className="mt-2.5 line-clamp-2 text-[13px] leading-relaxed text-zinc-500">
+              {m.descricao || "Sem descrição no catálogo."}
+            </p>
+
             <dl className="mt-3 flex items-center justify-between border-t border-zinc-100 pt-3 text-xs">
               <div>
                 <dt className="text-zinc-400">Contexto</dt>

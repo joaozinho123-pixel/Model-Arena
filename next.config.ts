@@ -6,7 +6,9 @@ import type { NextConfig } from "next";
  * CSP desenhada para EXATAMENTE o que o app usa (sem quebrar nada):
  * - scripts/estilos próprios + inline do Next.js/Recharts (sem
  *   scripts externos — XSS via <script src> bloqueado);
- * - imagens de qualquer https (logótipos remotos dos fornecedores);
+ * - imagens APENAS dos 2 CDNs de logótipos de marca usados
+ *   (simpleicons + unavatar) — sem wildcard https:, bloqueia
+ *   rastreio por pixels e carga de imagens de origem arbitrária;
  * - fetch só para as APIs públicas consumidas (OpenRouter, HN, Dev.to);
  * - sem frames/objectos (anti-clickjacking, com X-Frame-Options).
  *
@@ -17,8 +19,8 @@ const CSP = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https:",
-  "font-src 'self' data:",
+  "img-src 'self' https://cdn.simpleicons.org https://unavatar.io",
+  "font-src 'self'",
   "connect-src 'self' https://openrouter.ai https://hn.algolia.com https://dev.to",
   "object-src 'none'",
   "base-uri 'self'",
@@ -33,12 +35,13 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Normas de segurança para todo o site.
         source: "/:path*",
         headers: [
           { key: "Content-Security-Policy", value: CSP },
           {
             key: "Strict-Transport-Security",
-            value: "max-age=31536000; includeSubDomains",
+            value: "max-age=31536000; includeSubDomains; preload",
           },
           { key: "X-Frame-Options", value: "DENY" },
           { key: "X-Content-Type-Options", value: "nosniff" },
@@ -56,6 +59,11 @@ const nextConfig: NextConfig = {
             value: "same-origin-allow-popups",
           },
         ],
+      },
+      {
+        // Proxies de dados: fora do índice de motores de busca.
+        source: "/api/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
     ];
   },

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { RotateCw, Search } from "lucide-react";
 import {
   buscarNoticias,
   tempoAtras,
@@ -17,6 +17,13 @@ const FILTROS: { id: Filtro; rotulo: string }[] = [
   { id: "Dev.to", rotulo: "Dev.to" },
 ];
 
+type Ordem = "recentes" | "discutidas";
+
+const ORDENS: { id: Ordem; rotulo: string }[] = [
+  { id: "recentes", rotulo: "Recentes" },
+  { id: "discutidas", rotulo: "Mais discutidas" },
+];
+
 /** Domínio legível de um URL (fallback silencioso). */
 function dominio(url: string): string {
   try {
@@ -24,6 +31,50 @@ function dominio(url: string): string {
   } catch {
     return "";
   }
+}
+
+/** Números curtos em pt-PT (1.234 pontos). */
+function numero(n: number): string {
+  return n.toLocaleString("pt-PT");
+}
+
+/** Rótulo curto do dia de uma notícia ("Hoje", "Ontem", "12 nov"). */
+function rotuloDia(iso: string): string {
+  const t = new Date(iso).getTime();
+  if (!Number.isFinite(t)) return "";
+  const agora = new Date();
+  const umDia = 24 * 60 * 60 * 1000;
+  const inicioHoje = new Date(
+    agora.getFullYear(),
+    agora.getMonth(),
+    agora.getDate(),
+  ).getTime();
+  if (t >= inicioHoje) return "Hoje";
+  if (t >= inicioHoje - umDia) return "Ontem";
+  return new Date(iso)
+    .toLocaleDateString("pt-PT", { day: "2-digit", month: "short" })
+    .replace(".", "");
+}
+
+interface GrupoDia {
+  chave: string;
+  rotulo: string;
+  itens: Noticia[];
+}
+
+/** Agrupa notícias por dia, mantendo a ordem cronológica recebida. */
+function agruparDia(noticias: Noticia[]): GrupoDia[] {
+  const grupos: GrupoDia[] = [];
+  for (const n of noticias) {
+    const rotulo = rotuloDia(n.publicadoEm);
+    const ultimo = grupos[grupos.length - 1];
+    if (ultimo && ultimo.rotulo === rotulo) {
+      ultimo.itens.push(n);
+    } else {
+      grupos.push({ chave: rotulo || "sem-data", rotulo, itens: [n] });
+    }
+  }
+  return grupos;
 }
 
 function CartaoNoticia({ noticia }: { noticia: Noticia }) {
@@ -55,8 +106,9 @@ function CartaoNoticia({ noticia }: { noticia: Noticia }) {
 
       <p className="mt-auto flex items-center justify-between gap-2 pt-3 text-[11px] text-zinc-400">
         <span className="tabular-nums">
-          {noticia.pontos} pontos
-          {noticia.comentarios > 0 && ` · ${noticia.comentarios} comentários`}
+          {numero(noticia.pontos)} pontos
+          {noticia.comentarios > 0 &&
+            ` · ${numero(noticia.comentarios)} comentários`}
         </span>
         <span className="truncate">{dominio(noticia.url)}</span>
       </p>
@@ -79,15 +131,26 @@ function Esqueleto() {
   );
 }
 
-/** Conteúdo do Radar IA: busca, filtros e grelha de notícias. */
+/** Conteúdo do Radar IA: busca, filtros, ordenação e grelha de notícias. */
 export function NoticiasConteudo() {
   const [noticias, setNoticias] = useState<Noticia[] | null>(null);
   const [aoVivo, setAoVivo] = useState(false);
+  const [aAtualizar, setAAtualizar] = useState(false);
   const [filtro, setFiltro] = useState<Filtro>("todas");
+  const [ordem, setOrdem] = useState<Ordem>("recentes");
   const [pesquisa, setPesquisa] = useState("");
+  /** Ref controls mounted state (avoids setState after unmount). */
+  const montadoRef = useRef(true);
+  useEffect(() => {
+    montadoRef.current = true;
+    return () => {
+      montadoRef.current = false;
+    };
+  }, []);
 
   useEffect(() => {
     let vivo = true;
+    // Fetch pós-load; setState apenas em callbacks assíncronos.
     buscarNoticias().then((r) => {
       if (!vivo) return;
       setNoticias(r.noticias);
@@ -97,6 +160,21 @@ export function NoticiasConteudo() {
       vivo = false;
     };
   }, []);
+
+  /** Refetch manual (botão Atualizar), com checagem de desmontagem. */
+  const atualizar = () => {
+    if (aAtualizar) return;
+    setAAtualizar(true);
+    buscarNoticias()
+      .then((r) => {
+        if (!montadoRef.current) return;
+        setNoticias(r.noticias);
+        setAoVivo(r.aoVivo);
+      })
+      .finally(() => {
+        if (montadoRef.current) setAAtualizar(false);
+      });
+  };
 
   const contagens = useMemo(() => {
     const hn = (noticias ?? []).filter((n) => n.fonte === "Hacker News").length;
@@ -116,6 +194,16 @@ export function NoticiasConteudo() {
     });
   }, [noticias, filtro, pesquisa]);
 
+  const grupos = useMemo((): GrupoDia[] => {
+    if (ordem === "discutidas") {
+      const ordenada = [...lista].sort(
+        (a, b) => b.pontos - a.pontos || b.comentarios - a.comentarios,
+      );
+      return [{ chave: "top", rotulo: "Mais discutidas", itens: ordenada }];
+    }
+    return agruparDia(lista);
+  }, [lista, ordem]);
+
   return (
     <div className="flex w-full flex-col gap-5">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
@@ -130,14 +218,34 @@ export function NoticiasConteudo() {
             className="w-full bg-transparent text-sm text-zinc-900 outline-none placeholder:text-zinc-400"
           />
         </label>
+        <button
+          type="button"
+          onClick={atualizar}
+          disabled={aAtualizar || noticias === null}
+          className="btn-ghost shrink-0 px-3.5 py-2.5 text-sm disabled:cursor-wait disabled:opacity-60"
+        >
+          <RotateCw
+            size={15}
+            aria-hidden="true"
+            className={aAtualizar ? "animate-spin" : ""}
+          />
+          {aAtualizar ? "A atualizar…" : "Atualizar"}
+        </button>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <div
           role="tablist"
           aria-label="Fonte das notícias"
-          className="flex gap-1 self-start rounded-lg border border-zinc-200 bg-white p-1 sm:self-auto"
+          className="flex gap-1 rounded-lg border border-zinc-200 bg-white p-1"
         >
           {FILTROS.map((f) => {
             const n =
-              f.id === "todas" ? contagens.todas : f.id === "Hacker News" ? contagens.hn : contagens.dev;
+              f.id === "todas"
+                ? contagens.todas
+                : f.id === "Hacker News"
+                  ? contagens.hn
+                  : contagens.dev;
             return (
               <button
                 key={f.id}
@@ -155,6 +263,28 @@ export function NoticiasConteudo() {
             );
           })}
         </div>
+
+        <div
+          role="group"
+          aria-label="Ordenação das notícias"
+          className="flex gap-1 rounded-lg border border-zinc-200 bg-white p-1"
+        >
+          {ORDENS.map((o) => (
+            <button
+              key={o.id}
+              type="button"
+              aria-pressed={ordem === o.id}
+              onClick={() => setOrdem(o.id)}
+              className={`rounded-md px-3 py-1.5 text-xs font-medium transition ${
+                ordem === o.id
+                  ? "bg-zinc-900 text-white"
+                  : "text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
+              {o.rotulo}
+            </button>
+          ))}
+        </div>
       </div>
 
       {!aoVivo && noticias !== null && (
@@ -169,14 +299,31 @@ export function NoticiasConteudo() {
 
       {noticias === null ? (
         <Esqueleto />
-      ) : lista.length === 0 ? (
+      ) : grupos.length === 0 ? (
         <p className="card px-6 py-10 text-center text-sm text-zinc-500">
           Nenhuma notícia corresponde à pesquisa.
         </p>
       ) : (
-        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-          {lista.map((n) => (
-            <CartaoNoticia key={n.id} noticia={n} />
+        <div className="flex flex-col gap-6">
+          {grupos.map((g) => (
+            <section
+              key={g.chave}
+              aria-label={g.rotulo}
+              className="flex flex-col gap-3"
+            >
+              <h2 className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-400">
+                {g.rotulo}
+                <span className="tabular-nums text-zinc-300">
+                  {g.itens.length}
+                </span>
+                <span aria-hidden="true" className="h-px flex-1 bg-zinc-200" />
+              </h2>
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                {g.itens.map((n) => (
+                  <CartaoNoticia key={n.id} noticia={n} />
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       )}

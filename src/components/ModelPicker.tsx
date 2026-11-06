@@ -140,8 +140,11 @@ export function ModelPicker({
                         </span>
                       )}
                     </span>
-                    <span className="block truncate font-mono text-[11px] text-zinc-400">
-                      {m.id}
+                    <span
+                      title={`ID: ${m.id} · ${m.descricao}`}
+                      className="block truncate text-[11px] leading-tight text-zinc-500"
+                    >
+                      {m.descricao || m.id}
                     </span>
                   </span>
                   <span className="hidden shrink-0 text-right text-[11px] leading-tight text-zinc-500 sm:block tabular-nums">
