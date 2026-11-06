@@ -6,6 +6,14 @@
 
 export type FonteNoticia = "Hacker News" | "Dev.to";
 
+/** Categorias editoriais do Radar IA (derivadas do conteúdo, pt-PT). */
+export type CategoriaNoticia =
+  | "Modelos"
+  | "Benchmarks"
+  | "Open-source"
+  | "Ferramentas"
+  | "Indústria";
+
 export interface Noticia {
   id: string;
   titulo: string;
@@ -18,6 +26,10 @@ export interface Noticia {
   publicadoEm: string;
   descricao?: string;
   autor?: string;
+  /** Etiquetas da fonte (Dev.to) ou termos detetados. */
+  tags?: string[];
+  /** Categoria editorial derivada (nunca inventada: só palavras do título). */
+  categoria?: CategoriaNoticia | null;
 }
 
 interface HNItem {
@@ -33,6 +45,50 @@ interface HNItem {
 /** Termos que marcam relevância para IA (filtro anti-ruído). */
 const RELEVANTE =
   /\b(ai\b|artificial intelligence|llm|gpt|claude|gemini|grok|mistral|llama|qwen|deepseek|openai|anthropic|google deepmind|microsoft|meta ai|model|models|benchmark|agent|agents|reasoning|inference|training|chatbot|copilot|transformer|diffusion|multimodal)/i;
+
+/**
+ * Categoria editorial derivada SÓ de palavras que existem no título,
+ * descrição e etiquetas — sem classificar por palpite. Prioridade:
+ * benchmarks > open-source > ferramentas > modelos > indústria.
+ */
+const CATEGORIAS: {
+  id: CategoriaNoticia;
+  match: RegExp;
+}[] = [
+  {
+    id: "Benchmarks",
+    match: /\b(benchmark|benchmarks|leaderboard|elo|arena|eval|avalia|score|ranking|índice|index)\b/i,
+  },
+  {
+    id: "Open-source",
+    match: /\b(open.?source|open.?weight|pesos abertos|hugging ?face|huggingface|weights released|código aberto)\b/i,
+  },
+  {
+    id: "Ferramentas",
+    match: /\b(agent|agents|agente|agentes|tool|tools|ferramenta|ferramentas|copilot|framework|sdk|api)\b/i,
+  },
+  {
+    id: "Modelos",
+    match: /\b(gpt|claude|gemini|grok|llama|qwen|deepseek|mistral|modelo|model|launch|lança|lançamento|release|version|preview)\b/i,
+  },
+  {
+    id: "Indústria",
+    match: /\b(funding|startup|regulation|regula|acqui|parceria|partnership|policy|mercado|mercados|empresa|empresas|billion|mil milhões)\b/i,
+  },
+];
+
+/** Deriva a categoria (null quando nada corresponde). */
+export function categoriaDe(n: {
+  titulo: string;
+  descricao?: string;
+  tags?: string[];
+}): CategoriaNoticia | null {
+  const texto = `${n.titulo} ${n.descricao ?? ""} ${(n.tags ?? []).join(" ")}`;
+  for (const c of CATEGORIAS) {
+    if (c.match.test(texto)) return c.id;
+  }
+  return null;
+}
 
 async function comTimeout(url: string, ms = 12000): Promise<Response> {
   const ctrl = new AbortController();
@@ -71,6 +127,7 @@ async function buscarHN(): Promise<Noticia[]> {
       comentarios: h.num_comments ?? 0,
       publicadoEm: h.created_at ?? new Date().toISOString(),
       autor: h.author ?? undefined,
+      categoria: categoriaDe({ titulo: h.title, descricao: undefined }),
     }))
     .sort((a, b) => b.pontos - a.pontos)
     .slice(0, 24);
@@ -103,17 +160,28 @@ async function buscarDevTo(): Promise<Noticia[]> {
         typeof a.url === "string" &&
         a.url.startsWith("http"),
     )
-    .map((a) => ({
-      id: `devto-${a.id ?? a.url}`,
-      titulo: a.title.trim(),
-      url: a.url,
-      fonte: "Dev.to" as const,
-      pontos: a.positive_reactions_count ?? 0,
-      comentarios: a.comments_count ?? 0,
-      publicadoEm: a.published_at ?? new Date().toISOString(),
-      descricao: a.description?.trim() || undefined,
-      autor: a.user?.name || undefined,
-    }))
+    .map((a) => {
+      const tags = Array.isArray(a.tag_list)
+        ? a.tag_list.filter((t) => typeof t === "string" && t.trim()).slice(0, 4)
+        : undefined;
+      return {
+        id: `devto-${a.id ?? a.url}`,
+        titulo: a.title.trim(),
+        url: a.url,
+        fonte: "Dev.to" as const,
+        pontos: a.positive_reactions_count ?? 0,
+        comentarios: a.comments_count ?? 0,
+        publicadoEm: a.published_at ?? new Date().toISOString(),
+        descricao: a.description?.trim() || undefined,
+        autor: a.user?.name || undefined,
+        tags,
+        categoria: categoriaDe({
+          titulo: a.title,
+          descricao: a.description,
+          tags,
+        }),
+      };
+    })
     .sort(
       (a, b) =>
         new Date(b.publicadoEm).getTime() - new Date(a.publicadoEm).getTime(),
@@ -131,6 +199,7 @@ export const REFERENCIAS: Noticia[] = [
     comentarios: 0,
     publicadoEm: new Date().toISOString(),
     descricao: "Board oficial de índices de inteligência e velocidade.",
+    categoria: "Benchmarks" as const,
   },
   {
     id: "ref-arena",
@@ -141,6 +210,7 @@ export const REFERENCIAS: Noticia[] = [
     comentarios: 0,
     publicadoEm: new Date().toISOString(),
     descricao: "Elo de preferência por voto cego lado a lado.",
+    categoria: "Benchmarks" as const,
   },
   {
     id: "ref-or",

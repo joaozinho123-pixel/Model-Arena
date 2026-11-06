@@ -11,6 +11,7 @@ import { CATEGORIES } from "@/types/ai-model";
 import type { AIModel } from "@/types/ai-model";
 import { modeloVivoPorId } from "@/lib/modelo-vivo-servidor";
 import { CapabilityChips } from "@/components/CapabilityChips";
+import { ShareLinkButton } from "@/components/ShareLinkButton";
 import {
   formatCompact,
   formatContext,
@@ -222,6 +223,11 @@ export default async function ModelPage({ params }: PageProps) {
             >
               Usar como Modelo B
             </a>
+            <ShareLinkButton
+              href={`/modelo/${m.id}`}
+              rotulo="Copiar ligação"
+              className="self-center px-2 py-2"
+            />
           </div>
         </header>
 

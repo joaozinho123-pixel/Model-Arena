@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter } from "next/font/google";
 import { SITE_URL } from "@/lib/site-url";
+import { BackToTop } from "@/components/BackToTop";
 import "./globals.css";
 
 const inter = Inter({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="pt" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         {children}
+        <BackToTop />
         <Analytics />
         <SpeedInsights />
       </body>

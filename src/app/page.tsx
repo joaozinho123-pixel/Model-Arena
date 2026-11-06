@@ -550,24 +550,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== Nota metodológica ===== */}
-        <details className="card px-5 py-4 text-sm text-zinc-500">
-          <summary className="cursor-pointer font-medium text-zinc-800">
-            Nota metodológica
-          </summary>
-          <p className="mt-2 text-[13px] leading-relaxed">
-            Sem notas 0–10: cada quesito exibe o valor{" "}
-            <strong className="font-medium text-zinc-800">nativo</strong> —
-            índices Artificial Analysis, Elo Design Arena e Elo{" "}
-            <strong className="font-medium text-zinc-800">LMArena</strong> (edição de{" "}
-            {dataArena}), com prioridade AA direto → OpenRouter → LMArena. O
-            travessão significa ausência de dado público — nenhum valor é
-            inventado ou extrapolado. O ranking geral ordena pelo índice AA de
-            Inteligência (modelos sem índice, pelo Elo LMArena). Preço,
-            contexto e modalidades vêm do catálogo público OpenRouter; latência
-            e produtividade são lidas em tempo real da API de endpoints.
-          </p>
-        </details>
       </main>
 
       <SiteFooter totalModelos={modelos.length} atualizadoEm={dataSnapshot} />

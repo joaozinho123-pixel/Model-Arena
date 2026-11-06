@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { LogoMark } from "@/components/SiteLogo";
 
 /** Links-âncora das secções da página inicial. */
@@ -19,19 +22,36 @@ const PAGINA_LINKS = [
 type Pagina = "inicio" | "rankings" | "catalogo" | "noticias" | "ficha";
 
 /**
- * Navegação fixa partilhada: na página inicial ancora nas secções;
- * nas restantes, volta a "/" antes da âncora. Rankings, Catálogo e
- * Radar IA são páginas próprias do site.
+ * Navegação fixa partilhada: na página inicial ancora nas secções
+ * (com scrollspy a destacar a secção visível); nas restantes, volta a
+ * "/" antes da âncora. Rankings, Catálogo e Radar IA são páginas
+ * próprias do site.
  */
-export function SiteNav({
-  pagina,
-}: {
-  pagina: Pagina;
-}) {
+export function SiteNav({ pagina }: { pagina: Pagina }) {
   // Nas páginas não-iniciarias, anchors voltam a "/" antes da âncora.
   const base = pagina === "inicio" ? "" : "/";
-  const ativo = (chave: string) =>
-    pagina === chave ? "font-semibold text-zinc-900" : "";
+  const [ativa, setAtiva] = useState<string | null>(null);
+
+  // Scrollspy: secção mais visível fica destacada (só na home).
+  useEffect(() => {
+    if (pagina !== "inicio") return;
+    const alvos = ANCORA_LINKS.map(
+      (l) => document.querySelector(l.href) as Element | null,
+    ).filter((el): el is Element => el != null);
+    if (alvos.length === 0) return;
+    const obs = new IntersectionObserver(
+      (entradas) => {
+        const topo = entradas
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (topo?.target.id) setAtiva(`#${topo.target.id}`);
+      },
+      { rootMargin: "-72px 0px -55% 0px", threshold: [0.05, 0.25, 0.6] },
+    );
+    for (const el of alvos) obs.observe(el);
+    return () => obs.disconnect();
+  }, [pagina]);
+
   return (
     <nav
       aria-label="Navegação principal"
@@ -48,7 +68,15 @@ export function SiteNav({
         <ul className="flex min-w-0 flex-1 items-center justify-start gap-4 overflow-x-auto text-[13px] text-zinc-500 sm:justify-center sm:gap-5">
           {ANCORA_LINKS.map(({ href, rotulo }) => (
             <li key={href} className="shrink-0">
-              <a href={`${base}${href}`} className="whitespace-nowrap transition-colors hover:text-zinc-900">
+              <a
+                href={`${base}${href}`}
+                aria-current={pagina === "inicio" && ativa === href ? "true" : undefined}
+                className={`whitespace-nowrap transition-colors hover:text-zinc-900 ${
+                  pagina === "inicio" && ativa === href
+                    ? "font-semibold text-zinc-900"
+                    : ""
+                }`}
+              >
                 {rotulo}
               </a>
             </li>
@@ -58,7 +86,9 @@ export function SiteNav({
               <a
                 href={href}
                 aria-current={pagina === chave ? "page" : undefined}
-                className={`whitespace-nowrap transition-colors hover:text-zinc-900 ${ativo(chave)}`}
+                className={`whitespace-nowrap transition-colors hover:text-zinc-900 ${
+                  pagina === chave ? "font-semibold text-zinc-900" : ""
+                }`}
               >
                 {rotulo}
               </a>

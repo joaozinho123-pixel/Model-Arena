@@ -26,11 +26,12 @@ interface CatalogSectionProps {
 export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSectionProps) {
   const [pesquisa, setPesquisa] = useState("");
   const [provider, setProvider] = useState("todos");
+  const [ordem, setOrdem] = useState<"rank" | "preco" | "contexto" | "nome">("rank");
   const [visiveis, setVisiveis] = useState(PAGE);
 
   const filtrados = useMemo(() => {
     const q = pesquisa.trim().toLowerCase();
-    return models.filter((m) => {
+    const porFiltro = models.filter((m) => {
       if (provider !== "todos" && m.provider !== provider) return false;
       if (!q) return true;
       return (
@@ -39,9 +40,18 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
         m.empresa.toLowerCase().includes(q)
       );
     });
-  }, [models, pesquisa, provider]);
+    const lista = [...porFiltro];
+    // Padrão = ordem do catálogo (melhor métrica primeiro = rank).
+    if (ordem === "preco")
+      lista.sort((a, b) => a.precoEntrada - b.precoEntrada || a.rank - b.rank);
+    else if (ordem === "contexto")
+      lista.sort((a, b) => b.contexto - a.contexto || a.rank - b.rank);
+    else if (ordem === "nome")
+      lista.sort((a, b) => a.nomeCurto.localeCompare(b.nomeCurto));
+    return lista;
+  }, [models, pesquisa, provider, ordem]);
 
-  const lista = filtrados.slice(0, visiveis);
+  const visiveisLista = filtrados.slice(0, visiveis);
 
   const opcoesFornecedor = useMemo(() => buildProviderOptions(models), [models]);
   const filtrando = pesquisa.trim() !== "" || provider !== "todos";
@@ -97,10 +107,26 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
             ))}
           </select>
         </label>
+        <label className="input px-3.5 py-2.5 sm:w-56">
+          <select
+            value={ordem}
+            onChange={(e) => {
+              setOrdem(e.target.value as typeof ordem);
+              setVisiveis(PAGE);
+            }}
+            aria-label="Ordenar catálogo"
+            className="cursor-pointer bg-transparent text-sm text-zinc-800 outline-none [&>option]:bg-white"
+          >
+            <option value="rank">Melhor métrica primeiro</option>
+            <option value="preco">Menor preço</option>
+            <option value="contexto">Maior contexto</option>
+            <option value="nome">Nome (A–Z)</option>
+          </select>
+        </label>
       </div>
 
       <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
-        {lista.map((m) => (
+        {visiveisLista.map((m) => (
           <li key={m.id} className="card card-hover flex flex-col p-4">
             <div className="flex items-center gap-3">
               <ModelLogo

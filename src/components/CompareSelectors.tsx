@@ -4,6 +4,7 @@ import { ArrowLeftRight, Dices, Plus } from "lucide-react";
 import type { AIModel } from "@/types/ai-model";
 import { formatContext, formatPrice } from "@/lib/format";
 import { ModelLogo } from "@/components/ModelLogo";
+import { ShareLinkButton } from "@/components/ShareLinkButton";
 
 /**
  * Cartões de seleção lado a lado: cada lado abre o catálogo
@@ -119,6 +120,18 @@ export function CompareSelectors({
           </div>
         </div>
         <Slot badge="B" model={modelB} onAbrir={onAbrirB} />
+      </div>
+
+      <div className="mt-2 flex justify-end">
+        <ShareLinkButton
+          href={
+            modelA && modelB
+              ? `/?a=${encodeURIComponent(modelA.id)}&b=${encodeURIComponent(modelB.id)}`
+              : null
+          }
+          rotulo="Partilhar duelo"
+          titulo="Copiar ligação deste duelo"
+        />
       </div>
     </section>
   );

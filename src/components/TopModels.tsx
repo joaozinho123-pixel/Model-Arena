@@ -1,12 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Brain, Boxes, Coins } from "lucide-react";
+import { Brain, Boxes, Coins, Gauge } from "lucide-react";
 import type { AIModel } from "@/types/ai-model";
 import { formatContext, formatPrice } from "@/lib/format";
 import { ModelLogo } from "@/components/ModelLogo";
 
-type Tab = "benchmark" | "preco" | "contexto";
+type Tab = "benchmark" | "preco" | "contexto" | "velocidade";
 
 const TABS: {
   id: Tab;
@@ -16,6 +16,7 @@ const TABS: {
   { id: "benchmark", rotulo: "Melhor benchmark", icone: Brain },
   { id: "preco", rotulo: "Menor preço", icone: Coins },
   { id: "contexto", rotulo: "Maior contexto", icone: Boxes },
+  { id: "velocidade", rotulo: "Mais rápido", icone: Gauge },
 ];
 
 /** Top 10 do catálogo em 3 rankings, sem pódio nem brilhos. */
@@ -37,6 +38,17 @@ export function TopModels({
       lista.sort(
         (a, b) => a.precoEntrada - b.precoEntrada || a.rank - b.rank,
       );
+    else if (tab === "velocidade")
+      // Sem medição mediana no fim (nunca inventa velocidade).
+      lista.sort((a, b) => {
+        const ta = a.aa?.tps;
+        const tb = b.aa?.tps;
+        if (typeof ta === "number" && typeof tb === "number")
+          return tb - ta || a.rank - b.rank;
+        if (typeof ta === "number") return -1;
+        if (typeof tb === "number") return 1;
+        return a.rank - b.rank;
+      });
     // Tiebreak pelo rank evita ordem instável entre contexto iguais.
     else lista.sort((a, b) => b.contexto - a.contexto || a.rank - b.rank);
     return lista.slice(0, 10);
@@ -51,6 +63,15 @@ export function TopModels({
           texto: `${formatContext(m.contexto)} tokens`,
           fracao: m.contexto / Math.max(1, top[0]?.contexto ?? 1),
         };
+      if (tab === "velocidade") {
+        const t = m.aa?.tps;
+        const ok = typeof t === "number" && Number.isFinite(t) && t > 0;
+        const lider = Math.max(...top.map((x) => x.aa?.tps ?? 0));
+        return {
+          texto: ok ? `${t!.toLocaleString("pt-PT")} tok/s` : "sem medição",
+          fracao: ok ? t! / Math.max(1, lider) : 0,
+        };
+      }
       // Aba de benchmark: número (índice AA) e barra (0–100) são
       // sempre a mesma métrica nativa.
       const intel = m.aa?.intelligence_index;
@@ -95,6 +116,19 @@ export function TopModels({
         m.contexto === lider.contexto ? null : lider.contexto - m.contexto,
       );
     }
+    if (tab === "velocidade") {
+      const tps = (m: AIModel) => m.aa?.tps;
+      const lider = top.reduce(
+        (best, m) => ((tps(m) ?? -Infinity) > (tps(best) ?? -Infinity) ? m : best),
+        top[0]!,
+      );
+      return top.map((m) => {
+        const a = tps(m);
+        const b = tps(lider);
+        if (a == null || b == null) return null;
+        return Math.round((b - a) * 10) / 10;
+      });
+    }
     // Preço: distância ao mais barato do grupo.
     const lider = top.reduce(
       (best, m) => (m.precoEntrada < best.precoEntrada ? m : best),
@@ -110,6 +144,7 @@ export function TopModels({
     if (d == null || d === 0) return null;
     if (tab === "benchmark") return `−${Math.abs(d).toLocaleString("pt-PT")} pts`;
     if (tab === "contexto") return `−${formatContext(d)} tokens`;
+    if (tab === "velocidade") return `−${Math.abs(d).toLocaleString("pt-PT")} tok/s`;
     return `+${formatPrice(d)}/M`;
   }
 
@@ -121,7 +156,9 @@ export function TopModels({
             ? "Top 10 por índice AA de Inteligência (0–100)."
             : tab === "preco"
               ? "Preço de entrada por 1M de tokens · menor preço, maior barra."
-              : "Da maior para a menor janela de contexto."}
+              : tab === "velocidade"
+                ? "Tokens por segundo de geração (mediana da AA)."
+                : "Da maior para a menor janela de contexto."}
         </p>
         <div
           role="tablist"
