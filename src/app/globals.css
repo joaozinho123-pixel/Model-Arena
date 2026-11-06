@@ -55,8 +55,8 @@ body {
 }
 
 /* ------------------------------------------------------------
-   Cartões: superfície branca com contorno; hover só escurece
-   o contorno (sem levantar nem sombra).
+   Cartões: superfície branca com contorno. Hover: contorno mais
+   escuro + leve elevação com sombra suave (movimento mínimo).
    ------------------------------------------------------------ */
 .card {
   background: var(--card);
@@ -64,15 +64,21 @@ body {
   border-radius: 0.75rem;
 }
 .card-hover {
-  transition: border-color 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 .card-hover:hover {
   border-color: var(--stroke-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -12px rgba(24, 24, 27, 0.14);
 }
 
 /* ------------------------------------------------------------
    Botões: primário em tinta cheia, secundário contornado.
-   Só definem cor/forma — dimensões vêm de classes Tailwind.
+   Hover: leve elevação + sombra suave. Dimensões vêm de classes
+   Tailwind — aqui só cor, forma e movimento.
    ------------------------------------------------------------ */
 .btn-primary {
   display: inline-flex;
@@ -83,13 +89,20 @@ body {
   color: #ffffff;
   font-weight: 600;
   border-radius: 0.625rem;
-  transition: background-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 .btn-primary:hover {
   background: #3f3f46;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -4px rgba(24, 24, 27, 0.35);
 }
 .btn-primary:active {
   background: #27272a;
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
 }
 
 .btn-ghost {
@@ -104,11 +117,21 @@ body {
   border-radius: 0.625rem;
   transition:
     border-color 0.15s ease,
-    color 0.15s ease;
+    color 0.15s ease,
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 .btn-ghost:hover {
   color: var(--ink);
   border-color: #a1a1aa;
+  background: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px -4px rgba(24, 24, 27, 0.2);
+}
+.btn-ghost:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
 }
 
 /* ------------------------------------------------------------
@@ -194,5 +217,11 @@ select:focus-visible {
   .overlay-fade,
   .dialog-fade {
     animation: none;
+  }
+  .card-hover:hover,
+  .btn-primary:hover,
+  .btn-ghost:hover {
+    transform: none;
+    box-shadow: none;
   }
 }

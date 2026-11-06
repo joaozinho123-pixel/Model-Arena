@@ -1,7 +1,5 @@
 import type { MetadataRoute } from "next";
-
-/** TROCAR pelo domínio real em produção (ex.: https://seudominio.com). */
-const SITE_URL = "https://example.com";
+import { SITE_URL } from "@/lib/site-url";
 
 /** URLs públicas oficiais para indexação (sem temporários nem APIs). */
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -101,10 +101,23 @@ function dueloInicial(): { a: string | null; b: string | null } {
 }
 
 export default function Home() {
-  // Ringue começa vazio: o duelo é sempre escolha do utilizador.
-  const [ids, setIds] = useState<{ a: string | null; b: string | null }>(
-    dueloInicial,
-  );
+  // Ringue começa vazio no SSR e hidrata com a escolha guardada
+  // APÓS o mount (evita mismatch de hidration com localStorage).
+  const [ids, setIds] = useState<{ a: string | null; b: string | null }>({
+    a: null,
+    b: null,
+  });
+  const [hidratado, setHidratado] = useState(false);
+  useEffect(() => {
+    // Lê a escolha guardada APÓS o mount (pós-paint): evita o
+    // mismatch de hidratação SSR ↔ localStorage e evita setState
+    // síncrono no corpo do efeito (nota de lint do React 19).
+    const id = requestAnimationFrame(() => {
+      setIds(dueloInicial());
+      setHidratado(true);
+    });
+    return () => cancelAnimationFrame(id);
+  }, []);
   const modelAId = ids.a;
   const modelBId = ids.b;
   const setModelAId = (id: string | null) =>
@@ -153,14 +166,16 @@ export default function Home() {
   );
   const geradoEm = vivo?.generatedAt ?? DATA_GENERATED_AT;
 
-  // Persiste a escolha para as próximas visitas.
+  // Persiste a escolha para as próximas visitas (só depois de
+  // hidratar o duelo guardado, para não o limpar por engano).
   useEffect(() => {
+    if (!hidratado) return;
     try {
       window.localStorage.setItem(LS_DUELO, JSON.stringify(ids));
     } catch {
       /* armazenamento indisponível: segue sem persistir */
     }
-  }, [ids]);
+  }, [ids, hidratado]);
 
   const modelA = useMemo(
     () => (modelAId ? (porId[modelAId] ?? MODELS_BY_ID[modelAId] ?? null) : null),

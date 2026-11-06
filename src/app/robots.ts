@@ -1,7 +1,5 @@
 import type { MetadataRoute } from "next";
-
-/** TROCAR pelo domínio real em produção (ex.: https://seudominio.com). */
-const SITE_URL = "https://example.com";
+import { SITE_URL } from "@/lib/site-url";
 
 /** Robôs: indexação total das páginas públicas (sem áreas privadas). */
 export default function robots(): MetadataRoute.Robots {

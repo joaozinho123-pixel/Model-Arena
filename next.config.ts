@@ -8,7 +8,6 @@ import type { NextConfig } from "next";
  *   scripts externos — XSS via <script src> bloqueado);
  * - imagens de qualquer https (logótipos remotos dos fornecedores);
  * - fetch só para as APIs públicas consumidas (OpenRouter, HN, Dev.to);
- * - áudio só do host do som surpresa (myinstants);
  * - sem frames/objectos (anti-clickjacking, com X-Frame-Options).
  *
  * NÃO ativados de propósito: COEP/CORP (bloqueariam imagens e fetch
@@ -21,7 +20,6 @@ const CSP = [
   "img-src 'self' data: https:",
   "font-src 'self' data:",
   "connect-src 'self' https://openrouter.ai https://hn.algolia.com https://dev.to",
-  "media-src 'self' https://www.myinstants.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

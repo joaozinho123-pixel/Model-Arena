@@ -177,7 +177,7 @@ export function IndicadoresDesempenho({
                 <Bar
                   name={modelA.nomeCurto}
                   dataKey={modelA.nomeCurto}
-                  fill={modelA.cor}
+                  fill={`color-mix(in srgb, ${modelA.cor} 78%, #18181b)`}
                   radius={[5, 5, 0, 0]}
                   barSize={42}
                 >
@@ -192,7 +192,7 @@ export function IndicadoresDesempenho({
                 <Bar
                   name={modelB.nomeCurto}
                   dataKey={modelB.nomeCurto}
-                  fill={modelB.cor}
+                  fill={`color-mix(in srgb, ${modelB.cor} 78%, #18181b)`}
                   radius={[5, 5, 0, 0]}
                   barSize={42}
                 >
