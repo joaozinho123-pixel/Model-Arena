@@ -4,7 +4,9 @@ import { LogoMark } from "@/components/SiteLogo";
 const ANCORA_LINKS = [
   { href: "#comparar", rotulo: "Duelo" },
   { href: "#veredito-titulo", rotulo: "Veredito" },
-  { href: "#kicker-analise", rotulo: "Análise" },
+  { href: "#kicker-fichas", rotulo: "Fichas" },
+  { href: "#kicker-graficos", rotulo: "Indicadores" },
+  { href: "#kicker-tempo-real", rotulo: "Tempo real" },
   { href: "#kicker-rankings", rotulo: "Rankings" },
   { href: "#kicker-catalogo", rotulo: "Catálogo" },
 ] as const;

@@ -32,13 +32,24 @@ import { HeroStats } from "@/components/HeroStats";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
 
-/** Cabeçalho de secção: rótulo pequeno com filete. */
-function Kicker({ id, label }: { id?: string; label: string }) {
+/** Cabeçalho de secção: rótulo pequeno com filete e descrição. */
+function Kicker({
+  id,
+  label,
+  desc,
+}: {
+  id?: string;
+  label: string;
+  desc?: string;
+}) {
   return (
     <div id={id} className="mb-3 scroll-mt-24 border-b border-zinc-200 pb-2.5">
       <h2 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-500">
         {label}
       </h2>
+      {desc && (
+        <p className="mt-1 text-[13px] leading-relaxed text-zinc-500">{desc}</p>
+      )}
     </div>
   );
 }
@@ -314,11 +325,15 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-10 sm:px-6">
-        {/* ===== Comparação ===== */}
+      <main className="mx-auto flex max-w-6xl flex-col gap-14 px-4 py-10 sm:px-6">
+        {/* ===== Duelo (escolha dos modelos) ===== */}
         <section aria-labelledby="kicker-comparar" className="scroll-mt-20">
-          <Kicker id="kicker-comparar" label="Comparação" />
-          <div className="flex flex-col gap-4">
+          <Kicker
+            id="kicker-comparar"
+            label="Duelo"
+            desc="Escolha os dois concorrentes no ringue — ou deixe o sorteio decidir com pares comparáveis."
+          />
+          <div className="flex flex-col gap-4 pt-1">
             <CompareSelectors
               modelA={modelA}
               modelB={modelB}
@@ -327,10 +342,24 @@ export default function Home() {
               onTrocar={trocarLados}
               onAleatorio={sortearDuelo}
             />
+          </div>
+        </section>
+
+        {/* ===== Duelos sugeridos ===== */}
+        <section aria-labelledby="kicker-sugestoes" className="scroll-mt-20">
+          <Kicker
+            id="kicker-sugestoes"
+            label="Duelos sugeridos"
+            desc="Combinações clássicas de categoria: líderes por quesito para começar sem procurar."
+          />
+          <div className="pt-1">
             <CategoryShortcuts
               onSelect={(aId, bId) => {
                 setModelAId(aId);
                 setModelBId(bId);
+                document
+                  .getElementById("comparar")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }}
             />
           </div>
@@ -338,7 +367,11 @@ export default function Home() {
 
         {/* ===== Veredito (placar) ===== */}
         <section aria-labelledby="veredito-titulo">
-          <Kicker id="veredito-titulo" label="Veredito" />
+          <Kicker
+            id="veredito-titulo"
+            label="Veredito"
+            desc="Placar direto nos quesitos com métrica pública comum — sem notas inventadas."
+          />
           {placar && modelA && modelB ? (
             <div
               className="card overflow-hidden"
@@ -465,28 +498,67 @@ export default function Home() {
           )}
         </section>
 
-        {/* ===== Análise detalhada ===== */}
-        <section aria-labelledby="kicker-analise">
-          <Kicker id="kicker-analise" label="Análise" />
-          <div className="flex flex-col gap-5">
+        {/* ===== Fichas ===== */}
+        <section aria-labelledby="kicker-fichas" className="scroll-mt-20">
+          <Kicker
+            id="kicker-fichas"
+            label="Fichas"
+            desc="Identidade, descrição, preço, contexto e ligações oficiais dos dois concorrentes."
+          />
+          <div className="pt-1">
             {modelA && modelB ? (
-              <>
-                <ModelDossier modelA={modelA} modelB={modelB} />
-                <ComparisonTable modelA={modelA} modelB={modelB} />
-                <IndicadoresDesempenho modelA={modelA} modelB={modelB} />
-              </>
+              <ModelDossier modelA={modelA} modelB={modelB} />
             ) : (
               <p className="text-sm text-zinc-400">
-                Selecione os modelos para ver as fichas, a tabela comparativa e
-                os indicadores.
+                Selecione os modelos para ver as fichas.
+              </p>
+            )}
+          </div>
+        </section>
+
+        {/* ===== Tabela comparativa ===== */}
+        <section aria-labelledby="kicker-tabela" className="scroll-mt-20">
+          <Kicker
+            id="kicker-tabela"
+            label="Tabela comparativa"
+            desc="Todos os quesitos lado a lado, com fontes distintas identificadas — só valores nativos."
+          />
+          <div className="pt-1">
+            {modelA && modelB ? (
+              <ComparisonTable modelA={modelA} modelB={modelB} />
+            ) : (
+              <p className="text-sm text-zinc-400">
+                Selecione os modelos para ver a tabela analítica.
+              </p>
+            )}
+          </div>
+        </section>
+
+        {/* ===== Indicadores (gráficos) ===== */}
+        <section aria-labelledby="kicker-graficos" className="scroll-mt-20">
+          <Kicker
+            id="kicker-graficos"
+            label="Indicadores"
+            desc="Gráficos só com confrontos comparáveis: índices AA 0–100 quando os dois têm a métrica, Elos face a face na mesma arena — métricas de um lado ficam listadas, nunca viram barra sola."
+          />
+          <div className="pt-1">
+            {modelA && modelB ? (
+              <IndicadoresDesempenho modelA={modelA} modelB={modelB} />
+            ) : (
+              <p className="text-sm text-zinc-400">
+                Selecione os modelos para ver os gráficos e indicadores.
               </p>
             )}
           </div>
         </section>
 
         {/* ===== Tempo real ===== */}
-        <section aria-labelledby="kicker-tempo-real">
-          <Kicker id="kicker-tempo-real" label="Tempo real" />
+        <section aria-labelledby="kicker-tempo-real" className="scroll-mt-20">
+          <Kicker
+            id="kicker-tempo-real"
+            label="Tempo real"
+            desc="Latência e produtividade medidas ao vivo no endpoint de cada modelo (OpenRouter)."
+          />
           <div className="pt-3">
             {modelA && modelB ? (
               <DesempenhoTempoReal
@@ -504,16 +576,24 @@ export default function Home() {
         </section>
 
         {/* ===== Rankings ===== */}
-        <section aria-labelledby="kicker-rankings">
-          <Kicker id="kicker-rankings" label="Rankings" />
+        <section aria-labelledby="kicker-rankings" className="scroll-mt-20">
+          <Kicker
+            id="kicker-rankings"
+            label="Rankings"
+            desc="Top 10 do catálogo por índice AA de Inteligência, por preço e por contexto — barras na mesma escala dentro de cada ranking."
+          />
           <div className="pt-1">
             <TopModels models={modelos} onAssign={atribuirDoCatalogo} />
           </div>
         </section>
 
         {/* ===== Catálogo ===== */}
-        <section aria-labelledby="kicker-catalogo">
-          <Kicker id="kicker-catalogo" label="Catálogo" />
+        <section aria-labelledby="kicker-catalogo" className="scroll-mt-20">
+          <Kicker
+            id="kicker-catalogo"
+            label="Catálogo"
+            desc="Todos os modelos com descrição, preço e contexto — pesquise, filtre por fornecedor e abra a ficha de cada um."
+          />
           <div className="pt-2">
             <CatalogSection
               models={modelos}

@@ -6,7 +6,8 @@ export function HeroStats({ models }: { models: AIModel[] }) {
   const stats = useMemo(() => {
     const reais = models.filter((m) => m.fonte !== "estimativa").length;
     const fornecedores = new Set(models.map((m) => m.provider)).size;
-    return { modelos: models.length, fornecedores, reais };
+    const gratis = models.filter((m) => m.precoEntrada === 0).length;
+    return { modelos: models.length, fornecedores, reais, gratis };
   }, [models]);
 
   return (
@@ -15,6 +16,7 @@ export function HeroStats({ models }: { models: AIModel[] }) {
         { valor: stats.modelos, rotulo: "modelos no catálogo" },
         { valor: stats.fornecedores, rotulo: "fornecedores" },
         { valor: stats.reais, rotulo: "com benchmarks reais" },
+        { valor: stats.gratis, rotulo: "grátis (US$ 0)" },
       ].map((s) => (
         <div key={s.rotulo}>
           <dt className="sr-only">{s.rotulo}</dt>
