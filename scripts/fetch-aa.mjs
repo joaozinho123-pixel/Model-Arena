@@ -3,7 +3,9 @@
  * `src/data/aa-ratings.json` indexado por id OpenRouter.
  *
  * Uso: `AA_API_KEY=... npm run aa:fetch` (ou chave em `.env`, ignorado no git).
- * Endpoints: /data/llms/models + /data/media/text-to-image + image-editing.
+ * Endpoints V2 (2026): /language/models + /media/text-to-image/models +
+ * /media/image-editing/models — primeiro Pro, com queda para /free
+ * (os legacy /api/v2/data/* devolvem 410 desde 04/11/2026).
  * Sem chave, o script aborta sem tocar nos dados existentes.
  *
  * A correspondência vive em `src/lib/aa-match.mjs` (partilhada com a
@@ -40,14 +42,26 @@ if (!KEY) {
 
 const headers = { "x-api-key": KEY, "User-Agent": "model-arena/1.0" };
 
-async function getJson(url) {
-  const res = await fetch(url, { headers });
-  if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
-  return res.json();
+const AA = "https://artificialanalysis.ai/api/v2";
+
+/** Tenta Pro primeiro e cai para /free se o plano da chave negar. */
+async function getJsonComPlano(paths) {
+  let ultimo = null;
+  for (const url of paths) {
+    const res = await fetch(url, { headers });
+    if (res.ok) return res.json();
+    ultimo = res.status;
+    if (res.status !== 403 && res.status !== 404) {
+      throw new Error(`${url}: HTTP ${res.status}`);
+    }
+  }
+  throw new Error(`HTTP ${ultimo ?? "sem resposta"}`);
 }
 
 console.log("A buscar LLMs…");
-const llms = (await getJson("https://artificialanalysis.ai/api/v2/data/llms/models")).data ?? [];
+const llms =
+  (await getJsonComPlano([`${AA}/language/models`, `${AA}/language/models/free`]))
+    .data ?? [];
 console.log(`  ${llms.length} modelos na AA`);
 
 const catalog = JSON.parse(readFileSync(catalogFile, "utf8"));
@@ -58,14 +72,15 @@ const base = catalog.models
   .map((m) => ({ id: m.id, provider: m.provider }));
 
 // Media: text-to-image + image-editing (Elo real de geração).
-async function fetchMedia(path) {
+async function fetchMedia(tipo) {
   try {
-    const j = await getJson(
-      `https://artificialanalysis.ai/api/v2/data/media/${path}?include_categories=true`,
-    );
+    const j = await getJsonComPlano([
+      `${AA}/media/${tipo}/models`,
+      `${AA}/media/${tipo}/models/free`,
+    ]);
     return j.data ?? [];
   } catch (e) {
-    console.log(`  media/${path}: ${e.message}`);
+    console.log(`  media/${tipo}: ${e.message}`);
     return [];
   }
 }
@@ -102,7 +117,7 @@ writeFileSync(
   outFile,
   JSON.stringify({
     generatedAt: new Date().toISOString(),
-    fonte: "Artificial Analysis free API (/data/llms/models + media)",
+    fonte: "Artificial Analysis V2 API (/language/models + media)",
     count: comDados,
     ratings,
   }),

@@ -9,6 +9,7 @@ import {
 } from "@/data/models";
 import { CATEGORIES } from "@/types/ai-model";
 import type { AIModel } from "@/types/ai-model";
+import { modeloVivoPorId } from "@/lib/modelo-vivo-servidor";
 import {
   formatCompact,
   formatContext,
@@ -28,10 +29,19 @@ interface PageProps {
   params: Promise<{ id: string[] }>;
 }
 
+/**
+ * Ficha pelo id: snapshot embutido primeiro; a faltar, o catálogo ao
+ * vivo (modelos novos que ainda não entraram no snapshot). Só dá 404
+ * quando o modelo não existe em lado nenhum.
+ */
+async function fichaPorId(id: string): Promise<AIModel | null> {
+  return MODELS_BY_ID[id] ?? (await modeloVivoPorId(id));
+}
+
 /** Pré-gera metadados por ficha (título, descrição e OpenGraph). */
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id: segs } = await params;
-  const model = MODELS_BY_ID[segs.join("/")];
+  const model = await fichaPorId(segs.join("/"));
   if (!model) return { title: "Modelo não encontrado · Model Arena" };
   const descricaoCurta =
     model.descricao.length > 150
@@ -79,7 +89,7 @@ function Chip({ children, titulo }: { children: React.ReactNode; titulo?: string
 /** Ficha dedicada de um modelo (render estática, sem estado). */
 export default async function ModelPage({ params }: PageProps) {
   const { id: segs } = await params;
-  const model = MODELS_BY_ID[segs.join("/")];
+  const model = await fichaPorId(segs.join("/"));
   if (!model) notFound();
 
   const m: AIModel = model;
@@ -113,7 +123,7 @@ export default async function ModelPage({ params }: PageProps) {
         {/* Migalha */}
         <p className="flex items-center gap-2 text-sm text-zinc-500">
           <ArrowLeft size={15} aria-hidden="true" />
-          <Link href="/#catalogo" className="transition-colors hover:text-zinc-900">
+          <Link href="/catalogo" className="transition-colors hover:text-zinc-900">
             Catálogo
           </Link>
           <span aria-hidden="true" className="text-zinc-300">/</span>

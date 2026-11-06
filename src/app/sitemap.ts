@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
   return [
     { url: `${SITE_URL}/`, lastModified: agora },
+    { url: `${SITE_URL}/rankings`, lastModified: agora },
+    { url: `${SITE_URL}/catalogo`, lastModified: agora },
     { url: `${SITE_URL}/noticias`, lastModified: agora },
     ...fichas,
   ];

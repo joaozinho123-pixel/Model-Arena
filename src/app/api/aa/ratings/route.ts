@@ -6,6 +6,13 @@
  * O browser pede ESTA rota (same-origin); a rota chama a AA com a
  * chave e devolve SÓ os benchmarks já cruzados com o catálogo.
  *
+ * NOTA DE MIGRAÇÃO (nov/2026): os endpoints legacy `/api/v2/data/*`
+ * foram reformados (410 Gone a 04/11/2026). Usamos agora os V2
+ * documentados, primeiro na variante Pro (mais campos) e, se o plano
+ * da chave a negar (403), na variante Free — a MESMA chave continua
+ * a servir. A AA deixou de publicar os índices de Codificação e de
+ * Agentes (sempre null), por isso só a Inteligência chega nos pares.
+ *
  * Proteções (a quota da chave é do dono do deploy):
  * - URLs a montante FIXAS (nenhum input do utilizador chega à AA);
  * - cache em memória 6h + `s-maxage` (CDN) — o tráfego normal nem
@@ -24,6 +31,33 @@ const TTL_MS = 6 * 60 * 60 * 1000;
 const LIMITE_REQ = 30;
 const JANELA_MS = 60_000;
 const TIMEOUT_MS = 8000;
+
+/**
+ * Tenta os caminhos AA por ordem (Pro → Free): devolve a primeira
+ * resposta 200. `401/403` num caminho passa ao seguinte — a mesma
+ * chave cobre apenas os endpoints do plano contratado.
+ */
+async function getJsonComPlano(
+  paths: string[],
+  headers: Record<string, string>,
+): Promise<{ data?: unknown[] }> {
+  let ultimo: unknown = null;
+  for (const url of paths) {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
+    try {
+      const res = await fetch(url, { headers, signal: ctrl.signal });
+      if (res.ok) return (await res.json()) as { data?: unknown[] };
+      ultimo = res.status;
+      if (res.status === 429) throw new Error(`HTTP ${res.status}`);
+    } finally {
+      clearTimeout(t);
+    }
+  }
+  throw new Error(`HTTP ${String(ultimo ?? "sem resposta")}`);
+}
+
+const AA = "https://artificialanalysis.ai/api/v2";
 
 interface Cacheado {
   corpo: { generatedAt: string; count: number; ratings: unknown };
@@ -57,28 +91,29 @@ function limitado(ip: string): number {
 
 async function buscarAa(key: string): Promise<Cacheado["corpo"]> {
   const headers = { "x-api-key": key, "User-Agent": "model-arena/1.0" };
-  const getJson = async (url: string): Promise<{ data?: unknown[] }> => {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
-    try {
-      const res = await fetch(url, { headers, signal: ctrl.signal });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return (await res.json()) as { data?: unknown[] };
-    } finally {
-      clearTimeout(t);
-    }
-  };
   const [llms, t2i, iee] = await Promise.all([
-    getJson("https://artificialanalysis.ai/api/v2/data/llms/models").then(
-      (j) => j.data ?? [],
-    ),
-    getJson(
-      "https://artificialanalysis.ai/api/v2/data/media/text-to-image?include_categories=true",
+    getJsonComPlano(
+      [
+        `${AA}/language/models`,
+        `${AA}/language/models/free`,
+      ],
+      headers,
+    ).then((j) => j.data ?? []),
+    getJsonComPlano(
+      [
+        `${AA}/media/text-to-image/models`,
+        `${AA}/media/text-to-image/models/free`,
+      ],
+      headers,
     )
       .then((j) => j.data ?? [])
       .catch(() => [] as unknown[]),
-    getJson(
-      "https://artificialanalysis.ai/api/v2/data/media/image-editing?include_categories=true",
+    getJsonComPlano(
+      [
+        `${AA}/media/image-editing/models`,
+        `${AA}/media/image-editing/models/free`,
+      ],
+      headers,
     )
       .then((j) => j.data ?? [])
       .catch(() => [] as unknown[]),

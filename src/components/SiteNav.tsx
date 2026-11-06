@@ -7,22 +7,31 @@ const ANCORA_LINKS = [
   { href: "#kicker-fichas", rotulo: "Fichas" },
   { href: "#kicker-graficos", rotulo: "Indicadores" },
   { href: "#kicker-tempo-real", rotulo: "Tempo real" },
-  { href: "#kicker-rankings", rotulo: "Rankings" },
-  { href: "#kicker-catalogo", rotulo: "Catálogo" },
 ] as const;
+
+/** Páginas próprias (fora da home). */
+const PAGINA_LINKS = [
+  { href: "/rankings", rotulo: "Rankings", chave: "rankings" },
+  { href: "/catalogo", rotulo: "Catálogo", chave: "catalogo" },
+  { href: "/noticias", rotulo: "Notícias", chave: "noticias" },
+] as const;
+
+type Pagina = "inicio" | "rankings" | "catalogo" | "noticias" | "ficha";
 
 /**
  * Navegação fixa partilhada: na página inicial ancora nas secções;
- * nas restantes, volta a "/" antes da âncora. Inclui sempre a
- * ligação para o Radar IA (/noticias).
+ * nas restantes, volta a "/" antes da âncora. Rankings, Catálogo e
+ * Radar IA são páginas próprias do site.
  */
 export function SiteNav({
   pagina,
 }: {
-  pagina: "inicio" | "noticias" | "ficha";
+  pagina: Pagina;
 }) {
   // Nas páginas não-iniciarias, anchors voltam a "/" antes da âncora.
   const base = pagina === "inicio" ? "" : "/";
+  const ativo = (chave: string) =>
+    pagina === chave ? "font-semibold text-zinc-900" : "";
   return (
     <nav
       aria-label="Navegação principal"
@@ -44,17 +53,17 @@ export function SiteNav({
               </a>
             </li>
           ))}
-          <li className="shrink-0">
-            <a
-              href="/noticias"
-              aria-current={pagina === "noticias" ? "page" : undefined}
-              className={`whitespace-nowrap transition-colors hover:text-zinc-900 ${
-                pagina === "noticias" ? "font-semibold text-zinc-900" : ""
-              }`}
-            >
-              Notícias
-            </a>
-          </li>
+          {PAGINA_LINKS.map(({ href, rotulo, chave }) => (
+            <li key={href} className="shrink-0">
+              <a
+                href={href}
+                aria-current={pagina === chave ? "page" : undefined}
+                className={`whitespace-nowrap transition-colors hover:text-zinc-900 ${ativo(chave)}`}
+              >
+                {rotulo}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

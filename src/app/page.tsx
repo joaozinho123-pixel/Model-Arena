@@ -1,23 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { Dices } from "lucide-react";
-import {
-  AI_MODELS,
-  ARENA_PUBLISH_DATE,
-  DATA_COUNT_TOTAL,
-  DATA_GENERATED_AT,
-  MODELS_BY_ID,
-  buildCatalogo,
-  buildProviderOptions,
-} from "@/data/models";
+import { ARENA_PUBLISH_DATE, MODELS_BY_ID } from "@/data/models";
 import { placarConfronto } from "@/lib/comparar";
-import {
-  buscarAaVivo,
-  buscarCatalogoVivo,
-  type AaVivo,
-  type CatalogoVivo,
-} from "@/lib/catalogo-vivo";
+import { useCatalogo } from "@/lib/use-catalogo";
 import { CompareSelectors } from "@/components/CompareSelectors";
 import { CategoryShortcuts } from "@/components/CategoryShortcuts";
 import { ModelPicker } from "@/components/ModelPicker";
@@ -26,8 +14,6 @@ import { ModelDossier } from "@/components/ModelDossier";
 import { ComparisonTable } from "@/components/ComparisonTable";
 import { IndicadoresDesempenho } from "@/components/IndicadoresDesempenho";
 import { DesempenhoTempoReal } from "@/components/DesempenhoTempoReal";
-import { CatalogSection } from "@/components/CatalogSection";
-import { TopModels } from "@/components/TopModels";
 import { HeroStats } from "@/components/HeroStats";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
@@ -95,6 +81,9 @@ function EmptyDuel({
 /** Chave da persistência local do duelo escolhido pelo utilizador. */
 const LS_DUELO = "model-arena-duelo-v1";
 
+/** Formato mínimo de id OpenRouter (provider/modelo). */
+const ID_OK = /^[\w.\-]+\/[\w.\-]+$/;
+
 /** Lê o duelo guardado (ids válidos) ou começa com o ringue vazio. */
 function dueloInicial(): { a: string | null; b: string | null } {
   if (typeof window === "undefined") return { a: null, b: null };
@@ -102,9 +91,9 @@ function dueloInicial(): { a: string | null; b: string | null } {
     const raw = window.localStorage.getItem(LS_DUELO);
     if (!raw) return { a: null, b: null };
     const j = JSON.parse(raw) as { a?: unknown; b?: unknown };
-    const a = typeof j.a === "string" && MODELS_BY_ID[j.a] ? j.a : null;
+    const a = typeof j.a === "string" && ID_OK.test(j.a) ? j.a : null;
     const b =
-      typeof j.b === "string" && MODELS_BY_ID[j.b] && j.b !== a ? j.b : null;
+      typeof j.b === "string" && ID_OK.test(j.b) && j.b !== a ? j.b : null;
     return { a, b };
   } catch {
     return { a: null, b: null };
@@ -131,8 +120,10 @@ export default function Home() {
         const sp = new URLSearchParams(window.location.search);
         const a = sp.get("a");
         const b = sp.get("b");
-        if (a && MODELS_BY_ID[a] && a !== b) inicial.a = a;
-        if (b && MODELS_BY_ID[b] && b !== inicial.a) inicial.b = b;
+        // Aceita ids do snapshot E do catálogo ao vivo: os modelos
+        // novos resolvem depois, quando o catálogo ao vivo carrega.
+        if (a && ID_OK.test(a) && a !== b) inicial.a = a;
+        if (b && ID_OK.test(b) && b !== inicial.a) inicial.b = b;
         if (inicial.a === inicial.b) inicial.b = null;
         if (a || b) {
           document
@@ -155,45 +146,10 @@ export default function Home() {
     setIds((s) => ({ ...s, b: id }));
   const [picker, setPicker] = useState<null | "A" | "B">(null);
 
-  // Dados ao vivo: catálogo OpenRouter (público) + índices AA via
-  // NOSSA rota `/api/aa/ratings` (a chave do servidor nunca chega ao
-  // navegador). Falha graciosa em ambos: mantém o snapshot embutido.
-  const [vivo, setVivo] = useState<CatalogoVivo | null>(null);
-  const [aaVivo, setAaVivo] = useState<AaVivo | null>(null);
-  const [aoVivo, setAoVivo] = useState(false);
-  useEffect(() => {
-    let vivo2 = true;
-    buscarCatalogoVivo().then((snap) => {
-      if (!vivo2 || !snap) return;
-      setVivo(snap);
-      setAoVivo(true);
-    });
-    buscarAaVivo().then((aa) => {
-      if (vivo2 && aa) setAaVivo(aa);
-    });
-    return () => {
-      vivo2 = false;
-    };
-  }, []);
-
-  /** Catálogo efetivo: funde o ao vivo (se houver) com AA ao vivo. */
-  const catalogo = useMemo(
-    () =>
-      vivo
-        ? buildCatalogo(vivo.raw, aaVivo?.ratings)
-        : { models: AI_MODELS, total: DATA_COUNT_TOTAL },
-    [vivo, aaVivo],
-  );
-  const modelos = catalogo.models;
-  const porId = useMemo(
-    () => Object.fromEntries(modelos.map((m) => [m.id, m])),
-    [modelos],
-  );
-  const opcoesFornecedor = useMemo(
-    () => buildProviderOptions(modelos),
-    [modelos],
-  );
-  const geradoEm = vivo?.generatedAt ?? DATA_GENERATED_AT;
+  // Catálogo efetivo (hook partilhado com /rankings e /catalogo):
+  // funde o ao vivo (se houver) com AA ao vivo.
+  const { modelos, porId, opcoesFornecedor, aoVivo, geradoEm } =
+    useCatalogo();
 
   // Persiste a escolha para as próximas visitas (só depois de
   // hidratar o duelo guardado, para não o limpar por engano).
@@ -230,12 +186,6 @@ export default function Home() {
   const trocarLados = () => {
     setModelAId(modelBId);
     setModelBId(modelAId);
-  };
-
-  /** Do catálogo/rankings: atribui ao lado e volta à comparação. */
-  const atribuirDoCatalogo = (slot: "A" | "B", id: string) => {
-    escolher(slot, id);
-    document.getElementById("comparar")?.scrollIntoView({ behavior: "smooth" });
   };
 
   /** Duelo aleatório com confronto real (prefere pares comparáveis). */
@@ -314,6 +264,23 @@ export default function Home() {
               Duelo aleatório
             </button>
           </div>
+
+          <p className="mt-3 text-xs text-zinc-500">
+            Explorar{" "}
+            <Link
+              href="/rankings"
+              className="font-medium text-zinc-700 underline decoration-zinc-300 underline-offset-2 transition-colors hover:text-zinc-900"
+            >
+              Rankings
+            </Link>{" "}
+            ·{" "}
+            <Link
+              href="/catalogo"
+              className="font-medium text-zinc-700 underline decoration-zinc-300 underline-offset-2 transition-colors hover:text-zinc-900"
+            >
+              Catálogo completo
+            </Link>
+          </p>
 
           <HeroStats models={modelos} />
 
@@ -572,34 +539,6 @@ export default function Home() {
                 características ao vivo.
               </p>
             )}
-          </div>
-        </section>
-
-        {/* ===== Rankings ===== */}
-        <section aria-labelledby="kicker-rankings" className="scroll-mt-20">
-          <Kicker
-            id="kicker-rankings"
-            label="Rankings"
-            desc="Top 10 do catálogo por índice AA de Inteligência, por preço e por contexto — barras na mesma escala dentro de cada ranking."
-          />
-          <div className="pt-1">
-            <TopModels models={modelos} onAssign={atribuirDoCatalogo} />
-          </div>
-        </section>
-
-        {/* ===== Catálogo ===== */}
-        <section aria-labelledby="kicker-catalogo" className="scroll-mt-20">
-          <Kicker
-            id="kicker-catalogo"
-            label="Catálogo"
-            desc="Todos os modelos com descrição, preço e contexto — pesquise, filtre por fornecedor e abra a ficha de cada um."
-          />
-          <div className="pt-2">
-            <CatalogSection
-              models={modelos}
-              totalSnapshot={dataSnapshot}
-              onAssign={atribuirDoCatalogo}
-            />
           </div>
         </section>
 
