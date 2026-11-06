@@ -16,6 +16,11 @@ import { CATEGORIES } from "@/types/ai-model";
 import { formatWinRate } from "@/lib/format";
 import { ModelLogo } from "@/components/ModelLogo";
 
+/**
+ * Índices AA 0–100. Nota: desde nov/2026 a AA deixou de publicar os
+ * índices de Codificação e de Agentes (sempre null) — ficam na lista
+ * para o snapshot antigo continuar a render, mas não chegam do vivo.
+ */
 const AA_METRICAS = [
   { key: "intelligence_index", rotulo: "Inteligência" },
   { key: "coding_index", rotulo: "Codificação" },

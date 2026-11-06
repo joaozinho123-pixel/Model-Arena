@@ -44,24 +44,32 @@ const headers = { "x-api-key": KEY, "User-Agent": "model-arena/1.0" };
 
 const AA = "https://artificialanalysis.ai/api/v2";
 
-/** Tenta Pro primeiro e cai para /free se o plano da chave negar. */
-async function getJsonComPlano(paths) {
+/** Tenta Pro primeiro e cai para /free se o plano da chave negar.
+ *  Segue também a paginação (`pagination.has_more`). */
+async function getTodasComPlano(paths) {
   let ultimo = null;
-  for (const url of paths) {
-    const res = await fetch(url, { headers });
-    if (res.ok) return res.json();
-    ultimo = res.status;
-    if (res.status !== 403 && res.status !== 404) {
-      throw new Error(`${url}: HTTP ${res.status}`);
+  for (const urlBase of paths) {
+    const linhas = [];
+    let falhou = false;
+    for (let page = 1; page <= 10 && !falhou; page++) {
+      const res = await fetch(`${urlBase}${page > 1 ? `?page=${page}` : ""}`, { headers });
+      if (!res.ok) {
+        ultimo = res.status;
+        falhou = true;
+        break;
+      }
+      const j = await res.json();
+      linhas.push(...(j.data ?? []));
+      if (!j.pagination?.has_more) break;
     }
+    if (!falhou) return linhas;
   }
   throw new Error(`HTTP ${ultimo ?? "sem resposta"}`);
 }
 
 console.log("A buscar LLMs…");
 const llms =
-  (await getJsonComPlano([`${AA}/language/models`, `${AA}/language/models/free`]))
-    .data ?? [];
+  (await getTodasComPlano([`${AA}/language/models`, `${AA}/language/models/free`]));
 console.log(`  ${llms.length} modelos na AA`);
 
 const catalog = JSON.parse(readFileSync(catalogFile, "utf8"));
@@ -74,11 +82,10 @@ const base = catalog.models
 // Media: text-to-image + image-editing (Elo real de geração).
 async function fetchMedia(tipo) {
   try {
-    const j = await getJsonComPlano([
+    return await getTodasComPlano([
       `${AA}/media/${tipo}/models`,
       `${AA}/media/${tipo}/models/free`,
     ]);
-    return j.data ?? [];
   } catch (e) {
     console.log(`  media/${tipo}: ${e.message}`);
     return [];
@@ -112,6 +119,23 @@ console.log("escalas:", {
   tps: mm(col("tps")),
 });
 
+// Overlay sobre o snapshot anterior (extras medidos antes mantêm-se
+// quando o plano Free não os traz: sem inventar, sem perder).
+let anteriores = {};
+try {
+  const prev = JSON.parse(readFileSync(outFile, "utf8"));
+  anteriores = prev.ratings ?? {};
+} catch {
+  /* sem ficheiro anterior: primeira corrida */
+}
+const merged = { ...anteriores };
+for (const [id, r] of Object.entries(ratings)) {
+  const antes = anteriores[id];
+  merged[id] = antes
+    ? { ...antes, ...r, extras: { ...antes.extras, ...r.extras } }
+    : r;
+}
+
 mkdirSync(dirname(outFile), { recursive: true });
 writeFileSync(
   outFile,
@@ -119,7 +143,7 @@ writeFileSync(
     generatedAt: new Date().toISOString(),
     fonte: "Artificial Analysis V2 API (/language/models + media)",
     count: comDados,
-    ratings,
+    ratings: merged,
   }),
 );
 console.log(`OK: ${comDados} modelos com dados em ${outFile} (t2i matches: ${t2iMatches})`);

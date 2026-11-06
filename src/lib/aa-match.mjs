@@ -65,23 +65,30 @@ const CORE_KEYS = [
   "artificial_analysis_math_index",
   "artificial_analysis_agentic_index",
 ];
-const EXTRA_KEYS = [
-  "mmlu_pro",
-  "gpqa",
-  "hle",
-  "livecodebench",
-  "scicode",
-  "math_500",
-  "aime",
-  "aime_25",
-  "ifbench",
-  "lcr",
-  "terminalbench_hard",
-  "terminalbench_v2_1",
-  "tau2",
-  "tau_banking",
-];
+/**
+ * Extras: nome no SITE -> chaves candidatas na API da AA (a V2 de
+ * nov/2026 renomeou várias: `gpqa_diamond`, `aa_lcr`, `mmmu_pro`…).
+ * Admite as duas grafias e ignora as reformadas.
+ */
+const EXTRA_MAP = {
+  mmlu_pro: ["mmlu_pro", "mmmu_pro"],
+  gpqa: ["gpqa", "gpqa_diamond"],
+  hle: ["hle"],
+  scicode: ["scicode"],
+  ifbench: ["ifbench"],
+  lcr: ["lcr", "aa_lcr"],
+  terminalbench_hard: ["terminalbench_hard"],
+  terminalbench_v2_1: ["terminalbench_v2_1"],
+  tau_banking: ["tau_banking"],
+};
+/** Todas as chaves que podem trazer extras (contagem de completude). */
+const EXTRAS_KEYS = Object.values(EXTRA_MAP).flat();
 const num = (v) => (typeof v === "number" && Number.isFinite(v) ? v : null);
+
+/** Nome do criador na API V2 (só `name`, sem `slug`). */
+const creatorDe = (row) => row?.model_creator?.name ?? "";
+/** Performance: na V2 vive dentro de `performance` (ainda aceita top-level). */
+const perfDe = (row) => row?.performance ?? row ?? {};
 
 // Aliases curados media AA -> id OpenRouter. Só com dupla corroboração:
 // o próprio OpenRouter nomeia estes ids "Nano Banana 2" e "Nano Banana
@@ -120,7 +127,7 @@ export function buildAaRatings(llms, mediaRows, base) {
   const misses = new Set();
   for (const row of llms) {
     const slug = norm(row.slug);
-    const providers = providersFor(base, row.model_creator?.slug ?? "");
+    const providers = providersFor(base, creatorDe(row));
     let placed = false;
     // depth 0: exata · 1: sem sufixo de esforço · 2: mesmos tokens.
     const cands = [
@@ -155,7 +162,7 @@ export function buildAaRatings(llms, mediaRows, base) {
         }
         if (placed) break;
       }
-      if (!placed) misses.add(`${row.model_creator?.slug} :: ${row.slug}`);
+      if (!placed) misses.add(`${creatorDe(row)} :: ${row.slug}`);
     }
   }
 
@@ -167,19 +174,20 @@ export function buildAaRatings(llms, mediaRows, base) {
       // linhas parciais cujo índice não é comparável ao das completas.
       // 2º menor esforço (base/low): não inflaciona entre iguais.
       const ca =
-        [...CORE_KEYS, ...EXTRA_KEYS].filter((k) => a.row.evaluations?.[k] != null)
-          .length + (a.row.median_output_tokens_per_second != null ? 1 : 0);
+        [...CORE_KEYS, ...EXTRAS_KEYS].filter((k) => a.row.evaluations?.[k] != null)
+          .length + (num(perfDe(a.row).median_output_tokens_per_second) != null ? 1 : 0);
       const cb =
-        [...CORE_KEYS, ...EXTRA_KEYS].filter((k) => b.row.evaluations?.[k] != null)
-          .length + (b.row.median_output_tokens_per_second != null ? 1 : 0);
+        [...CORE_KEYS, ...EXTRAS_KEYS].filter((k) => b.row.evaluations?.[k] != null)
+          .length + (num(perfDe(b.row).median_output_tokens_per_second) != null ? 1 : 0);
       if (ca !== cb) return cb - ca;
       if (a.weight !== b.weight) return a.weight - b.weight;
       return 0;
     });
     const { row, effort } = linhas[0];
     const ev = row.evaluations ?? {};
+    const perf = perfDe(row);
     const rec = { aaSlug: row.slug, effort };
-    for (const k of [...CORE_KEYS, ...EXTRA_KEYS]) {
+    for (const k of CORE_KEYS) {
       const v = num(ev[k]);
       if (v != null) rec[k.replace("artificial_analysis_", "").replace("_index", "")] = v;
     }
@@ -189,13 +197,19 @@ export function buildAaRatings(llms, mediaRows, base) {
     if (rec.coding != null) short.coding = rec.coding;
     if (rec.math != null) short.math = rec.math;
     if (rec.agentic != null) short.agentic = rec.agentic;
-    const tpsRaw = num(row.median_output_tokens_per_second);
+    const tpsRaw = num(perf.median_output_tokens_per_second);
     const tps = tpsRaw != null && tpsRaw > 0 ? tpsRaw : null;
-    const ttftRaw = num(row.median_time_to_first_token_seconds);
+    const ttftRaw = num(perf.median_time_to_first_token_seconds);
     const ttft = ttftRaw != null && ttftRaw > 0 ? ttftRaw : null;
     const extras = {};
-    for (const k of ["mmlu_pro", "gpqa", "hle", "livecodebench", "scicode", "math_500", "aime", "aime_25", "ifbench", "lcr", "terminalbench_hard", "terminalbench_v2_1", "tau2", "tau_banking"]) {
-      if (num(ev[k]) != null) extras[k] = ev[k];
+    for (const [nome, chaves] of Object.entries(EXTRA_MAP)) {
+      for (const k of chaves) {
+        const v = num(ev[k]);
+        if (v != null) {
+          extras[nome] = v;
+          break;
+        }
+      }
     }
     if (
       Object.keys(short).length === 0 &&
@@ -218,7 +232,7 @@ export function buildAaRatings(llms, mediaRows, base) {
     if (aliasId && baseIds.has(aliasId)) {
       hit = aliasId;
     } else {
-      for (const provider of providersFor(base, row.model_creator?.slug ?? row.model_creator?.name ?? "")) {
+      for (const provider of providersFor(base, creatorDe(row))) {
         hit = index.get(`${provider}||${slug}`) ?? index.get(`${provider}||${effortStrip(slug)}`);
         if (hit) break;
       }

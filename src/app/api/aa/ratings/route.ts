@@ -22,6 +22,7 @@
  * - sem chave configurada → 503 e o site usa o snapshot embutido.
  */
 import { buildAaRatings } from "@/lib/aa-match.mjs";
+import { AA_DIRECT } from "@/data/models";
 import DATA from "@/data/openrouter-models.json" with { type: "json" };
 
 // Nunca pré-renderizar (evita 503 cozido no build sem chave).
@@ -33,28 +34,51 @@ const JANELA_MS = 60_000;
 const TIMEOUT_MS = 8000;
 
 /**
- * Tenta os caminhos AA por ordem (Pro → Free): devolve a primeira
- * resposta 200. `401/403` num caminho passa ao seguinte — a mesma
- * chave cobre apenas os endpoints do plano contratado.
+ * Percorre os caminhos AA por ordem (Pro → Free): devolve as linhas do
+ * primeiro que responder 200. `401/403`/outro erro passa ao caminho
+ * seguinte — a mesma chave cobre apenas os endpoints do plano. A
+ * lista V2 é paginada (`pagination.has_more`); seguem-se as páginas.
  */
-async function getJsonComPlano(
+async function getTodasComPlano(
   paths: string[],
   headers: Record<string, string>,
-): Promise<{ data?: unknown[] }> {
+): Promise<unknown[]> {
   let ultimo: unknown = null;
-  for (const url of paths) {
+  for (const urlBase of paths) {
+    const r = await getPaginas(urlBase, headers, 10);
+    if (r.ok) return r.linhas;
+    ultimo = r.ultimo;
+  }
+  throw new Error(`HTTP ${String(ultimo ?? "sem resposta")}`);
+}
+
+/** Busca todas as páginas de um caminho (até `maxPaginas` por segurança). */
+async function getPaginas(
+  urlBase: string,
+  headers: Record<string, string>,
+  maxPaginas: number,
+): Promise<
+  { ok: true; linhas: unknown[] } | { ok: false; ultimo: unknown }
+> {
+  const linhas: unknown[] = [];
+  for (let page = 1; page <= maxPaginas; page++) {
+    const url = `${urlBase}${page > 1 ? `?page=${page}` : ""}`;
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
     try {
       const res = await fetch(url, { headers, signal: ctrl.signal });
-      if (res.ok) return (await res.json()) as { data?: unknown[] };
-      ultimo = res.status;
-      if (res.status === 429) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) return { ok: false, ultimo: res.status };
+      const j = (await res.json()) as {
+        data?: unknown[];
+        pagination?: { has_more?: boolean };
+      };
+      linhas.push(...(j.data ?? []));
+      if (!j.pagination?.has_more) break;
     } finally {
       clearTimeout(t);
     }
   }
-  throw new Error(`HTTP ${String(ultimo ?? "sem resposta")}`);
+  return { ok: true, linhas };
 }
 
 const AA = "https://artificialanalysis.ai/api/v2";
@@ -92,31 +116,24 @@ function limitado(ip: string): number {
 async function buscarAa(key: string): Promise<Cacheado["corpo"]> {
   const headers = { "x-api-key": key, "User-Agent": "model-arena/1.0" };
   const [llms, t2i, iee] = await Promise.all([
-    getJsonComPlano(
-      [
-        `${AA}/language/models`,
-        `${AA}/language/models/free`,
-      ],
+    getTodasComPlano(
+      [`${AA}/language/models`, `${AA}/language/models/free`],
       headers,
-    ).then((j) => j.data ?? []),
-    getJsonComPlano(
+    ),
+    getTodasComPlano(
       [
         `${AA}/media/text-to-image/models`,
         `${AA}/media/text-to-image/models/free`,
       ],
       headers,
-    )
-      .then((j) => j.data ?? [])
-      .catch(() => [] as unknown[]),
-    getJsonComPlano(
+    ).catch(() => [] as unknown[]),
+    getTodasComPlano(
       [
         `${AA}/media/image-editing/models`,
         `${AA}/media/image-editing/models/free`,
       ],
       headers,
-    )
-      .then((j) => j.data ?? [])
-      .catch(() => [] as unknown[]),
+    ).catch(() => [] as unknown[]),
   ]);
   const base = (
     (DATA as { models?: { id: string; provider: string }[] }).models ?? []
@@ -135,10 +152,19 @@ async function buscarAa(key: string): Promise<Cacheado["corpo"]> {
     mediaRows as Parameters<typeof buildAaRatings>[1],
     base,
   );
+  // Camada viva fina (plano Free) preserva os extras já medidos no
+  // snapshot: sobrepõe campo a campo, sem inventar dados.
+  const merged: Record<string, unknown> = { ...AA_DIRECT };
+  for (const [id, r] of Object.entries(ratings)) {
+    const antes = AA_DIRECT[id];
+    merged[id] = antes
+      ? { ...antes, ...r, extras: { ...antes.extras, ...r.extras } }
+      : r;
+  }
   return {
     generatedAt: new Date().toISOString(),
     count: comDados,
-    ratings,
+    ratings: merged,
   };
 }
 

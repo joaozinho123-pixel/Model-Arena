@@ -110,7 +110,7 @@ export interface AADirectEntry {
   effort?: string;
   t2i?: { elo: number; rank: number | null; via?: string } | null;
 }
-const AA_DIRECT = (AA_DIRECT_DATA as unknown as { ratings?: Record<string, AADirectEntry> }).ratings ?? {};
+export const AA_DIRECT = (AA_DIRECT_DATA as unknown as { ratings?: Record<string, AADirectEntry> }).ratings ?? {};
 
 /** Data de publicação do leaderboard LMArena (para a UI). */
 export const ARENA_PUBLISH_DATE = ARENA.publishDate ?? "";
