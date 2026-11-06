@@ -8,6 +8,7 @@ import { buildProviderOptions } from "@/data/models";
 import { formatContext, formatPrice } from "@/lib/format";
 import { headline } from "@/lib/comparar";
 import { ModelLogo } from "@/components/ModelLogo";
+import { CapabilityChips } from "@/components/CapabilityChips";
 
 const PAGE = 96;
 
@@ -141,6 +142,8 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
             <p title={m.descricao} className="mt-2.5 line-clamp-2 text-[13px] leading-relaxed text-zinc-500">
               {m.descricao || "Sem descrição no catálogo."}
             </p>
+
+            <CapabilityChips model={m} className="mt-2" />
 
             <dl className="mt-3 flex items-center justify-between border-t border-zinc-100 pt-3 text-xs">
               <div>

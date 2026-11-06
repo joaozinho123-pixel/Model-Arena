@@ -172,6 +172,38 @@ body {
   border-radius: 0.375rem;
 }
 
+/* Pílula de informação compacta (capacidades, extras). */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.375rem;
+  background: #f4f4f5;
+  padding: 0.125rem 0.375rem;
+  font-size: 11px;
+  line-height: 1.35;
+  color: #52525b;
+}
+
+/* Resumo <details> (nota metodológica): marcador discreto. */
+summary {
+  cursor: pointer;
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary::before {
+  content: "+";
+  display: inline-block;
+  width: 1rem;
+  color: #a1a1aa;
+  font-weight: 600;
+}
+details[open] summary::before {
+  content: "−";
+}
+
 /* Modal: fade simples, sem zoom nem blur. */
 .overlay-fade {
   animation: fadeIn 0.15s ease-out both;

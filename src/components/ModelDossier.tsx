@@ -7,6 +7,7 @@ import type { AIModel } from "@/types/ai-model";
 import { formatCompact, formatContext, formatPrice, modalityLabel } from "@/lib/format";
 import { headline } from "@/lib/comparar";
 import { ModelLogo } from "@/components/ModelLogo";
+import { CapabilityChips } from "@/components/CapabilityChips";
 
 /** Ficha de um modelo: identidade, descrição e dados essenciais. */
 function DossierCard({ model, badge }: { model: AIModel; badge: "A" | "B" }) {
@@ -70,6 +71,8 @@ function DossierCard({ model, badge }: { model: AIModel; badge: "A" | "B" }) {
       ) : (
         <p className="mt-3 text-[13px] text-zinc-500">Sem descrição no catálogo.</p>
       )}
+
+      <CapabilityChips model={model} className="mt-3" />
 
       <dl className="mt-4 grid grid-cols-3 gap-x-4 gap-y-2 border-t border-zinc-200 pt-3.5">
         <div>

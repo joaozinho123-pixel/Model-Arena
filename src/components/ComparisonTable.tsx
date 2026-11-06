@@ -4,6 +4,22 @@ import {
 } from "@/types/ai-model";
 import { formatContext, formatPrice, modalityLabel } from "@/lib/format";
 import { placarConfronto, valorNativo, vencedorQuesito } from "@/lib/comparar";
+import { Check } from "lucide-react";
+
+/** Marca de capacidade: ✓ quando suportada, — quando não (dado real). */
+function Marca({ sim }: { sim: boolean }) {
+  return sim ? (
+    <Check
+      size={15}
+      aria-hidden="true"
+      className="ml-auto inline-block text-zinc-900"
+    />
+  ) : (
+    <span title="Não suportado" className="nodata">
+      —
+    </span>
+  );
+}
 
 /**
  * Tabela em três colunas: benchmarks nativos (5 quesitos) +
@@ -219,13 +235,74 @@ export function ComparisonTable({ modelA, modelB }: ComparisonTableProps) {
                 {modelB.modalidades.saida.map(modalityLabel).join(" + ")}
               </td>
             </tr>
+
+            {/* Secção capacidades — dados reais do catálogo OpenRouter */}
+            <tr className="border-t border-zinc-200 bg-zinc-50">
+              <th
+                scope="row"
+                colSpan={3}
+                className="px-5 py-2 text-[11px] font-medium text-zinc-400"
+              >
+                Capacidades · catálogo OpenRouter · não contam no placar
+              </th>
+            </tr>
+
+            {(
+              [
+                {
+                  rotulo: "Ferramentas",
+                  descricao: "Function calling / tool use",
+                  a: modelA.ferramentas,
+                  b: modelB.ferramentas,
+                },
+                {
+                  rotulo: "Saída estruturada",
+                  descricao: "JSON com esquema definido",
+                  a: modelA.saidaEstruturada,
+                  b: modelB.saidaEstruturada,
+                },
+                {
+                  rotulo: "Raciocínio",
+                  descricao: "Modelo de reasoning",
+                  a: modelA.raciocinio,
+                  b: modelB.raciocinio,
+                },
+                {
+                  rotulo: "Pesos abertos",
+                  descricao: "Open-weight no Hugging Face",
+                  a: modelA.hf != null,
+                  b: modelB.hf != null,
+                },
+              ] as const
+            ).map((row) => (
+              <tr
+                key={row.rotulo}
+                className="border-t border-zinc-100 transition-colors hover:bg-zinc-50"
+              >
+                <th scope="row" className="px-5 py-3 text-left">
+                  <span className="block font-medium text-zinc-900">
+                    {row.rotulo}
+                  </span>
+                  <span className="block text-xs font-normal text-zinc-400">
+                    {row.descricao}
+                  </span>
+                </th>
+                <td className="px-5 py-3 text-right">
+                  <Marca sim={row.a} />
+                </td>
+                <td className="px-5 py-3 text-right">
+                  <Marca sim={row.b} />
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
 
       <p className="border-t border-zinc-200 px-5 py-3 text-xs text-zinc-400">
         Índices Artificial Analysis, Elo Design Arena e Elo LMArena em valores
-        nativos · — indica ausência de dado público.
+        nativos · capacidades segundo o catálogo OpenRouter · — indica
+        ausência de dado público.
       </p>
     </section>
   );

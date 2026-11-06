@@ -2,10 +2,11 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { Dices } from "lucide-react";
+import { BarChart3, Dices, Gauge, Table2, Users } from "lucide-react";
 import { ARENA_PUBLISH_DATE, MODELS_BY_ID } from "@/data/models";
 import { placarConfronto } from "@/lib/comparar";
 import { useCatalogo } from "@/lib/use-catalogo";
+import { EmptyState } from "@/components/EmptyState";
 import { CompareSelectors } from "@/components/CompareSelectors";
 import { CategoryShortcuts } from "@/components/CategoryShortcuts";
 import { ModelPicker } from "@/components/ModelPicker";
@@ -476,9 +477,11 @@ export default function Home() {
             {modelA && modelB ? (
               <ModelDossier modelA={modelA} modelB={modelB} />
             ) : (
-              <p className="text-sm text-zinc-400">
-                Selecione os modelos para ver as fichas.
-              </p>
+              <EmptyState
+                icone={Users}
+                titulo="Nenhum modelo selecionado"
+                dica="Escolha dois concorrentes no Duelo acima para ver as fichas."
+              />
             )}
           </div>
         </section>
@@ -494,9 +497,11 @@ export default function Home() {
             {modelA && modelB ? (
               <ComparisonTable modelA={modelA} modelB={modelB} />
             ) : (
-              <p className="text-sm text-zinc-400">
-                Selecione os modelos para ver a tabela analítica.
-              </p>
+              <EmptyState
+                icone={Table2}
+                titulo="Tabela vazia"
+                dica="A tabela comparativa aparece quando os dois lados do duelo estiverem escolhidos."
+              />
             )}
           </div>
         </section>
@@ -512,9 +517,11 @@ export default function Home() {
             {modelA && modelB ? (
               <IndicadoresDesempenho modelA={modelA} modelB={modelB} />
             ) : (
-              <p className="text-sm text-zinc-400">
-                Selecione os modelos para ver os gráficos e indicadores.
-              </p>
+              <EmptyState
+                icone={BarChart3}
+                titulo="Sem gráficos para mostrar"
+                dica="Os indicadores só comparam métricas iguais dos dois lados — escolha o par para ver as barras."
+              />
             )}
           </div>
         </section>
@@ -534,10 +541,11 @@ export default function Home() {
                 modelB={modelB}
               />
             ) : (
-              <p className="text-sm text-zinc-400">
-                Selecione os modelos para ver latência, produtividade e
-                características ao vivo.
-              </p>
+              <EmptyState
+                icone={Gauge}
+                titulo="Medições ao vivo em pausa"
+                dica="Latência e produtividade são lidas no endpoint de cada modelo quando o par está escolhido."
+              />
             )}
           </div>
         </section>

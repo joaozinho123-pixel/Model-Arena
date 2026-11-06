@@ -10,6 +10,7 @@ import {
 import { CATEGORIES } from "@/types/ai-model";
 import type { AIModel } from "@/types/ai-model";
 import { modeloVivoPorId } from "@/lib/modelo-vivo-servidor";
+import { CapabilityChips } from "@/components/CapabilityChips";
 import {
   formatCompact,
   formatContext,
@@ -204,6 +205,8 @@ export default async function ModelPage({ params }: PageProps) {
               </dd>
             </div>
           </dl>
+
+          <CapabilityChips model={m} className="mt-3" />
 
           {/* CTAs para o duelo */}
           <div className="flex flex-wrap gap-2 border-t border-zinc-200 pt-4">

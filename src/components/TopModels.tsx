@@ -1,16 +1,21 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Brain, Boxes, Coins } from "lucide-react";
 import type { AIModel } from "@/types/ai-model";
 import { formatContext, formatPrice } from "@/lib/format";
 import { ModelLogo } from "@/components/ModelLogo";
 
 type Tab = "benchmark" | "preco" | "contexto";
 
-const TABS: { id: Tab; rotulo: string }[] = [
-  { id: "benchmark", rotulo: "Melhor benchmark" },
-  { id: "preco", rotulo: "Menor preço" },
-  { id: "contexto", rotulo: "Maior contexto" },
+const TABS: {
+  id: Tab;
+  rotulo: string;
+  icone: typeof Brain;
+}[] = [
+  { id: "benchmark", rotulo: "Melhor benchmark", icone: Brain },
+  { id: "preco", rotulo: "Menor preço", icone: Coins },
+  { id: "contexto", rotulo: "Maior contexto", icone: Boxes },
 ];
 
 /** Top 10 do catálogo em 3 rankings, sem pódio nem brilhos. */
@@ -67,6 +72,47 @@ export function TopModels({
     return precos.map((p) => (max === min ? 1 : (max - p) / (max - min)));
   }, [stats, tab, top]);
 
+  // Distância ao líder do grupo (contexto informativo, não inventa).
+  const distancias = useMemo(() => {
+    if (top.length < 2) return top.map(() => null);
+    if (tab === "benchmark") {
+      const indice = (m: AIModel) => m.aa?.intelligence_index;
+      const lider = top.reduce(
+        (best, m) =>
+          (indice(m) ?? -Infinity) > (indice(best) ?? -Infinity) ? m : best,
+        top[0]!,
+      );
+      return top.map((m) => {
+        const a = indice(m);
+        const b = indice(lider);
+        if (a == null || b == null) return null;
+        return Math.round((b - a) * 10) / 10;
+      });
+    }
+    if (tab === "contexto") {
+      const lider = top[0]!;
+      return top.map((m) =>
+        m.contexto === lider.contexto ? null : lider.contexto - m.contexto,
+      );
+    }
+    // Preço: distância ao mais barato do grupo.
+    const lider = top.reduce(
+      (best, m) => (m.precoEntrada < best.precoEntrada ? m : best),
+      top[0]!,
+    );
+    return top.map((m) =>
+      m.precoEntrada === lider.precoEntrada ? null : m.precoEntrada - lider.precoEntrada,
+    );
+  }, [top, tab]);
+
+  function distanciaTexto(i: number): string | null {
+    const d = distancias[i];
+    if (d == null || d === 0) return null;
+    if (tab === "benchmark") return `−${Math.abs(d).toLocaleString("pt-PT")} pts`;
+    if (tab === "contexto") return `−${formatContext(d)} tokens`;
+    return `+${formatPrice(d)}/M`;
+  }
+
   return (
     <section aria-label="Rankings do catálogo" className="card p-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -82,21 +128,25 @@ export function TopModels({
           aria-label="Critério do ranking"
           className="flex gap-1 rounded-lg border border-zinc-200 bg-white p-1"
         >
-          {TABS.map((t) => (
-            <button
-              key={t.id}
-              role="tab"
-              aria-selected={tab === t.id}
-              onClick={() => setTab(t.id)}
-              className={`rounded-md px-3 py-1.5 text-xs font-medium transition ${
-                tab === t.id
-                  ? "bg-zinc-900 text-white"
-                  : "text-zinc-500 hover:text-zinc-900"
-              }`}
-            >
-              {t.rotulo}
-            </button>
-          ))}
+          {TABS.map((t) => {
+            const Icon = t.icone;
+            return (
+              <button
+                key={t.id}
+                role="tab"
+                aria-selected={tab === t.id}
+                onClick={() => setTab(t.id)}
+                className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition ${
+                  tab === t.id
+                    ? "bg-zinc-900 text-white"
+                    : "text-zinc-500 hover:text-zinc-900"
+                }`}
+              >
+                <Icon size={13} aria-hidden="true" />
+                {t.rotulo}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -123,6 +173,17 @@ export function TopModels({
             <span className="min-w-0 flex-1">
               <span className="block truncate text-sm font-medium text-zinc-900">
                 {m.nomeCurto}
+              </span>
+              <span className="mt-0.5 flex items-center gap-2 text-[11px] text-zinc-400">
+                <span className="truncate">{m.empresa}</span>
+                {distanciaTexto(i) && (
+                  <span
+                    className="shrink-0 rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] text-zinc-500 tabular-nums"
+                    title="Distância ao líder deste ranking"
+                  >
+                    {distanciaTexto(i)}
+                  </span>
+                )}
               </span>
               <span
                 aria-hidden="true"

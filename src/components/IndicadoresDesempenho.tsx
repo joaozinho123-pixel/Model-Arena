@@ -28,39 +28,64 @@ const AA_METRICAS = [
   { key: "agentic_index", rotulo: "Agentes" },
 ] as const;
 
-/** Tooltip branco, sóbrio (linha opcional extra). */
+/** Info de marca do tooltip: nome → logótipo do fornecedor. */
+type LogoInfo = { nome: string; cor: string; dominioLogo?: string };
+
+/** Tooltip branco, sóbrio: logótipos, valores e a diferença do par. */
 function TooltipConteudo({
   active,
   payload,
   label,
   extra,
+  logos,
 }: {
   active?: boolean;
   payload?: { name?: string; value?: number | string | null; color?: string }[];
   label?: string;
   extra?: string | null;
+  logos?: LogoInfo[];
 }) {
   if (!active || !payload?.length) return null;
+  const porNome = new Map((logos ?? []).map((l) => [l.nome, l]));
+  const linhas = payload.filter((p) => p.value != null);
+  const nums = linhas
+    .map((p) => Number(p.value))
+    .filter((n) => Number.isFinite(n));
+  const delta =
+    nums.length === 2 ? Math.abs(nums[0] - nums[1]) : null;
   return (
     <div className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-xs shadow-sm">
       <p className="mb-1 font-medium text-zinc-900">{label}</p>
       {extra && <p className="mb-1 text-[11px] text-zinc-400">{extra}</p>}
-      {payload
-        .filter((p) => p.value != null)
-        .map((p) => (
+      {linhas.map((p) => {
+        const logo = porNome.get(p.name ?? "");
+        return (
           <p
             key={p.name}
             className="flex items-center gap-1.5 tabular-nums text-zinc-600"
           >
-            <span
-              aria-hidden="true"
-              className="inline-block h-2 w-2 rounded-full"
-              style={{ backgroundColor: p.color }}
-            />
+            {logo && (
+              <ModelLogo
+                nome={logo.nome}
+                dominio={logo.dominioLogo}
+                cor={logo.cor}
+                tamanho={16}
+              />
+            )}
             {p.name}:{" "}
             <strong className="font-medium text-zinc-900">{p.value}</strong>
           </p>
-        ))}
+        );
+      })}
+      {delta != null && delta > 0 && (
+        <p className="mt-1 border-t border-zinc-100 pt-1 text-[11px] text-zinc-500">
+          diferença de{" "}
+          <strong className="font-medium text-zinc-900">
+            {Math.round(delta * 10) / 10}
+          </strong>{" "}
+          pontos
+        </p>
+      )}
     </div>
   );
 }
@@ -84,6 +109,69 @@ function Legenda({ modelA, modelB }: { modelA: AIModel; modelB: AIModel }) {
   );
 }
 
+/** Rótulo sobre a barra: valor, logótipo e marca de vencedor. */
+function BarLabel(props: {
+  x?: number | string;
+  y?: number | string;
+  width?: number | string;
+  value?: number | string | boolean | null;
+  index?: number;
+  /** Modelo desta série. */
+  modelo: AIModel;
+  /** Valor do par no grupo (null se não há par completo). */
+  par: number | null;
+  /** Vencedor do grupo ("A", "B" ou null em empate). */
+  vencedor: "A" | "B" | null;
+  lado: "A" | "B";
+  /** Casas decimais (AA mostra decimal; Elo arredonda). */
+  casas?: number;
+}) {
+  const { x, y, width, value, modelo, par, vencedor, lado, casas = 0 } = props;
+  const num = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(num)) return null;
+  const nx = Number(x);
+  const ny = Number(y);
+  const nw = Number(width);
+  if (!Number.isFinite(nx) || !Number.isFinite(ny)) return null;
+  const cx = nx + (Number.isFinite(nw) ? nw / 2 : 21);
+  const texto =
+    casas > 0 ? num.toFixed(casas) : String(Math.round(num));
+  const ganhou = vencedor === lado;
+  return (
+    <g>
+      {/* Logótipo do fornecedor por cima do valor */}
+      {modelo.dominioLogo ? (
+        <image
+          href={modelo.dominioLogo}
+          x={cx - 7}
+          y={ny - 20}
+          width={14}
+          height={14}
+          preserveAspectRatio="xMidYMid meet"
+        />
+      ) : (
+        <circle cx={cx} cy={ny - 13} r={5} fill={modelo.cor} />
+      )}
+      <text
+        x={cx}
+        y={ny - 3}
+        textAnchor="middle"
+        fontSize={11}
+        fontWeight={ganhou ? 700 : 500}
+        fill={ganhou ? "#18181b" : "#52525b"}
+      >
+        {texto}
+      </text>
+      {ganhou && par != null && (
+        <path
+          d={`M ${cx - 4} ${ny + 1} L ${cx + 4} ${ny + 1} L ${cx} ${ny + 7} Z`}
+          fill="#18181b"
+        />
+      )}
+    </g>
+  );
+}
+
 /**
  * Indicadores de desempenho em valores NATIVOS, divididos em três
  * blocos: (1) índices AA 0–100 só com pares completos — métricas que
@@ -99,23 +187,25 @@ export function IndicadoresDesempenho({
   modelB: AIModel;
 }) {
   // ===== AA: pares completos (0–100) e métricas de um lado =====
-  const { aaPares, aaSolo } = useMemo(() => {
+  const { aaPares,aaSolo } = useMemo(() => {
     const pares: {
       metrica: string;
+      vA: number;
+      vB: number;
+      vencedor: "A" | "B" | null;
       [nome: string]: string | number | null;
     }[] = [];
-    const solo: {
-      rotulo: string;
-      lado: "A" | "B";
-      valor: number;
-      nome: string;
-    }[] = [];
+    const solo: { rotulo: string; lado: "A" | "B"; valor: number; nome: string }[] =
+      [];
     for (const { key, rotulo } of AA_METRICAS) {
       const va = modelA.aa?.[key];
       const vb = modelB.aa?.[key];
-      if (va != null && vb != null) {
+      if (typeof va === "number" && typeof vb === "number") {
         pares.push({
           metrica: rotulo,
+          vA: va,
+          vB: vb,
+          vencedor: va === vb ? null : va > vb ? "A" : "B",
           [modelA.nomeCurto]: va,
           [modelB.nomeCurto]: vb,
         });
@@ -132,7 +222,7 @@ export function IndicadoresDesempenho({
         );
       }
     }
-    return { aaPares: pares, aaSolo: solo };
+    return { aaPares: pares,aaSolo: solo };
   }, [modelA, modelB]);
 
   // ===== Design Arena: cruzamento por categoria/arena =====
@@ -202,10 +292,111 @@ export function IndicadoresDesempenho({
       }
     }
     // Ordena pela diferença absoluta (confrontos mais disputados em cima).
-    return linhas.sort(
-      (x, y) => Math.abs(y.eloA - y.eloB) - Math.abs(x.eloA - x.eloB),
-    );
+    return linhas
+      .map((r) => ({
+        ...r,
+        vencedor: r.eloA === r.eloB ? null : r.eloA > r.eloB ? "A" : "B",
+        metrica: r.rotulo,
+        [modelA.nomeCurto]: Math.round(r.eloA),
+        [modelB.nomeCurto]: Math.round(r.eloB),
+      }) as {
+        metrica: string;
+        rotulo: string;
+        sub: string;
+        vencedor: "A" | "B" | null;
+        [nome: string]: string | number | null;
+      })
+      .sort(
+        (x, y) =>
+          Math.abs((y[modelA.nomeCurto] as number) - (y[modelB.nomeCurto] as number)) -
+          Math.abs((x[modelA.nomeCurto] as number) - (x[modelB.nomeCurto] as number)),
+      );
   }, [modelA, modelB, designLinhas]);
+
+  const logos: LogoInfo[] = [
+    {
+      nome: modelA.nomeCurto,
+      cor: modelA.cor,
+      dominioLogo: modelA.dominioLogo,
+    },
+    {
+      nome: modelB.nomeCurto,
+      cor: modelB.cor,
+      dominioLogo: modelB.dominioLogo,
+    },
+  ];
+
+  const barAA = (modelo: AIModel, lado: "A" | "B") => (
+    <Bar
+      name={modelo.nomeCurto}
+      dataKey={modelo.nomeCurto}
+      fill={`color-mix(in srgb, ${modelo.cor} 78%, #18181b)`}
+      radius={[5, 5, 0, 0]}
+      barSize={42}
+    >
+      <LabelList
+        dataKey={modelo.nomeCurto}
+        content={(props) => (
+          <BarLabel
+            {...props}
+            modelo={modelo}
+            lado={lado}
+            casas={1}
+            par={
+              lado === "A"
+                ? ((props.index != null
+                    ? aaPares[Number(props.index)]?.vB
+                    : null) ?? null)
+                : ((props.index != null
+                    ? aaPares[Number(props.index)]?.vA
+                    : null) ?? null)
+            }
+            vencedor={
+              (props.index != null
+                ? (aaPares[Number(props.index)]?.vencedor ?? null)
+                : null) ?? null
+            }
+          />
+        )}
+      />
+    </Bar>
+  );
+
+  const barElo = (modelo: AIModel, lado: "A" | "B") => (
+    <Bar
+      name={modelo.nomeCurto}
+      dataKey={modelo.nomeCurto}
+      fill={`color-mix(in srgb, ${modelo.cor} 78%, #18181b)`}
+      radius={[5, 5, 0, 0]}
+      barSize={38}
+    >
+      <LabelList
+        dataKey={modelo.nomeCurto}
+        content={(props) => (
+          <BarLabel
+            {...props}
+            modelo={modelo}
+            lado={lado}
+            casas={0}
+            par={
+              lado === "A"
+                ? (props.index != null
+                    ? (elosPares[Number(props.index)]?.[modelB.nomeCurto] as number)
+                    : null)
+                : (props.index != null
+                    ? (elosPares[Number(props.index)]?.[modelA.nomeCurto] as number)
+                    : null)
+            }
+            vencedor={
+              (props.index != null
+                ? (elosPares[Number(props.index)]?.vencedor ?? null)
+                : null) ?? null
+            }
+          />
+        )}
+      />
+    </Bar>
+  );
 
   const semTudo =
     aaPares.length === 0 &&
@@ -219,7 +410,10 @@ export function IndicadoresDesempenho({
         aria-labelledby="indicadores-desempenho"
         className="card px-6 py-10 text-center"
       >
-        <h2 id="indicadores-desempenho" className="text-sm font-semibold text-zinc-900">
+        <h2
+          id="indicadores-desempenho"
+          className="text-sm font-semibold text-zinc-900"
+        >
           Sem indicadores para este par
         </h2>
         <p className="mx-auto mt-1 max-w-md text-sm text-zinc-500">
@@ -255,7 +449,7 @@ export function IndicadoresDesempenho({
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={aaPares}
-                margin={{ top: 20, right: 12, left: -8, bottom: 0 }}
+                margin={{ top: 28, right: 12, left: -8, bottom: 0 }}
                 barGap={8}
               >
                 <CartesianGrid
@@ -277,42 +471,18 @@ export function IndicadoresDesempenho({
                   tickLine={false}
                 />
                 <Tooltip
-                  content={<TooltipConteudo extra="Índice AA 0–100 · dados ao vivo" />}
+                  content={<TooltipConteudo extra="Índice AA 0–100 · dados ao vivo" logos={logos} />}
                   cursor={{ fill: "rgba(24,24,27,0.03)" }}
                 />
-                <Bar
-                  name={modelA.nomeCurto}
-                  dataKey={modelA.nomeCurto}
-                  fill={`color-mix(in srgb, ${modelA.cor} 78%, #18181b)`}
-                  radius={[5, 5, 0, 0]}
-                  barSize={42}
-                >
-                  <LabelList
-                    dataKey={modelA.nomeCurto}
-                    position="top"
-                    fill="#52525b"
-                    fontSize={12}
-                    formatter={(v) => (v == null ? "" : `${v}`)}
-                  />
-                </Bar>
-                <Bar
-                  name={modelB.nomeCurto}
-                  dataKey={modelB.nomeCurto}
-                  fill={`color-mix(in srgb, ${modelB.cor} 78%, #18181b)`}
-                  radius={[5, 5, 0, 0]}
-                  barSize={42}
-                >
-                  <LabelList
-                    dataKey={modelB.nomeCurto}
-                    position="top"
-                    fill="#52525b"
-                    fontSize={12}
-                    formatter={(v) => (v == null ? "" : `${v}`)}
-                  />
-                </Bar>
+                {barAA(modelA, "A")}
+                {barAA(modelB, "B")}
               </BarChart>
             </ResponsiveContainer>
           </div>
+          <p className="mt-1.5 text-[11px] text-zinc-400">
+            Logótipo e valor sobre cada barra · a marca triangular assinala o
+            vencedor do grupo · os índices não são comparáveis entre métricas.
+          </p>
         </div>
       )}
 
@@ -326,7 +496,7 @@ export function IndicadoresDesempenho({
             <span
               key={`${s.rotulo}-${s.lado}`}
               title={`Índice AA 0–100 · só o ${s.nome} tem esta métrica`}
-              className="rounded-md bg-zinc-100 px-2 py-1 text-[11px] tabular-nums text-zinc-700"
+              className="rounded-md bg-zinc-100 px-2 py-1 text-[11px] text-zinc-700 tabular-nums"
             >
               {s.rotulo} · <span className="font-semibold">{s.valor}</span>{" "}
               <span className="text-zinc-400">({s.nome})</span>
@@ -350,13 +520,8 @@ export function IndicadoresDesempenho({
           <div className="mt-2 h-[280px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
-                data={elosPares.map((r) => ({
-                  metrica: r.rotulo,
-                  sub: r.sub,
-                  [modelA.nomeCurto]: Math.round(r.eloA),
-                  [modelB.nomeCurto]: Math.round(r.eloB),
-                }))}
-                margin={{ top: 20, right: 12, left: -8, bottom: 0 }}
+                data={elosPares}
+                margin={{ top: 28, right: 12, left: -8, bottom: 0 }}
                 barGap={8}
               >
                 <CartesianGrid
@@ -377,37 +542,11 @@ export function IndicadoresDesempenho({
                   tickLine={false}
                 />
                 <Tooltip
-                  content={<TooltipConteudo extra="Elo da arena indicada" />}
+                  content={<TooltipConteudo extra="Elo da arena indicada" logos={logos} />}
                   cursor={{ fill: "rgba(24,24,27,0.03)" }}
                 />
-                <Bar
-                  name={modelA.nomeCurto}
-                  dataKey={modelA.nomeCurto}
-                  fill={`color-mix(in srgb, ${modelA.cor} 78%, #18181b)`}
-                  radius={[5, 5, 0, 0]}
-                  barSize={38}
-                >
-                  <LabelList
-                    dataKey={modelA.nomeCurto}
-                    position="top"
-                    fill="#52525b"
-                    fontSize={12}
-                  />
-                </Bar>
-                <Bar
-                  name={modelB.nomeCurto}
-                  dataKey={modelB.nomeCurto}
-                  fill={`color-mix(in srgb, ${modelB.cor} 78%, #18181b)`}
-                  radius={[5, 5, 0, 0]}
-                  barSize={38}
-                >
-                  <LabelList
-                    dataKey={modelB.nomeCurto}
-                    position="top"
-                    fill="#52525b"
-                    fontSize={12}
-                  />
-                </Bar>
+                {barElo(modelA, "A")}
+                {barElo(modelB, "B")}
               </BarChart>
             </ResponsiveContainer>
           </div>
