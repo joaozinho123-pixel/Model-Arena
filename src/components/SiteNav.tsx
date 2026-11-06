@@ -17,8 +17,9 @@ const ANCORA_LINKS = [
 export function SiteNav({
   pagina,
 }: {
-  pagina: "inicio" | "noticias";
+  pagina: "inicio" | "noticias" | "ficha";
 }) {
+  // Nas páginas não-iniciarias, anchors voltam a "/" antes da âncora.
   const base = pagina === "inicio" ? "" : "/";
   return (
     <nav

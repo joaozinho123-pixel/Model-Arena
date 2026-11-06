@@ -112,8 +112,26 @@ export default function Home() {
     // Lê a escolha guardada APÓS o mount (pós-paint): evita o
     // mismatch de hidratação SSR ↔ localStorage e evita setState
     // síncrono no corpo do efeito (nota de lint do React 19).
+    // Deep-link ?a=<id>&b=<id> das fichas: vence o estado guardado
+    // e desce à comparação.
     const id = requestAnimationFrame(() => {
-      setIds(dueloInicial());
+      const inicial = dueloInicial();
+      try {
+        const sp = new URLSearchParams(window.location.search);
+        const a = sp.get("a");
+        const b = sp.get("b");
+        if (a && MODELS_BY_ID[a] && a !== b) inicial.a = a;
+        if (b && MODELS_BY_ID[b] && b !== inicial.a) inicial.b = b;
+        if (inicial.a === inicial.b) inicial.b = null;
+        if (a || b) {
+          document
+            .getElementById("comparar")
+            ?.scrollIntoView({ behavior: "smooth" });
+        }
+      } catch {
+        /* URL improvisado: segue com o duelo guardado */
+      }
+      setIds(inicial);
       setHidratado(true);
     });
     return () => cancelAnimationFrame(id);

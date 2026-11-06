@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import type { AIModel } from "@/types/ai-model";
 import { formatCompact, formatContext, formatPrice, modalityLabel } from "@/lib/format";
@@ -101,6 +102,12 @@ function DossierCard({ model, badge }: { model: AIModel; badge: "A" | "B" }) {
       </dl>
 
       <div className="mt-3.5 flex flex-wrap items-center gap-4 border-t border-zinc-200 pt-3 text-xs text-zinc-500">
+        <Link
+          href={`/modelo/${model.id}`}
+          className="inline-flex items-center gap-1 font-medium text-zinc-700 transition-colors hover:text-zinc-950 hover:underline hover:decoration-zinc-300"
+        >
+          Ficha completa
+        </Link>
         <a
           href={`https://openrouter.ai/${model.id}`}
           target="_blank"

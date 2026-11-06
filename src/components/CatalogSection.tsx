@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { Search } from "lucide-react";
 import type { AIModel } from "@/types/ai-model";
 import { buildProviderOptions } from "@/data/models";
@@ -108,8 +109,14 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
                 tamanho={36}
               />
               <div className="min-w-0 flex-1">
-                <p className="flex items-center gap-2 truncate text-sm font-semibold text-zinc-900">
-                  {m.nomeCurto}
+                <p className="flex items-center gap-2">
+                  <Link
+                    href={`/modelo/${m.id}`}
+                    title={`Abrir ficha de ${m.nomeCurto}`}
+                    className="truncate text-sm font-semibold text-zinc-900 transition-colors hover:text-zinc-950 hover:underline hover:decoration-zinc-300"
+                  >
+                    {m.nomeCurto}
+                  </Link>
                   {headline(m).valor !== "—" && (
                     <span
                       title={headline(m).rotulo}
@@ -120,7 +127,13 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
                   )}
                 </p>
                 <p className="truncate text-xs text-zinc-500">
-                  por {m.empresa} · Top {m.rank}
+                  por {m.empresa} ·{" "}
+                  <Link
+                    href={`/modelo/${m.id}`}
+                    className="transition-colors hover:text-zinc-900 hover:underline hover:decoration-zinc-300"
+                  >
+                    Top {m.rank}
+                  </Link>
                 </p>
               </div>
             </div>
