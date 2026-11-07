@@ -30,12 +30,16 @@ export function ModelPicker({
   onClose,
 }: ModelPickerProps) {
   const [pesquisa, setPesquisa] = useState("");
+  const [cursor, setCursor] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Foco automático + fechar com Escape + travar scroll do fundo.
   useEffect(() => {
     if (!aberto) return;
-    const t = window.setTimeout(() => inputRef.current?.focus(), 60);
+    const t = window.setTimeout(() => {
+      inputRef.current?.focus();
+      setCursor(0);
+    }, 60);
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -58,6 +62,26 @@ export function ModelPicker({
         m.empresa.toLowerCase().includes(q),
     );
   }, [models, pesquisa]);
+
+  /** Teclado no campo: ↑/↓ percorrem, Enter escolhe o destacado. */
+  const aoTeclar = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (resultados.length === 0) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setCursor((c) => Math.min(resultados.length - 1, c + 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setCursor((c) => Math.max(0, c - 1));
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      const escolhido = resultados[cursor];
+      if (escolhido && escolhido.id !== excludeId) {
+        onSelect(escolhido.id);
+        setPesquisa("");
+        onClose();
+      }
+    }
+  };
 
   if (!aberto) return null;
 
@@ -85,7 +109,11 @@ export function ModelPicker({
             ref={inputRef}
             type="search"
             value={pesquisa}
-            onChange={(e) => setPesquisa(e.target.value)}
+            onChange={(e) => {
+              setPesquisa(e.target.value);
+              setCursor(0);
+            }}
+            onKeyDown={aoTeclar}
             placeholder="Pesquisar por nome, id ou fornecedor…"
             aria-label="Pesquisar modelos"
             className="w-full bg-transparent text-sm text-zinc-900 outline-none placeholder:text-zinc-400"
@@ -106,21 +134,24 @@ export function ModelPicker({
               Nenhum modelo encontrado para “{pesquisa}”.
             </li>
           )}
-          {resultados.map((m) => {
+          {resultados.map((m, i) => {
             const desabilitado = m.id === excludeId;
+            const destacado = i === cursor;
             return (
               <li key={m.id}>
                 <button
                   type="button"
                   role="option"
-                  aria-selected={false}
+                  aria-selected={destacado}
                   aria-disabled={desabilitado}
                   disabled={desabilitado}
                   onClick={() => {
                     onSelect(m.id);
                     fechar();
                   }}
-                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
+                  className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent ${
+                    destacado ? "bg-zinc-100" : "hover:bg-zinc-50"
+                  }`}
                 >
                   <ModelLogo
                     nome={m.nomeCurto}
@@ -159,7 +190,8 @@ export function ModelPicker({
         </ul>
 
         <p className="border-t border-zinc-200 px-4 py-2.5 text-xs text-zinc-400">
-          {resultados.length} modelo(s) · o modelo do outro lado fica desabilitado
+          {resultados.length} modelo(s) · ↑/↓ percorrem, Enter escolhe · Esc
+          fecha · o modelo do outro lado fica desabilitado
         </p>
       </div>
     </div>

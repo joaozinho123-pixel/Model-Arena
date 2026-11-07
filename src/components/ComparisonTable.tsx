@@ -92,7 +92,7 @@ export function ComparisonTable({ modelA, modelB }: ComparisonTableProps) {
           </caption>
           <thead>
             <tr className="border-b border-zinc-200 text-xs uppercase tracking-wider text-zinc-400">
-              <th scope="col" className="px-5 py-2.5 text-left font-medium">
+              <th scope="col" className="sticky left-0 bg-white px-5 py-2.5 text-left font-medium">
                 Métrica
               </th>
               <th scope="col" className="px-5 py-2.5 text-right font-medium">
@@ -140,7 +140,7 @@ export function ComparisonTable({ modelA, modelB }: ComparisonTableProps) {
                   key={key}
                   className="border-t border-zinc-100 transition-colors hover:bg-zinc-50"
                 >
-                  <th scope="row" className="px-5 py-3 text-left">
+                  <th scope="row" className="sticky left-0 bg-white px-5 py-3 text-left">
                     <span className="block font-medium text-zinc-900">{rotulo}</span>
                     <span className="block text-xs font-normal text-zinc-400">
                       {descricao}
@@ -204,7 +204,7 @@ export function ComparisonTable({ modelA, modelB }: ComparisonTableProps) {
                 key={row.rotulo}
                 className="border-t border-zinc-100 transition-colors hover:bg-zinc-50"
               >
-                <th scope="row" className="px-5 py-3 text-left">
+                <th scope="row" className="sticky left-0 bg-white px-5 py-3 text-left">
                   <span className="block font-medium text-zinc-900">{row.rotulo}</span>
                   <span className="block text-xs font-normal text-zinc-400">
                     {row.descricao}
@@ -220,7 +220,7 @@ export function ComparisonTable({ modelA, modelB }: ComparisonTableProps) {
             ))}
 
             <tr className="border-t border-zinc-100 transition-colors hover:bg-zinc-50">
-              <th scope="row" className="px-5 py-3 text-left">
+              <th scope="row" className="sticky left-0 bg-white px-5 py-3 text-left">
                 <span className="block font-medium text-zinc-900">Modalidades</span>
                 <span className="block text-xs font-normal text-zinc-400">
                   Entrada → saída suportadas
@@ -279,7 +279,7 @@ export function ComparisonTable({ modelA, modelB }: ComparisonTableProps) {
                 key={row.rotulo}
                 className="border-t border-zinc-100 transition-colors hover:bg-zinc-50"
               >
-                <th scope="row" className="px-5 py-3 text-left">
+                <th scope="row" className="sticky left-0 bg-white px-5 py-3 text-left">
                   <span className="block font-medium text-zinc-900">
                     {row.rotulo}
                   </span>

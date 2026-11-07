@@ -117,6 +117,12 @@ export default async function ModelPage({ params }: PageProps) {
         })} s`
       : null;
 
+  /** Líder do catálogo (rank 1) para o atalho de comparação. */
+  const topModel = AI_MODELS.reduce(
+    (best, atual) => (atual.rank < best.rank ? atual : best),
+    AI_MODELS[0]!,
+  );
+
   return (
     <div id="top" className="min-h-screen">
       <SiteNav pagina="ficha" />
@@ -208,6 +214,18 @@ export default async function ModelPage({ params }: PageProps) {
           </dl>
 
           <CapabilityChips model={m} className="mt-3" />
+
+          {/* Atalho: comparar com o líder do catálogo */}
+          {topModel && topModel.id !== m.id && (
+            <p className="mt-2 text-xs text-zinc-500">
+              <a
+                href={`/?a=${encodeURIComponent(m.id)}&b=${encodeURIComponent(topModel.id)}`}
+                className="inline-flex items-center gap-1 font-medium text-zinc-700 underline decoration-zinc-300 underline-offset-2 transition hover:text-zinc-900"
+              >
+                Comparar com o líder do catálogo ({topModel.nomeCurto})
+              </a>
+            </p>
+          )}
 
           {/* CTAs para o duelo */}
           <div className="flex flex-wrap gap-2 border-t border-zinc-200 pt-4">
