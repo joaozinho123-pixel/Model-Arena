@@ -89,6 +89,14 @@ interface Cacheado {
 }
 
 let cache: Cacheado | null = null;
+/**
+ * A quota da AA (plano Free: 100 pedidos por janela de 24 h) é
+ * partilhada e escassa: quando a montante falha (429/401), ficamos
+ * 30 min sem a repetir — o site continua no snapshot embutido.
+ */
+const FALHA_TTL_MS = 30 * 60 * 1000;
+/** Timestamp até onde as falhas de montante são memorizadas. */
+let falhaAte = 0;
 const taxa = new Map<string, { n: number; reset: number }>();
 
 function ipDe(req: Request): string {
@@ -194,6 +202,18 @@ export async function GET(req: Request): Promise<Response> {
       },
     });
   }
+  // Falha recente da montante: não repete o pedido (quota escassa).
+  if (falhaAte > agora) {
+    return Response.json(
+      { error: "Serviço temporariamente indisponível." },
+      {
+        status: 503,
+        headers: {
+          "Retry-After": String(Math.ceil((falhaAte - agora) / 1000)),
+        },
+      },
+    );
+  }
 
   try {
     const corpo = await buscarAa(key);
@@ -204,9 +224,10 @@ export async function GET(req: Request): Promise<Response> {
       },
     });
   } catch {
+    falhaAte = agora + FALHA_TTL_MS;
     return Response.json(
       { error: "Serviço temporariamente indisponível." },
-      { status: 502 },
+      { status: 503, headers: { "Retry-After": String(FALHA_TTL_MS / 1000) } },
     );
   }
 }
