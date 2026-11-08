@@ -18,6 +18,8 @@ import { DesempenhoTempoReal } from "@/components/DesempenhoTempoReal";
 import { HeroStats } from "@/components/HeroStats";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteNav } from "@/components/SiteNav";
+import { Reveal } from "@/components/Reveal";
+import { DuelosRecentes, gravarDuelo } from "@/components/DuelosRecentes";
 
 /** Cabeçalho de secção: rótulo pequeno com filete e descrição. */
 function Kicker({
@@ -163,6 +165,13 @@ export default function Home() {
     }
   }, [ids, hidratado]);
 
+  // Guarda o duelo atual na lista de recentes (repetível num clique).
+  useEffect(() => {
+    if (hidratado && ids.a && ids.b && ids.a !== ids.b) {
+      gravarDuelo(ids.a, ids.b);
+    }
+  }, [hidratado, ids]);
+
   const modelA = useMemo(
     () => (modelAId ? (porId[modelAId] ?? MODELS_BY_ID[modelAId] ?? null) : null),
     [modelAId, porId],
@@ -188,6 +197,15 @@ export default function Home() {
     setModelAId(modelBId);
     setModelBId(modelAId);
   };
+
+  /** Repete um duelo recente (protege A≠B). */
+  const repetirDuelo = (a: string, b: string) => {
+    setIds({ a, b: b === a ? null : b });
+    document.getElementById("comparar")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  /** Resolve um id no catálogo efetivo (snapshot + ao vivo). */
+  const resolverModelo = (id: string) => porId[id] ?? MODELS_BY_ID[id] ?? null;
 
   /** Duelo aleatório com confronto real (prefere pares comparáveis). */
   const sortearDuelo = () => {
@@ -237,7 +255,7 @@ export default function Home() {
     : "";
 
   return (
-    <div id="top" className="min-h-screen">
+    <div id="top" className="page-in min-h-screen">
       <SiteNav pagina="inicio" />
 
       {/* ===== Cabeçalho ===== */}
@@ -301,7 +319,7 @@ export default function Home() {
             label="Duelo"
             desc="Escolha os dois concorrentes no ringue — ou deixe o sorteio decidir com pares comparáveis."
           />
-          <div className="flex flex-col gap-4 pt-1">
+          <Reveal className="flex flex-col gap-4 pt-1">
             <CompareSelectors
               modelA={modelA}
               modelB={modelB}
@@ -310,7 +328,12 @@ export default function Home() {
               onTrocar={trocarLados}
               onAleatorio={sortearDuelo}
             />
-          </div>
+            <DuelosRecentes
+              resolver={resolverModelo}
+              chaveAtual={ids.a && ids.b ? `${ids.a}|${ids.b}` : ""}
+              onEscolher={repetirDuelo}
+            />
+          </Reveal>
         </section>
 
         {/* ===== Duelos sugeridos ===== */}
@@ -320,7 +343,7 @@ export default function Home() {
             label="Duelos sugeridos"
             desc="Combinações clássicas de categoria: líderes por quesito para começar sem procurar."
           />
-          <div className="pt-1">
+          <Reveal className="pt-1">
             <CategoryShortcuts
               onSelect={(aId, bId) => {
                 setModelAId(aId);
@@ -330,7 +353,7 @@ export default function Home() {
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
             />
-          </div>
+          </Reveal>
         </section>
 
         {/* ===== Veredito (placar) ===== */}
@@ -340,6 +363,7 @@ export default function Home() {
             label="Veredito"
             desc="Placar direto nos quesitos com métrica pública comum — sem notas inventadas."
           />
+          <Reveal>
           {placar && modelA && modelB ? (
             <div
               className="card overflow-hidden"
@@ -378,7 +402,7 @@ export default function Home() {
                 <div className="flex flex-col items-center gap-1.5">
                   <span
                     aria-hidden="true"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-xs font-bold text-zinc-900"
+                    className="pop-in flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-xs font-bold text-zinc-900"
                   >
                     VS
                   </span>
@@ -446,7 +470,7 @@ export default function Home() {
                   className="h-1 rounded-full bg-zinc-200"
                 >
                   <div
-                    className="h-full rounded-full bg-zinc-900"
+                    className="bar-fill h-full rounded-full bg-zinc-900"
                     style={{ width: `${pctA}%` }}
                   />
                 </div>
@@ -464,6 +488,7 @@ export default function Home() {
               onAleatorio={sortearDuelo}
             />
           )}
+          </Reveal>
         </section>
 
         {/* ===== Fichas ===== */}
@@ -473,7 +498,7 @@ export default function Home() {
             label="Fichas"
             desc="Identidade, descrição, preço, contexto e ligações oficiais dos dois concorrentes."
           />
-          <div className="pt-1">
+          <Reveal className="pt-1">
             {modelA && modelB ? (
               <ModelDossier modelA={modelA} modelB={modelB} />
             ) : (
@@ -483,7 +508,7 @@ export default function Home() {
                 dica="Escolha dois concorrentes no Duelo acima para ver as fichas."
               />
             )}
-          </div>
+          </Reveal>
         </section>
 
         {/* ===== Tabela comparativa ===== */}
@@ -493,7 +518,7 @@ export default function Home() {
             label="Tabela comparativa"
             desc="Todos os quesitos lado a lado, com fontes distintas identificadas — só valores nativos."
           />
-          <div className="pt-1">
+          <Reveal className="pt-1">
             {modelA && modelB ? (
               <ComparisonTable modelA={modelA} modelB={modelB} />
             ) : (
@@ -503,7 +528,7 @@ export default function Home() {
                 dica="A tabela comparativa aparece quando os dois lados do duelo estiverem escolhidos."
               />
             )}
-          </div>
+          </Reveal>
         </section>
 
         {/* ===== Indicadores (gráficos) ===== */}
@@ -513,7 +538,7 @@ export default function Home() {
             label="Indicadores"
             desc="Gráficos só com confrontos comparáveis: índices AA 0–100 quando os dois têm a métrica, Elos face a face na mesma arena — métricas de um lado ficam listadas, nunca viram barra sola."
           />
-          <div className="pt-1">
+          <Reveal className="pt-1">
             {modelA && modelB ? (
               <IndicadoresDesempenho modelA={modelA} modelB={modelB} />
             ) : (
@@ -523,7 +548,7 @@ export default function Home() {
                 dica="Os indicadores só comparam métricas iguais dos dois lados — escolha o par para ver as barras."
               />
             )}
-          </div>
+          </Reveal>
         </section>
 
         {/* ===== Tempo real ===== */}
@@ -533,7 +558,7 @@ export default function Home() {
             label="Tempo real"
             desc="Latência e produtividade medidas ao vivo no endpoint de cada modelo (OpenRouter)."
           />
-          <div className="pt-3">
+          <Reveal className="pt-3">
             {modelA && modelB ? (
               <DesempenhoTempoReal
                 key={`${modelA.id}__${modelB.id}`}
@@ -547,7 +572,7 @@ export default function Home() {
                 dica="Latência e produtividade são lidas no endpoint de cada modelo quando o par está escolhido."
               />
             )}
-          </div>
+          </Reveal>
         </section>
 
       </main>

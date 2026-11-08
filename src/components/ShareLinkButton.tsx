@@ -49,10 +49,10 @@ export function ShareLinkButton({
       } ${className}`}
     >
       {copiada ? (
-        <>
+        <span className="pop-in flex items-center gap-1.5">
           <Check size={12} aria-hidden="true" />
           copiada
-        </>
+        </span>
       ) : (
         <>
           <Link2 size={12} aria-hidden="true" />

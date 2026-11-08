@@ -22,7 +22,7 @@ export function BackToTop() {
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Voltar ao topo"
       title="Voltar ao topo"
-      className="fixed bottom-5 right-5 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-600 shadow-sm transition hover:border-zinc-400 hover:text-zinc-900"
+      className="back-top pop-rise fixed bottom-5 right-5 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-600 hover:text-zinc-900"
     >
       <ArrowUp size={16} aria-hidden="true" />
     </button>

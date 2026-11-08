@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 /** Página Rankings: três tops do catálogo, cada um na sua escala. */
 export default function Rankings() {
   return (
-    <div id="top" className="flex min-h-screen flex-col">
+    <div id="top" className="page-in flex min-h-screen flex-col">
       <SiteNav pagina="rankings" />
       <header className="border-b border-zinc-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 pt-20 pb-10 text-center sm:px-6">

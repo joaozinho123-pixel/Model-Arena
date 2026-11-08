@@ -32,6 +32,7 @@ export function ModelPicker({
   const [pesquisa, setPesquisa] = useState("");
   const [cursor, setCursor] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const listaRef = useRef<HTMLUListElement>(null);
 
   // Foco automático + fechar com Escape + travar scroll do fundo.
   useEffect(() => {
@@ -63,15 +64,25 @@ export function ModelPicker({
     );
   }, [models, pesquisa]);
 
+  /** Move o cursor e desliza a lista para manter o destino visível. */
+  const mover = (destino: number) => {
+    setCursor(destino);
+    requestAnimationFrame(() => {
+      listaRef.current
+        ?.querySelector(`[data-idx="${destino}"]`)
+        ?.scrollIntoView({ block: "nearest" });
+    });
+  };
+
   /** Teclado no campo: ↑/↓ percorrem, Enter escolhe o destacado. */
   const aoTeclar = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (resultados.length === 0) return;
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      setCursor((c) => Math.min(resultados.length - 1, c + 1));
+      mover(Math.min(resultados.length - 1, cursor + 1));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setCursor((c) => Math.max(0, c - 1));
+      mover(Math.max(0, cursor - 1));
     } else if (e.key === "Enter") {
       e.preventDefault();
       const escolhido = resultados[cursor];
@@ -128,7 +139,7 @@ export function ModelPicker({
           </button>
         </div>
 
-        <ul className="max-h-[52vh] overflow-y-auto p-1.5" role="listbox" aria-label={titulo}>
+        <ul ref={listaRef} className="max-h-[52vh] overflow-y-auto p-1.5" role="listbox" aria-label={titulo}>
           {resultados.length === 0 && (
             <li className="px-4 py-10 text-center text-sm text-zinc-500">
               Nenhum modelo encontrado para “{pesquisa}”.
@@ -138,7 +149,7 @@ export function ModelPicker({
             const desabilitado = m.id === excludeId;
             const destacado = i === cursor;
             return (
-              <li key={m.id}>
+              <li key={m.id} data-idx={i}>
                 <button
                   type="button"
                   role="option"

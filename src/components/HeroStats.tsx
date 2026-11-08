@@ -1,7 +1,39 @@
-import { useMemo } from "react";
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
 import type { AIModel } from "@/types/ai-model";
 
-/** Estatísticas do catálogo para o hero, em linha sóbria. */
+/** Contador animado: 0 → valor com ease-out; movimento reduzido salta. */
+function Contador({ valor }: { valor: number }) {
+  const [n, setN] = useState(0);
+
+  useEffect(() => {
+    if (valor <= 0) {
+      const j = requestAnimationFrame(() => setN(0));
+      return () => cancelAnimationFrame(j);
+    }
+    // Movimento reduzido: chega logo ao valor (pós-paint via rAF).
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const j = requestAnimationFrame(() => setN(valor));
+      return () => cancelAnimationFrame(j);
+    }
+    let raf = 0;
+    let t0 = 0;
+    const dur = 900;
+    const passo = (ts: number) => {
+      if (!t0) t0 = ts;
+      const k = Math.min(1, (ts - t0) / dur);
+      setN(Math.round(valor * (1 - Math.pow(1 - k, 3))));
+      if (k < 1) raf = requestAnimationFrame(passo);
+    };
+    raf = requestAnimationFrame(passo);
+    return () => cancelAnimationFrame(raf);
+  }, [valor]);
+
+  return <span className="tabular-nums">{n.toLocaleString("pt-PT")}</span>;
+}
+
+/** Estatísticas do catálogo para o hero, em linha sóbria com contagem. */
 export function HeroStats({ models }: { models: AIModel[] }) {
   const stats = useMemo(() => {
     const reais = models.filter((m) => m.fonte !== "estimativa").length;
@@ -20,8 +52,8 @@ export function HeroStats({ models }: { models: AIModel[] }) {
       ].map((s) => (
         <div key={s.rotulo}>
           <dt className="sr-only">{s.rotulo}</dt>
-          <dd className="text-xl font-semibold tabular-nums text-zinc-900">
-            {s.valor}
+          <dd className="text-xl font-semibold text-zinc-900">
+            <Contador valor={s.valor} />
           </dd>
           <dd className="mt-0.5 text-xs text-zinc-500">{s.rotulo}</dd>
         </div>

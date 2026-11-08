@@ -124,7 +124,7 @@ export default async function ModelPage({ params }: PageProps) {
   );
 
   return (
-    <div id="top" className="min-h-screen">
+    <div id="top" className="page-in min-h-screen">
       <SiteNav pagina="ficha" />
 
       <main className="mx-auto flex max-w-3xl flex-col gap-8 px-4 py-24 sm:px-6">

@@ -92,7 +92,7 @@ export function CompareSelectors({
         <div className="flex sm:flex-col items-center justify-center gap-2">
           <span
             aria-hidden="true"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-xs font-bold text-zinc-900"
+            className="pop-in flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-xs font-bold text-zinc-900"
           >
             VS
           </span>

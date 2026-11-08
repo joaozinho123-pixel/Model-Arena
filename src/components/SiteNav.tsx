@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Search } from "lucide-react";
 import { LogoMark } from "@/components/SiteLogo";
+import { CommandPalette } from "@/components/CommandPalette";
 
 /** Links-âncora das secções da página inicial. */
 const ANCORA_LINKS = [
@@ -24,8 +26,7 @@ type Pagina = "inicio" | "rankings" | "catalogo" | "noticias" | "ficha";
 /**
  * Navegação fixa partilhada: na página inicial ancora nas secções
  * (com scrollspy a destacar a secção visível); nas restantes, volta a
- * "/" antes da âncora. Rankings, Catálogo e Radar IA são páginas
- * próprias do site.
+ * "/" antes da âncora. Botão de pesquisa global (Ctrl+K) à direita.
  */
 export function SiteNav({ pagina }: { pagina: Pagina }) {
   // Nas páginas não-iniciarias, anchors voltam a "/" antes da âncora.
@@ -57,21 +58,24 @@ export function SiteNav({ pagina }: { pagina: Pagina }) {
       aria-label="Navegação principal"
       className="fixed inset-x-0 top-0 z-40 border-b border-zinc-200 bg-white"
     >
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
+      <div className="mx-auto flex h-14 max-w-6xl items-center gap-4 px-4 sm:px-6">
         <a
           href={pagina === "inicio" ? "#top" : "/"}
-          className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-tight text-zinc-900"
+          className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-tight text-zinc-900 transition-opacity hover:opacity-70"
         >
           <LogoMark className="h-7 w-7 shrink-0" />
           <span>Model Arena</span>
         </a>
-        <ul className="flex min-w-0 flex-1 items-center justify-start gap-4 overflow-x-auto text-[13px] text-zinc-500 sm:justify-center sm:gap-5">
+
+        <ul className="flex min-w-0 flex-1 items-center justify-start gap-4 overflow-x-auto text-[13px] text-zinc-500 sm:justify-center">
           {ANCORA_LINKS.map(({ href, rotulo }) => (
             <li key={href} className="shrink-0">
               <a
                 href={`${base}${href}`}
-                aria-current={pagina === "inicio" && ativa === href ? "true" : undefined}
-                className={`whitespace-nowrap transition-colors hover:text-zinc-900 ${
+                aria-current={
+                  pagina === "inicio" && ativa === href ? "true" : undefined
+                }
+                className={`nav-link whitespace-nowrap transition-colors hover:text-zinc-900 ${
                   pagina === "inicio" && ativa === href
                     ? "font-semibold text-zinc-900"
                     : ""
@@ -86,7 +90,7 @@ export function SiteNav({ pagina }: { pagina: Pagina }) {
               <a
                 href={href}
                 aria-current={pagina === chave ? "page" : undefined}
-                className={`whitespace-nowrap transition-colors hover:text-zinc-900 ${
+                className={`nav-link whitespace-nowrap transition-colors hover:text-zinc-900 ${
                   pagina === chave ? "font-semibold text-zinc-900" : ""
                 }`}
               >
@@ -95,7 +99,27 @@ export function SiteNav({ pagina }: { pagina: Pagina }) {
             </li>
           ))}
         </ul>
+
+        <button
+          type="button"
+          aria-label="Pesquisar páginas e modelos (Ctrl+K)"
+          title="Pesquisar páginas e modelos (Ctrl+K)"
+          onClick={() =>
+            window.dispatchEvent(
+              new CustomEvent("model-arena:abrir-pesquisa"),
+            )
+          }
+          className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-2.5 py-1.5 text-xs font-medium text-zinc-500 transition hover:border-zinc-300 hover:bg-white hover:text-zinc-900 active:scale-[0.97]"
+        >
+          <Search size={14} aria-hidden="true" />
+          <span className="hidden sm:inline">Pesquisar</span>
+          <span className="kbd hidden md:inline-flex" aria-hidden="true">
+            Ctrl K
+          </span>
+        </button>
       </div>
+
+      <CommandPalette />
     </nav>
   );
 }

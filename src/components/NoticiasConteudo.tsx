@@ -972,7 +972,7 @@ export function NoticiasConteudo() {
                     </span>
                     <span aria-hidden="true" className="h-px flex-1 bg-zinc-200" />
                   </h2>
-                  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                  <div className="stagger grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
                     {g.itens.map((n) => (
                       <CartaoNoticia
                         key={n.id}
@@ -986,7 +986,7 @@ export function NoticiasConteudo() {
               ) : (
                 <div
                   key={g.chave}
-                  className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3"
+                  className="stagger grid gap-3 sm:grid-cols-2 xl:grid-cols-3"
                 >
                   {g.itens.map((n) => (
                     <CartaoNoticia
