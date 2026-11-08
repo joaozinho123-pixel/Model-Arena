@@ -18,10 +18,11 @@ const ANCORA_LINKS = [
 const PAGINA_LINKS = [
   { href: "/rankings", rotulo: "Rankings", chave: "rankings" },
   { href: "/catalogo", rotulo: "Catálogo", chave: "catalogo" },
+  { href: "/imagens", rotulo: "Imagem", chave: "imagens" },
   { href: "/noticias", rotulo: "Notícias", chave: "noticias" },
 ] as const;
 
-type Pagina = "inicio" | "rankings" | "catalogo" | "noticias" | "ficha";
+type Pagina = "inicio" | "rankings" | "catalogo" | "imagens" | "noticias" | "ficha";
 
 /**
  * Navegação fixa partilhada: na página inicial ancora nas secções

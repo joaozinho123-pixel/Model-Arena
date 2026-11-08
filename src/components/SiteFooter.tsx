@@ -45,6 +45,9 @@ export function SiteFooter({
           <Link href="/catalogo" className="transition hover:text-zinc-900">
             Catálogo
           </Link>
+          <Link href="/imagens" className="transition hover:text-zinc-900">
+            Imagem
+          </Link>
           <Link href="/noticias" className="transition hover:text-zinc-900">
             Radar IA
           </Link>

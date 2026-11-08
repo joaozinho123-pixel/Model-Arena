@@ -35,6 +35,30 @@ export interface OpenRouterModel {
   raciocinio: boolean;
 }
 
+/** Modelo de imagem da Artificial Analysis (media V2). */
+export interface ModeloImagem {
+  /** id do modelo na AA. */
+  id: string;
+  nome: string;
+  criador: string;
+  /** URL do logótipo (só criadores com URL testada). */
+  logo?: string;
+  /** Cor do avatar de inicial (apresentação). */
+  cor: string;
+  /** Elo de geração de imagens (text-to-image) quando medido. */
+  eloT2i: number | null;
+  /** Intervalo de confiança (95%) do Elo de geração. */
+  ciT2i: number | null;
+  /** Elo de edição de imagens quando medido. */
+  eloIee: number | null;
+  /** Intervalo de confiança (95%) do Elo de edição. */
+  ciIee: number | null;
+  /** Posição no ranking de geração (1 = melhor). */
+  rankT2i: number | null;
+  /** Posição no ranking de edição (1 = melhor). */
+  rankIee: number | null;
+}
+
 /** Modelo pronto para a UI: metadados + métricas nativas de benchmarks. */
 export interface AIModel extends OpenRouterModel {
   /** Nome curto sem o prefixo "Fornecedor: ". */
