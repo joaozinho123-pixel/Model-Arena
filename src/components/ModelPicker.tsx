@@ -6,6 +6,7 @@ import type { AIModel } from "@/types/ai-model";
 import { formatContext, formatPrice } from "@/lib/format";
 import { headline } from "@/lib/comparar";
 import { ModelLogo } from "@/components/ModelLogo";
+import { VarianteBadge } from "@/components/VarianteBadge";
 
 /**
  * Modal de escolha de modelo: pesquisa por nome/id/fornecedor
@@ -173,6 +174,7 @@ export function ModelPicker({
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm font-medium text-zinc-900">
                       {m.nomeCurto}
+                      <VarianteBadge variante={m.variante} />
                       {headline(m).valor !== "—" && (
                         <span
                           title={headline(m).rotulo}

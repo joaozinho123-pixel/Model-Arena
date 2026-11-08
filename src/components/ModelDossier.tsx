@@ -8,6 +8,7 @@ import { formatCompact, formatContext, formatPrice, modalityLabel } from "@/lib/
 import { headline } from "@/lib/comparar";
 import { ModelLogo } from "@/components/ModelLogo";
 import { CapabilityChips } from "@/components/CapabilityChips";
+import { VarianteBadge } from "@/components/VarianteBadge";
 
 /** Ficha de um modelo: identidade, descrição e dados essenciais. */
 function DossierCard({ model, badge }: { model: AIModel; badge: "A" | "B" }) {
@@ -33,6 +34,7 @@ function DossierCard({ model, badge }: { model: AIModel; badge: "A" | "B" }) {
           </p>
           <h3 className="truncate text-base font-semibold text-zinc-900">
             {model.nomeCurto}
+            <VarianteBadge variante={model.variante} />
           </h3>
           <p className="truncate text-xs text-zinc-500">
             {model.empresa} · Top {model.rank} geral

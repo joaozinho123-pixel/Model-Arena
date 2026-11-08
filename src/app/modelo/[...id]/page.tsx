@@ -11,6 +11,7 @@ import { CATEGORIES } from "@/types/ai-model";
 import type { AIModel } from "@/types/ai-model";
 import { modeloVivoPorId } from "@/lib/modelo-vivo-servidor";
 import { CapabilityChips } from "@/components/CapabilityChips";
+import { VarianteBadge } from "@/components/VarianteBadge";
 import { ShareLinkButton } from "@/components/ShareLinkButton";
 import {
   formatCompact,
@@ -24,7 +25,11 @@ import { SiteFooter } from "@/components/SiteFooter";
 
 /** SSG de todas as fichas do snapshot (id contém "/", rota catch-all). */
 export function generateStaticParams(): { id: string[] }[] {
-  return AI_MODELS.map((m) => ({ id: m.id.split("/") }));
+  // Só variantes base: ids com ":" (lote/grátis) criariam nomes de
+  // pasta inválidos no Windows no prerender — ficam on-demand.
+  return AI_MODELS.filter((m) => m.variante === "base").map((m) => ({
+    id: m.id.split("/"),
+  }));
 }
 
 interface PageProps {
@@ -37,7 +42,21 @@ interface PageProps {
  * quando o modelo não existe em lado nenhum.
  */
 async function fichaPorId(id: string): Promise<AIModel | null> {
-  return MODELS_BY_ID[id] ?? (await modeloVivoPorId(id));
+  const direto = MODELS_BY_ID[id];
+  if (direto) return direto;
+  // O router codifica ":" como %3A nos links de variantes.
+  const decodificado = MODELS_BY_ID[safeDecode(id)];
+  if (decodificado) return decodificado;
+  return modeloVivoPorId(id);
+}
+
+/** Decodifica %3A e %2F quando o router recebeu o id codificado. */
+function safeDecode(id: string): string {
+  try {
+    return decodeURIComponent(id).replace(/%3A/gi, ":").replace(/%2F/gi, "/");
+  } catch {
+    return id;
+  }
 }
 
 /** Pré-gera metadados por ficha (título, descrição e OpenGraph). */
@@ -152,7 +171,8 @@ export default async function ModelPage({ params }: PageProps) {
             />
             <div className="min-w-0 flex-1">
               <h1 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
-                {m.nomeCurto}
+                {m.nomeCurto}{" "}
+                <VarianteBadge variante={m.variante} />
               </h1>
               <p className="mt-1 text-sm font-medium text-zinc-700">
                 {m.empresa}

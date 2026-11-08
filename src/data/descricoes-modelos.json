@@ -1,9 +1,21 @@
 {
+  "anthropic/claude-opus-5.5:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "anthropic/claude-opus-5.5": {
     "descricao": "Flagship da Anthropic para raciocínio complexo, programação avançada e análise de documentos longos, com leitura de imagens, ferramentas e saída estruturada. Lidera o índice de Inteligência da Artificial Analysis e carrega 1M de tokens de contexto."
   },
+  "openai/gpt-6-astra:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "anthropic/claude-sonnet-5.5": {
     "descricao": "Equilíbrio entre inteligência e velocidade dentro da família Claude. Vocacionado para uso diário, programação e resumos, com 1M de contexto e preço moderado."
+  },
+  "openai/gpt-6.1-sol:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "anthropic/claude-sonnet-5.5:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "anthropic/claude-fable-5.1": {
     "descricao": "Variante da família Claude virada para programação e trabalho com agentes, com índices AA fortes em codificação. Janela de 1M tokens, multimodal, a um custo mais elevado."
@@ -14,8 +26,23 @@
   "openai/gpt-6.1-sol": {
     "descricao": "Variante eficiente da família GPT-6.1, com boa relação qualidade/preço. Lê imagens, corre ferramentas e tem 1.05M de contexto."
   },
+  "openai/gpt-6.1-terra": {
+    "descricao": "Família GPT da OpenAI — modelo de uso geral. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/gpt-6.1-terra:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "anthropic/claude-opus-5": {
     "descricao": "Geração anterior do flagship Opus, ainda muito forte em raciocínio profundo e código. Contexto de 1M tokens, multimodal, a preço de flagship."
+  },
+  "google/gemini-4-argon": {
+    "descricao": "Família Google (Gemini/Gemma) — variante rápida e leve. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "google/gemini-4-argon:batch": {
+    "descricao": "Família Google (Gemini/Gemma) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "anthropic/claude-fable-5.1:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "anthropic/claude-fable-5": {
     "descricao": "Variante de codificação da família Claude, com bons índices AA em código e agentes. Janela de 1M tokens e preço premium."
@@ -29,14 +56,14 @@
   "openai/gpt-5.6-sol": {
     "descricao": "Geração intermediária da família GPT-5.6, com boa relação qualidade/preço. Lê imagens, usa ferramentas e tem 1.05M de contexto."
   },
+  "moonshotai/kimi-k3.1-pro": {
+    "descricao": "Família Kimi da Moonshot — modelo de topo da gama. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "x-ai/grok-4.7": {
     "descricao": "Modelo de topo da xAI, multimodal e com raciocínio em cadeia. Contexto de 500k tokens e preço moderado, medido em LMArena."
   },
   "xiaomi/mimo-v2.6-pro": {
     "descricao": "Flagship da família MiMo da Xiaomi: contexto de 1M tokens e preço muito abaixo da concorrência directa. Multimodal, com ferramentas e raciocínio."
-  },
-  "qwen/qwen3.8-max-0902": {
-    "descricao": "Modelo de topo da família Qwen da Alibaba, forte em raciocínio, código e agentes. Contexto de 1M tokens, multimodal, a preço moderado."
   },
   "z-ai/glm-5.3": {
     "descricao": "Modelo de topo da família GLM da Zhipu, especializado em programação e agentes. Contexto longo (1.3M tokens) e preço contido; escrito para tarefas técnicas."
@@ -44,8 +71,17 @@
   "x-ai/grok-4.6": {
     "descricao": "Variante recente da família Grok, multimodal e com raciocínio. Contexto de 500k tokens, velocidade de resposta acima da média."
   },
+  "anthropic/claude-opus-5:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/gpt-6-sol:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "moonshotai/kimi-k3": {
     "descricao": "Topo da família Kimi da Moonshot: contexto de 1M tokens, multimodal e com bons índices AA em código. Preço moderado para a gama."
+  },
+  "meta/muse-wonder": {
+    "descricao": "Família Muse da Meta — modelo de uso geral. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-5.6-terra": {
     "descricao": "Variante da família GPT-5.6 virada para agentes e programação. Lê imagens, usa ferramentas e tem 1.05M de contexto."
@@ -95,23 +131,32 @@
   "openai/gpt-6-luna": {
     "descricao": "Variante económica da família GPT-6, multimodal e com 1.05M de contexto. Um dos preços mais baixos da gama OpenAI."
   },
+  "anthropic/claude-haiku-5.5": {
+    "descricao": "Família Claude da Anthropic — modelo de uso geral. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "anthropic/claude-haiku-5.5:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "deepseek/deepseek-v4-pro": {
     "descricao": "Variante profissional do DeepSeek V4, focada em raciocínio e programação com preço contido. Contexto de 1M tokens; escrita para agentes."
   },
-  "deepseek/deepseek-v4-pro-0813": {
-    "descricao": "Actualização de Agosto do V4 Pro, com o mesmo foco em raciocínio e código a preço ainda mais baixo. Contexto de 1M tokens."
+  "x-ai/grok-4.7:batch": {
+    "descricao": "Família Grok da xAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~488k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "tencent/hy4": {
+    "descricao": "Família Tencent (Hunyuan/Hy) — modelo de uso geral. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "deepseek/deepseek-v4-flash": {
     "descricao": "Variante rápida do DeepSeek V4, com preço muito baixo e contexto de 1M tokens. Vocacionada para volume e custo."
-  },
-  "deepseek/deepseek-v4-flash-0731": {
-    "descricao": "Actualização do V4 Flash com contexto alongado (1.3M tokens) e preço mínimo. Para volume elevado e tarefas curtas."
   },
   "google/gemini-3.6-flash": {
     "descricao": "Variante rápida da família Gemini, multimodal, com ~1M de contexto. Medido em LMArena em texto, código e matemática."
   },
   "meta/muse-spark-1.1": {
     "descricao": "Primeira geração medida da família Muse da Meta, multimodal e com 1M de contexto. Boa base para tarefas gerais."
+  },
+  "qwen/qwen3.8-max-0902": {
+    "descricao": "Modelo de topo da família Qwen da Alibaba, forte em raciocínio, código e agentes. Contexto de 1M tokens, multimodal, a preço moderado."
   },
   "z-ai/glm-5.2": {
     "descricao": "Geração anterior do GLM, focada em programação e agentes com preço muito baixo. Contexto de 1M tokens."
@@ -125,6 +170,18 @@
   "openai/gpt-5.3-codex": {
     "descricao": "Variante Codex da família GPT-5.3, vocacionada para programação assistida por agentes. Contexto de 400k tokens e preço moderado."
   },
+  "openai/gpt-5.6-terra:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "z-ai/glm-5.3:batch": {
+    "descricao": "Família GLM da Zhipu — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "x-ai/grok-4.6:batch": {
+    "descricao": "Família Grok da xAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~488k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "google/gemini-3.8-flash:batch": {
+    "descricao": "Família Google (Gemini/Gemma) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "openai/gpt-5.2": {
     "descricao": "Geração anterior do GPT-5, multimodal, com 400k de contexto e matemática muito forte (índice AA de topo)."
   },
@@ -137,14 +194,32 @@
   "minimax/minimax-m3": {
     "descricao": "Modelo da família MiniMax, multimodal, rápido e barato. Contexto de 1M tokens e boa relação qualidade/preço."
   },
+  "minimax/minimax-m3.1-flash": {
+    "descricao": "Família MiniMax — modelo de topo da gama. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "deepseek/deepseek-v4.1-flash-1017": {
+    "descricao": "Família DeepSeek — variante rápida e leve. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "deepseek/deepseek-v4.1-flash-1017:batch": {
+    "descricao": "Família DeepSeek — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "openai/gpt-5.2-codex": {
     "descricao": "Variante Codex do GPT-5.2 para trabalho de programação com agentes. Contexto de 400k tokens e preço moderado."
+  },
+  "stepfun/step-5-preview": {
+    "descricao": "Família StepFun — pré-lançamento experimental. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "upstage/solar-pro4": {
     "descricao": "Modelo profissional da família Solar da Upstage, compacto e rápido, com contexto de 512k tokens e preço muito baixo."
   },
   "z-ai/glm-5": {
     "descricao": "Geração base do GLM 5, focada em programação e agentes. Contexto de 200k tokens e preço contido."
+  },
+  "openai/gpt-6-luna:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "z-ai/glm-5.3-flash:batch": {
+    "descricao": "Família GLM da Zhipu — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "thinkingmachines/inkling-small": {
     "descricao": "Modelo eficiente da Thinking Machines, multimodal e muito rápido. Contexto de 512k tokens e preço baixo."
@@ -163,6 +238,9 @@
   },
   "z-ai/glm-5.1": {
     "descricao": "Actualização do GLM 5 com programação e agentes como eixos. Contexto de 200k tokens e preço moderado."
+  },
+  "mistralai/mistral-large-4-0": {
+    "descricao": "Família Mistral AI — modelo de topo da gama. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "xiaomi/mimo-v2.5-pro": {
     "descricao": "Variante profissional do MiMo V2.5 com 1M de contexto e preço muito baixo. Escrita para programação e agentes."
@@ -185,6 +263,9 @@
   "x-ai/grok-4.3": {
     "descricao": "Família Grok da xAI — modelo de uso geral. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
+  "meta/muse-spark-open": {
+    "descricao": "Família Muse da Meta — modelo de uso geral. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "anthropic/claude-sonnet-4.6": {
     "descricao": "Família Claude da Anthropic — modelo de uso geral. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
@@ -192,10 +273,13 @@
     "descricao": "Família GPT da OpenAI — modelo de uso geral. Janela de ~391k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "inclusionai/ling-3.0-flash-vl": {
-    "descricao": "Família InclusionAI Ling — variante multimodal com leitura de imagens. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+    "descricao": "Família InclusionAI Ling — variante multimodal com leitura de imagens. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-5.4-mini": {
     "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de ~391k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/gpt-5.6-luna:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "anthropic/claude-opus-4.5": {
     "descricao": "Família Claude da Anthropic — modelo de uso geral. Janela de ~195k tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -204,19 +288,19 @@
     "descricao": "Família GPT da OpenAI — variante especializada em programação. Janela de ~391k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "moonshotai/kimi-k2.5": {
-    "descricao": "Família Kimi da Moonshot — modelo de uso geral. Janela de ~256k tokens, preço muito baixo, lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight no Hugging Face; com métricas públicas já medidas no catálogo (AA/LMArena)."
+    "descricao": "Família Kimi da Moonshot — modelo de uso geral. Janela de ~256k tokens, preço acessível, lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight no Hugging Face; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "z-ai/glm-5v-turbo": {
     "descricao": "Família GLM da Zhipu — variante rápida e leve. Janela de ~198k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "deepseek/deepseek-v4-pro-0813": {
+    "descricao": "Actualização de Agosto do V4 Pro, com o mesmo foco em raciocínio e código a preço ainda mais baixo. Contexto de 1M tokens."
   },
   "openai/gpt-5": {
     "descricao": "Família GPT da OpenAI — modelo de uso geral. Janela de ~391k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3.5-27b": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "nvidia/nemotron-3-ultra-550b-a55b": {
-    "descricao": "Família NVIDIA Nemotron — modelo de topo da gama. Janela de ~256k tokens, preço acessível e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "minimax/minimax-m2.7": {
     "descricao": "Família MiniMax — modelo de topo da gama. Janela de ~200k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -226,9 +310,6 @@
   },
   "tencent/hy3-preview": {
     "descricao": "Família Tencent (Hunyuan/Hy) — pré-lançamento experimental. Janela de ~256k tokens, preço muito baixo e corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "inclusionai/ling-3.0-flash-fin": {
-    "descricao": "Família InclusionAI Ling — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "google/gemini-3.5-flash-lite": {
     "descricao": "Família Google (Gemini/Gemma) — variante rápida e leve. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -245,12 +326,6 @@
   "qwen/qwen3.6-27b": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "qwen/qwen3-max-thinking": {
-    "descricao": "Família Qwen da Alibaba — variante otimizada para raciocínio em cadeia. Janela de ~256k tokens, preço acessível e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "minimax/minimax-m2.1": {
-    "descricao": "Família MiniMax — modelo de topo da gama. Janela de ~200k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
   "openai/gpt-5.4-nano": {
     "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de ~391k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
@@ -263,6 +338,9 @@
   "inclusionai/ling-3.0-flash": {
     "descricao": "Família InclusionAI Ling — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
+  "qwen/qwen3.8-27b:batch": {
+    "descricao": "Família Qwen da Alibaba — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "stepfun/step-3.7-flash": {
     "descricao": "Família StepFun — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
@@ -272,14 +350,11 @@
   "qwen/qwen3.5-35b-a3b": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "meituan/longcat-2.0": {
-    "descricao": "Catálogo Meituan — modelo de uso geral. Janela de 1M tokens, preço muito baixo e corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "minimax/minimax-m3:batch": {
+    "descricao": "Família MiniMax — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~512k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "anthropic/claude-opus-4.1": {
     "descricao": "Família Claude da Anthropic — modelo de uso geral. Janela de ~195k tokens, preço elevado e lê imagens, corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "minimax/minimax-m2": {
-    "descricao": "Família MiniMax — modelo de topo da gama. Janela de ~200k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight no Hugging Face; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3.5-397b-a17b": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~256k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -287,26 +362,23 @@
   "qwen/qwen3.6-35b-a3b": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
+  "reflection/beam-1.0-501b-a23b": {
+    "descricao": "Catálogo Reflection — modelo de uso geral. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "moonshotai/kimi-k3:batch": {
+    "descricao": "Família Kimi da Moonshot — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "stepfun/step-3.5-flash": {
     "descricao": "Família StepFun — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-5-mini": {
     "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de ~391k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "openai/o4-mini": {
-    "descricao": "Série de raciocínio da OpenAI (família o) — variante rápida e leve. Janela de ~195k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "anthropic/claude-sonnet-4": {
-    "descricao": "Família Claude da Anthropic — modelo de uso geral. Janela de ~195k tokens, preço moderado e lê imagens, corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
   "google/gemini-2.5-pro": {
     "descricao": "Família Google (Gemini/Gemma) — modelo de topo da gama. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "deepseek/deepseek-v3.2": {
     "descricao": "Família DeepSeek — modelo de uso geral. Janela de ~160k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença MIT); com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "qwen/qwen3-max": {
-    "descricao": "Família Qwen da Alibaba — modelo de topo da gama. Janela de ~256k tokens, preço acessível e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "google/gemini-3.1-flash-lite-preview": {
     "descricao": "Família Google (Gemini/Gemma) — variante rápida e leve. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -320,11 +392,8 @@
   "moonshotai/kimi-k2-0905": {
     "descricao": "Família Kimi da Moonshot — modelo de uso geral. Janela de ~256k tokens, preço acessível e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "openai/o1": {
-    "descricao": "Série de raciocínio da OpenAI (família o) — modelo de uso geral. Janela de ~195k tokens, preço elevado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
   "z-ai/glm-4.6": {
-    "descricao": "Família GLM da Zhipu — modelo de uso geral. Janela de ~200k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença MIT); com métricas públicas já medidas no catálogo (AA/LMArena)."
+    "descricao": "Família GLM da Zhipu — modelo de uso geral. Janela de ~200k tokens, preço acessível, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença MIT); com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "z-ai/glm-4.7-flash": {
     "descricao": "Família GLM da Zhipu — variante rápida e leve. Janela de ~195k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -335,11 +404,11 @@
   "deepseek/deepseek-v3.1-terminus": {
     "descricao": "Família DeepSeek — modelo de uso geral. Janela de ~160k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "inception/mercury-2": {
-    "descricao": "Família Inception Mercury — modelo de uso geral. Janela de ~125k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "nvidia/nemotron-3.5-super-vl": {
+    "descricao": "Família NVIDIA Nemotron — variante multimodal com leitura de imagens. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "deepseek/deepseek-r1": {
-    "descricao": "Família DeepSeek — modelo de uso geral. Janela de ~63k tokens, preço acessível, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença MIT); com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "nvidia/nemotron-3.5-super-vl:free": {
+    "descricao": "Família NVIDIA Nemotron — variante de preço zero do mesmo modelo. Janela de 1M tokens, gratuito e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "cohere/command-a-plus": {
     "descricao": "Família Cohere Command — modelo de uso geral. Janela de ~188k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -347,14 +416,14 @@
   "openai/gpt-5-nano": {
     "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de ~391k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
+  "thinkingmachines/inkling-small:batch": {
+    "descricao": "Catálogo Thinking Machines — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~512k tokens, preço muito baixo e lê imagens, corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "nvidia/nemotron-3.5-lightning": {
     "descricao": "Família NVIDIA Nemotron — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "z-ai/glm-4.5": {
     "descricao": "Família GLM da Zhipu — modelo de uso geral. Janela de ~128k tokens, preço acessível, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença MIT); com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "nvidia/nemotron-3-super-120b-a12b": {
-    "descricao": "Família NVIDIA Nemotron — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "moonshotai/kimi-k2": {
     "descricao": "Família Kimi da Moonshot — modelo de uso geral. Janela de ~128k tokens, preço acessível, corre ferramentas e open-weight no Hugging Face; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -362,26 +431,20 @@
   "openai/gpt-4.1": {
     "descricao": "Família GPT da OpenAI — modelo de uso geral. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "qwen/qwen3-235b-a22b-thinking-2507": {
-    "descricao": "Família Qwen da Alibaba — variante otimizada para raciocínio em cadeia. Janela de ~128k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença APACHE-2.0); com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "nvidia/nemotron-3-ultra-550b-a55b": {
+    "descricao": "Família NVIDIA Nemotron — modelo de topo da gama. Janela de ~256k tokens, preço acessível e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "openai/o3-mini": {
-    "descricao": "Série de raciocínio da OpenAI (família o) — variante rápida e leve. Janela de ~195k tokens, preço acessível e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "openai/o1-pro": {
-    "descricao": "Série de raciocínio da OpenAI (família o) — modelo de topo da gama. Janela de ~195k tokens, preço premium e lê imagens, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "inception/mercury-2.5": {
-    "descricao": "Família Inception Mercury — modelo de uso geral. Janela de ~254k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "nvidia/nemotron-3-ultra-550b-a55b:free": {
+    "descricao": "Família NVIDIA Nemotron — variante de preço zero do mesmo modelo. Janela de 1M tokens, gratuito e corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "perplexity/sonar-reasoning-pro": {
     "descricao": "Família Perplexity Sonar — variante de voz e áudio. Janela de ~125k tokens, preço acessível e lê imagens, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
+  "google/gemini-3.5-flash-lite:batch": {
+    "descricao": "Família Google (Gemini/Gemma) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "openai/gpt-oss-120b": {
     "descricao": "Família GPT da OpenAI — modelo de uso geral. Janela de ~128k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença APACHE-2.0); com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "mistralai/mistral-small-2603": {
-    "descricao": "Família Mistral AI — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3.5-9b": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -392,17 +455,11 @@
   "ibm-granite/granite-4.2-8b": {
     "descricao": "Família IBM Granite — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "openai/o3-mini-high": {
-    "descricao": "Série de raciocínio da OpenAI (família o) — variante rápida e leve. Janela de ~195k tokens, preço acessível e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "arcee-ai/trinity-large-thinking": {
-    "descricao": "Família Arcee AI — variante otimizada para raciocínio em cadeia. Janela de ~256k tokens, preço muito baixo e corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
   "openai/gpt-4.1-mini": {
     "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "meta-llama/llama-4-maverick": {
-    "descricao": "Família Llama da Meta — modelo de uso geral. Janela de 1M tokens, preço muito baixo, lê imagens, corre ferramentas, devolve JSON estruturado e open-weight no Hugging Face; com métricas públicas já medidas no catálogo (AA/LMArena)."
+    "descricao": "Família Llama da Meta — modelo de uso geral. Janela de ~512k tokens, preço muito baixo, lê imagens, corre ferramentas, devolve JSON estruturado e open-weight no Hugging Face; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3-vl-235b-a22b-instruct": {
     "descricao": "Família Qwen da Alibaba — variante multimodal com leitura de imagens. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -410,20 +467,11 @@
   "google/gemini-2.5-flash": {
     "descricao": "Família Google (Gemini/Gemma) — variante rápida e leve. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "qwen/qwen3-30b-a3b-thinking-2507": {
-    "descricao": "Família Qwen da Alibaba — variante otimizada para raciocínio em cadeia. Janela de ~80k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "deepseek/deepseek-chat-v3-0324": {
-    "descricao": "Família DeepSeek — modelo de uso geral. Janela de ~160k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
   "qwen/qwen3-next-80b-a3b-instruct": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3-coder-30b-a3b-instruct": {
     "descricao": "Família Qwen da Alibaba — variante especializada em programação. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "mistralai/mistral-large-2512": {
-    "descricao": "Família Mistral AI — modelo de topo da gama. Janela de ~256k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "mistralai/mistral-medium-3.1": {
     "descricao": "Família Mistral AI — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -437,20 +485,11 @@
   "mistralai/mistral-medium-3": {
     "descricao": "Família Mistral AI — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "nvidia/nemotron-3-nano-30b-a3b": {
-    "descricao": "Família NVIDIA Nemotron — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "mistralai/devstral-2512": {
-    "descricao": "Família Mistral AI — variante especializada em programação. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
   "z-ai/glm-4.6v": {
     "descricao": "Família GLM da Zhipu — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-4o": {
     "descricao": "Família GPT da OpenAI — modelo de uso geral. Janela de ~125k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "qwen/qwen3-vl-32b-instruct": {
-    "descricao": "Família Qwen da Alibaba — variante multimodal com leitura de imagens. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "meta-llama/llama-4-scout": {
     "descricao": "Família Llama da Meta — modelo de uso geral. Janela de 1.3M tokens, preço muito baixo, lê imagens, corre ferramentas, devolve JSON estruturado e open-weight no Hugging Face; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -461,14 +500,11 @@
   "openai/gpt-4.1-nano": {
     "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "upstage/solar-pro-3": {
-    "descricao": "Família Solar da Upstage — modelo de topo da gama. Janela de ~128k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
   "openai/gpt-4o-2024-08-06": {
     "descricao": "Família GPT da OpenAI — modelo de uso geral. Janela de ~125k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "meta-llama/llama-3.3-70b-instruct": {
-    "descricao": "Família Llama da Meta — modelo de uso geral. Janela de ~128k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado e open-weight (licença LLAMA3.3); com métricas públicas já medidas no catálogo (AA/LMArena)."
+    "descricao": "Família Llama da Meta — modelo de uso geral. Janela de ~128k tokens, preço acessível, corre ferramentas, devolve JSON estruturado e open-weight (licença LLAMA3.3); com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "perplexity/sonar": {
     "descricao": "Família Perplexity Sonar — variante de voz e áudio. Janela de ~124k tokens, preço acessível e lê imagens; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -476,17 +512,17 @@
   "perplexity/sonar-pro": {
     "descricao": "Família Perplexity Sonar — variante de voz e áudio. Janela de ~195k tokens, preço moderado e lê imagens; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
+  "anthropic/claude-haiku-4.5:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~195k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "openai/gpt-4o-2024-05-13": {
     "descricao": "Família GPT da OpenAI — modelo de uso geral. Janela de ~125k tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3-vl-8b-instruct": {
     "descricao": "Família Qwen da Alibaba — variante multimodal com leitura de imagens. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "openai/gpt-4-turbo": {
-    "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de ~125k tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
   "cohere/command-a": {
-    "descricao": "Família Cohere Command — modelo de uso geral. Janela de ~250k tokens, preço acessível, devolve JSON estruturado e open-weight (licença CC-BY-NC-4.0); com métricas públicas já medidas no catálogo (AA/LMArena)."
+    "descricao": "Família Cohere Command — modelo de uso geral. Janela de ~250k tokens, preço acessível, corre ferramentas, devolve JSON estruturado e open-weight (licença CC-BY-NC-4.0); com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "meta-llama/llama-3.1-8b-instruct": {
     "descricao": "Família Llama da Meta — modelo de uso geral. Janela de ~128k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado e open-weight (licença LLAMA3.1); com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -507,16 +543,16 @@
     "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de ~125k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "meta-llama/llama-3.1-70b-instruct": {
-    "descricao": "Família Llama da Meta — modelo de uso geral. Janela de ~128k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado e open-weight (licença LLAMA3.1); com métricas públicas já medidas no catálogo (AA/LMArena)."
+    "descricao": "Família Llama da Meta — modelo de uso geral. Janela de ~128k tokens, preço acessível e open-weight (licença LLAMA3.1); com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "mistralai/mistral-saba": {
     "descricao": "Família Mistral AI — modelo de uso geral. Janela de ~32k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "nousresearch/hermes-3-llama-3.1-70b": {
-    "descricao": "Família Nous Research Hermes — modelo de uso geral. Janela de ~128k tokens, preço acessível, devolve JSON estruturado e open-weight (licença LLAMA3); com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "meta/muse-glimmer-30b": {
+    "descricao": "Família Muse da Meta — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "mistralai/ministral-14b-2512": {
-    "descricao": "Família Mistral AI — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "meta/muse-glimmer-30b:batch": {
+    "descricao": "Família Muse da Meta — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "mistralai/mistral-large": {
     "descricao": "Família Mistral AI — modelo de topo da gama. Janela de ~125k tokens, preço acessível, corre ferramentas, devolve JSON estruturado e open-weight no Hugging Face; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -527,29 +563,32 @@
   "rekaai/reka-flash-3": {
     "descricao": "Família Reka — variante rápida e leve. Janela de ~64k tokens, preço muito baixo e devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "mistralai/ministral-8b-2512": {
-    "descricao": "Família Mistral AI — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "google/gemma-3-27b-it": {
-    "descricao": "Família Google (Gemini/Gemma) — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "nvidia/nemotron-3.5-lightning:free": {
+    "descricao": "Família NVIDIA Nemotron — variante de preço zero do mesmo modelo. Janela de 1M tokens, gratuito e corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "meta-llama/llama-3.2-1b-instruct": {
     "descricao": "Família Llama da Meta — modelo de uso geral. Janela de ~59k tokens, preço muito baixo e open-weight (licença LLAMA3.2); com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "mistralai/ministral-3b-2512": {
-    "descricao": "Família Mistral AI — variante rápida e leve. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "mistralai/mistral-medium-3-5:batch": {
+    "descricao": "Família Mistral AI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~256k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "google/gemma-3-12b-it": {
-    "descricao": "Família Google (Gemini/Gemma) — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "google/gemma-4-31b-it": {
+    "descricao": "Família Google (Gemini/Gemma) — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "google/gemma-4-31b-it:free": {
+    "descricao": "Família Google (Gemini/Gemma) — variante de preço zero do mesmo modelo. Janela de ~256k tokens, gratuito e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "mistralai/mistral-small-2603": {
+    "descricao": "Família Mistral AI — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "cohere/north-mini-code:free": {
+    "descricao": "Família Cohere Command — variante de preço zero do mesmo modelo. Janela de ~250k tokens, gratuito e corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-5.2-chat": {
     "descricao": "Família GPT da OpenAI — modelo de uso geral. Janela de ~125k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "x-ai/grok-4.20-multi-agent": {
     "descricao": "Família Grok da xAI — variante multi-agente. Janela de 2M tokens, preço acessível e lê imagens, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "qwen/qwen3.6-max-preview": {
-    "descricao": "Família Qwen da Alibaba — modelo de topo da gama. Janela de ~256k tokens, preço acessível e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "xiaomi/mimo-v2.5": {
     "descricao": "Família MiMo da Xiaomi — modelo de uso geral. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -560,20 +599,17 @@
   "deepseek/deepseek-r1-0528": {
     "descricao": "Família DeepSeek — modelo de uso geral. Janela de ~160k tokens, preço acessível, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença MIT); com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "qwen/qwen3-vl-235b-a22b-thinking": {
-    "descricao": "Família Qwen da Alibaba — variante otimizada para raciocínio em cadeia. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "qwen/qwen3-235b-a22b-thinking-2507": {
+    "descricao": "Família Qwen da Alibaba — variante otimizada para raciocínio em cadeia. Janela de ~125k tokens, preço muito baixo, corre ferramentas, raciocína em cadeia e open-weight (licença APACHE-2.0); com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3-30b-a3b-instruct-2507": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "qwen/qwen3-235b-a22b": {
-    "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~128k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença APACHE-2.0); com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "qwen/qwen3-next-80b-a3b-thinking": {
-    "descricao": "Família Qwen da Alibaba — variante otimizada para raciocínio em cadeia. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "google/gemma-3-27b-it": {
+    "descricao": "Família Google (Gemini/Gemma) — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "minimax/minimax-m1": {
-    "descricao": "Família MiniMax — modelo de topo da gama. Janela de 1M tokens, preço muito baixo e corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+    "descricao": "Família MiniMax — modelo de topo da gama. Janela de 1M tokens, preço acessível e corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3-32b": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~128k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença APACHE-2.0); com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -581,8 +617,11 @@
   "qwen/qwen-plus": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
+  "google/gemma-3-12b-it": {
+    "descricao": "Família Google (Gemini/Gemma) — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "qwen/qwen3-30b-a3b": {
-    "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~128k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença APACHE-2.0); com métricas públicas já medidas no catálogo (AA/LMArena)."
+    "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~40k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado, raciocína em cadeia e open-weight (licença APACHE-2.0); com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-4o-mini-2024-07-18": {
     "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de ~125k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -591,7 +630,7 @@
     "descricao": "Família Google (Gemini/Gemma) — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e lê imagens, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "mistralai/mistral-small-3.1-24b-instruct": {
-    "descricao": "Família Mistral AI — variante rápida e leve. Janela de ~125k tokens, preço muito baixo e lê imagens, corre ferramentas; com métricas públicas já medidas no catálogo (AA/LMArena)."
+    "descricao": "Família Mistral AI — variante rápida e leve. Janela de ~125k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "google/gemma-2-27b-it": {
     "descricao": "Família Google (Gemini/Gemma) — modelo de uso geral. Janela de ~8k tokens, preço acessível e devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -607,9 +646,6 @@
   },
   "cohere/command-r-08-2024": {
     "descricao": "Família Cohere Command — modelo de uso geral. Janela de ~125k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado e open-weight (licença CC-BY-NC-4.0); com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "openai/gpt-3.5-turbo": {
-    "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de ~16k tokens, preço acessível e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "aion-labs/aion-3.5": {
     "descricao": "Catálogo Aion Labs — modelo de uso geral. Janela de ~256k tokens, preço moderado e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
@@ -629,29 +665,101 @@
   "aion-labs/aion-rp-llama-3.1-8b": {
     "descricao": "Catálogo Aion Labs — modelo de uso geral. Janela de ~32k tokens e preço acessível; ainda sem métricas públicas no catálogo."
   },
+  "anthropic/claude-fable-5:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "~anthropic/claude-fable-latest": {
+    "descricao": "Catálogo Anthropic — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "~anthropic/claude-haiku-latest": {
+    "descricao": "Catálogo Anthropic — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "anthropic/claude-opus-4.1:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~195k tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "anthropic/claude-opus-4.5:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~195k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "anthropic/claude-opus-4.6:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "anthropic/claude-opus-4.7:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "anthropic/claude-opus-4.8:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "~anthropic/claude-opus-latest": {
+    "descricao": "Catálogo Anthropic — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "anthropic/claude-sonnet-4.5:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "anthropic/claude-sonnet-4.6:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "anthropic/claude-sonnet-5:batch": {
+    "descricao": "Família Claude da Anthropic — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "~anthropic/claude-sonnet-latest": {
+    "descricao": "Catálogo Anthropic — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "mistralai/codestral-2508": {
     "descricao": "Família Mistral AI — variante especializada em programação. Janela de ~250k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "cohere/command-r7b-12-2024": {
-    "descricao": "Família Cohere Command — modelo de uso geral. Janela de ~125k tokens, preço muito baixo, devolve JSON estruturado e open-weight (licença CC-BY-NC-4.0); ainda sem métricas públicas no catálogo."
+    "descricao": "Família Cohere Command — modelo de uso geral. Janela de ~125k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado e open-weight (licença CC-BY-NC-4.0); ainda sem métricas públicas no catálogo."
+  },
+  "stealth/crouton-alpha": {
+    "descricao": "Catálogo Stealth — pré-lançamento experimental. Janela de 1M tokens, gratuito e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "thedrummer/cydonia-24b-v4.1": {
     "descricao": "Catálogo TheDrummer — modelo de uso geral. Janela de ~128k tokens, preço muito baixo, devolve JSON estruturado e open-weight no Hugging Face; ainda sem métricas públicas no catálogo."
   },
+  "~deepseek/deepseek-flash-latest": {
+    "descricao": "Catálogo DeepSeek — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "~deepseek/deepseek-pro-latest": {
+    "descricao": "Catálogo DeepSeek — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "deepseek/deepseek-chat": {
+    "descricao": "Família DeepSeek — modelo de uso geral. Janela de ~160k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "deepseek/deepseek-chat-v3-0324": {
     "descricao": "Família DeepSeek — modelo de uso geral. Janela de ~160k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "deepseek/deepseek-chat-v3.1": {
     "descricao": "Família DeepSeek — modelo de uso geral. Janela de ~160k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
+  "deepseek/deepseek-v4-flash-0731": {
+    "descricao": "Actualização do V4 Flash com contexto alongado (1.3M tokens) e preço mínimo. Para volume elevado e tarefas curtas."
+  },
+  "deepseek/deepseek-v4-flash-0731:batch": {
+    "descricao": "Família DeepSeek — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "~deepseek/deepseek-v4-flash-latest": {
+    "descricao": "Catálogo DeepSeek — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "deepseek/deepseek-v4-flash-vision-exp": {
-    "descricao": "Família DeepSeek — variante multimodal com leitura de imagens. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+    "descricao": "Família DeepSeek — variante multimodal com leitura de imagens. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "deepseek/deepseek-v4.1-flash:batch": {
+    "descricao": "Família DeepSeek — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "mistralai/devstral-2512": {
+    "descricao": "Família Mistral AI — variante especializada em programação. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "dots-studio/dots-3-note-preview:free": {
+    "descricao": "Catálogo Dots Studio — variante de preço zero do mesmo modelo. Janela de ~512k tokens, gratuito e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "fireworks/ember-1": {
     "descricao": "Catálogo Fireworks — modelo de uso geral. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
-  "baidu/ernie-4.5-vl-424b-a47b": {
-    "descricao": "Família Baidu ERNIE — variante multimodal com leitura de imagens. Janela de ~120k tokens, preço muito baixo e lê imagens, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  "scaledown/extract": {
+    "descricao": "Catálogo Scaledown — modelo de uso geral. Janela de 1M tokens, preço muito baixo e lê imagens; ainda sem métricas públicas no catálogo."
+  },
+  "recursive/flint-v1.0:free": {
+    "descricao": "Catálogo Recursive — variante de preço zero do mesmo modelo. Janela de ~256k tokens, gratuito e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "sakana/fugu-max": {
     "descricao": "Família Sakana AI — modelo de topo da gama. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
@@ -668,23 +776,71 @@
   "google/gemini-3-flash-preview": {
     "descricao": "Família Google (Gemini/Gemma) — variante rápida e leve. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
+  "google/gemini-3-flash-preview:batch": {
+    "descricao": "Família Google (Gemini/Gemma) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "google/gemini-3.1-flash-lite": {
     "descricao": "Família Google (Gemini/Gemma) — variante rápida e leve. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "google/gemini-3.1-flash-lite:batch": {
+    "descricao": "Família Google (Gemini/Gemma) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "google/gemini-3.1-pro-preview:batch": {
+    "descricao": "Família Google (Gemini/Gemma) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "google/gemini-3.1-pro-preview-customtools": {
     "descricao": "Família Google (Gemini/Gemma) — modelo de topo da gama. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
+  "google/gemini-3.5-flash:batch": {
+    "descricao": "Família Google (Gemini/Gemma) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "google/gemini-3.6-flash:batch": {
+    "descricao": "Família Google (Gemini/Gemma) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "google/gemini-3.7-flash:batch": {
+    "descricao": "Família Google (Gemini/Gemma) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "~google/gemini-flash-latest": {
+    "descricao": "Catálogo Google — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "google/gemini-omni-1.1-flash": {
+    "descricao": "Família Google (Gemini/Gemma) — variante omni (texto, imagem e áudio). Janela de ~128k tokens, preço acessível e lê imagens, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "google/gemini-omni-1.2-flash": {
+    "descricao": "Família Google (Gemini/Gemma) — variante omni (texto, imagem e áudio). Janela de ~128k tokens, preço acessível e lê imagens, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "~google/gemini-pro-latest": {
+    "descricao": "Catálogo Google — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "google/gemma-4-26b-a4b-it": {
     "descricao": "Família Google (Gemini/Gemma) — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "google/gemma-4-31b-it": {
-    "descricao": "Família Google (Gemini/Gemma) — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  "google/gemma-4-26b-a4b-it:free": {
+    "descricao": "Família Google (Gemini/Gemma) — variante de preço zero do mesmo modelo. Janela de ~256k tokens, gratuito e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "elorian/glimpse": {
+    "descricao": "Catálogo Elorian — modelo de uso geral. Janela de ~256k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "z-ai/glm-5.2:batch": {
+    "descricao": "Família GLM da Zhipu — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "z-ai/glm-5.3-flashx": {
     "descricao": "Família GLM da Zhipu — variante rápida e leve. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
+  "z-ai/glm-5.3-flashx-legal": {
+    "descricao": "Família GLM da Zhipu — variante rápida e leve. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "z-ai/glm-5.3-prime": {
     "descricao": "Família GLM da Zhipu — modelo de uso geral. Janela de 1M tokens, preço acessível e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "~z-ai/glm-flash-latest": {
+    "descricao": "Catálogo Zhipu — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "~z-ai/glm-latest": {
+    "descricao": "Catálogo Zhipu — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "~openai/gpt-astra-latest": {
+    "descricao": "Catálogo OpenAI — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "openai/gpt-audio": {
     "descricao": "Família GPT da OpenAI — variante de voz e áudio. Janela de ~125k tokens, preço acessível e corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
@@ -695,17 +851,47 @@
   "openai/gpt-chat-latest": {
     "descricao": "Família GPT da OpenAI — pré-lançamento experimental. Janela de ~391k tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
   },
+  "~openai/gpt-luna-latest": {
+    "descricao": "Catálogo OpenAI — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "~openai/gpt-mini-latest": {
+    "descricao": "Catálogo OpenAI — atalho permanente para o modelo mais recente da família. Janela de ~391k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "~openai/gpt-sol-latest": {
+    "descricao": "Catálogo OpenAI — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "~openai/gpt-terra-latest": {
+    "descricao": "Catálogo OpenAI — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "openai/gpt-3.5-turbo-0613": {
     "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de ~4k tokens, preço acessível e corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
   },
   "openai/gpt-3.5-turbo-16k": {
     "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de ~16k tokens, preço moderado e corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
   },
-  "openai/gpt-3.5-turbo-instruct": {
-    "descricao": "Família GPT da OpenAI — variante rápida e leve. Janela de ~4k tokens, preço acessível e devolve JSON estruturado; ainda sem métricas públicas no catálogo."
+  "openai/gpt-4-turbo:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~125k tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/gpt-4.1:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/gpt-4.1-mini:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/gpt-4.1-nano:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/gpt-4o:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~125k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-4o-2024-11-20": {
     "descricao": "Família GPT da OpenAI — modelo de uso geral. Janela de ~125k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-4o-mini:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~125k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/gpt-5:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~391k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-5-image": {
     "descricao": "Família GPT da OpenAI — modelo de geração e edição de imagens. Janela de ~391k tokens, preço moderado e lê imagens, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -713,56 +899,128 @@
   "openai/gpt-5-image-mini": {
     "descricao": "Família GPT da OpenAI — modelo de geração e edição de imagens. Janela de ~391k tokens, preço acessível e lê imagens, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
+  "openai/gpt-5-mini:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~391k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/gpt-5-nano:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~391k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "openai/gpt-5-pro": {
     "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de ~391k tokens, preço elevado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-5-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~391k tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-5.1:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~391k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-5.1-codex-max": {
     "descricao": "Família GPT da OpenAI — variante especializada em programação. Janela de ~391k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
+  "openai/gpt-5.2:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~391k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "openai/gpt-5.2-pro": {
     "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de ~391k tokens, preço elevado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-5.2-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~391k tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-5.4:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-5.4-image-2": {
     "descricao": "Família GPT da OpenAI — modelo de geração e edição de imagens. Janela de ~266k tokens, preço moderado e lê imagens, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
+  "openai/gpt-5.4-mini:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~391k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/gpt-5.4-nano:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~391k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
   "openai/gpt-5.4-pro": {
     "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de 1M tokens, preço elevado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-5.4-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço elevado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-5.5:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-5.5-pro": {
     "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de 1M tokens, preço elevado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
+  "openai/gpt-5.5-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço elevado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "openai/gpt-5.6-luna-pro": {
     "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-5.6-luna-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-5.6-sol:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-5.6-sol-pro": {
     "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
+  "openai/gpt-5.6-sol-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "openai/gpt-5.6-terra-pro": {
     "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-5.6-terra-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "openai/gpt-6-astra-pro": {
     "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
+  "openai/gpt-6-astra-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "openai/gpt-6-luna-pro": {
     "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-6-luna-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "openai/gpt-6-sol-pro": {
     "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
+  "openai/gpt-6-sol-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "openai/gpt-6.1-sol-pro": {
     "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-6.1-sol-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-6.1-terra-pro": {
+    "descricao": "Família GPT da OpenAI — modelo de topo da gama. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-6.1-terra-pro:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/gpt-oss-120b:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~128k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/gpt-oss-20b:batch": {
+    "descricao": "Família GPT da OpenAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~128k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "openai/gpt-oss-safeguard-20b": {
     "descricao": "Família GPT da OpenAI — modelo de moderação de conteúdo. Janela de ~128k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
-  "ibm-granite/granite-4.0-h-micro": {
-    "descricao": "Família IBM Granite — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e devolve JSON estruturado; ainda sem métricas públicas no catálogo."
+  "x-ai/grok-4.3:batch": {
+    "descricao": "Família Grok da xAI — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "x-ai/grok-build-0.1": {
     "descricao": "Família Grok da xAI — modelo de uso geral. Janela de ~250k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "nousresearch/hermes-3-llama-3.1-405b": {
-    "descricao": "Família Nous Research Hermes — modelo de uso geral. Janela de ~128k tokens, preço acessível, devolve JSON estruturado e open-weight (licença LLAMA3); ainda sem métricas públicas no catálogo."
+  "~x-ai/grok-latest": {
+    "descricao": "Catálogo xAI — atalho permanente para o modelo mais recente da família. Janela de ~488k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "nousresearch/hermes-4-405b": {
     "descricao": "Família Nous Research Hermes — modelo de uso geral. Janela de ~128k tokens, preço acessível, devolve JSON estruturado, raciocína em cadeia e open-weight (licença LLAMA3); ainda sem métricas públicas no catálogo."
@@ -782,26 +1040,41 @@
   "tencent/hy4-preview": {
     "descricao": "Família Tencent (Hunyuan/Hy) — pré-lançamento experimental. Janela de 1M tokens, preço acessível e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
-  "kwaipilot/kat-coder-pro-v2.5": {
-    "descricao": "Catálogo KwaiPilot — variante especializada em programação. Janela de ~256k tokens, preço acessível e corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
+  "~moonshotai/kimi-latest": {
+    "descricao": "Catálogo Moonshot AI — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
-  "poolside/laguna-s-2.1": {
-    "descricao": "Catálogo Poolside — modelo de uso geral. Janela de 1M tokens, preço muito baixo e corre ferramentas, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  "liquid/lfm-2.5-2.6b": {
+    "descricao": "Catálogo Liquid AI — modelo de uso geral. Janela de ~125k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "poolside/laguna-xs-2.1": {
-    "descricao": "Catálogo Poolside — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e corre ferramentas, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  "liquid/lfm-2.5-2.6b:free": {
+    "descricao": "Catálogo Liquid AI — variante de preço zero do mesmo modelo. Janela de ~64k tokens, gratuito e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "liquid/lfm-2.5-24b-a2b": {
+    "descricao": "Catálogo Liquid AI — modelo de uso geral. Janela de ~125k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "liquid/lfm-3-1.7b": {
+    "descricao": "Catálogo Liquid AI — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "liquid/lfm-3-1.7b:free": {
+    "descricao": "Catálogo Liquid AI — variante de preço zero do mesmo modelo. Janela de ~256k tokens, gratuito e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "inclusionai/ling-3.0-tiny": {
+    "descricao": "Família InclusionAI Ling — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "inclusionai/ling-3.1-flash": {
+    "descricao": "Família InclusionAI Ling — variante rápida e leve. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "sao10k/l3-lunaris-8b": {
     "descricao": "Catálogo Sao10K — modelo de uso geral. Janela de ~8k tokens, preço muito baixo e devolve JSON estruturado; ainda sem métricas públicas no catálogo."
   },
   "sao10k/l3.1-euryale-70b": {
-    "descricao": "Catálogo Sao10K — modelo de uso geral. Janela de ~128k tokens, preço acessível e corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
-  },
-  "sao10k/l3.3-euryale-70b": {
     "descricao": "Catálogo Sao10K — modelo de uso geral. Janela de ~128k tokens, preço acessível e devolve JSON estruturado; ainda sem métricas públicas no catálogo."
   },
   "meta-llama/llama-guard-4-12b": {
     "descricao": "Família Llama da Meta — modelo de moderação de conteúdo. Janela de ~160k tokens, preço muito baixo e lê imagens; ainda sem métricas públicas no catálogo."
+  },
+  "meituan/longcat-2.0": {
+    "descricao": "Catálogo Meituan — modelo de uso geral. Janela de 1M tokens, preço muito baixo e corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "google/lyria-3-clip-preview": {
     "descricao": "Família Google (Gemini/Gemma) — pré-lançamento experimental. Janela de 1M tokens, gratuito e lê imagens, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
@@ -815,11 +1088,17 @@
   "xiaomi/mimo-v2.6-pro-ultraspeed": {
     "descricao": "Família MiMo da Xiaomi — modelo de topo da gama. Janela de 1M tokens, preço moderado e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
-  "minimax/minimax-m2-her": {
-    "descricao": "Família MiniMax — modelo de topo da gama. Janela de ~64k tokens e preço muito baixo; ainda sem métricas públicas no catálogo."
+  "mistralai/ministral-14b-2512": {
+    "descricao": "Família Mistral AI — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
-  "minimax/minimax-01": {
-    "descricao": "Família MiniMax — modelo de topo da gama. Janela de 1M tokens, preço muito baixo e lê imagens; ainda sem métricas públicas no catálogo."
+  "mistralai/ministral-3b-2512": {
+    "descricao": "Família Mistral AI — variante rápida e leve. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "mistralai/ministral-8b-2512": {
+    "descricao": "Família Mistral AI — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "mistralai/mistral-large-2512": {
+    "descricao": "Família Mistral AI — modelo de topo da gama. Janela de ~256k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "mistralai/mistral-nemo": {
     "descricao": "Família Mistral AI — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
@@ -830,14 +1109,23 @@
   "mistralai/mixtral-8x22b-instruct": {
     "descricao": "Família Mistral AI — modelo de uso geral. Janela de ~64k tokens, preço acessível e corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
   },
+  "moondream/moondream3-preview": {
+    "descricao": "Catálogo Moondream — pré-lançamento experimental. Janela de ~31k tokens, preço muito baixo e lê imagens, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "moondream/moondream3.1-9b-a2b": {
+    "descricao": "Catálogo Moondream — modelo de uso geral. Janela de ~31k tokens, preço muito baixo e lê imagens, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "morph/morph-v3-fast": {
-    "descricao": "Catálogo Morph — variante rápida e leve. Janela de ~80k tokens e preço acessível; ainda sem métricas públicas no catálogo."
+    "descricao": "Catálogo Morph — variante rápida e leve. Janela de ~256k tokens, preço acessível e devolve JSON estruturado; ainda sem métricas públicas no catálogo."
+  },
+  "morph/morph-v3-fast:batch": {
+    "descricao": "Catálogo Morph — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~80k tokens e preço muito baixo; ainda sem métricas públicas no catálogo."
   },
   "morph/morph-v3-large": {
     "descricao": "Catálogo Morph — modelo de topo da gama. Janela de ~256k tokens, preço acessível e devolve JSON estruturado; ainda sem métricas públicas no catálogo."
   },
-  "meta/muse-glimmer-30b": {
-    "descricao": "Família Muse da Meta — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  "morph/morph-v3-large:batch": {
+    "descricao": "Catálogo Morph — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~256k tokens, preço muito baixo e devolve JSON estruturado; ainda sem métricas públicas no catálogo."
   },
   "meta/muse-spark-1.2-contributor": {
     "descricao": "Família Muse da Meta — variante contributor. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
@@ -860,11 +1148,23 @@
   "google/gemini-3.1-flash-lite-image": {
     "descricao": "Família Google (Gemini/Gemma) — modelo de geração e edição de imagens (Nano Banana do Google). Janela de ~64k tokens, preço muito baixo e lê imagens, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
+  "google/gemini-nano-banana-2.1": {
+    "descricao": "Família Google (Gemini/Gemma) — modelo de geração e edição de imagens (Nano Banana do Google). Janela de ~64k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
   "google/gemini-3-pro-image-preview": {
     "descricao": "Família Google (Gemini/Gemma) — modelo de geração e edição de imagens (Nano Banana do Google). Janela de ~64k tokens, preço acessível e lê imagens, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "google/gemini-3-pro-image": {
     "descricao": "Família Google (Gemini/Gemma) — modelo de geração e edição de imagens (Nano Banana do Google). Janela de ~128k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "nvidia/nemotron-3-nano-30b-a3b": {
+    "descricao": "Família NVIDIA Nemotron — variante rápida e leve. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": {
+    "descricao": "Família NVIDIA Nemotron — variante de preço zero do mesmo modelo. Janela de ~250k tokens, gratuito e lê imagens, corre ferramentas, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "nvidia/nemotron-3-super-120b-a12b": {
+    "descricao": "Família NVIDIA Nemotron — modelo de uso geral. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "nvidia/nemotron-3.5-content-safety": {
     "descricao": "Família NVIDIA Nemotron — modelo de moderação de conteúdo. Janela de ~128k tokens, preço muito baixo e lê imagens, raciocína em cadeia; ainda sem métricas públicas no catálogo."
@@ -890,23 +1190,35 @@
   "amazon/nova-pro-v1": {
     "descricao": "Família Amazon Nova — modelo de topo da gama. Janela de ~293k tokens, preço acessível e lê imagens, corre ferramentas; ainda sem métricas públicas no catálogo."
   },
-  "openai/o4-mini-high": {
-    "descricao": "Série de raciocínio da OpenAI (família o) — variante rápida e leve. Janela de ~195k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  "openai/o3:batch": {
+    "descricao": "Série de raciocínio da OpenAI (família o) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~195k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+  },
+  "openai/o3-mini:batch": {
+    "descricao": "Série de raciocínio da OpenAI (família o) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~195k tokens, preço acessível e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "openai/o4-mini:batch": {
+    "descricao": "Série de raciocínio da OpenAI (família o) — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~195k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "writer/palmyra-x5": {
     "descricao": "Família Writer Palmyra — modelo de uso geral. Janela de 1M tokens e preço acessível; ainda sem métricas públicas no catálogo."
   },
-  "unbiased/pareto": {
-    "descricao": "Catálogo Unbiased — modelo de uso geral. Janela de ~256k tokens, preço acessível e lê imagens, corre ferramentas; ainda sem métricas públicas no catálogo."
+  "unbiased/pareto-26.10": {
+    "descricao": "Catálogo Unbiased — modelo de uso geral. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas; ainda sem métricas públicas no catálogo."
+  },
+  "unbiased/pareto-26.9": {
+    "descricao": "Catálogo Unbiased — modelo de uso geral. Janela de ~256k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
+  },
+  "~unbiased/pareto-latest": {
+    "descricao": "Catálogo Unbiased — atalho permanente para o modelo mais recente da família. Janela de 1M tokens, preço acessível e lê imagens, corre ferramentas; ainda sem métricas públicas no catálogo."
+  },
+  "particle-ai/particle-1": {
+    "descricao": "Catálogo Particle Ai — modelo de uso geral. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "perceptron/perceptron-mk1": {
     "descricao": "Catálogo Perceptron — modelo de uso geral. Janela de ~32k tokens, preço muito baixo e lê imagens, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "perceptron/perceptron-mk1.5": {
     "descricao": "Catálogo Perceptron — modelo de uso geral. Janela de ~36k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
-  },
-  "qwen/qwen-plus-2025-07-28": {
-    "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "qwen/qwen-2.5-72b-instruct": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~32k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
@@ -921,13 +1233,10 @@
     "descricao": "Família Qwen da Alibaba — variante multimodal com leitura de imagens. Janela de ~125k tokens, preço acessível e lê imagens, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3-14b": {
-    "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
+    "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~40k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3-235b-a22b-2507": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~256k tokens, preço muito baixo, corre ferramentas, devolve JSON estruturado e open-weight (licença APACHE-2.0); com métricas públicas já medidas no catálogo (AA/LMArena)."
-  },
-  "qwen/qwen3-8b": {
-    "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de ~128k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3-coder": {
     "descricao": "Família Qwen da Alibaba — variante especializada em programação. Janela de ~256k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -935,14 +1244,8 @@
   "qwen/qwen3-coder-flash": {
     "descricao": "Família Qwen da Alibaba — variante especializada em programação. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
   },
-  "qwen/qwen3-coder-plus": {
-    "descricao": "Família Qwen da Alibaba — variante especializada em programação. Janela de 1M tokens, preço acessível e corre ferramentas, devolve JSON estruturado; ainda sem métricas públicas no catálogo."
-  },
   "qwen/qwen3-vl-30b-a3b-thinking": {
     "descricao": "Família Qwen da Alibaba — variante otimizada para raciocínio em cadeia. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
-  },
-  "qwen/qwen3-vl-8b-thinking": {
-    "descricao": "Família Qwen da Alibaba — variante otimizada para raciocínio em cadeia. Janela de ~128k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "qwen/qwen3.5-plus-02-15": {
     "descricao": "Família Qwen da Alibaba — modelo de uso geral. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
@@ -958,6 +1261,9 @@
   },
   "qwen/qwen3.7-flash": {
     "descricao": "Família Qwen da Alibaba — variante rápida e leve. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "qwen/qwen3.7-plus:batch": {
+    "descricao": "Família Qwen da Alibaba — variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "qwen/qwen3.8-flash": {
     "descricao": "Família Qwen da Alibaba — variante rápida e leve. Janela de 1M tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
@@ -979,6 +1285,9 @@
   },
   "undi95/remm-slerp-l2-13b": {
     "descricao": "Catálogo Undi95 — modelo de uso geral. Janela de ~6k tokens, preço muito baixo, devolve JSON estruturado e open-weight (licença CC-BY-NC-4.0); ainda sem métricas públicas no catálogo."
+  },
+  "ricursiveai/ripple-65b-preview": {
+    "descricao": "Catálogo Ricursiveai — pré-lançamento experimental. Janela de 1M tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "sakana/sakana-namazu": {
     "descricao": "Família Sakana AI — modelo de uso geral. Janela de ~256k tokens, preço acessível e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
@@ -1011,7 +1320,7 @@
     "descricao": "Catálogo TheDrummer — modelo de uso geral. Janela de ~32k tokens, preço acessível, devolve JSON estruturado e open-weight no Hugging Face; ainda sem métricas públicas no catálogo."
   },
   "upstage/solar-mini4": {
-    "descricao": "Família Solar da Upstage — variante rápida e leve. Janela de ~512k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+    "descricao": "Família Solar da Upstage — variante rápida e leve. Janela de ~512k tokens, preço muito baixo e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; com métricas públicas já medidas no catálogo (AA/LMArena)."
   },
   "perplexity/sonar-deep-research": {
     "descricao": "Família Perplexity Sonar — variante de voz e áudio. Janela de ~125k tokens, preço acessível e raciocína em cadeia; ainda sem métricas públicas no catálogo."
@@ -1019,10 +1328,13 @@
   "perplexity/sonar-pro-search": {
     "descricao": "Família Perplexity Sonar — variante de voz e áudio. Janela de ~195k tokens, preço moderado e lê imagens, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
-  "stealth/space-bunny-alpha": {
-    "descricao": "Catálogo Stealth — pré-lançamento experimental. Janela de 1M tokens, gratuito e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  "scaledown/summarize": {
+    "descricao": "Catálogo Scaledown — modelo de uso geral. Janela de 1M tokens, preço muito baixo e lê imagens; ainda sem métricas públicas no catálogo."
   },
   "prism-ml/ternary-bonsai-2-27b": {
+    "descricao": "Catálogo Prism ML — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "prism-ml/ternary-bonsai-2-9b": {
     "descricao": "Catálogo Prism ML — modelo de uso geral. Janela de ~256k tokens, preço muito baixo e lê imagens, corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   },
   "bytedance/ui-tars-1.5-7b": {
@@ -1040,7 +1352,7 @@
   "mancer/weaver": {
     "descricao": "Catálogo Mancer — pré-lançamento experimental. Janela de ~8k tokens, preço muito baixo e devolve JSON estruturado; ainda sem métricas públicas no catálogo."
   },
-  "microsoft/wizardlm-2-8x22b": {
-    "descricao": "Catálogo da Microsoft — modelo de uso geral. Janela de ~64k tokens, preço acessível e devolve JSON estruturado; ainda sem métricas públicas no catálogo."
+  "xingchen-agi/xing4.0-29b-a4b:free": {
+    "descricao": "Catálogo Xingchen Agi — variante de preço zero do mesmo modelo. Janela de ~256k tokens, gratuito e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
   }
 }

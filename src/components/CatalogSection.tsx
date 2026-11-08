@@ -9,6 +9,7 @@ import { formatContext, formatPrice } from "@/lib/format";
 import { headline } from "@/lib/comparar";
 import { ModelLogo } from "@/components/ModelLogo";
 import { CapabilityChips } from "@/components/CapabilityChips";
+import { VarianteBadge } from "@/components/VarianteBadge";
 
 const PAGE = 96;
 
@@ -152,6 +153,7 @@ export function CatalogSection({ models, totalSnapshot, onAssign }: CatalogSecti
                       {headline(m).valor}
                     </span>
                   )}
+                  <VarianteBadge variante={m.variante} />
                 </p>
                 <p className="truncate text-xs text-zinc-500">
                   por {m.empresa} ·{" "}

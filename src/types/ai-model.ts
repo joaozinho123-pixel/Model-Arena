@@ -17,8 +17,8 @@ export interface ModelModalities {
   saida: string[];
 }
 
-/** Variante do registo no catálogo (lotes e aliases são filtrados da UI). */
-export type ModelVariant = "base" | "batch" | "alias";
+/** Variante do registo no catálogo: base, lote (`:batch`), grátis (`:free`) ou alias (`~`). */
+export type ModelVariant = "base" | "batch" | "free" | "alias";
 
 /** Registo bruto do snapshot do OpenRouter. */
 export interface OpenRouterModel {

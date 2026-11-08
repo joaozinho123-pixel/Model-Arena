@@ -1,8 +1,9 @@
 /**
  * Passo 2 — Catálogo de modelos (snapshot real do OpenRouter).
  * Funde o JSON gerado por `npm run models:fetch` com os metadados de
- * fornecedor e os benchmarks editoriais. Variantes de lote (`:batch`)
- * e aliases (`~`) são excluídos da UI.
+ * fornecedor e os benchmarks editoriais. Lotes (`:batch`), grátis
+ * (`:free`) e aliases (`~`) ficam no catálogo — endpoints reais, com
+ * selo na UI; só roteadores automático são excluídos.
  */
 import {
   type AIModel,
@@ -62,7 +63,11 @@ export interface RawModel {
 
 function varianteOf(id: string): ModelVariant {
   if (id.startsWith("~")) return "alias";
-  if (id.includes(":")) return "batch";
+  if (id.includes(":")) {
+    const sufixo = id.slice(id.lastIndexOf(":") + 1).toLowerCase();
+    if (sufixo === "free") return "free";
+    return "batch";
+  }
   return "base";
 }
 
@@ -70,7 +75,7 @@ function varianteOf(id: string): ModelVariant {
 export function shortName(nome: string): string {
   const idx = nome.indexOf(": ");
   const curto = idx >= 0 ? nome.slice(idx + 2) : nome;
-  return curto.replace(/\s*\(batch\)\s*$/i, "").trim() || nome;
+  return curto.replace(/\s*\((batch|free)\)\s*$/i, "").trim() || nome;
 }
 
 interface ArenaEntry {
@@ -472,15 +477,12 @@ export function buildCatalogo(
 ): CatalogoPronto {
   const models = rawModels
     .map((raw) => toModel(raw, aaDirect))
-    // Sem lotes, aliases, roteadores OpenRouter nem roteadores com
-    // preço sentinela negativo (ex.: typesafe/jev-router): preço
-    // negativo nunca é preço real, é roteamento automático.
+    // Sem roteadores OpenRouter nem preço sentinela negativo (ex.:
+    // typesafe/jev-router): preço negativo nunca é preço real, é
+    // roteamento automático. Lotes (`:batch`), grátis (`:free`) e
+    // aliases (`~`) ficam — são endpoints reais, com selo na UI.
     .filter(
-      (m) =>
-        m.variante === "base" &&
-        m.provider !== "openrouter" &&
-        m.precoEntrada >= 0 &&
-        m.precoSaida >= 0,
+      (m) => m.provider !== "openrouter" && m.precoEntrada >= 0 && m.precoSaida >= 0,
     )
     .sort((a, b) => {
       const ka = chaveRank(a);

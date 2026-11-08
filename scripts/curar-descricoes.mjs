@@ -196,6 +196,12 @@ function familiaDe(m) {
 
 /** Papel/modelo a partir do nome — palavras reais do registo. */
 function papelDe(m) {
+  if (m.variante === "batch")
+    return "variante em lote — endpoint assíncrono do mesmo modelo, normalmente mais barato";
+  if (m.variante === "free")
+    return "variante de preço zero do mesmo modelo";
+  if (m.variante === "alias")
+    return "atalho permanente para o modelo mais recente da família";
   const n = m.nome.toLowerCase();
   if (/nano banana/.test(n))
     return "modelo de geração e edição de imagens (Nano Banana do Google)";
