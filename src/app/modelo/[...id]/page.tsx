@@ -341,9 +341,9 @@ export default async function ModelPage({ params }: PageProps) {
         {(m.designTodas?.length ?? 0) > 0 && (
           <Secao label="Design Arena">
             <ul className="card divide-y divide-zinc-100 overflow-hidden">
-              {m.designTodas!.map((d) => (
+              {m.designTodas!.map((d, i) => (
                 <li
-                  key={d.arena}
+                  key={`${d.arena}/${d.category}/${i}`}
                   className="flex items-baseline justify-between gap-3 px-4 py-2.5"
                 >
                   <span className="text-sm text-zinc-800">
