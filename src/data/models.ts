@@ -483,16 +483,54 @@ export function buildCatalogo(
     // aliases (`~`) ficam — são endpoints reais, com selo na UI.
     .filter(
       (m) => m.provider !== "openrouter" && m.precoEntrada >= 0 && m.precoSaida >= 0,
-    )
-    .sort((a, b) => {
-      const ka = chaveRank(a);
-      const kb = chaveRank(b);
-      return (
-        kb[0] - ka[0] || kb[1] - ka[1] || a.nomeCurto.localeCompare(b.nomeCurto)
-      );
-    })
-    .map((m, i) => ({ ...m, rank: i + 1 }));
-  return { models, total: rawModels.length };
+    );
+
+  // Dedupe por nome de exibição (fornecedor + nome curto): lotes,
+  // grátis e aliases partilham o nome com o modelo base — fica só
+  // um. Preferência: base, com métricas medidas, descrição curada.
+  type SemRank = Omit<AIModel, "rank">;
+  const ORDEM_VARIANTE: Record<ModelVariant, number> = {
+    base: 0,
+    free: 1,
+    batch: 2,
+    alias: 3,
+  };
+  const porNome = new Map<string, SemRank>();
+  for (const m of models) {
+    const chave = `${m.provider}//${m.nomeCurto}`;
+    const atual = porNome.get(chave);
+    if (!atual) {
+      porNome.set(chave, m);
+      continue;
+    }
+    const pontos = (x: SemRank) =>
+      ORDEM_VARIANTE[x.variante] * 100 +
+      (x.fonte === "estimativa" ? 50 : 0) +
+      Math.min(10, Math.floor(x.descricao.length / 40));
+    if (pontos(m) < pontos(atual)) porNome.set(chave, m);
+  }
+
+  const unicas = [...porNome.values()].sort((a, b) => {
+    const ka = chaveRank(a);
+    const kb = chaveRank(b);
+    return (
+      kb[0] - ka[0] || kb[1] - ka[1] || a.nomeCurto.localeCompare(b.nomeCurto)
+    );
+  }).map((m, i) => ({ ...m, rank: i + 1 }));
+  return { models: unicas, total: rawModels.length };
+}
+
+/**
+ * Modelo de UM registo cru, sem passar pela deduplicação do
+ * catálogo — usado pelas fichas de variantes (lote/grátis/alias),
+ * que têm o seu próprio preço/contexto. `rank` 0 = sem lugar no
+ * catálogo (a UI não mostra "Top" nesses casos).
+ */
+export function modeloDeRaw(
+  raw: RawModel,
+  aaDirect: Record<string, AADirectEntry> = AA_DIRECT,
+): AIModel {
+  return { ...toModel(raw, aaDirect), rank: 0 };
 }
 
 const STATIC = buildCatalogo(rawModels);

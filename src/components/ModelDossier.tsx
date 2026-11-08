@@ -37,7 +37,8 @@ function DossierCard({ model, badge }: { model: AIModel; badge: "A" | "B" }) {
             <VarianteBadge variante={model.variante} />
           </h3>
           <p className="truncate text-xs text-zinc-500">
-            {model.empresa} · Top {model.rank} geral
+            {model.empresa}
+            {model.rank > 0 ? ` · Top ${model.rank} geral` : ""}
           </p>
         </div>
         {h.valor !== "—" && (

@@ -9,7 +9,7 @@
  * só quando o modelo realmente não existe em lado nenhum.
  */
 import type { AIModel } from "@/types/ai-model";
-import { buildCatalogo } from "@/data/models";
+import { buildCatalogo, modeloDeRaw } from "@/data/models";
 import { rawDeApiModel } from "@/lib/openrouter-raw";
 
 const API_URL = "https://openrouter.ai/api/v1/models";
@@ -33,8 +33,13 @@ export async function modeloVivoPorId(id: string): Promise<AIModel | null> {
     const raw = payload.data
       .map((m) => (m && typeof m === "object" ? rawDeApiModel(m as Record<string, unknown>) : null))
       .filter((r): r is NonNullable<typeof r> => r != null);
-    const catalogo = buildCatalogo(raw);
-    return catalogo.models.find((m) => m.id === id) ?? null;
+    // 1) Catálogo deduplicado: dá o rank do modelo.
+    const noCatalogo = buildCatalogo(raw).models.find((m) => m.id === id);
+    if (noCatalogo) return noCatalogo;
+    // 2) Registo cru da variante (lote/grátis/alias): preço e
+    //    contexto próprios, sem rank no catálogo.
+    const cru = raw.find((r) => r.id === id);
+    return cru ? modeloDeRaw(cru) : null;
   } catch {
     return null;
   } finally {

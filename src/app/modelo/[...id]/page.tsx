@@ -41,12 +41,11 @@ interface PageProps {
  * vivo (modelos novos que ainda não entraram no snapshot). Só dá 404
  * quando o modelo não existe em lado nenhum.
  */
-async function fichaPorId(id: string): Promise<AIModel | null> {
+async function fichaPorId(idBruto: string): Promise<AIModel | null> {
+  // O router codifica ":" como %3A nos links de variantes.
+  const id = safeDecode(idBruto);
   const direto = MODELS_BY_ID[id];
   if (direto) return direto;
-  // O router codifica ":" como %3A nos links de variantes.
-  const decodificado = MODELS_BY_ID[safeDecode(id)];
-  if (decodificado) return decodificado;
   return modeloVivoPorId(id);
 }
 
@@ -182,9 +181,11 @@ export default async function ModelPage({ params }: PageProps) {
               </p>
             </div>
             <div className="flex shrink-0 flex-wrap justify-end gap-1.5">
-              <Chip titulo="Posição no catálogo (melhor métrica)">
-                Top {m.rank}
-              </Chip>
+              {m.rank > 0 && (
+                <Chip titulo="Posição no catálogo (melhor métrica)">
+                  Top {m.rank}
+                </Chip>
+              )}
               {m.destaque && <Chip titulo="Destaque">{m.destaque}</Chip>}
             </div>
           </div>
