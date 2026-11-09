@@ -24,6 +24,7 @@ import {
   providerDisplayName,
 } from "@/data/providers";
 import DATA from "./openrouter-models.json" with { type: "json" };
+import DEV_DATA from "./modelos-modelsdev.json" with { type: "json" };
 import HF_DATA from "./hf-stats.json" with { type: "json" };
 
 /** Descrições curadas por modelo (sobrepõem a do OpenRouter quando existem). */
@@ -439,6 +440,23 @@ function toModel(
 }
 
 const rawModels = (DATA as { models: RawModel[] }).models ?? [];
+
+/**
+ * Modelos importados da base de dados do OpenCode (models.dev) —
+ * só fornecedores de primeira parte que o OpenRouter aúnão tem,
+ * cruzados e deduplicados por `scripts/importar-modelsdev.mjs`.
+ * Mesma interface RawModel: o merge com arena/AA/HF é igual.
+ */
+const DEV_MODELS =
+  (DEV_DATA as unknown as { modelos: RawModel[] }).modelos ?? [];
+if (DEV_MODELS.length > 0) rawModels.push(...DEV_MODELS);
+
+/**
+ * Registos crus de models.dev exportados para os catálogos AO VIVO
+ * (hook do browser e fallback do servidor) — ambos fundem os mesmos
+ * registos para o site mostrar sempre o mesmo catálogo.
+ */
+export const RAW_MODELSDEV = DEV_MODELS;
 
 /** Data/hora da captura do snapshot (ISO). */
 export const DATA_GENERATED_AT =

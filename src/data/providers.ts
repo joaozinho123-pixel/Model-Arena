@@ -118,6 +118,12 @@ export const PROVIDER_META: Record<string, ProviderMeta> = {
     cor: "#F59E0B",
   },
   relace: { nome: "Relace", logo: AVATAR("relace.ai"), cor: "#34D399" },
+  ai21: {
+    nome: "AI21 Labs",
+    logo: AVATAR("ai21.com"),
+    cor: "#F59E0B",
+  },
+  sarvam: { nome: "Sarvam AI", logo: AVATAR("sarvam.ai"), cor: "#14B8A6" },
   sakana: {
     nome: "Sakana AI",
     logo: AVATAR("sakana.ai"),

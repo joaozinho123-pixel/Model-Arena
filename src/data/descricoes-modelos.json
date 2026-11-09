@@ -1354,5 +1354,221 @@
   },
   "xingchen-agi/xing4.0-29b-a4b:free": {
     "descricao": "Catálogo Xingchen Agi — variante de preço zero do mesmo modelo. Janela de ~256k tokens, gratuito e corre ferramentas, devolve JSON estruturado, raciocína em cadeia; ainda sem métricas públicas no catálogo."
+  },
+  "z-ai/glm-4.5-flash": {
+    "descricao": "Modelo de linguagem da Zhipu, lançado em 28 de julho de 2025, janela de contexto de 131 072 tokens e sem custo por tokens na API do fornecedor. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "z-ai/glm-4.6v-flash": {
+    "descricao": "Modelo de linguagem da Zhipu, lançado em 8 de dezembro de 2025, janela de contexto de 128 000 tokens e pesos abertos e sem custo por tokens na API do fornecedor. A API suporta raciocínio, chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "mistralai/labs-devstral-small-2512": {
+    "descricao": "Modelo de linguagem da Mistral AI, lançado em 9 de dezembro de 2025, janela de contexto de 256 000 tokens e pesos abertos e sem custo por tokens na API do fornecedor. A API suporta chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "mistralai/labs-leanstral-1-5-1": {
+    "descricao": "Modelo de linguagem da Mistral AI, lançado em 30 de junho de 2026, janela de contexto de 262 144 tokens e pesos abertos e sem custo por tokens na API do fornecedor. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "cohere/north-small-translate-09-2026": {
+    "descricao": "Modelo de linguagem da Cohere, lançado em 9 de setembro de 2026, janela de contexto de 32 768 tokens e pesos abertos e sem custo por tokens na API do fornecedor."
+  },
+  "cohere/command-r7b-arabic-02-2025": {
+    "descricao": "Modelo de linguagem da Cohere, lançado em 27 de fevereiro de 2025, janela de contexto de 128 000 tokens e pesos abertos e preço de US$ 0,04 na entrada e US$ 0,15 na saída por milhão de tokens. A API suporta chamadas de ferramentas e saída estruturada."
+  },
+  "qwen/qwen-flash": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 28 de julho de 2025, janela de contexto de 1 000 000 tokens e preço de US$ 0,05 na entrada e US$ 0,40 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e saída estruturada."
+  },
+  "qwen/qwen-turbo": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 1 de novembro de 2024, janela de contexto de 1 000 000 tokens e preço de US$ 0,05 na entrada e US$ 0,20 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "z-ai/glm-4.7-flashx": {
+    "descricao": "Modelo de linguagem da Zhipu, lançado em 19 de janeiro de 2026, janela de contexto de 200 000 tokens e pesos abertos e preço de US$ 0,07 na entrada e US$ 0,40 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "qwen/qwen-vl-ocr": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 28 de outubro de 2024, janela de contexto de 34 096 tokens e preço de US$ 0,07 na entrada e US$ 0,16 na saída por milhão de tokens. A API suporta entrada de imagens e PDF."
+  },
+  "inception/mercury-3": {
+    "descricao": "Modelo de linguagem da Inception, lançado em 16 de outubro de 2026, janela de contexto de 1 000 000 tokens e preço de US$ 0,10 na entrada e US$ 0,35 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e saída estruturada."
+  },
+  "mistralai/mistral-small-2506": {
+    "descricao": "Modelo de linguagem da Mistral AI, lançado em 20 de junho de 2025, janela de contexto de 128 000 tokens e pesos abertos e preço de US$ 0,10 na entrada e US$ 0,30 na saída por milhão de tokens. A API suporta chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "stepfun/step-3.5-flash-2603": {
+    "descricao": "Modelo de linguagem da StepFun, lançado em 2 de abril de 2026, janela de contexto de 256 000 tokens e pesos abertos e preço de US$ 0,10 na entrada e US$ 0,30 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e saída estruturada."
+  },
+  "mistralai/voxtral-small-2507": {
+    "descricao": "Modelo de linguagem da Mistral AI, lançado em 15 de julho de 2025, janela de contexto de 32 768 tokens e pesos abertos e preço de US$ 0,10 na entrada e US$ 0,40 na saída por milhão de tokens. A API suporta chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "mistralai/open-mistral-nemo": {
+    "descricao": "Modelo de linguagem da Mistral AI, lançado em 1 de julho de 2024, janela de contexto de 128 000 tokens e pesos abertos e preço de US$ 0,15 na entrada e US$ 0,15 na saída por milhão de tokens. A API suporta chamadas de ferramentas."
+  },
+  "mistralai/pixtral-12b": {
+    "descricao": "Modelo de linguagem da Mistral AI, lançado em 1 de setembro de 2024, janela de contexto de 128 000 tokens e pesos abertos e preço de US$ 0,15 na entrada e US$ 0,15 na saída por milhão de tokens. A API suporta chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "upstage/solar-mini": {
+    "descricao": "Modelo de linguagem da Upstage, lançado em 12 de junho de 2024, janela de contexto de 32 768 tokens e preço de US$ 0,15 na entrada e US$ 0,15 na saída por milhão de tokens. A API suporta chamadas de ferramentas."
+  },
+  "sarvam/sarvam-105b": {
+    "descricao": "Modelo de linguagem da Sarvam AI, lançado em 18 de fevereiro de 2026, janela de contexto de 131 072 tokens e pesos abertos e preço de US$ 0,16 na entrada e US$ 0,63 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "qwen/qwen-mt-turbo": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em janeiro de 2025, janela de contexto de 16 384 tokens e preço de US$ 0,16 na entrada e US$ 0,49 na saída por milhão de tokens."
+  },
+  "qwen/qwen3-8b": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em abril de 2025, janela de contexto de 131 072 tokens e pesos abertos e preço de US$ 0,18 na entrada e US$ 0,70 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "ai21/jamba-mini": {
+    "descricao": "Modelo de linguagem da AI21 Labs, lançado em 8 de janeiro de 2026, janela de contexto de 256 000 tokens e pesos abertos e preço de US$ 0,20 na entrada e US$ 0,40 na saída por milhão de tokens. A API suporta chamadas de ferramentas e saída estruturada."
+  },
+  "inception/mercury-2.5": {
+    "descricao": "Modelo de linguagem da Inception, lançado em 8 de setembro de 2026, janela de contexto de 260 000 tokens e preço de US$ 0,20 na entrada e US$ 0,75 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e saída estruturada."
+  },
+  "qwen/qwen3-vl-30b-a3b": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em abril de 2025, janela de contexto de 131 072 tokens e pesos abertos e preço de US$ 0,20 na entrada e US$ 0,80 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "qwen/qwen3-vl-plus": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 23 de setembro de 2025, janela de contexto de 262 144 tokens e preço de US$ 0,20 na entrada e US$ 1,60 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "qwen/qwen-vl-plus": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 25 de janeiro de 2024, janela de contexto de 131 072 tokens e preço de US$ 0,21 na entrada e US$ 0,63 na saída por milhão de tokens. A API suporta chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "inception/mercury-2": {
+    "descricao": "Modelo de linguagem da Inception, lançado em 24 de fevereiro de 2026, janela de contexto de 128 000 tokens e preço de US$ 0,25 na entrada e US$ 0,75 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e saída estruturada."
+  },
+  "inception/mercury-edit-2": {
+    "descricao": "Modelo de linguagem da Inception, lançado em 30 de março de 2026, janela de contexto de 32 000 tokens e preço de US$ 0,25 na entrada e US$ 0,75 na saída por milhão de tokens."
+  },
+  "upstage/solar-pro2": {
+    "descricao": "Modelo de linguagem da Upstage, lançado em 20 de maio de 2025, janela de contexto de 65 536 tokens e preço de US$ 0,25 na entrada e US$ 0,25 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "upstage/solar-pro3": {
+    "descricao": "Modelo de linguagem da Upstage, lançado em 26 de janeiro de 2026, janela de contexto de 131 072 tokens e preço de US$ 0,25 na entrada e US$ 0,25 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "arcee-ai/trinity-large-thinking": {
+    "descricao": "Modelo de linguagem da Arcee AI, lançado em 1 de abril de 2026, janela de contexto de 262 144 tokens e pesos abertos e preço de US$ 0,25 na entrada e US$ 0,80 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "google/gemini-flash-lite-latest": {
+    "descricao": "Modelo de linguagem da Google, lançado em 21 de julho de 2026, janela de contexto de 1 048 576 tokens e preço de US$ 0,30 na entrada e US$ 2,50 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "meituan/LongCat-2.5-Preview": {
+    "descricao": "Modelo de linguagem da Meituan, lançado em 25 de setembro de 2026, janela de contexto de 1 048 576 tokens e preço de US$ 0,30 na entrada e US$ 1,20 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "minimax/MiniMax-M2": {
+    "descricao": "Modelo de linguagem da MiniMax, lançado em 27 de outubro de 2025, janela de contexto de 204 800 tokens e pesos abertos e preço de US$ 0,30 na entrada e US$ 1,20 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "minimax/MiniMax-M2.1": {
+    "descricao": "Modelo de linguagem da MiniMax, lançado em 23 de dezembro de 2025, janela de contexto de 204 800 tokens e pesos abertos e preço de US$ 0,30 na entrada e US$ 1,20 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "qwen/qwen3.5-plus": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 16 de fevereiro de 2026, janela de contexto de 1 000 000 tokens e preço de US$ 0,40 na entrada e US$ 2,40 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "cohere/c4ai-aya-expanse-32b": {
+    "descricao": "Modelo de linguagem da Cohere, lançado em 24 de outubro de 2024, janela de contexto de 128 000 tokens e pesos abertos e preço de US$ 0,50 na entrada e US$ 1,50 na saída por milhão de tokens."
+  },
+  "openai/gpt-3.5-turbo": {
+    "descricao": "Modelo de linguagem da OpenAI, lançado em 1 de março de 2023, janela de contexto de 16 385 tokens e preço de US$ 0,50 na entrada e US$ 1,50 na saída por milhão de tokens."
+  },
+  "qwen/qwen-plus-character-ja": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em janeiro de 2024, janela de contexto de 8192 tokens e preço de US$ 0,50 na entrada e US$ 1,40 na saída por milhão de tokens."
+  },
+  "qwen/qwen3-next-80b-a3b-thinking": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em setembro de 2025, janela de contexto de 131 072 tokens e pesos abertos e preço de US$ 0,50 na entrada e US$ 6,00 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "minimax/MiniMax-M2.5-highspeed": {
+    "descricao": "Modelo de linguagem da MiniMax, lançado em 13 de fevereiro de 2026, janela de contexto de 204 800 tokens e pesos abertos e preço de US$ 0,60 na entrada e US$ 2,40 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "minimax/MiniMax-M2.7-highspeed": {
+    "descricao": "Modelo de linguagem da MiniMax, lançado em 18 de março de 2026, janela de contexto de 204 800 tokens e pesos abertos e preço de US$ 0,60 na entrada e US$ 2,40 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "mistralai/mistral-large-4-0-8": {
+    "descricao": "Modelo de linguagem da Mistral AI, lançado em 6 de outubro de 2026, janela de contexto de 1 048 576 tokens e preço de US$ 0,70 na entrada e US$ 2,10 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "qwen/qwen3-235b-a22b": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em abril de 2025, janela de contexto de 131 072 tokens e pesos abertos e preço de US$ 0,70 na entrada e US$ 2,80 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "qwen/qwen3-vl-235b-a22b": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em abril de 2025, janela de contexto de 131 072 tokens e pesos abertos e preço de US$ 0,70 na entrada e US$ 2,80 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "qwen/qwen-vl-max": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 8 de abril de 2024, janela de contexto de 131 072 tokens e preço de US$ 0,80 na entrada e US$ 3,20 na saída por milhão de tokens. A API suporta chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "qwen/qwq-plus": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 5 de março de 2025, janela de contexto de 131 072 tokens e preço de US$ 0,80 na entrada e US$ 2,40 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "qwen/qwen3-coder-plus": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 23 de julho de 2025, janela de contexto de 1 048 576 tokens e pesos abertos e preço de US$ 1,00 na entrada e US$ 5,00 na saída por milhão de tokens. A API suporta chamadas de ferramentas."
+  },
+  "qwen/qvq-max": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 25 de março de 2025, janela de contexto de 131 072 tokens e preço de US$ 1,20 na entrada e US$ 4,80 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "qwen/qwen3-max": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 23 de setembro de 2025, janela de contexto de 262 144 tokens e preço de US$ 1,20 na entrada e US$ 6,00 na saída por milhão de tokens. A API suporta chamadas de ferramentas."
+  },
+  "google/gemini-2.5-computer-use-preview-10-2025": {
+    "descricao": "Modelo de linguagem da Google, lançado em 7 de outubro de 2025, janela de contexto de 128 000 tokens e preço de US$ 1,25 na entrada e US$ 10,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "x-ai/grok-4.20-0309-non-reasoning": {
+    "descricao": "Modelo de linguagem da xAI, lançado em 9 de março de 2026, janela de contexto de 1 000 000 tokens e preço de US$ 1,25 na entrada e US$ 2,50 na saída por milhão de tokens. A API suporta chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "x-ai/grok-4.20-0309-reasoning": {
+    "descricao": "Modelo de linguagem da xAI, lançado em 9 de março de 2026, janela de contexto de 1 000 000 tokens e preço de US$ 1,25 na entrada e US$ 2,50 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "qwen/qwen3.6-max-preview": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 20 de abril de 2026, janela de contexto de 262 144 tokens e preço de US$ 1,30 na entrada e US$ 7,80 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "xiaomi/mimo-v2.5-pro-ultraspeed": {
+    "descricao": "Modelo de linguagem da Xiaomi, lançado em 8 de junho de 2026, janela de contexto de 1 048 576 tokens e pesos abertos e preço de US$ 1,31 na entrada e US$ 2,61 na saída por milhão de tokens. A API suporta raciocínio e chamadas de ferramentas."
+  },
+  "qwen/qwen3-coder-480b-a35b-instruct": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em abril de 2025, janela de contexto de 262 144 tokens e pesos abertos e preço de US$ 1,50 na entrada e US$ 7,50 na saída por milhão de tokens. A API suporta chamadas de ferramentas."
+  },
+  "qwen/qwen-max": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 3 de abril de 2024, janela de contexto de 32 768 tokens e preço de US$ 1,60 na entrada e US$ 6,40 na saída por milhão de tokens. A API suporta chamadas de ferramentas e saída estruturada."
+  },
+  "openai/gpt-5.3-codex-spark": {
+    "descricao": "Modelo de linguagem da OpenAI, lançado em 5 de fevereiro de 2026, janela de contexto de 128 000 tokens e preço de US$ 1,75 na entrada e US$ 14,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "moonshotai/kimi-k2.7-code-highspeed": {
+    "descricao": "Modelo de linguagem da Moonshot AI, lançado em 12 de junho de 2026, janela de contexto de 262 144 tokens e pesos abertos e preço de US$ 1,90 na entrada e US$ 8,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "ai21/jamba-large": {
+    "descricao": "Modelo de linguagem da AI21 Labs, lançado em 3 de julho de 2025, janela de contexto de 256 000 tokens e pesos abertos e preço de US$ 2,00 na entrada e US$ 8,00 na saída por milhão de tokens. A API suporta chamadas de ferramentas e saída estruturada."
+  },
+  "mistralai/magistral-medium-latest": {
+    "descricao": "Modelo de linguagem da Mistral AI, lançado em 17 de março de 2025, janela de contexto de 262 144 tokens e pesos abertos e preço de US$ 2,00 na entrada e US$ 5,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e entrada de imagens e PDF."
+  },
+  "qwen/qwen3.8-max": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em 3 de agosto de 2026, janela de contexto de 1 000 000 tokens e preço de US$ 2,00 na entrada e US$ 6,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "qwen/qwen-mt-plus": {
+    "descricao": "Modelo de linguagem da Qwen, lançado em janeiro de 2025, janela de contexto de 16 384 tokens e preço de US$ 2,46 na entrada e US$ 7,37 na saída por milhão de tokens."
+  },
+  "cohere/command-a-plus-05-2026": {
+    "descricao": "Modelo de linguagem da Cohere, lançado em 20 de maio de 2026, janela de contexto de 128 000 tokens e pesos abertos e preço de US$ 2,50 na entrada e US$ 10,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "cohere/command-a-reasoning-08-2025": {
+    "descricao": "Modelo de linguagem da Cohere, lançado em 21 de agosto de 2025, janela de contexto de 256 000 tokens e pesos abertos e preço de US$ 2,50 na entrada e US$ 10,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas e saída estruturada."
+  },
+  "cohere/command-a-translate-08-2025": {
+    "descricao": "Modelo de linguagem da Cohere, lançado em 28 de agosto de 2025, janela de contexto de 8000 tokens e pesos abertos e preço de US$ 2,50 na entrada e US$ 10,00 na saída por milhão de tokens. A API suporta chamadas de ferramentas e saída estruturada."
+  },
+  "cohere/command-a-vision-07-2025": {
+    "descricao": "Modelo de linguagem da Cohere, lançado em 31 de julho de 2025, janela de contexto de 128 000 tokens e pesos abertos e preço de US$ 2,50 na entrada e US$ 10,00 na saída por milhão de tokens. A API suporta saída estruturada e entrada de imagens e PDF."
+  },
+  "openai/gpt-5.6": {
+    "descricao": "Modelo de linguagem da OpenAI, lançado em 9 de julho de 2026, janela de contexto de 1 050 000 tokens e preço de US$ 4,00 na entrada e US$ 20,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "openai/gpt-daybreak-blue-latest": {
+    "descricao": "Modelo de linguagem da OpenAI, lançado em 7 de agosto de 2026, janela de contexto de 1 050 000 tokens e preço de US$ 4,00 na entrada e US$ 20,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "moonshotai/kimi-k3.1-pro-highspeed": {
+    "descricao": "Modelo de linguagem da Moonshot AI, lançado em 23 de outubro de 2026, janela de contexto de 1 048 576 tokens e pesos abertos e preço de US$ 4,00 na entrada e US$ 20,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "openai/gpt-daybreak-red-latest": {
+    "descricao": "Modelo de linguagem da OpenAI, lançado em 7 de agosto de 2026, janela de contexto de 400 000 tokens e preço de US$ 12,50 na entrada e US$ 75,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "openai/o1": {
+    "descricao": "Modelo de linguagem da OpenAI, lançado em 5 de dezembro de 2024, janela de contexto de 200 000 tokens e preço de US$ 15,00 na entrada e US$ 60,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
+  },
+  "openai/o1-pro": {
+    "descricao": "Modelo de linguagem da OpenAI, lançado em 19 de março de 2025, janela de contexto de 200 000 tokens e preço de US$ 150,00 na entrada e US$ 600,00 na saída por milhão de tokens. A API suporta raciocínio, chamadas de ferramentas, saída estruturada e entrada de imagens e PDF."
   }
 }

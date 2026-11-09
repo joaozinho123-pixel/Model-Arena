@@ -5,6 +5,7 @@ import {
   AI_MODELS,
   DATA_COUNT_TOTAL,
   DATA_GENERATED_AT,
+  RAW_MODELSDEV,
   buildCatalogo,
   buildProviderOptions,
 } from "@/data/models";
@@ -45,7 +46,7 @@ export function useCatalogo() {
   const catalogo = useMemo(
     () =>
       vivo
-        ? buildCatalogo(vivo.raw, aaVivo?.ratings)
+        ? buildCatalogo([...vivo.raw, ...RAW_MODELSDEV], aaVivo?.ratings)
         : { models: AI_MODELS, total: DATA_COUNT_TOTAL },
     [vivo, aaVivo],
   );

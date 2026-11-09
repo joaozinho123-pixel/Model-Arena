@@ -1,0 +1,1251 @@
+{
+  "generatedAt": "2026-11-09T17:23:03.875Z",
+  "fonte": "models.dev — base de dados de modelos usada pelo OpenCode (fornecedores de primeira parte, preços em USD)",
+  "contagens": {
+    "candidatos": 243,
+    "sobreposicao": 156,
+    "novos": 72,
+    "pulados": {
+      "tipo": 34,
+      "outro org": 36,
+      "modalidade": 7,
+      "variante": 20,
+      "preço": 9
+    }
+  },
+  "modelos": [
+    {
+      "id": "z-ai/glm-4.5-flash",
+      "nome": "GLM-4.5-Flash",
+      "provider": "z-ai",
+      "descricao": "Efficient GLM model for fast reasoning, coding, and agent workflows",
+      "contexto": 131072,
+      "precoEntrada": 0,
+      "precoSaida": 0,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "z-ai/glm-4.6v-flash",
+      "nome": "GLM-4.6V-Flash",
+      "provider": "z-ai",
+      "descricao": "Lightweight GLM vision model for visual reasoning, documents, and multimodal agents",
+      "contexto": 128000,
+      "precoEntrada": 0,
+      "precoSaida": 0,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "video"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "mistralai/labs-devstral-small-2512",
+      "nome": "Devstral Small 2",
+      "provider": "mistralai",
+      "descricao": "Legacy model retained for compatibility with older integrations",
+      "contexto": 256000,
+      "precoEntrada": 0,
+      "precoSaida": 0,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "mistralai/labs-leanstral-1-5-1",
+      "nome": "Leanstral 1.5",
+      "provider": "mistralai",
+      "descricao": "An updated Lean 4 formal proof engineering model optimised for automated theorem proving and autoformalization. 119B total parameters, 6.5B active.",
+      "contexto": 262144,
+      "precoEntrada": 0,
+      "precoSaida": 0,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "cohere/north-small-translate-09-2026",
+      "nome": "North Small Translate",
+      "provider": "cohere",
+      "descricao": "Open-weight translation model for more than 50 languages and locale variants",
+      "contexto": 32768,
+      "precoEntrada": 0,
+      "precoSaida": 0,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": false,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "cohere/command-r7b-arabic-02-2025",
+      "nome": "Command R7B Arabic",
+      "provider": "cohere",
+      "descricao": "Open Command R model optimized for Arabic enterprise chat, RAG, and cultural knowledge",
+      "contexto": 128000,
+      "precoEntrada": 0.0375,
+      "precoSaida": 0.15,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": false
+    },
+    {
+      "id": "qwen/qwen-flash",
+      "nome": "Qwen Flash",
+      "provider": "qwen",
+      "descricao": "Efficient Qwen model for fast chat, extraction, and high-volume workloads",
+      "contexto": 1000000,
+      "precoEntrada": 0.05,
+      "precoSaida": 0.4,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen-turbo",
+      "nome": "Qwen Turbo",
+      "provider": "qwen",
+      "descricao": "Efficient Qwen model for fast chat, extraction, and high-volume workloads",
+      "contexto": 1000000,
+      "precoEntrada": 0.05,
+      "precoSaida": 0.2,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "z-ai/glm-4.7-flashx",
+      "nome": "GLM-4.7-FlashX",
+      "provider": "z-ai",
+      "descricao": "Efficient GLM model for fast reasoning, coding, and agent workflows",
+      "contexto": 200000,
+      "precoEntrada": 0.07,
+      "precoSaida": 0.4,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen-vl-ocr",
+      "nome": "Qwen-VL OCR",
+      "provider": "qwen",
+      "descricao": "OCR model for extracting structured text from documents and screenshots",
+      "contexto": 34096,
+      "precoEntrada": 0.07,
+      "precoSaida": 0.16,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": false,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "inception/mercury-3",
+      "nome": "Mercury 3",
+      "provider": "inception",
+      "descricao": "Inception's diffusion reasoning model for chat, multi-step problem solving, and tool use",
+      "contexto": 1000000,
+      "precoEntrada": 0.1,
+      "precoSaida": 0.35,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "mistralai/mistral-small-2506",
+      "nome": "Mistral Small 3.2",
+      "provider": "mistralai",
+      "descricao": "Efficient Mistral model for fast chat, extraction, and production assistants",
+      "contexto": 128000,
+      "precoEntrada": 0.1,
+      "precoSaida": 0.3,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "stepfun/step-3.5-flash-2603",
+      "nome": "Step 3.5 Flash 2603",
+      "provider": "stepfun",
+      "descricao": "StepFun flash model for efficient multimodal reasoning, coding, and tool use",
+      "contexto": 256000,
+      "precoEntrada": 0.1,
+      "precoSaida": 0.3,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "mistralai/voxtral-small-2507",
+      "nome": "Voxtral Small",
+      "provider": "mistralai",
+      "descricao": "Instruct model with native audio input for speech understanding and tool use",
+      "contexto": 32768,
+      "precoEntrada": 0.1,
+      "precoSaida": 0.4,
+      "modalidades": {
+        "entrada": [
+          "audio",
+          "pdf"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": false
+    },
+    {
+      "id": "mistralai/open-mistral-nemo",
+      "nome": "Open Mistral Nemo",
+      "provider": "mistralai",
+      "descricao": "Legacy model retained for compatibility with older integrations",
+      "contexto": 128000,
+      "precoEntrada": 0.15,
+      "precoSaida": 0.15,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "mistralai/pixtral-12b",
+      "nome": "Pixtral 12B",
+      "provider": "mistralai",
+      "descricao": "Mistral vision-language model for image understanding and multimodal chat",
+      "contexto": 128000,
+      "precoEntrada": 0.15,
+      "precoSaida": 0.15,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "upstage/solar-mini",
+      "nome": "solar-mini",
+      "provider": "upstage",
+      "descricao": "Efficient model for low-latency assistance, extraction, and routine automation",
+      "contexto": 32768,
+      "precoEntrada": 0.15,
+      "precoSaida": 0.15,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "sarvam/sarvam-105b",
+      "nome": "Sarvam-105B",
+      "provider": "sarvam",
+      "descricao": "Flagship Indian-language reasoning model for enterprise multilingual applications",
+      "contexto": 131072,
+      "precoEntrada": 0.15790269,
+      "precoSaida": 0.63161075,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen-mt-turbo",
+      "nome": "Qwen-MT Turbo",
+      "provider": "qwen",
+      "descricao": "Translation model for multilingual conversion, localization, and cross-language workflows",
+      "contexto": 16384,
+      "precoEntrada": 0.16,
+      "precoSaida": 0.49,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": false,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "qwen/qwen3-8b",
+      "nome": "Qwen3 8B",
+      "provider": "qwen",
+      "descricao": "Qwen instruction model for multilingual chat, reasoning, and tool use",
+      "contexto": 131072,
+      "precoEntrada": 0.18,
+      "precoSaida": 0.7,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "ai21/jamba-mini",
+      "nome": "Jamba Mini",
+      "provider": "ai21",
+      "descricao": "AI21's efficient, lightweight hybrid SSM-Transformer model for a wide range of tasks",
+      "contexto": 256000,
+      "precoEntrada": 0.2,
+      "precoSaida": 0.4,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": false
+    },
+    {
+      "id": "inception/mercury-2.5",
+      "nome": "Mercury 2.5",
+      "provider": "inception",
+      "descricao": "Mercury 2.5 is the fastest reasoning LLM, and the latest diffusion LLM (dLLM) from Inception",
+      "contexto": 260000,
+      "precoEntrada": 0.2,
+      "precoSaida": 0.75,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen3-vl-30b-a3b",
+      "nome": "Qwen3-VL 30B-A3B",
+      "provider": "qwen",
+      "descricao": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "contexto": 131072,
+      "precoEntrada": 0.2,
+      "precoSaida": 0.8,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen3-vl-plus",
+      "nome": "Qwen3-VL Plus",
+      "provider": "qwen",
+      "descricao": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "contexto": 262144,
+      "precoEntrada": 0.2,
+      "precoSaida": 1.6,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen-vl-plus",
+      "nome": "Qwen-VL Plus",
+      "provider": "qwen",
+      "descricao": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "contexto": 131072,
+      "precoEntrada": 0.21,
+      "precoSaida": 0.63,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "inception/mercury-2",
+      "nome": "Mercury 2",
+      "provider": "inception",
+      "descricao": "Reasoning model for deliberate analysis, multi-step problem solving, and tool use",
+      "contexto": 128000,
+      "precoEntrada": 0.25,
+      "precoSaida": 0.75,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "inception/mercury-edit-2",
+      "nome": "Mercury Edit 2",
+      "provider": "inception",
+      "descricao": "Code editing dLLM for autocomplete (FIM) and next-edit suggestions",
+      "contexto": 32000,
+      "precoEntrada": 0.25,
+      "precoSaida": 0.75,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": false,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "upstage/solar-pro2",
+      "nome": "solar-pro2",
+      "provider": "upstage",
+      "descricao": "Flagship model for demanding analysis, coding, and production agent workflows",
+      "contexto": 65536,
+      "precoEntrada": 0.25,
+      "precoSaida": 0.25,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "upstage/solar-pro3",
+      "nome": "solar-pro3",
+      "provider": "upstage",
+      "descricao": "Flagship model for demanding analysis, coding, and production agent workflows",
+      "contexto": 131072,
+      "precoEntrada": 0.25,
+      "precoSaida": 0.25,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "arcee-ai/trinity-large-thinking",
+      "nome": "Trinity Large Thinking",
+      "provider": "arcee-ai",
+      "descricao": "Reasoning-optimized 398B MoE agent model with extended thinking for long-horizon and multi-turn tool use",
+      "contexto": 262144,
+      "precoEntrada": 0.25,
+      "precoSaida": 0.8,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "google/gemini-flash-lite-latest",
+      "nome": "Gemini Flash-Lite Latest",
+      "provider": "google",
+      "descricao": "Fast Gemini model balancing multimodal reasoning, tool use, and cost",
+      "contexto": 1048576,
+      "precoEntrada": 0.3,
+      "precoSaida": 2.5,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "video",
+          "audio",
+          "pdf"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "meituan/LongCat-2.5-Preview",
+      "nome": "LongCat-2.5-Preview",
+      "provider": "meituan",
+      "descricao": "Meituan's multimodal reasoning model for coding and agent tasks, with image understanding and a 1M-token context window",
+      "contexto": 1048576,
+      "precoEntrada": 0.3,
+      "precoSaida": 1.2,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "minimax/MiniMax-M2",
+      "nome": "MiniMax-M2",
+      "provider": "minimax",
+      "descricao": "Efficient open MiniMax model built for coding agents and tool-heavy workflows",
+      "contexto": 204800,
+      "precoEntrada": 0.3,
+      "precoSaida": 1.2,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "minimax/MiniMax-M2.1",
+      "nome": "MiniMax-M2.1",
+      "provider": "minimax",
+      "descricao": "Earlier MiniMax agent model for practical coding and productivity tasks",
+      "contexto": 204800,
+      "precoEntrada": 0.3,
+      "precoSaida": 1.2,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen3.5-plus",
+      "nome": "Qwen3.5 Plus",
+      "provider": "qwen",
+      "descricao": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "contexto": 1000000,
+      "precoEntrada": 0.4,
+      "precoSaida": 2.4,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "video"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "cohere/c4ai-aya-expanse-32b",
+      "nome": "Aya Expanse 32B",
+      "provider": "cohere",
+      "descricao": "Open multilingual model optimized for generation across 23 languages",
+      "contexto": 128000,
+      "precoEntrada": 0.5,
+      "precoSaida": 1.5,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": false,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "openai/gpt-3.5-turbo",
+      "nome": "GPT-3.5-turbo",
+      "provider": "openai",
+      "descricao": "Compact GPT model for low-latency assistance and high-volume workloads",
+      "contexto": 16385,
+      "precoEntrada": 0.5,
+      "precoSaida": 1.5,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": false,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "qwen/qwen-plus-character-ja",
+      "nome": "Qwen Plus Character (Japanese)",
+      "provider": "qwen",
+      "descricao": "Qwen instruction model for multilingual chat, reasoning, and tool use",
+      "contexto": 8192,
+      "precoEntrada": 0.5,
+      "precoSaida": 1.4,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": false,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "qwen/qwen3-next-80b-a3b-thinking",
+      "nome": "Qwen3-Next 80B-A3B (Thinking)",
+      "provider": "qwen",
+      "descricao": "Efficient Qwen thinking model for local reasoning, math, and coding agents",
+      "contexto": 131072,
+      "precoEntrada": 0.5,
+      "precoSaida": 6,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "minimax/MiniMax-M2.5-highspeed",
+      "nome": "MiniMax-M2.5-highspeed",
+      "provider": "minimax",
+      "descricao": "High-speed MiniMax model for low-latency coding and agent workflows",
+      "contexto": 204800,
+      "precoEntrada": 0.6,
+      "precoSaida": 2.4,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "minimax/MiniMax-M2.7-highspeed",
+      "nome": "MiniMax-M2.7-highspeed",
+      "provider": "minimax",
+      "descricao": "Low-latency M2.7 variant for interactive coding plans and agent loops",
+      "contexto": 204800,
+      "precoEntrada": 0.6,
+      "precoSaida": 2.4,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "mistralai/mistral-large-4-0-8",
+      "nome": "Mistral Large 4.0.8",
+      "provider": "mistralai",
+      "descricao": "Mistral's 1T-parameter multimodal MoE for reasoning, coding, and agentic work",
+      "contexto": 1048576,
+      "precoEntrada": 0.7,
+      "precoSaida": 2.1,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "pdf"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen3-235b-a22b",
+      "nome": "Qwen3 235B-A22B",
+      "provider": "qwen",
+      "descricao": "Large open Qwen MoE for multilingual reasoning, coding, and tool use",
+      "contexto": 131072,
+      "precoEntrada": 0.7,
+      "precoSaida": 2.8,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen3-vl-235b-a22b",
+      "nome": "Qwen3-VL 235B-A22B",
+      "provider": "qwen",
+      "descricao": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "contexto": 131072,
+      "precoEntrada": 0.7,
+      "precoSaida": 2.8,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen-vl-max",
+      "nome": "Qwen-VL Max",
+      "provider": "qwen",
+      "descricao": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "contexto": 131072,
+      "precoEntrada": 0.8,
+      "precoSaida": 3.2,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "qwen/qwq-plus",
+      "nome": "QwQ Plus",
+      "provider": "qwen",
+      "descricao": "Qwen reasoning model for deliberate problem solving, math, and coding",
+      "contexto": 131072,
+      "precoEntrada": 0.8,
+      "precoSaida": 2.4,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen3-coder-plus",
+      "nome": "Qwen3 Coder Plus",
+      "provider": "qwen",
+      "descricao": "Hosted Qwen coder for software agents, repo edits, and long-context code",
+      "contexto": 1048576,
+      "precoEntrada": 1,
+      "precoSaida": 5,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "qwen/qvq-max",
+      "nome": "QVQ Max",
+      "provider": "qwen",
+      "descricao": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+      "contexto": 131072,
+      "precoEntrada": 1.2,
+      "precoSaida": 4.8,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen3-max",
+      "nome": "Qwen3 Max",
+      "provider": "qwen",
+      "descricao": "Flagship Qwen3 model for coding agents, complex reasoning, and tool use",
+      "contexto": 262144,
+      "precoEntrada": 1.2,
+      "precoSaida": 6,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "google/gemini-2.5-computer-use-preview-10-2025",
+      "nome": "Gemini 2.5 Computer Use Preview 10-2025",
+      "provider": "google",
+      "descricao": "Specialized Gemini 2.5 model for browser-control agents that automate UI tasks",
+      "contexto": 128000,
+      "precoEntrada": 1.25,
+      "precoSaida": 10,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "x-ai/grok-4.20-0309-non-reasoning",
+      "nome": "Grok 4.20 (Non-Reasoning)",
+      "provider": "x-ai",
+      "descricao": "Grok model for agentic tool use, reasoning, coding, and live assistance",
+      "contexto": 1000000,
+      "precoEntrada": 1.25,
+      "precoSaida": 2.5,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "pdf"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": false
+    },
+    {
+      "id": "x-ai/grok-4.20-0309-reasoning",
+      "nome": "Grok 4.20 (Reasoning)",
+      "provider": "x-ai",
+      "descricao": "Reasoning Grok for document-heavy analysis and long-horizon tool use",
+      "contexto": 1000000,
+      "precoEntrada": 1.25,
+      "precoSaida": 2.5,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "pdf"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen3.6-max-preview",
+      "nome": "Qwen3.6 Max Preview",
+      "provider": "qwen",
+      "descricao": "Flagship Qwen model for complex reasoning, coding, and agentic workflows",
+      "contexto": 262144,
+      "precoEntrada": 1.3,
+      "precoSaida": 7.8,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "xiaomi/mimo-v2.5-pro-ultraspeed",
+      "nome": "MiMo-V2.5-Pro-UltraSpeed",
+      "provider": "xiaomi",
+      "descricao": "MiMo pro model for strong multimodal reasoning and agent execution",
+      "contexto": 1048576,
+      "precoEntrada": 1.305,
+      "precoSaida": 2.61,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen3-coder-480b-a35b-instruct",
+      "nome": "Qwen3-Coder 480B-A35B Instruct",
+      "provider": "qwen",
+      "descricao": "Open Qwen coding heavyweight for repository reasoning and agentic engineering",
+      "contexto": 262144,
+      "precoEntrada": 1.5,
+      "precoSaida": 7.5,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "qwen/qwen-max",
+      "nome": "Qwen Max",
+      "provider": "qwen",
+      "descricao": "Flagship Qwen model for complex reasoning, coding, and agentic workflows",
+      "contexto": 32768,
+      "precoEntrada": 1.6,
+      "precoSaida": 6.4,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": false
+    },
+    {
+      "id": "openai/gpt-5.3-codex-spark",
+      "nome": "GPT-5.3 Codex Spark",
+      "provider": "openai",
+      "descricao": "Coding-optimized GPT model for repository edits, reviews, and agentic software work",
+      "contexto": 128000,
+      "precoEntrada": 1.75,
+      "precoSaida": 14,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "pdf"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "moonshotai/kimi-k2.7-code-highspeed",
+      "nome": "Kimi K2.7 Code HighSpeed",
+      "provider": "moonshotai",
+      "descricao": "Coding-focused Kimi model, stronger on long-horizon repo work with less overthinking",
+      "contexto": 262144,
+      "precoEntrada": 1.9,
+      "precoSaida": 8,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "video"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "ai21/jamba-large",
+      "nome": "Jamba Large",
+      "provider": "ai21",
+      "descricao": "AI21's hybrid SSM-Transformer long-context model for enterprise agents and grounded generation",
+      "contexto": 256000,
+      "precoEntrada": 2,
+      "precoSaida": 8,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": false
+    },
+    {
+      "id": "mistralai/magistral-medium-latest",
+      "nome": "Magistral Medium",
+      "provider": "mistralai",
+      "descricao": "Mistral reasoning model for transparent analysis, math, and complex decisions",
+      "contexto": 262144,
+      "precoEntrada": 2,
+      "precoSaida": 5,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen3.8-max",
+      "nome": "Qwen3.8 Max",
+      "provider": "qwen",
+      "descricao": "2.4-trillion-parameter MoE flagship for coding, professional work, multimodal understanding, and long-horizon agentic workflows",
+      "contexto": 1000000,
+      "precoEntrada": 2,
+      "precoSaida": 6,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "video",
+          "pdf"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "qwen/qwen-mt-plus",
+      "nome": "Qwen-MT Plus",
+      "provider": "qwen",
+      "descricao": "Translation model for multilingual conversion, localization, and cross-language workflows",
+      "contexto": 16384,
+      "precoEntrada": 2.46,
+      "precoSaida": 7.37,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": false,
+      "saidaEstruturada": false,
+      "raciocinio": false
+    },
+    {
+      "id": "cohere/command-a-plus-05-2026",
+      "nome": "Command A Plus",
+      "provider": "cohere",
+      "descricao": "Cohere's stronger command model for multilingual agents and enterprise workflows",
+      "contexto": 128000,
+      "precoEntrada": 2.5,
+      "precoSaida": 10,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "cohere/command-a-reasoning-08-2025",
+      "nome": "Command A Reasoning",
+      "provider": "cohere",
+      "descricao": "Cohere reasoning model for multilingual enterprise agents, tools, and complex workflows",
+      "contexto": 256000,
+      "precoEntrada": 2.5,
+      "precoSaida": 10,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "cohere/command-a-translate-08-2025",
+      "nome": "Command A Translate",
+      "provider": "cohere",
+      "descricao": "Translation model for multilingual conversion, localization, and cross-language workflows",
+      "contexto": 8000,
+      "precoEntrada": 2.5,
+      "precoSaida": 10,
+      "modalidades": {
+        "entrada": [],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": false
+    },
+    {
+      "id": "cohere/command-a-vision-07-2025",
+      "nome": "Command A Vision",
+      "provider": "cohere",
+      "descricao": "Cohere vision model for multilingual document analysis, OCR, and image understanding",
+      "contexto": 128000,
+      "precoEntrada": 2.5,
+      "precoSaida": 10,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": false,
+      "saidaEstruturada": true,
+      "raciocinio": false
+    },
+    {
+      "id": "openai/gpt-5.6",
+      "nome": "GPT-5.6",
+      "provider": "openai",
+      "descricao": "Frontier GPT-5.6 model for complex professional work, coding, and agentic workflows",
+      "contexto": 1050000,
+      "precoEntrada": 4,
+      "precoSaida": 20,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "pdf"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "openai/gpt-daybreak-blue-latest",
+      "nome": "Daybreak Blue",
+      "provider": "openai",
+      "descricao": "Alias for flagship general-purpose models with safeguards for defensive cybersecurity work",
+      "contexto": 1050000,
+      "precoEntrada": 4,
+      "precoSaida": 20,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "pdf"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "moonshotai/kimi-k3.1-pro-highspeed",
+      "nome": "Kimi K3.1 Pro Highspeed",
+      "provider": "moonshotai",
+      "descricao": "Multimodal Kimi model with 1M context and always-on reasoning for coding, 3D creation, financial research, and agentic work",
+      "contexto": 1048576,
+      "precoEntrada": 4,
+      "precoSaida": 20,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "video"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "openai/gpt-daybreak-red-latest",
+      "nome": "Daybreak Red",
+      "provider": "openai",
+      "descricao": "Alias for advanced cybersecurity models for authorized vulnerability research and security testing",
+      "contexto": 400000,
+      "precoEntrada": 12.5,
+      "precoSaida": 75,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "openai/o1",
+      "nome": "o1",
+      "provider": "openai",
+      "descricao": "O-series reasoning model for hard analysis, math, coding, and planning",
+      "contexto": 200000,
+      "precoEntrada": 15,
+      "precoSaida": 60,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "pdf"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    },
+    {
+      "id": "openai/o1-pro",
+      "nome": "o1-pro",
+      "provider": "openai",
+      "descricao": "O-series reasoning model for hard analysis, math, coding, and planning",
+      "contexto": 200000,
+      "precoEntrada": 150,
+      "precoSaida": 600,
+      "modalidades": {
+        "entrada": [
+          "image"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": true,
+      "raciocinio": true
+    }
+  ]
+}
