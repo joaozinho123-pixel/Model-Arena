@@ -1,53 +1,53 @@
 {
-  "generatedAt": "2026-11-08T23:41:13.954Z",
+  "generatedAt": "2026-11-13T22:27:52.511Z",
   "fonte": "Artificial Analysis V2 (/media/text-to-image + /media/image-editing)",
   "modelos": [
     {
       "id": "a126a6fd-2f15-4da2-8b9a-700b2973a4e3",
       "nome": "GPT Image 2.6 Sunburst (max)",
       "criador": "OpenAI",
-      "eloT2i": 1259,
-      "ciT2i": 15,
-      "eloIee": 1209,
-      "ciIee": 14,
+      "eloT2i": 1261,
+      "ciT2i": 14,
+      "eloIee": 1210,
+      "ciIee": 13,
       "logo": "https://unavatar.io/openai.com?fallback=false",
       "cor": "#D97757",
       "rankT2i": 1,
       "rankIee": 1
     },
     {
+      "id": "98833f93-0f33-4205-b83a-c4d42a25da4f",
+      "nome": "GPT Image 2.5 Sunburst (max)",
+      "criador": "OpenAI",
+      "eloT2i": 1229,
+      "ciT2i": 10,
+      "eloIee": 1201,
+      "ciIee": 11,
+      "logo": "https://unavatar.io/openai.com?fallback=false",
+      "cor": "#D97757",
+      "rankT2i": 2,
+      "rankIee": 3
+    },
+    {
       "id": "ac1b5565-d063-480e-a593-ce244705cd43",
       "nome": "GPT Image 2.6 Flare (max)",
       "criador": "OpenAI",
-      "eloT2i": 1228,
+      "eloT2i": 1226,
       "ciT2i": 12,
       "eloIee": 1206,
       "ciIee": 13,
       "logo": "https://unavatar.io/openai.com?fallback=false",
       "cor": "#D97757",
-      "rankT2i": 2,
-      "rankIee": 2
-    },
-    {
-      "id": "98833f93-0f33-4205-b83a-c4d42a25da4f",
-      "nome": "GPT Image 2.5 Sunburst (max)",
-      "criador": "OpenAI",
-      "eloT2i": 1227,
-      "ciT2i": 10,
-      "eloIee": 1199,
-      "ciIee": 11,
-      "logo": "https://unavatar.io/openai.com?fallback=false",
-      "cor": "#D97757",
       "rankT2i": 3,
-      "rankIee": 3
+      "rankIee": 2
     },
     {
       "id": "ac3abe51-14ca-4c04-b215-01a85f3a36ac",
       "nome": "GPT Image 2.5 Flare (max)",
       "criador": "OpenAI",
-      "eloT2i": 1208,
+      "eloT2i": 1210,
       "ciT2i": 10,
-      "eloIee": 1182,
+      "eloIee": 1184,
       "ciIee": 11,
       "logo": "https://unavatar.io/openai.com?fallback=false",
       "cor": "#D97757",
@@ -60,7 +60,7 @@
       "criador": "Microsoft AI",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 1195,
+      "eloIee": 1198,
       "ciIee": 14,
       "logo": "https://unavatar.io/microsoft.com?fallback=false",
       "cor": "#76B900",
@@ -70,14 +70,26 @@
       "id": "9570e1d0-a390-48c1-a270-1317570fe3d5",
       "nome": "GPT Image 2 (high)",
       "criador": "OpenAI",
-      "eloT2i": 1188,
+      "eloT2i": 1191,
       "ciT2i": 11,
-      "eloIee": 1136,
+      "eloIee": 1140,
       "ciIee": 12,
       "logo": "https://unavatar.io/openai.com?fallback=false",
       "cor": "#D97757",
       "rankT2i": 5,
-      "rankIee": 10
+      "rankIee": 12
+    },
+    {
+      "id": "c1c59bcb-5836-4bd0-aac8-09fdee960eec",
+      "nome": "Kling Image 4.0 (preview)",
+      "criador": "KlingAI",
+      "eloT2i": 1180,
+      "ciT2i": 13,
+      "eloIee": 1182,
+      "ciIee": 14,
+      "cor": "#FF7000",
+      "rankT2i": 6,
+      "rankIee": 6
     },
     {
       "id": "b6f834da-1ca2-4f4c-a215-158970a058fa",
@@ -86,36 +98,60 @@
       "eloT2i": 1176,
       "ciT2i": 12,
       "eloIee": 1152,
-      "ciIee": 13,
+      "ciIee": 12,
       "logo": "https://cdn.simpleicons.org/google",
       "cor": "#76B900",
-      "rankT2i": 6,
-      "rankIee": 7
+      "rankT2i": 7,
+      "rankIee": 9
     },
     {
       "id": "5d931c2e-797e-406e-8eb9-83ce18b5710c",
       "nome": "MAI-Image-2.6",
       "criador": "Microsoft AI",
-      "eloT2i": 1168,
+      "eloT2i": 1169,
       "ciT2i": 12,
-      "eloIee": 1149,
+      "eloIee": 1150,
       "ciIee": 12,
       "logo": "https://unavatar.io/microsoft.com?fallback=false",
       "cor": "#76B900",
-      "rankT2i": 7,
-      "rankIee": 8
+      "rankT2i": 8,
+      "rankIee": 10
     },
     {
       "id": "748fadd1-ecd9-41d0-9b43-f5fccd4fb843",
       "nome": "Grok Imagine Image 2.0",
       "criador": "SpaceXAI",
-      "eloT2i": 1166,
+      "eloT2i": 1168,
       "ciT2i": 12,
-      "eloIee": 1116,
+      "eloIee": 1117,
       "ciIee": 12,
       "cor": "#F43F5E",
-      "rankT2i": 8,
-      "rankIee": 19
+      "rankT2i": 9,
+      "rankIee": 23
+    },
+    {
+      "id": "b8852bf6-1e75-4209-ac4d-a135170dc1f3",
+      "nome": "Seedream 5.5",
+      "criador": "ByteDance Seed",
+      "eloT2i": 1134,
+      "ciT2i": 12,
+      "eloIee": 1159,
+      "ciIee": 14,
+      "logo": "https://cdn.simpleicons.org/bytedance",
+      "cor": "#00A4EF",
+      "rankT2i": 12,
+      "rankIee": 7
+    },
+    {
+      "id": "5724146e-3b38-4387-9814-6c45a22aff75",
+      "nome": "Canva Craft",
+      "criador": "Canva",
+      "eloT2i": 1158,
+      "ciT2i": 13,
+      "eloIee": null,
+      "ciIee": null,
+      "cor": "#8B5CF6",
+      "rankT2i": 10
     },
     {
       "id": "6bce2e1f-3d76-4d7f-b850-d4fe4d6d34c6",
@@ -123,88 +159,99 @@
       "criador": "Krea",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 1152,
+      "eloIee": 1154,
       "ciIee": 13,
       "cor": "#0EA5E9",
-      "rankIee": 6
-    },
-    {
-      "id": "3180162e-693d-487d-adbb-721f859f768d",
-      "nome": "Nano Banana 2 (Gemini 3.1 Flash Image)",
-      "criador": "Google",
-      "eloT2i": 1142,
-      "ciT2i": 10,
-      "eloIee": 1125,
-      "ciIee": 12,
-      "logo": "https://cdn.simpleicons.org/google",
-      "cor": "#76B900",
-      "rankT2i": 9,
-      "rankIee": 13
+      "rankIee": 8
     },
     {
       "id": "daa01918-0450-4825-992a-eade1f981683",
       "nome": "MAI-Image-2.6-Flash",
       "criador": "Microsoft AI",
-      "eloT2i": 1122,
+      "eloT2i": 1125,
       "ciT2i": 12,
-      "eloIee": 1141,
+      "eloIee": 1143,
       "ciIee": 12,
       "logo": "https://unavatar.io/microsoft.com?fallback=false",
       "cor": "#76B900",
-      "rankT2i": 12,
-      "rankIee": 9
+      "rankT2i": 15,
+      "rankIee": 11
+    },
+    {
+      "id": "3180162e-693d-487d-adbb-721f859f768d",
+      "nome": "Nano Banana 2 (Gemini 3.1 Flash Image)",
+      "criador": "Google",
+      "eloT2i": 1143,
+      "ciT2i": 10,
+      "eloIee": 1126,
+      "ciIee": 12,
+      "logo": "https://cdn.simpleicons.org/google",
+      "cor": "#76B900",
+      "rankT2i": 11,
+      "rankIee": 17
+    },
+    {
+      "id": "9b61629e-500e-452f-bfaa-5e3cd11f545d",
+      "nome": "H3-Image",
+      "criador": "MiniMax",
+      "eloT2i": 1066,
+      "ciT2i": 15,
+      "eloIee": 1138,
+      "ciIee": 16,
+      "cor": "#4285F4",
+      "rankT2i": 25,
+      "rankIee": 13
+    },
+    {
+      "id": "5c408cba-eb9a-4806-a44c-1d77030e9990",
+      "nome": "H3-Image Highspeed",
+      "criador": "MiniMax",
+      "eloT2i": 1070,
+      "ciT2i": 14,
+      "eloIee": 1134,
+      "ciIee": 16,
+      "cor": "#4285F4",
+      "rankT2i": 24,
+      "rankIee": 14
     },
     {
       "id": "c9e4f0a2-3b7d-4c61-8e29-1f5a6d0b47c3",
       "nome": "Seedream 5.0 Pro",
       "criador": "ByteDance Seed",
-      "eloT2i": 1101,
-      "ciT2i": 11,
-      "eloIee": 1129,
+      "eloT2i": 1103,
+      "ciT2i": 10,
+      "eloIee": 1131,
       "ciIee": 12,
       "logo": "https://cdn.simpleicons.org/bytedance",
       "cor": "#00A4EF",
-      "rankT2i": 18,
-      "rankIee": 11
+      "rankT2i": 21,
+      "rankIee": 15
     },
     {
       "id": "0a7b7bb4-caa5-4334-aff3-57ad2bdead0d",
       "nome": "Muse Image",
       "criador": "Meta",
-      "eloT2i": 1128,
+      "eloT2i": 1127,
       "ciT2i": 11,
       "eloIee": 1128,
-      "ciIee": 12,
+      "ciIee": 11,
       "logo": "https://cdn.simpleicons.org/meta",
       "cor": "#00A4EF",
-      "rankT2i": 10,
-      "rankIee": 12
+      "rankT2i": 13,
+      "rankIee": 16
     },
     {
       "id": "a1ee4d6f-d136-434b-bb1d-066fe5f9bf6f",
       "nome": "GPT Image 1.5 (high)",
       "criador": "OpenAI",
-      "eloT2i": 1124,
+      "eloT2i": 1126,
       "ciT2i": 11,
-      "eloIee": 1116,
+      "eloIee": 1118,
       "ciIee": 12,
       "logo": "https://unavatar.io/openai.com?fallback=false",
       "cor": "#D97757",
-      "rankT2i": 11,
-      "rankIee": 18
-    },
-    {
-      "id": "3f8a2d6b-9c4e-4f1a-b7d2-8e5a0c3d71f9",
-      "nome": "MAI-Image-2.5",
-      "criador": "Microsoft AI",
-      "eloT2i": 1120,
-      "ciT2i": 11,
-      "eloIee": 1124,
-      "ciIee": 12,
-      "logo": "https://unavatar.io/microsoft.com?fallback=false",
-      "cor": "#76B900",
-      "rankT2i": 13,
-      "rankIee": 14
+      "rankT2i": 14,
+      "rankIee": 22
     },
     {
       "id": "8d618a95-57c5-4566-8027-74faa75478f0",
@@ -212,35 +259,48 @@
       "criador": "Krea",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 1123,
+      "eloIee": 1124,
       "ciIee": 13,
       "cor": "#0EA5E9",
-      "rankIee": 15
+      "rankIee": 18
+    },
+    {
+      "id": "3f8a2d6b-9c4e-4f1a-b7d2-8e5a0c3d71f9",
+      "nome": "MAI-Image-2.5",
+      "criador": "Microsoft AI",
+      "eloT2i": 1118,
+      "ciT2i": 11,
+      "eloIee": 1124,
+      "ciIee": 12,
+      "logo": "https://unavatar.io/microsoft.com?fallback=false",
+      "cor": "#76B900",
+      "rankT2i": 17,
+      "rankIee": 19
     },
     {
       "id": "503fdcd1-5895-4145-8484-1ab301320f6d",
       "nome": "MAI-Image-2.5-Pro",
       "criador": "Microsoft AI",
-      "eloT2i": 1116,
-      "ciT2i": 10,
-      "eloIee": 1123,
+      "eloT2i": 1117,
+      "ciT2i": 9,
+      "eloIee": 1124,
       "ciIee": 12,
       "logo": "https://unavatar.io/microsoft.com?fallback=false",
       "cor": "#76B900",
-      "rankT2i": 16,
-      "rankIee": 16
+      "rankT2i": 18,
+      "rankIee": 20
     },
     {
       "id": "952cb4e8-6155-45f4-a653-f426669cf80a",
       "nome": "FLUX 3 Image",
       "criador": "Black Forest Labs",
-      "eloT2i": 1117,
+      "eloT2i": 1115,
       "ciT2i": 12,
-      "eloIee": 1120,
-      "ciIee": 14,
+      "eloIee": 1119,
+      "ciIee": 13,
       "cor": "#475569",
-      "rankT2i": 15,
-      "rankIee": 17
+      "rankT2i": 19,
+      "rankIee": 21
     },
     {
       "id": "6a5056eb-6854-43c4-bf18-01d185ce9e2f",
@@ -248,25 +308,25 @@
       "criador": "Google",
       "eloT2i": 1119,
       "ciT2i": 10,
-      "eloIee": 1109,
+      "eloIee": 1108,
       "ciIee": 12,
       "logo": "https://cdn.simpleicons.org/google",
       "cor": "#76B900",
-      "rankT2i": 14,
-      "rankIee": 20
+      "rankT2i": 16,
+      "rankIee": 24
     },
     {
       "id": "7f1079f3-b886-4ac1-bd3e-7059da87ff28",
       "nome": "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
       "criador": "Google",
-      "eloT2i": 1109,
+      "eloT2i": 1110,
       "ciT2i": 10,
-      "eloIee": 1054,
+      "eloIee": 1053,
       "ciIee": 12,
       "logo": "https://cdn.simpleicons.org/google",
       "cor": "#76B900",
-      "rankT2i": 17,
-      "rankIee": 37
+      "rankT2i": 20,
+      "rankIee": 41
     },
     {
       "id": "9fe07c8f-8d20-4908-a991-65c00e5ef260",
@@ -274,11 +334,11 @@
       "criador": "SpaceXAI",
       "eloT2i": 1049,
       "ciT2i": 9,
-      "eloIee": 1097,
+      "eloIee": 1098,
       "ciIee": 12,
       "cor": "#F43F5E",
-      "rankT2i": 22,
-      "rankIee": 21
+      "rankT2i": 27,
+      "rankIee": 25
     },
     {
       "id": "5538a039-fb86-4cd7-a207-4d692f358032",
@@ -289,70 +349,82 @@
       "eloIee": 1091,
       "ciIee": 12,
       "cor": "#F43F5E",
-      "rankT2i": 19,
-      "rankIee": 23
+      "rankT2i": 22,
+      "rankIee": 27
     },
     {
       "id": "ac3abb25-ef1d-43be-967e-9cd48d9d786a",
       "nome": "HunyuanImage 3.5 (Preview)",
       "criador": "Tencent",
-      "eloT2i": 974,
+      "eloT2i": 973,
       "ciT2i": 12,
       "eloIee": 1092,
       "ciIee": 13,
       "logo": "https://unavatar.io/tencent.com?fallback=false",
       "cor": "#4285F4",
-      "rankT2i": 67,
-      "rankIee": 22
+      "rankT2i": 73,
+      "rankIee": 26
     },
     {
       "id": "e23a6328-1441-4633-b53c-bb2c40c5a647",
       "nome": "MAI-Image-2.5-Flash",
       "criador": "Microsoft AI",
-      "eloT2i": 1032,
+      "eloT2i": 1034,
       "ciT2i": 11,
-      "eloIee": 1089,
+      "eloIee": 1088,
       "ciIee": 12,
       "logo": "https://unavatar.io/microsoft.com?fallback=false",
       "cor": "#76B900",
-      "rankT2i": 27,
-      "rankIee": 24
+      "rankT2i": 32,
+      "rankIee": 28
     },
     {
       "id": "5aa06cdc-2d14-44d2-ae75-cd1230bca9f7",
       "nome": "Fibo 2.0",
       "criador": "Bria",
-      "eloT2i": 1039,
-      "ciT2i": 12,
+      "eloT2i": 1038,
+      "ciT2i": 11,
       "eloIee": 1085,
       "ciIee": 13,
       "cor": "#7C3AED",
-      "rankT2i": 25,
-      "rankIee": 25
+      "rankT2i": 30,
+      "rankIee": 29
     },
     {
       "id": "dea37206-747e-49f3-8bed-6541ca505d03",
       "nome": "Qwen-Image-2.1",
       "criador": "Alibaba",
-      "eloT2i": 1045,
+      "eloT2i": 1046,
       "ciT2i": 12,
-      "eloIee": 1080,
+      "eloIee": 1084,
       "ciIee": 13,
       "cor": "#F43F5E",
-      "rankT2i": 23,
-      "rankIee": 26
+      "rankT2i": 28,
+      "rankIee": 30
     },
     {
       "id": "a71a9c1d-a20f-4237-8e36-8a58558e2edc",
       "nome": "Luma UNI 1 Max",
       "criador": "Luma Labs",
       "eloT2i": 1026,
-      "ciT2i": 12,
+      "ciT2i": 11,
       "eloIee": 1078,
-      "ciIee": 13,
+      "ciIee": 12,
       "cor": "#7C3AED",
-      "rankT2i": 35,
-      "rankIee": 27
+      "rankT2i": 38,
+      "rankIee": 31
+    },
+    {
+      "id": "2253749f-b609-4016-b639-0ce39a42375a",
+      "nome": "Qwen-Image-3.0",
+      "criador": "Alibaba",
+      "eloT2i": 1075,
+      "ciT2i": 12,
+      "eloIee": 1070,
+      "ciIee": 12,
+      "cor": "#F43F5E",
+      "rankT2i": 23,
+      "rankIee": 33
     },
     {
       "id": "bcc5b88d-1bb0-45e6-9940-2f8b99567b40",
@@ -360,47 +432,35 @@
       "criador": "SpaceXAI",
       "eloT2i": 1024,
       "ciT2i": 11,
-      "eloIee": 1073,
+      "eloIee": 1074,
       "ciIee": 13,
       "cor": "#F43F5E",
-      "rankT2i": 36,
-      "rankIee": 28
-    },
-    {
-      "id": "2253749f-b609-4016-b639-0ce39a42375a",
-      "nome": "Qwen-Image-3.0",
-      "criador": "Alibaba",
-      "eloT2i": 1073,
-      "ciT2i": 12,
-      "eloIee": 1069,
-      "ciIee": 12,
-      "cor": "#F43F5E",
-      "rankT2i": 20,
-      "rankIee": 31
+      "rankT2i": 41,
+      "rankIee": 32
     },
     {
       "id": "2fcb2223-b343-48c5-b6ed-31bdc0e0678c",
       "nome": "FLUX 3 Image Klein",
       "criador": "Black Forest Labs",
-      "eloT2i": 1043,
-      "ciT2i": 12,
+      "eloT2i": 1042,
+      "ciT2i": 11,
       "eloIee": 1069,
       "ciIee": 13,
       "cor": "#475569",
-      "rankT2i": 24,
-      "rankIee": 29
+      "rankT2i": 29,
+      "rankIee": 34
     },
     {
       "id": "74eeddb9-9c0b-4dbc-b188-27f91a811bd3",
       "nome": "Qwen-Image-2.1-Pro",
       "criador": "Alibaba",
-      "eloT2i": 1058,
+      "eloT2i": 1059,
       "ciT2i": 12,
-      "eloIee": 1069,
+      "eloIee": 1068,
       "ciIee": 13,
       "cor": "#F43F5E",
-      "rankT2i": 21,
-      "rankIee": 30
+      "rankT2i": 26,
+      "rankIee": 35
     },
     {
       "id": "8358ca21-5c7b-48f2-9b26-a1a1fa770f46",
@@ -408,61 +468,61 @@
       "criador": "Ideogram",
       "eloT2i": 1016,
       "ciT2i": 14,
-      "eloIee": 1067,
-      "ciIee": 15,
+      "eloIee": 1065,
+      "ciIee": 14,
       "cor": "#059669",
-      "rankT2i": 43,
-      "rankIee": 32
+      "rankT2i": 49,
+      "rankIee": 36
     },
     {
       "id": "6c1e28b9-3165-4637-9944-c4b55d634237",
       "nome": "HunyuanImage 3.0 Instruct",
       "criador": "Tencent",
-      "eloT2i": 988,
-      "ciT2i": 12,
-      "eloIee": 1065,
+      "eloT2i": 986,
+      "ciT2i": 11,
+      "eloIee": 1064,
       "ciIee": 13,
       "logo": "https://unavatar.io/tencent.com?fallback=false",
       "cor": "#4285F4",
-      "rankT2i": 58,
-      "rankIee": 33
-    },
-    {
-      "id": "3c29418c-ff63-459d-9d78-b9cceea260ce",
-      "nome": "Qwen-Image-2.1-Turbo",
-      "criador": "Alibaba",
-      "eloT2i": 1027,
-      "ciT2i": 12,
-      "eloIee": 1063,
-      "ciIee": 13,
-      "cor": "#F43F5E",
-      "rankT2i": 34,
-      "rankIee": 34
+      "rankT2i": 66,
+      "rankIee": 37
     },
     {
       "id": "d82c66de-d55a-4b6a-af16-f5bf808431cc",
       "nome": "Seedream 5.0 Lite",
       "criador": "ByteDance Seed",
-      "eloT2i": 1019,
-      "ciT2i": 12,
-      "eloIee": 1061,
+      "eloT2i": 1020,
+      "ciT2i": 11,
+      "eloIee": 1063,
       "ciIee": 13,
       "logo": "https://cdn.simpleicons.org/bytedance",
       "cor": "#00A4EF",
+      "rankT2i": 45,
+      "rankIee": 38
+    },
+    {
+      "id": "3c29418c-ff63-459d-9d78-b9cceea260ce",
+      "nome": "Qwen-Image-2.1-Turbo",
+      "criador": "Alibaba",
+      "eloT2i": 1025,
+      "ciT2i": 12,
+      "eloIee": 1062,
+      "ciIee": 13,
+      "cor": "#F43F5E",
       "rankT2i": 39,
-      "rankIee": 35
+      "rankIee": 39
     },
     {
       "id": "16e22800-1485-4b5f-b28c-bf802ca160ac",
       "nome": "Qwen Image 2.0 Pro (2026-04-22)",
       "criador": "Alibaba",
-      "eloT2i": 1031,
+      "eloT2i": 1033,
       "ciT2i": 11,
-      "eloIee": 1057,
-      "ciIee": 16,
+      "eloIee": 1055,
+      "ciIee": 15,
       "cor": "#F43F5E",
-      "rankT2i": 28,
-      "rankIee": 36
+      "rankT2i": 33,
+      "rankIee": 40
     },
     {
       "id": "e2f79c9a-26da-4b33-84f2-917387002b17",
@@ -470,71 +530,83 @@
       "criador": "Newport AI",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 1048,
+      "eloIee": 1049,
       "ciIee": 13,
       "cor": "#00A4EF",
-      "rankIee": 38
+      "rankIee": 42
     },
     {
       "id": "d587cfaa-e0f2-495c-a012-5f1cfcdf5c09",
       "nome": "Wan 2.7 Pro",
       "criador": "Alibaba",
-      "eloT2i": 980,
-      "ciT2i": 12,
-      "eloIee": 1048,
+      "eloT2i": 982,
+      "ciT2i": 11,
+      "eloIee": 1049,
       "ciIee": 13,
       "cor": "#F43F5E",
-      "rankT2i": 64,
-      "rankIee": 39
+      "rankT2i": 69,
+      "rankIee": 43
     },
     {
       "id": "c8a7698c-a595-476d-a56b-8b3ef4f239b7",
       "nome": "Wan 2.6 Image",
       "criador": "Alibaba",
-      "eloT2i": 1028,
-      "ciT2i": 12,
-      "eloIee": 1045,
+      "eloT2i": 1025,
+      "ciT2i": 11,
+      "eloIee": 1044,
       "ciIee": 13,
       "cor": "#F43F5E",
-      "rankT2i": 32,
-      "rankIee": 40
+      "rankT2i": 40,
+      "rankIee": 44
     },
     {
       "id": "6cd594e7-1871-45e2-a33d-dc73fd4aac11",
       "nome": "Luma UNI 1",
       "criador": "Luma Labs",
-      "eloT2i": 994,
-      "ciT2i": 12,
-      "eloIee": 1041,
+      "eloT2i": 997,
+      "ciT2i": 11,
+      "eloIee": 1042,
       "ciIee": 12,
       "cor": "#7C3AED",
-      "rankT2i": 53,
-      "rankIee": 41
+      "rankT2i": 56,
+      "rankIee": 45
+    },
+    {
+      "id": "f703abde-dd2d-4d74-8c2e-32f15528eda6",
+      "nome": "ADM 3 Cloud (Image)",
+      "criador": "Apple",
+      "eloT2i": 911,
+      "ciT2i": 15,
+      "eloIee": 1041,
+      "ciIee": 15,
+      "cor": "#F43F5E",
+      "rankT2i": 88,
+      "rankIee": 46
     },
     {
       "id": "08f19008-675e-4d70-98b2-49ad3178c1f0",
       "nome": "Seedream 4.5",
       "criador": "ByteDance Seed",
-      "eloT2i": 1030,
-      "ciT2i": 12,
-      "eloIee": 1040,
+      "eloT2i": 1029,
+      "ciT2i": 11,
+      "eloIee": 1039,
       "ciIee": 13,
       "logo": "https://cdn.simpleicons.org/bytedance",
       "cor": "#00A4EF",
-      "rankT2i": 29,
-      "rankIee": 42
+      "rankT2i": 34,
+      "rankIee": 47
     },
     {
       "id": "7795ac1e-7098-4dc0-9507-cfa8478cda6d",
       "nome": "Wan 2.7",
       "criador": "Alibaba",
-      "eloT2i": 988,
-      "ciT2i": 12,
-      "eloIee": 1040,
+      "eloT2i": 989,
+      "ciT2i": 11,
+      "eloIee": 1039,
       "ciIee": 12,
       "cor": "#F43F5E",
-      "rankT2i": 59,
-      "rankIee": 43
+      "rankT2i": 62,
+      "rankIee": 48
     },
     {
       "id": "4f4bff18-e48f-4f7f-aa6b-94e9a9a11b68",
@@ -545,7 +617,7 @@
       "eloIee": null,
       "ciIee": null,
       "cor": "#0EA5E9",
-      "rankT2i": 26
+      "rankT2i": 31
     },
     {
       "id": "87c9da43-efdc-408e-b7bb-fe77ed3afa88",
@@ -553,12 +625,12 @@
       "criador": "Tencent",
       "eloT2i": 993,
       "ciT2i": 15,
-      "eloIee": 1029,
+      "eloIee": 1030,
       "ciIee": 15,
       "logo": "https://unavatar.io/tencent.com?fallback=false",
       "cor": "#4285F4",
-      "rankT2i": 56,
-      "rankIee": 44
+      "rankT2i": 60,
+      "rankIee": 49
     },
     {
       "id": "e2201d15-3e29-48c6-89ba-e63ccf3dde15",
@@ -566,33 +638,33 @@
       "criador": "Black Forest Labs",
       "eloT2i": 1028,
       "ciT2i": 11,
-      "eloIee": 996,
-      "ciIee": 17,
+      "eloIee": 995,
+      "ciIee": 16,
       "cor": "#475569",
-      "rankT2i": 30,
-      "rankIee": 52
+      "rankT2i": 35,
+      "rankIee": 59
     },
     {
       "id": "e633cd0c-68a3-4c73-a020-98e2d75a03a6",
       "nome": "Recraft V4.1 Utility",
       "criador": "Recraft",
-      "eloT2i": 1028,
-      "ciT2i": 11,
+      "eloT2i": 1027,
+      "ciT2i": 10,
       "eloIee": null,
       "ciIee": null,
       "cor": "#EC4899",
-      "rankT2i": 31
+      "rankT2i": 36
     },
     {
       "id": "f625feda-2695-40cc-ba87-a5e65b914021",
       "nome": "Ideogram 4.0 (Quality)",
       "criador": "Ideogram",
-      "eloT2i": 1027,
+      "eloT2i": 1026,
       "ciT2i": 10,
       "eloIee": null,
       "ciIee": null,
       "cor": "#059669",
-      "rankT2i": 33
+      "rankT2i": 37
     },
     {
       "id": "6a398b55-7f36-4039-bbbf-2045ef8ab525",
@@ -600,103 +672,79 @@
       "criador": "Black Forest Labs",
       "eloT2i": 1021,
       "ciT2i": 10,
-      "eloIee": 999,
-      "ciIee": 13,
+      "eloIee": 998,
+      "ciIee": 12,
       "cor": "#475569",
-      "rankT2i": 37,
-      "rankIee": 51
+      "rankT2i": 42,
+      "rankIee": 56
     },
     {
       "id": "b461c47d-a141-4f70-8ed1-c42f808ee44c",
       "nome": "Krea 2 Medium Turbo",
       "criador": "Krea",
-      "eloT2i": 1020,
+      "eloT2i": 1021,
       "ciT2i": 11,
       "eloIee": null,
       "ciIee": null,
       "cor": "#0EA5E9",
-      "rankT2i": 38
-    },
-    {
-      "id": "1308be83-54a3-4284-880e-bd31996a9225",
-      "nome": "HiDream-O1-Image-1.5",
-      "criador": "HiDream",
-      "eloT2i": 1018,
-      "ciT2i": 11,
-      "eloIee": null,
-      "ciIee": null,
-      "cor": "#EC4899",
-      "rankT2i": 40
+      "rankT2i": 43
     },
     {
       "id": "4ead8ffd-aa90-4fab-93f3-d3f4495657f8",
       "nome": "Recraft V4.1 Utility Pro",
       "criador": "Recraft",
-      "eloT2i": 1018,
+      "eloT2i": 1020,
       "ciT2i": 9,
       "eloIee": null,
       "ciIee": null,
       "cor": "#EC4899",
-      "rankT2i": 41
+      "rankT2i": 44
+    },
+    {
+      "id": "1308be83-54a3-4284-880e-bd31996a9225",
+      "nome": "HiDream-O1-Image-1.5",
+      "criador": "HiDream",
+      "eloT2i": 1019,
+      "ciT2i": 10,
+      "eloIee": null,
+      "ciIee": null,
+      "cor": "#EC4899",
+      "rankT2i": 46
+    },
+    {
+      "id": "2f5ebb1e-6d5f-48b0-95bf-3b590fd45971",
+      "nome": "GPT Image 1 (high)",
+      "criador": "OpenAI",
+      "eloT2i": 1018,
+      "ciT2i": 11,
+      "eloIee": 997,
+      "ciIee": 16,
+      "logo": "https://unavatar.io/openai.com?fallback=false",
+      "cor": "#D97757",
+      "rankT2i": 47,
+      "rankIee": 57
     },
     {
       "id": "caa670a4-e827-4a4b-84fb-2dd240205fe2",
       "nome": "Wan2.6 Text to Image",
       "criador": "Alibaba",
       "eloT2i": 1018,
-      "ciT2i": 12,
+      "ciT2i": 11,
       "eloIee": null,
       "ciIee": null,
       "cor": "#F43F5E",
-      "rankT2i": 42
-    },
-    {
-      "id": "db7a9087-0b50-41f8-ac41-fb48db3aa459",
-      "nome": "FLUX.2 [dev] Turbo",
-      "criador": "Fal",
-      "eloT2i": 996,
-      "ciT2i": 11,
-      "eloIee": 1017,
-      "ciIee": 17,
-      "cor": "#EAB308",
-      "rankT2i": 51,
-      "rankIee": 45
-    },
-    {
-      "id": "2f5ebb1e-6d5f-48b0-95bf-3b590fd45971",
-      "nome": "GPT Image 1 (high)",
-      "criador": "OpenAI",
-      "eloT2i": 1014,
-      "ciT2i": 12,
-      "eloIee": 994,
-      "ciIee": 17,
-      "logo": "https://unavatar.io/openai.com?fallback=false",
-      "cor": "#D97757",
-      "rankT2i": 44,
-      "rankIee": 53
+      "rankT2i": 48
     },
     {
       "id": "01ec8e55-dad9-4e6f-9036-e1da2a5226b6",
       "nome": "Krea 2 Medium",
       "criador": "Krea",
-      "eloT2i": 1014,
+      "eloT2i": 1015,
       "ciT2i": 9,
       "eloIee": null,
       "ciIee": null,
       "cor": "#0EA5E9",
-      "rankT2i": 45
-    },
-    {
-      "id": "0413f436-9aa3-4f92-aa34-9432841c1830",
-      "nome": "FLUX.2 [dev] Flash",
-      "criador": "Fal",
-      "eloT2i": 989,
-      "ciT2i": 12,
-      "eloIee": 1013,
-      "ciIee": 17,
-      "cor": "#EAB308",
-      "rankT2i": 57,
-      "rankIee": 46
+      "rankT2i": 50
     },
     {
       "id": "3a03722d-32c0-44f3-adde-188c51b639f1",
@@ -704,23 +752,47 @@
       "criador": "Black Forest Labs",
       "eloT2i": 932,
       "ciT2i": 10,
-      "eloIee": 1013,
-      "ciIee": 13,
+      "eloIee": 1014,
+      "ciIee": 12,
       "cor": "#475569",
-      "rankT2i": 76,
-      "rankIee": 47
+      "rankT2i": 81,
+      "rankIee": 50
+    },
+    {
+      "id": "0413f436-9aa3-4f92-aa34-9432841c1830",
+      "nome": "FLUX.2 [dev] Flash",
+      "criador": "Fal",
+      "eloT2i": 987,
+      "ciT2i": 12,
+      "eloIee": 1011,
+      "ciIee": 16,
+      "cor": "#EAB308",
+      "rankT2i": 64,
+      "rankIee": 51
+    },
+    {
+      "id": "db7a9087-0b50-41f8-ac41-fb48db3aa459",
+      "nome": "FLUX.2 [dev] Turbo",
+      "criador": "Fal",
+      "eloT2i": 996,
+      "ciT2i": 11,
+      "eloIee": 1011,
+      "ciIee": 16,
+      "cor": "#EAB308",
+      "rankT2i": 57,
+      "rankIee": 52
     },
     {
       "id": "18874791-11a3-4cb7-bc0e-6ca10138eec7",
       "nome": "FLUX.2 [pro]",
       "criador": "Black Forest Labs",
-      "eloT2i": 1003,
+      "eloT2i": 1005,
       "ciT2i": 10,
-      "eloIee": 1011,
-      "ciIee": 15,
+      "eloIee": 1010,
+      "ciIee": 14,
       "cor": "#475569",
-      "rankT2i": 46,
-      "rankIee": 48
+      "rankT2i": 51,
+      "rankIee": 53
     },
     {
       "id": "74606b04-5682-4ff2-85ce-56999ef61acb",
@@ -728,11 +800,11 @@
       "criador": "StepFun",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 1010,
+      "eloIee": 1008,
       "ciIee": 13,
       "logo": "https://unavatar.io/stepfun.com?fallback=false",
       "cor": "#475569",
-      "rankIee": 49
+      "rankIee": 54
     },
     {
       "id": "ffb60b61-95c2-414d-a4d1-7070e2daad59",
@@ -743,7 +815,18 @@
       "eloIee": null,
       "ciIee": null,
       "cor": "#059669",
-      "rankT2i": 47
+      "rankT2i": 52
+    },
+    {
+      "id": "a035e463-270c-4ad4-aa7e-d31509b300f7",
+      "nome": "Ming-Image-0.1-Design",
+      "criador": "InclusionAI",
+      "eloT2i": 1001,
+      "ciT2i": 9,
+      "eloIee": null,
+      "ciIee": null,
+      "cor": "#4285F4",
+      "rankT2i": 53
     },
     {
       "id": "df44f7b5-8035-4a99-a0bb-ff22149d0464",
@@ -754,30 +837,30 @@
       "eloIee": 1000,
       "ciIee": 0,
       "cor": "#475569",
-      "rankT2i": 48,
-      "rankIee": 50
-    },
-    {
-      "id": "a035e463-270c-4ad4-aa7e-d31509b300f7",
-      "nome": "Ming-Image-0.1-Design",
-      "criador": "InclusionAI",
-      "eloT2i": 1000,
-      "ciT2i": 9,
-      "eloIee": null,
-      "ciIee": null,
-      "cor": "#4285F4",
-      "rankT2i": 49
+      "rankT2i": 54,
+      "rankIee": 55
     },
     {
       "id": "9a73193a-8830-4fa8-98f4-0230cd749914",
       "nome": "P-Image-Ideogram (High)",
       "criador": "Pruna AI",
-      "eloT2i": 998,
-      "ciT2i": 14,
+      "eloT2i": 999,
+      "ciT2i": 13,
       "eloIee": null,
       "ciIee": null,
       "cor": "#CA8A04",
-      "rankT2i": 50
+      "rankT2i": 55
+    },
+    {
+      "id": "878746c7-f8e0-48c0-941e-d8262608ca1a",
+      "nome": "Qwen Image Edit Plus 2511",
+      "criador": "Alibaba",
+      "eloT2i": null,
+      "ciT2i": null,
+      "eloIee": 996,
+      "ciIee": 16,
+      "cor": "#F43F5E",
+      "rankIee": 58
     },
     {
       "id": "3ab1625b-0838-4314-a684-3d34328dfe65",
@@ -789,99 +872,55 @@
       "ciIee": null,
       "logo": "https://cdn.simpleicons.org/nvidia",
       "cor": "#059669",
-      "rankT2i": 52
+      "rankT2i": 58
     },
     {
       "id": "fe1a6e08-b922-4996-b029-4601b8248806",
       "nome": "P-Image-Ideogram (Very High)",
       "criador": "Pruna AI",
-      "eloT2i": 994,
-      "ciT2i": 15,
+      "eloT2i": 995,
+      "ciT2i": 14,
       "eloIee": null,
       "ciIee": null,
       "cor": "#CA8A04",
-      "rankT2i": 54
+      "rankT2i": 59
     },
     {
       "id": "59b0cb98-b550-40f1-b863-a2daca08ab81",
       "nome": "Qwen Image 2.0 (2026-03-03)",
       "criador": "Alibaba",
-      "eloT2i": 994,
+      "eloT2i": 992,
       "ciT2i": 15,
-      "eloIee": 968,
+      "eloIee": 965,
       "ciIee": 17,
       "cor": "#F43F5E",
-      "rankT2i": 55,
-      "rankIee": 59
-    },
-    {
-      "id": "878746c7-f8e0-48c0-941e-d8262608ca1a",
-      "nome": "Qwen Image Edit Plus 2511",
-      "criador": "Alibaba",
-      "eloT2i": null,
-      "ciT2i": null,
-      "eloIee": 992,
-      "ciIee": 17,
-      "cor": "#F43F5E",
-      "rankIee": 54
+      "rankT2i": 61,
+      "rankIee": 64
     },
     {
       "id": "498395f7-5cde-4443-9f05-1dfc164caa6f",
       "nome": "Cosmos3-Super-Text2Image",
       "criador": "NVIDIA",
-      "eloT2i": 987,
+      "eloT2i": 988,
       "ciT2i": 10,
       "eloIee": null,
       "ciIee": null,
       "logo": "https://cdn.simpleicons.org/nvidia",
       "cor": "#059669",
-      "rankT2i": 60
+      "rankT2i": 63
     },
     {
       "id": "ead01c00-8518-4f8d-8033-76fcaef910fd",
       "nome": "Nano Banana (Gemini 2.5 Flash Image)",
       "criador": "Google",
-      "eloT2i": 986,
+      "eloT2i": 987,
       "ciT2i": 12,
       "eloIee": 982,
       "ciIee": 13,
       "logo": "https://cdn.simpleicons.org/google",
       "cor": "#76B900",
-      "rankT2i": 61,
-      "rankIee": 58
-    },
-    {
-      "id": "16ecb9ee-9d8d-4151-a9f6-e6ef2aa12d26",
-      "nome": "Ideogram 4.0 Fast (Quality)",
-      "criador": "Fal",
-      "eloT2i": 985,
-      "ciT2i": 11,
-      "eloIee": null,
-      "ciIee": null,
-      "cor": "#EAB308",
-      "rankT2i": 62
-    },
-    {
-      "id": "740929c5-09b6-4a81-b98e-00e903e27d84",
-      "nome": "Ideogram 4.0 Instant",
-      "criador": "Fal",
-      "eloT2i": 985,
-      "ciT2i": 12,
-      "eloIee": null,
-      "ciIee": null,
-      "cor": "#EAB308",
-      "rankT2i": 63
-    },
-    {
-      "id": "84c2ccfc-80f0-440c-91f5-0efe11afa535",
-      "nome": "Qwen Image Edit Max 2601",
-      "criador": "Alibaba",
-      "eloT2i": null,
-      "ciT2i": null,
-      "eloIee": 984,
-      "ciIee": 17,
-      "cor": "#F43F5E",
-      "rankIee": 55
+      "rankT2i": 65,
+      "rankIee": 61
     },
     {
       "id": "a8202647-0cab-4d53-8929-683b91583a2f",
@@ -889,10 +928,32 @@
       "criador": "Reve",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 984,
-      "ciIee": 17,
+      "eloIee": 985,
+      "ciIee": 16,
       "cor": "#7C3AED",
-      "rankIee": 56
+      "rankIee": 60
+    },
+    {
+      "id": "740929c5-09b6-4a81-b98e-00e903e27d84",
+      "nome": "Ideogram 4.0 Instant",
+      "criador": "Fal",
+      "eloT2i": 984,
+      "ciT2i": 12,
+      "eloIee": null,
+      "ciIee": null,
+      "cor": "#EAB308",
+      "rankT2i": 67
+    },
+    {
+      "id": "16ecb9ee-9d8d-4151-a9f6-e6ef2aa12d26",
+      "nome": "Ideogram 4.0 Fast (Quality)",
+      "criador": "Fal",
+      "eloT2i": 982,
+      "ciT2i": 11,
+      "eloIee": null,
+      "ciIee": null,
+      "cor": "#EAB308",
+      "rankT2i": 68
     },
     {
       "id": "9284721d-5dc9-4eec-ab5a-235aa6fdcc9f",
@@ -900,45 +961,78 @@
       "criador": "Pruna AI",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 983,
+      "eloIee": 982,
       "ciIee": 13,
       "cor": "#CA8A04",
-      "rankIee": 57
+      "rankIee": 62
+    },
+    {
+      "id": "84c2ccfc-80f0-440c-91f5-0efe11afa535",
+      "nome": "Qwen Image Edit Max 2601",
+      "criador": "Alibaba",
+      "eloT2i": null,
+      "ciT2i": null,
+      "eloIee": 981,
+      "ciIee": 16,
+      "cor": "#F43F5E",
+      "rankIee": 63
     },
     {
       "id": "5eb8a48a-334c-4770-b722-3bf5a1842c12",
       "nome": "HiDream-O1-Image",
       "criador": "HiDream",
-      "eloT2i": 978,
+      "eloT2i": 979,
       "ciT2i": 10,
-      "eloIee": 953,
-      "ciIee": 14,
+      "eloIee": 952,
+      "ciIee": 13,
       "cor": "#EC4899",
-      "rankT2i": 65,
-      "rankIee": 62
+      "rankT2i": 70,
+      "rankIee": 68
     },
     {
       "id": "d74e176c-b2ca-4132-b641-fc4932c2314d",
       "nome": "P-Image-Ideogram (Medium)",
       "criador": "Pruna AI",
-      "eloT2i": 976,
+      "eloT2i": 977,
       "ciT2i": 13,
       "eloIee": null,
       "ciIee": null,
       "cor": "#CA8A04",
-      "rankT2i": 66
+      "rankT2i": 71
     },
     {
       "id": "a972f679-3043-42fd-a8d2-a866b5acb516",
       "nome": "Cosmos3-Super-Text2Image-4Step",
       "criador": "NVIDIA",
-      "eloT2i": 972,
+      "eloT2i": 973,
       "ciT2i": 10,
       "eloIee": null,
       "ciIee": null,
       "logo": "https://cdn.simpleicons.org/nvidia",
       "cor": "#059669",
-      "rankT2i": 68
+      "rankT2i": 72
+    },
+    {
+      "id": "a7537dba-f8c0-4e26-9693-c593a69a3db8",
+      "nome": "Ideogram 4.0 Fast",
+      "criador": "Fal",
+      "eloT2i": 966,
+      "ciT2i": 12,
+      "eloIee": null,
+      "ciIee": null,
+      "cor": "#EAB308",
+      "rankT2i": 74
+    },
+    {
+      "id": "d5a99ffc-7fb6-48c3-8543-75c4c07706f0",
+      "nome": "P-Image-Ideogram (Low)",
+      "criador": "Pruna AI",
+      "eloT2i": 965,
+      "ciT2i": 13,
+      "eloIee": null,
+      "ciIee": null,
+      "cor": "#CA8A04",
+      "rankT2i": 75
     },
     {
       "id": "c64add40-5964-4a33-b25f-26eb1c990f27",
@@ -946,78 +1040,56 @@
       "criador": "Alibaba",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 967,
+      "eloIee": 963,
       "ciIee": 17,
       "cor": "#F43F5E",
-      "rankIee": 60
-    },
-    {
-      "id": "a7537dba-f8c0-4e26-9693-c593a69a3db8",
-      "nome": "Ideogram 4.0 Fast",
-      "criador": "Fal",
-      "eloT2i": 965,
-      "ciT2i": 12,
-      "eloIee": null,
-      "ciIee": null,
-      "cor": "#EAB308",
-      "rankT2i": 69
-    },
-    {
-      "id": "d5a99ffc-7fb6-48c3-8543-75c4c07706f0",
-      "nome": "P-Image-Ideogram (Low)",
-      "criador": "Pruna AI",
-      "eloT2i": 964,
-      "ciT2i": 13,
-      "eloIee": null,
-      "ciIee": null,
-      "cor": "#CA8A04",
-      "rankT2i": 70
+      "rankIee": 65
     },
     {
       "id": "c02b3b9d-2847-46b2-b410-98e29a594fa5",
       "nome": "Qwen Image Plus 2601",
       "criador": "Alibaba",
-      "eloT2i": 959,
-      "ciT2i": 16,
+      "eloT2i": 958,
+      "ciT2i": 15,
       "eloIee": null,
       "ciIee": null,
       "cor": "#F43F5E",
-      "rankT2i": 71
-    },
-    {
-      "id": "aef67397-7859-4806-8fbb-6b50e391feec",
-      "nome": "Kling Image 3.0 Omni",
-      "criador": "KlingAI",
-      "eloT2i": 921,
-      "ciT2i": 16,
-      "eloIee": 954,
-      "ciIee": 14,
-      "cor": "#FF7000",
-      "rankT2i": 80,
-      "rankIee": 61
+      "rankT2i": 76
     },
     {
       "id": "29714890-0638-4648-a1df-3fdc2a4b42fa",
       "nome": "Vidu Q2",
       "criador": "Vidu",
-      "eloT2i": 896,
-      "ciT2i": 17,
-      "eloIee": 953,
-      "ciIee": 18,
+      "eloT2i": 898,
+      "ciT2i": 16,
+      "eloIee": 955,
+      "ciIee": 17,
       "cor": "#CA8A04",
-      "rankT2i": 87,
-      "rankIee": 63
+      "rankT2i": 92,
+      "rankIee": 66
+    },
+    {
+      "id": "aef67397-7859-4806-8fbb-6b50e391feec",
+      "nome": "Kling Image 3.0 Omni",
+      "criador": "KlingAI",
+      "eloT2i": 926,
+      "ciT2i": 15,
+      "eloIee": 953,
+      "ciIee": 13,
+      "cor": "#FF7000",
+      "rankT2i": 84,
+      "rankIee": 67
     },
     {
       "id": "2106ec2e-158c-4978-82e0-9049e3d8d90f",
       "nome": "Recraft V4.1 Flash",
       "criador": "Recraft",
-      "eloT2i": 951,
+      "eloT2i": 950,
       "ciT2i": 12,
       "eloIee": null,
       "ciIee": null,
       "cor": "#EC4899",
-      "rankT2i": 72
+      "rankT2i": 77
     },
     {
       "id": "84727a95-54d0-4237-b629-eae087023171",
@@ -1025,10 +1097,10 @@
       "criador": "KlingAI",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 945,
-      "ciIee": 14,
+      "eloIee": 944,
+      "ciIee": 13,
       "cor": "#FF7000",
-      "rankIee": 64
+      "rankIee": 69
     },
     {
       "id": "6443510e-aedc-423b-9a16-478534b16269",
@@ -1036,24 +1108,24 @@
       "criador": "Black Forest Labs",
       "eloT2i": 840,
       "ciT2i": 12,
-      "eloIee": 940,
+      "eloIee": 942,
       "ciIee": 16,
       "cor": "#475569",
-      "rankT2i": 98,
-      "rankIee": 65
+      "rankT2i": 104,
+      "rankIee": 70
     },
     {
       "id": "95a40d42-7e24-42ac-8e86-ded5ba37c6ea",
       "nome": "GPT Image 1 Mini (medium)",
       "criador": "OpenAI",
-      "eloT2i": 937,
-      "ciT2i": 17,
-      "eloIee": 936,
+      "eloT2i": 938,
+      "ciT2i": 16,
+      "eloIee": 940,
       "ciIee": 18,
       "logo": "https://unavatar.io/openai.com?fallback=false",
       "cor": "#D97757",
-      "rankT2i": 73,
-      "rankIee": 66
+      "rankT2i": 78,
+      "rankIee": 71
     },
     {
       "id": "d48735c9-9f0f-45b6-ad45-cc03eec252c8",
@@ -1064,55 +1136,55 @@
       "eloIee": null,
       "ciIee": null,
       "cor": "#F43F5E",
-      "rankT2i": 74
-    },
-    {
-      "id": "b7c09073-9046-4043-884b-ac541fedbbac",
-      "nome": "FLUX.1 Kontext [max]",
-      "criador": "Black Forest Labs",
-      "eloT2i": 930,
-      "ciT2i": 12,
-      "eloIee": 933,
-      "ciIee": 18,
-      "cor": "#475569",
-      "rankT2i": 78,
-      "rankIee": 67
+      "rankT2i": 79
     },
     {
       "id": "1522bb2b-0ec1-4cbe-aa0f-3dd04b784035",
       "nome": "HunyuanImage 3.0",
       "criador": "Tencent",
-      "eloT2i": 933,
-      "ciT2i": 16,
+      "eloT2i": 934,
+      "ciT2i": 15,
       "eloIee": null,
       "ciIee": null,
       "logo": "https://unavatar.io/tencent.com?fallback=false",
       "cor": "#4285F4",
-      "rankT2i": 75
+      "rankT2i": 80
     },
     {
       "id": "561d9150-bc67-4212-8129-2d239f06fde8",
       "nome": "Dreamina 3.1",
       "criador": "Bytedance",
       "eloT2i": 931,
-      "ciT2i": 17,
+      "ciT2i": 16,
       "eloIee": null,
       "ciIee": null,
       "logo": "https://cdn.simpleicons.org/bytedance",
       "cor": "#00A4EF",
-      "rankT2i": 77
+      "rankT2i": 82
+    },
+    {
+      "id": "b7c09073-9046-4043-884b-ac541fedbbac",
+      "nome": "FLUX.1 Kontext [max]",
+      "criador": "Black Forest Labs",
+      "eloT2i": 931,
+      "ciT2i": 12,
+      "eloIee": 931,
+      "ciIee": 17,
+      "cor": "#475569",
+      "rankT2i": 83,
+      "rankIee": 72
     },
     {
       "id": "3338f278-fb1f-4727-b9af-d51ae3ab7e36",
       "nome": "FLUX.1 Kontext [pro]",
       "criador": "Black Forest Labs",
-      "eloT2i": 921,
-      "ciT2i": 17,
-      "eloIee": 915,
-      "ciIee": 19,
+      "eloT2i": 924,
+      "ciT2i": 16,
+      "eloIee": 916,
+      "ciIee": 18,
       "cor": "#475569",
-      "rankT2i": 79,
-      "rankIee": 68
+      "rankT2i": 85,
+      "rankIee": 73
     },
     {
       "id": "2a91c547-e6e1-46b6-bb73-abd73d518de8",
@@ -1124,18 +1196,7 @@
       "ciIee": null,
       "logo": "https://cdn.simpleicons.org/baidu",
       "cor": "#EAB308",
-      "rankT2i": 81
-    },
-    {
-      "id": "7f4a0972-2e00-4cd1-9c93-57e81b0791a8",
-      "nome": "Ideogram 3.0",
-      "criador": "Ideogram",
-      "eloT2i": 913,
-      "ciT2i": 17,
-      "eloIee": null,
-      "ciIee": null,
-      "cor": "#059669",
-      "rankT2i": 82
+      "rankT2i": 86
     },
     {
       "id": "d45130b5-0e86-48a6-b13c-c56468709cc8",
@@ -1143,21 +1204,32 @@
       "criador": "Bria",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 912,
-      "ciIee": 19,
+      "eloIee": 913,
+      "ciIee": 18,
       "cor": "#7C3AED",
-      "rankIee": 69
+      "rankIee": 74
     },
     {
       "id": "e2fa2f78-4a0c-4e2f-b3cf-53d213a18872",
       "nome": "P-Image-Ideogram (Very Low)",
       "criador": "Pruna AI",
-      "eloT2i": 911,
+      "eloT2i": 913,
       "ciT2i": 14,
       "eloIee": null,
       "ciIee": null,
       "cor": "#CA8A04",
-      "rankT2i": 83
+      "rankT2i": 87
+    },
+    {
+      "id": "7f4a0972-2e00-4cd1-9c93-57e81b0791a8",
+      "nome": "Ideogram 3.0",
+      "criador": "Ideogram",
+      "eloT2i": 910,
+      "ciT2i": 16,
+      "eloIee": null,
+      "ciIee": null,
+      "cor": "#059669",
+      "rankT2i": 89
     },
     {
       "id": "72d1951d-075a-421b-9002-66537114124c",
@@ -1169,18 +1241,18 @@
       "ciIee": null,
       "logo": "https://cdn.simpleicons.org/baidu",
       "cor": "#EAB308",
-      "rankT2i": 84
+      "rankT2i": 90
     },
     {
       "id": "a7ce8a95-072f-4ca2-b574-35400c21d005",
       "nome": "Qwen Image",
       "criador": "Alibaba",
-      "eloT2i": 904,
-      "ciT2i": 17,
+      "eloT2i": 908,
+      "ciT2i": 16,
       "eloIee": null,
       "ciIee": null,
       "cor": "#F43F5E",
-      "rankT2i": 85
+      "rankT2i": 91
     },
     {
       "id": "508d1de3-59e8-4963-a86f-a605a9e1acb5",
@@ -1188,59 +1260,59 @@
       "criador": "ByteDance Seed",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 902,
-      "ciIee": 19,
+      "eloIee": 898,
+      "ciIee": 18,
       "logo": "https://cdn.simpleicons.org/bytedance",
       "cor": "#00A4EF",
-      "rankIee": 70
+      "rankIee": 75
     },
     {
       "id": "c404f12b-b1a8-47d2-bbff-3aa5f73be475",
       "nome": "P-Image",
       "criador": "Pruna AI",
-      "eloT2i": 897,
+      "eloT2i": 896,
       "ciT2i": 17,
       "eloIee": null,
       "ciIee": null,
       "cor": "#CA8A04",
-      "rankT2i": 86
+      "rankT2i": 93
     },
     {
       "id": "e9c23b00-b46b-428a-9b0f-68308747873b",
       "nome": "LongCat Image",
       "criador": "Meituan",
-      "eloT2i": 858,
-      "ciT2i": 19,
-      "eloIee": 896,
+      "eloT2i": 861,
+      "ciT2i": 18,
+      "eloIee": 895,
       "ciIee": 19,
       "logo": "https://cdn.simpleicons.org/meituan",
       "cor": "#059669",
-      "rankT2i": 94,
-      "rankIee": 71
+      "rankT2i": 100,
+      "rankIee": 76
     },
     {
       "id": "7f802e5d-8297-41f7-bf2e-cd442b4eb37e",
       "nome": "Z-Image Base",
       "criador": "Alibaba",
-      "eloT2i": 893,
-      "ciT2i": 17,
+      "eloT2i": 894,
+      "ciT2i": 16,
       "eloIee": null,
       "ciIee": null,
       "cor": "#F43F5E",
-      "rankT2i": 88
+      "rankT2i": 94
     },
     {
       "id": "5eba28d1-5f14-45e5-970a-47cd5da79c54",
       "nome": "GLM-Image",
       "criador": "Z AI",
       "eloT2i": 891,
-      "ciT2i": 17,
-      "eloIee": 824,
+      "ciT2i": 16,
+      "eloIee": 827,
       "ciIee": 21,
       "logo": "https://unavatar.io/z.ai?fallback=false",
       "cor": "#EAB308",
-      "rankT2i": 89,
-      "rankIee": 75
+      "rankT2i": 95,
+      "rankIee": 80
     },
     {
       "id": "5d5701fe-a1d0-4eab-96b6-8f55b0610e1c",
@@ -1248,10 +1320,10 @@
       "criador": "Alibaba",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 887,
+      "eloIee": 886,
       "ciIee": 19,
       "cor": "#F43F5E",
-      "rankIee": 72
+      "rankIee": 77
     },
     {
       "id": "b4a07a40-c0c2-475a-8326-469bdd6dff47",
@@ -1259,144 +1331,144 @@
       "criador": "Black Forest Labs",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 880,
-      "ciIee": 20,
+      "eloIee": 881,
+      "ciIee": 19,
       "cor": "#475569",
-      "rankIee": 73
-    },
-    {
-      "id": "8d8aa93e-0d6c-4973-9946-e00e52eeb01d",
-      "nome": "Lucid Origin Ultra",
-      "criador": "Leonardo.Ai",
-      "eloT2i": 879,
-      "ciT2i": 17,
-      "eloIee": null,
-      "ciIee": null,
-      "cor": "#00A4EF",
-      "rankT2i": 90
+      "rankIee": 78
     },
     {
       "id": "9cb8045c-3c85-4023-8585-88ca0eff8452",
       "nome": "HiDream-O1-Image-Dev",
       "criador": "HiDream",
-      "eloT2i": 810,
+      "eloT2i": 811,
       "ciT2i": 19,
       "eloIee": 878,
       "ciIee": 14,
       "cor": "#EC4899",
-      "rankT2i": 104,
-      "rankIee": 74
+      "rankT2i": 110,
+      "rankIee": 79
+    },
+    {
+      "id": "8d8aa93e-0d6c-4973-9946-e00e52eeb01d",
+      "nome": "Lucid Origin Ultra",
+      "criador": "Leonardo.Ai",
+      "eloT2i": 877,
+      "ciT2i": 16,
+      "eloIee": null,
+      "ciIee": null,
+      "cor": "#00A4EF",
+      "rankT2i": 96
     },
     {
       "id": "f1182fcf-b690-413a-9a9b-38cec96e9e09",
       "nome": "FLUX1.1 [pro]",
       "criador": "Black Forest Labs",
-      "eloT2i": 871,
-      "ciT2i": 18,
+      "eloT2i": 874,
+      "ciT2i": 17,
       "eloIee": null,
       "ciIee": null,
       "cor": "#475569",
-      "rankT2i": 91
+      "rankT2i": 97
     },
     {
       "id": "7fd58fea-e8b4-46c9-a421-409db1b54a71",
       "nome": "FLUX.1 Krea [dev]",
       "criador": "Black Forest Labs",
-      "eloT2i": 868,
-      "ciT2i": 35,
+      "eloT2i": 872,
+      "ciT2i": 30,
       "eloIee": null,
       "ciIee": null,
       "cor": "#475569",
-      "rankT2i": 92
+      "rankT2i": 98
     },
     {
       "id": "2ec24cf9-bef1-44f2-ae97-32f49f7905e2",
       "nome": "Lucid Origin Fast",
       "criador": "Leonardo.Ai",
-      "eloT2i": 863,
-      "ciT2i": 17,
+      "eloT2i": 866,
+      "ciT2i": 16,
       "eloIee": null,
       "ciIee": null,
       "cor": "#00A4EF",
-      "rankT2i": 93
+      "rankT2i": 99
     },
     {
       "id": "9d206113-8eec-4e37-9033-3699b4e2c4c1",
       "nome": "FIBO",
       "criador": "Bria",
-      "eloT2i": 853,
-      "ciT2i": 19,
+      "eloT2i": 856,
+      "ciT2i": 18,
       "eloIee": null,
       "ciIee": null,
       "cor": "#7C3AED",
-      "rankT2i": 95
+      "rankT2i": 101
     },
     {
       "id": "aa524f71-2f87-4395-b1c1-83dfa20bd87c",
       "nome": "FLUX1.1 [pro] Ultra",
       "criador": "Black Forest Labs",
-      "eloT2i": 853,
-      "ciT2i": 18,
+      "eloT2i": 855,
+      "ciT2i": 17,
       "eloIee": null,
       "ciIee": null,
       "cor": "#475569",
-      "rankT2i": 96
+      "rankT2i": 102
     },
     {
       "id": "bbb9085a-55dd-4afe-955d-0326019503a7",
       "nome": "Luma Photon",
       "criador": "Luma Labs",
-      "eloT2i": 845,
-      "ciT2i": 19,
+      "eloT2i": 843,
+      "ciT2i": 18,
       "eloIee": null,
       "ciIee": null,
       "cor": "#7C3AED",
-      "rankT2i": 97
-    },
-    {
-      "id": "6ec6098b-3530-4de5-b2fc-24cde58933ab",
-      "nome": "SRPO",
-      "criador": "Tencent",
-      "eloT2i": 832,
-      "ciT2i": 20,
-      "eloIee": null,
-      "ciIee": null,
-      "logo": "https://unavatar.io/tencent.com?fallback=false",
-      "cor": "#4285F4",
-      "rankT2i": 99
+      "rankT2i": 103
     },
     {
       "id": "9f592429-9411-4c1e-bebe-780d2790759a",
       "nome": "Phoenix 0.9 Ultra",
       "criador": "Leonardo.Ai",
-      "eloT2i": 831,
-      "ciT2i": 19,
+      "eloT2i": 836,
+      "ciT2i": 18,
       "eloIee": null,
       "ciIee": null,
       "cor": "#00A4EF",
-      "rankT2i": 100
+      "rankT2i": 105
+    },
+    {
+      "id": "6ec6098b-3530-4de5-b2fc-24cde58933ab",
+      "nome": "SRPO",
+      "criador": "Tencent",
+      "eloT2i": 834,
+      "ciT2i": 19,
+      "eloIee": null,
+      "ciIee": null,
+      "logo": "https://unavatar.io/tencent.com?fallback=false",
+      "cor": "#4285F4",
+      "rankT2i": 106
     },
     {
       "id": "ba1d4694-1170-4cc1-b19a-3067a8c1341c",
       "nome": "Phoenix 1.0 Fast",
       "criador": "Leonardo.Ai",
       "eloT2i": 828,
-      "ciT2i": 20,
+      "ciT2i": 19,
       "eloIee": null,
       "ciIee": null,
       "cor": "#00A4EF",
-      "rankT2i": 101
+      "rankT2i": 107
     },
     {
       "id": "42f6daca-7146-4620-8977-d190d7fac51a",
       "nome": "FLUX.1 [dev]",
       "criador": "Black Forest Labs",
-      "eloT2i": 819,
-      "ciT2i": 39,
+      "eloT2i": 818,
+      "ciT2i": 33,
       "eloIee": null,
       "ciIee": null,
       "cor": "#475569",
-      "rankT2i": 102
+      "rankT2i": 108
     },
     {
       "id": "95379740-648d-4251-8ae8-33b3021ad14b",
@@ -1407,43 +1479,43 @@
       "eloIee": null,
       "ciIee": null,
       "cor": "#7C3AED",
-      "rankT2i": 103
+      "rankT2i": 109
     },
     {
       "id": "1189110d-671d-4de9-877c-f9797f161134",
       "nome": "Bagel",
       "criador": "Bytedance",
       "eloT2i": 600,
-      "ciT2i": 34,
-      "eloIee": 791,
-      "ciIee": 24,
+      "ciT2i": 33,
+      "eloIee": 784,
+      "ciIee": 23,
       "logo": "https://cdn.simpleicons.org/bytedance",
       "cor": "#00A4EF",
-      "rankT2i": 108,
-      "rankIee": 76
+      "rankT2i": 114,
+      "rankIee": 81
     },
     {
       "id": "b2a76bb0-47e8-4781-a497-1f942ca605c7",
       "nome": "OmniGen V2",
       "criador": "VectorSpaceLab",
-      "eloT2i": 711,
-      "ciT2i": 26,
-      "eloIee": 781,
+      "eloT2i": 703,
+      "ciT2i": 25,
+      "eloIee": 780,
       "ciIee": 22,
       "cor": "#EAB308",
-      "rankT2i": 107,
-      "rankIee": 77
+      "rankT2i": 113,
+      "rankIee": 82
     },
     {
       "id": "61ace12c-0fb5-4262-a0b7-80845c84b40d",
       "nome": "Luma Photon Flash",
       "criador": "Luma Labs",
-      "eloT2i": 774,
+      "eloT2i": 772,
       "ciT2i": 22,
       "eloIee": null,
       "ciIee": null,
       "cor": "#7C3AED",
-      "rankT2i": 105
+      "rankT2i": 111
     },
     {
       "id": "69b78994-95af-4acb-adcb-e59c0ea7d2e4",
@@ -1451,21 +1523,21 @@
       "criador": "HiDream",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 767,
-      "ciIee": 25,
+      "eloIee": 761,
+      "ciIee": 24,
       "cor": "#EC4899",
-      "rankIee": 78
+      "rankIee": 83
     },
     {
       "id": "d77cfc0a-2fa1-4f8e-9f7f-a666b348b1e9",
       "nome": "FLUX.1 [schnell]",
       "criador": "Black Forest Labs",
-      "eloT2i": 741,
+      "eloT2i": 743,
       "ciT2i": 19,
       "eloIee": null,
       "ciIee": null,
       "cor": "#475569",
-      "rankT2i": 106
+      "rankT2i": 112
     },
     {
       "id": "82b0716c-d24a-4a19-b09c-dd4366ecdb79",
@@ -1473,11 +1545,11 @@
       "criador": "StepFun",
       "eloT2i": null,
       "ciT2i": null,
-      "eloIee": 599,
+      "eloIee": 590,
       "ciIee": 37,
       "logo": "https://unavatar.io/stepfun.com?fallback=false",
       "cor": "#475569",
-      "rankIee": 79
+      "rankIee": 84
     }
   ]
 }

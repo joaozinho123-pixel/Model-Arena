@@ -1,377 +1,395 @@
 {
   "a126a6fd-2f15-4da2-8b9a-700b2973a4e3": {
-    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1259 em geração (±15) · Elo de 1209 em edição (±14)."
-  },
-  "ac1b5565-d063-480e-a593-ce244705cd43": {
-    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1228 em geração (±12) · Elo de 1206 em edição (±13)."
+    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1261 em geração (±14) · Elo de 1210 em edição (±13)."
   },
   "98833f93-0f33-4205-b83a-c4d42a25da4f": {
-    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1227 em geração (±10) · Elo de 1199 em edição (±11)."
+    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1229 em geração (±10) · Elo de 1201 em edição (±11)."
+  },
+  "ac1b5565-d063-480e-a593-ce244705cd43": {
+    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1226 em geração (±12) · Elo de 1206 em edição (±13)."
   },
   "ac3abe51-14ca-4c04-b215-01a85f3a36ac": {
-    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1208 em geração (±10) · Elo de 1182 em edição (±11)."
+    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1210 em geração (±10) · Elo de 1184 em edição (±11)."
   },
   "e0c7ffeb-f6b7-4f54-902a-fbedccea863e": {
-    "descricao": "Modelo de imagem da Microsoft AI — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 1195 em edição (±14)."
+    "descricao": "Modelo de imagem da Microsoft AI — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 1198 em edição (±14)."
   },
   "9570e1d0-a390-48c1-a270-1317570fe3d5": {
-    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1188 em geração (±11) · Elo de 1136 em edição (±12)."
+    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1191 em geração (±11) · Elo de 1140 em edição (±12)."
+  },
+  "c1c59bcb-5836-4bd0-aac8-09fdee960eec": {
+    "descricao": "Modelo de imagem da KlingAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1180 em geração (±13) · Elo de 1182 em edição (±14)."
   },
   "b6f834da-1ca2-4f4c-a215-158970a058fa": {
-    "descricao": "Modelo de imagem da Google — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1176 em geração (±12) · Elo de 1152 em edição (±13)."
+    "descricao": "Modelo de imagem da Google — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1176 em geração (±12) · Elo de 1152 em edição (±12)."
   },
   "5d931c2e-797e-406e-8eb9-83ce18b5710c": {
-    "descricao": "Modelo de imagem da Microsoft AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1168 em geração (±12) · Elo de 1149 em edição (±12)."
+    "descricao": "Modelo de imagem da Microsoft AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1169 em geração (±12) · Elo de 1150 em edição (±12)."
   },
   "748fadd1-ecd9-41d0-9b43-f5fccd4fb843": {
-    "descricao": "Modelo de imagem da SpaceXAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1166 em geração (±12) · Elo de 1116 em edição (±12)."
+    "descricao": "Modelo de imagem da SpaceXAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1168 em geração (±12) · Elo de 1117 em edição (±12)."
+  },
+  "b8852bf6-1e75-4209-ac4d-a135170dc1f3": {
+    "descricao": "Modelo de imagem da ByteDance Seed — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1134 em geração (±12) · Elo de 1159 em edição (±14)."
+  },
+  "5724146e-3b38-4387-9814-6c45a22aff75": {
+    "descricao": "Modelo de imagem da Canva — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1158 em geração (±13)."
   },
   "6bce2e1f-3d76-4d7f-b850-d4fe4d6d34c6": {
-    "descricao": "Modelo de imagem da Krea — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 1152 em edição (±13)."
-  },
-  "3180162e-693d-487d-adbb-721f859f768d": {
-    "descricao": "Modelo de imagem da Google — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1142 em geração (±10) · Elo de 1125 em edição (±12)."
+    "descricao": "Modelo de imagem da Krea — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 1154 em edição (±13)."
   },
   "daa01918-0450-4825-992a-eade1f981683": {
-    "descricao": "Modelo de imagem da Microsoft AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1122 em geração (±12) · Elo de 1141 em edição (±12)."
+    "descricao": "Modelo de imagem da Microsoft AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1125 em geração (±12) · Elo de 1143 em edição (±12)."
+  },
+  "3180162e-693d-487d-adbb-721f859f768d": {
+    "descricao": "Modelo de imagem da Google — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1143 em geração (±10) · Elo de 1126 em edição (±12)."
+  },
+  "9b61629e-500e-452f-bfaa-5e3cd11f545d": {
+    "descricao": "Modelo de imagem da MiniMax — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1066 em geração (±15) · Elo de 1138 em edição (±16)."
+  },
+  "5c408cba-eb9a-4806-a44c-1d77030e9990": {
+    "descricao": "Modelo de imagem da MiniMax — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1070 em geração (±14) · Elo de 1134 em edição (±16)."
   },
   "c9e4f0a2-3b7d-4c61-8e29-1f5a6d0b47c3": {
-    "descricao": "Modelo de imagem da ByteDance Seed — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1101 em geração (±11) · Elo de 1129 em edição (±12)."
+    "descricao": "Modelo de imagem da ByteDance Seed — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1103 em geração (±10) · Elo de 1131 em edição (±12)."
   },
   "0a7b7bb4-caa5-4334-aff3-57ad2bdead0d": {
-    "descricao": "Modelo de imagem da Meta — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1128 em geração (±11) · Elo de 1128 em edição (±12)."
+    "descricao": "Modelo de imagem da Meta — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1127 em geração (±11) · Elo de 1128 em edição (±11)."
   },
   "a1ee4d6f-d136-434b-bb1d-066fe5f9bf6f": {
-    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1124 em geração (±11) · Elo de 1116 em edição (±12)."
-  },
-  "3f8a2d6b-9c4e-4f1a-b7d2-8e5a0c3d71f9": {
-    "descricao": "Modelo de imagem da Microsoft AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1120 em geração (±11) · Elo de 1124 em edição (±12)."
+    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1126 em geração (±11) · Elo de 1118 em edição (±12)."
   },
   "8d618a95-57c5-4566-8027-74faa75478f0": {
-    "descricao": "Modelo de imagem da Krea — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 1123 em edição (±13)."
+    "descricao": "Modelo de imagem da Krea — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 1124 em edição (±13)."
+  },
+  "3f8a2d6b-9c4e-4f1a-b7d2-8e5a0c3d71f9": {
+    "descricao": "Modelo de imagem da Microsoft AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1118 em geração (±11) · Elo de 1124 em edição (±12)."
   },
   "503fdcd1-5895-4145-8484-1ab301320f6d": {
-    "descricao": "Modelo de imagem da Microsoft AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1116 em geração (±10) · Elo de 1123 em edição (±12)."
+    "descricao": "Modelo de imagem da Microsoft AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1117 em geração (±9) · Elo de 1124 em edição (±12)."
   },
   "952cb4e8-6155-45f4-a653-f426669cf80a": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1117 em geração (±12) · Elo de 1120 em edição (±14)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1115 em geração (±12) · Elo de 1119 em edição (±13)."
   },
   "6a5056eb-6854-43c4-bf18-01d185ce9e2f": {
-    "descricao": "Modelo de imagem da Google — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1119 em geração (±10) · Elo de 1109 em edição (±12)."
+    "descricao": "Modelo de imagem da Google — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1119 em geração (±10) · Elo de 1108 em edição (±12)."
   },
   "7f1079f3-b886-4ac1-bd3e-7059da87ff28": {
-    "descricao": "Modelo de imagem da Google — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1109 em geração (±10) · Elo de 1054 em edição (±12)."
+    "descricao": "Modelo de imagem da Google — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1110 em geração (±10) · Elo de 1053 em edição (±12)."
   },
   "9fe07c8f-8d20-4908-a991-65c00e5ef260": {
-    "descricao": "Modelo de imagem da SpaceXAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1049 em geração (±9) · Elo de 1097 em edição (±12)."
+    "descricao": "Modelo de imagem da SpaceXAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1049 em geração (±9) · Elo de 1098 em edição (±12)."
   },
   "5538a039-fb86-4cd7-a207-4d692f358032": {
     "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1095 em geração (±12) · Elo de 1091 em edição (±12)."
   },
   "ac3abb25-ef1d-43be-967e-9cd48d9d786a": {
-    "descricao": "Modelo de imagem da Tencent — geração e edição de imagens, medido pela Artificial Analysis. Elo de 974 em geração (±12) · Elo de 1092 em edição (±13)."
+    "descricao": "Modelo de imagem da Tencent — geração e edição de imagens, medido pela Artificial Analysis. Elo de 973 em geração (±12) · Elo de 1092 em edição (±13)."
   },
   "e23a6328-1441-4633-b53c-bb2c40c5a647": {
-    "descricao": "Modelo de imagem da Microsoft AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1032 em geração (±11) · Elo de 1089 em edição (±12)."
+    "descricao": "Modelo de imagem da Microsoft AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1034 em geração (±11) · Elo de 1088 em edição (±12)."
   },
   "5aa06cdc-2d14-44d2-ae75-cd1230bca9f7": {
-    "descricao": "Modelo de imagem da Bria — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1039 em geração (±12) · Elo de 1085 em edição (±13)."
+    "descricao": "Modelo de imagem da Bria — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1038 em geração (±11) · Elo de 1085 em edição (±13)."
   },
   "dea37206-747e-49f3-8bed-6541ca505d03": {
-    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1045 em geração (±12) · Elo de 1080 em edição (±13)."
+    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1046 em geração (±12) · Elo de 1084 em edição (±13)."
   },
   "a71a9c1d-a20f-4237-8e36-8a58558e2edc": {
-    "descricao": "Modelo de imagem da Luma Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1026 em geração (±12) · Elo de 1078 em edição (±13)."
-  },
-  "bcc5b88d-1bb0-45e6-9940-2f8b99567b40": {
-    "descricao": "Modelo de imagem da SpaceXAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1024 em geração (±11) · Elo de 1073 em edição (±13)."
+    "descricao": "Modelo de imagem da Luma Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1026 em geração (±11) · Elo de 1078 em edição (±12)."
   },
   "2253749f-b609-4016-b639-0ce39a42375a": {
-    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1073 em geração (±12) · Elo de 1069 em edição (±12)."
+    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1075 em geração (±12) · Elo de 1070 em edição (±12)."
+  },
+  "bcc5b88d-1bb0-45e6-9940-2f8b99567b40": {
+    "descricao": "Modelo de imagem da SpaceXAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1024 em geração (±11) · Elo de 1074 em edição (±13)."
   },
   "2fcb2223-b343-48c5-b6ed-31bdc0e0678c": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1043 em geração (±12) · Elo de 1069 em edição (±13)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1042 em geração (±11) · Elo de 1069 em edição (±13)."
   },
   "74eeddb9-9c0b-4dbc-b188-27f91a811bd3": {
-    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1058 em geração (±12) · Elo de 1069 em edição (±13)."
+    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1059 em geração (±12) · Elo de 1068 em edição (±13)."
   },
   "8358ca21-5c7b-48f2-9b26-a1a1fa770f46": {
-    "descricao": "Modelo de imagem da Ideogram — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1016 em geração (±14) · Elo de 1067 em edição (±15)."
+    "descricao": "Modelo de imagem da Ideogram — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1016 em geração (±14) · Elo de 1065 em edição (±14)."
   },
   "6c1e28b9-3165-4637-9944-c4b55d634237": {
-    "descricao": "Modelo de imagem da Tencent — geração e edição de imagens, medido pela Artificial Analysis. Elo de 988 em geração (±12) · Elo de 1065 em edição (±13)."
-  },
-  "3c29418c-ff63-459d-9d78-b9cceea260ce": {
-    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1027 em geração (±12) · Elo de 1063 em edição (±13)."
+    "descricao": "Modelo de imagem da Tencent — geração e edição de imagens, medido pela Artificial Analysis. Elo de 986 em geração (±11) · Elo de 1064 em edição (±13)."
   },
   "d82c66de-d55a-4b6a-af16-f5bf808431cc": {
-    "descricao": "Modelo de imagem da ByteDance Seed — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1019 em geração (±12) · Elo de 1061 em edição (±13)."
+    "descricao": "Modelo de imagem da ByteDance Seed — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1020 em geração (±11) · Elo de 1063 em edição (±13)."
+  },
+  "3c29418c-ff63-459d-9d78-b9cceea260ce": {
+    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1025 em geração (±12) · Elo de 1062 em edição (±13)."
   },
   "16e22800-1485-4b5f-b28c-bf802ca160ac": {
-    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1031 em geração (±11) · Elo de 1057 em edição (±16)."
+    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1033 em geração (±11) · Elo de 1055 em edição (±15)."
   },
   "e2f79c9a-26da-4b33-84f2-917387002b17": {
-    "descricao": "Modelo de imagem da Newport AI — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 1048 em edição (±13)."
+    "descricao": "Modelo de imagem da Newport AI — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 1049 em edição (±13)."
   },
   "d587cfaa-e0f2-495c-a012-5f1cfcdf5c09": {
-    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 980 em geração (±12) · Elo de 1048 em edição (±13)."
+    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 982 em geração (±11) · Elo de 1049 em edição (±13)."
   },
   "c8a7698c-a595-476d-a56b-8b3ef4f239b7": {
-    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1028 em geração (±12) · Elo de 1045 em edição (±13)."
+    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1025 em geração (±11) · Elo de 1044 em edição (±13)."
   },
   "6cd594e7-1871-45e2-a33d-dc73fd4aac11": {
-    "descricao": "Modelo de imagem da Luma Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 994 em geração (±12) · Elo de 1041 em edição (±12)."
+    "descricao": "Modelo de imagem da Luma Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 997 em geração (±11) · Elo de 1042 em edição (±12)."
+  },
+  "f703abde-dd2d-4d74-8c2e-32f15528eda6": {
+    "descricao": "Modelo de imagem da Apple — geração e edição de imagens, medido pela Artificial Analysis. Elo de 911 em geração (±15) · Elo de 1041 em edição (±15)."
   },
   "08f19008-675e-4d70-98b2-49ad3178c1f0": {
-    "descricao": "Modelo de imagem da ByteDance Seed — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1030 em geração (±12) · Elo de 1040 em edição (±13)."
+    "descricao": "Modelo de imagem da ByteDance Seed — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1029 em geração (±11) · Elo de 1039 em edição (±13)."
   },
   "7795ac1e-7098-4dc0-9507-cfa8478cda6d": {
-    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 988 em geração (±12) · Elo de 1040 em edição (±12)."
+    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 989 em geração (±11) · Elo de 1039 em edição (±12)."
   },
   "4f4bff18-e48f-4f7f-aa6b-94e9a9a11b68": {
     "descricao": "Modelo de imagem da Krea — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1035 em geração (±9)."
   },
   "87c9da43-efdc-408e-b7bb-fe77ed3afa88": {
-    "descricao": "Modelo de imagem da Tencent — geração e edição de imagens, medido pela Artificial Analysis. Elo de 993 em geração (±15) · Elo de 1029 em edição (±15)."
+    "descricao": "Modelo de imagem da Tencent — geração e edição de imagens, medido pela Artificial Analysis. Elo de 993 em geração (±15) · Elo de 1030 em edição (±15)."
   },
   "e2201d15-3e29-48c6-89ba-e63ccf3dde15": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1028 em geração (±11) · Elo de 996 em edição (±17)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1028 em geração (±11) · Elo de 995 em edição (±16)."
   },
   "e633cd0c-68a3-4c73-a020-98e2d75a03a6": {
-    "descricao": "Modelo de imagem da Recraft — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1028 em geração (±11)."
+    "descricao": "Modelo de imagem da Recraft — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1027 em geração (±10)."
   },
   "f625feda-2695-40cc-ba87-a5e65b914021": {
-    "descricao": "Modelo de imagem da Ideogram — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1027 em geração (±10)."
+    "descricao": "Modelo de imagem da Ideogram — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1026 em geração (±10)."
   },
   "6a398b55-7f36-4039-bbbf-2045ef8ab525": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1021 em geração (±10) · Elo de 999 em edição (±13)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1021 em geração (±10) · Elo de 998 em edição (±12)."
   },
   "b461c47d-a141-4f70-8ed1-c42f808ee44c": {
-    "descricao": "Modelo de imagem da Krea — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1020 em geração (±11)."
-  },
-  "1308be83-54a3-4284-880e-bd31996a9225": {
-    "descricao": "Modelo de imagem da HiDream — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1018 em geração (±11)."
+    "descricao": "Modelo de imagem da Krea — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1021 em geração (±11)."
   },
   "4ead8ffd-aa90-4fab-93f3-d3f4495657f8": {
-    "descricao": "Modelo de imagem da Recraft — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1018 em geração (±9)."
+    "descricao": "Modelo de imagem da Recraft — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1020 em geração (±9)."
   },
-  "caa670a4-e827-4a4b-84fb-2dd240205fe2": {
-    "descricao": "Modelo de imagem da Alibaba — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1018 em geração (±12)."
-  },
-  "db7a9087-0b50-41f8-ac41-fb48db3aa459": {
-    "descricao": "Modelo de imagem da Fal — geração e edição de imagens, medido pela Artificial Analysis. Elo de 996 em geração (±11) · Elo de 1017 em edição (±17)."
+  "1308be83-54a3-4284-880e-bd31996a9225": {
+    "descricao": "Modelo de imagem da HiDream — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1019 em geração (±10)."
   },
   "2f5ebb1e-6d5f-48b0-95bf-3b590fd45971": {
-    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1014 em geração (±12) · Elo de 994 em edição (±17)."
+    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1018 em geração (±11) · Elo de 997 em edição (±16)."
+  },
+  "caa670a4-e827-4a4b-84fb-2dd240205fe2": {
+    "descricao": "Modelo de imagem da Alibaba — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1018 em geração (±11)."
   },
   "01ec8e55-dad9-4e6f-9036-e1da2a5226b6": {
-    "descricao": "Modelo de imagem da Krea — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1014 em geração (±9)."
-  },
-  "0413f436-9aa3-4f92-aa34-9432841c1830": {
-    "descricao": "Modelo de imagem da Fal — geração e edição de imagens, medido pela Artificial Analysis. Elo de 989 em geração (±12) · Elo de 1013 em edição (±17)."
+    "descricao": "Modelo de imagem da Krea — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1015 em geração (±9)."
   },
   "3a03722d-32c0-44f3-adde-188c51b639f1": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 932 em geração (±10) · Elo de 1013 em edição (±13)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 932 em geração (±10) · Elo de 1014 em edição (±12)."
+  },
+  "0413f436-9aa3-4f92-aa34-9432841c1830": {
+    "descricao": "Modelo de imagem da Fal — geração e edição de imagens, medido pela Artificial Analysis. Elo de 987 em geração (±12) · Elo de 1011 em edição (±16)."
+  },
+  "db7a9087-0b50-41f8-ac41-fb48db3aa459": {
+    "descricao": "Modelo de imagem da Fal — geração e edição de imagens, medido pela Artificial Analysis. Elo de 996 em geração (±11) · Elo de 1011 em edição (±16)."
   },
   "18874791-11a3-4cb7-bc0e-6ca10138eec7": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1003 em geração (±10) · Elo de 1011 em edição (±15)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1005 em geração (±10) · Elo de 1010 em edição (±14)."
   },
   "74606b04-5682-4ff2-85ce-56999ef61acb": {
-    "descricao": "Modelo de imagem da StepFun — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 1010 em edição (±13)."
+    "descricao": "Modelo de imagem da StepFun — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 1008 em edição (±13)."
   },
   "ffb60b61-95c2-414d-a4d1-7070e2daad59": {
     "descricao": "Modelo de imagem da Ideogram — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1003 em geração (±10)."
   },
+  "a035e463-270c-4ad4-aa7e-d31509b300f7": {
+    "descricao": "Modelo de imagem da InclusionAI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1001 em geração (±9)."
+  },
   "df44f7b5-8035-4a99-a0bb-ff22149d0464": {
     "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 1000 em geração (±0) · Elo de 1000 em edição (±0)."
   },
-  "a035e463-270c-4ad4-aa7e-d31509b300f7": {
-    "descricao": "Modelo de imagem da InclusionAI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 1000 em geração (±9)."
-  },
   "9a73193a-8830-4fa8-98f4-0230cd749914": {
-    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 998 em geração (±14)."
+    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 999 em geração (±13)."
+  },
+  "878746c7-f8e0-48c0-941e-d8262608ca1a": {
+    "descricao": "Modelo de imagem da Alibaba — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 996 em edição (±16)."
   },
   "3ab1625b-0838-4314-a684-3d34328dfe65": {
     "descricao": "Modelo de imagem da NVIDIA — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 995 em geração (±9)."
   },
   "fe1a6e08-b922-4996-b029-4601b8248806": {
-    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 994 em geração (±15)."
+    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 995 em geração (±14)."
   },
   "59b0cb98-b550-40f1-b863-a2daca08ab81": {
-    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 994 em geração (±15) · Elo de 968 em edição (±17)."
-  },
-  "878746c7-f8e0-48c0-941e-d8262608ca1a": {
-    "descricao": "Modelo de imagem da Alibaba — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 992 em edição (±17)."
+    "descricao": "Modelo de imagem da Alibaba — geração e edição de imagens, medido pela Artificial Analysis. Elo de 992 em geração (±15) · Elo de 965 em edição (±17)."
   },
   "498395f7-5cde-4443-9f05-1dfc164caa6f": {
-    "descricao": "Modelo de imagem da NVIDIA — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 987 em geração (±10)."
+    "descricao": "Modelo de imagem da NVIDIA — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 988 em geração (±10)."
   },
   "ead01c00-8518-4f8d-8033-76fcaef910fd": {
-    "descricao": "Modelo de imagem da Google — geração e edição de imagens, medido pela Artificial Analysis. Elo de 986 em geração (±12) · Elo de 982 em edição (±13)."
-  },
-  "16ecb9ee-9d8d-4151-a9f6-e6ef2aa12d26": {
-    "descricao": "Modelo de imagem da Fal — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 985 em geração (±11)."
-  },
-  "740929c5-09b6-4a81-b98e-00e903e27d84": {
-    "descricao": "Modelo de imagem da Fal — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 985 em geração (±12)."
-  },
-  "84c2ccfc-80f0-440c-91f5-0efe11afa535": {
-    "descricao": "Modelo de imagem da Alibaba — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 984 em edição (±17)."
+    "descricao": "Modelo de imagem da Google — geração e edição de imagens, medido pela Artificial Analysis. Elo de 987 em geração (±12) · Elo de 982 em edição (±13)."
   },
   "a8202647-0cab-4d53-8929-683b91583a2f": {
-    "descricao": "Modelo de imagem da Reve — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 984 em edição (±17)."
+    "descricao": "Modelo de imagem da Reve — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 985 em edição (±16)."
+  },
+  "740929c5-09b6-4a81-b98e-00e903e27d84": {
+    "descricao": "Modelo de imagem da Fal — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 984 em geração (±12)."
+  },
+  "16ecb9ee-9d8d-4151-a9f6-e6ef2aa12d26": {
+    "descricao": "Modelo de imagem da Fal — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 982 em geração (±11)."
   },
   "9284721d-5dc9-4eec-ab5a-235aa6fdcc9f": {
-    "descricao": "Modelo de imagem da Pruna AI — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 983 em edição (±13)."
+    "descricao": "Modelo de imagem da Pruna AI — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 982 em edição (±13)."
+  },
+  "84c2ccfc-80f0-440c-91f5-0efe11afa535": {
+    "descricao": "Modelo de imagem da Alibaba — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 981 em edição (±16)."
   },
   "5eb8a48a-334c-4770-b722-3bf5a1842c12": {
-    "descricao": "Modelo de imagem da HiDream — geração e edição de imagens, medido pela Artificial Analysis. Elo de 978 em geração (±10) · Elo de 953 em edição (±14)."
+    "descricao": "Modelo de imagem da HiDream — geração e edição de imagens, medido pela Artificial Analysis. Elo de 979 em geração (±10) · Elo de 952 em edição (±13)."
   },
   "d74e176c-b2ca-4132-b641-fc4932c2314d": {
-    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 976 em geração (±13)."
+    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 977 em geração (±13)."
   },
   "a972f679-3043-42fd-a8d2-a866b5acb516": {
-    "descricao": "Modelo de imagem da NVIDIA — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 972 em geração (±10)."
-  },
-  "c64add40-5964-4a33-b25f-26eb1c990f27": {
-    "descricao": "Modelo de imagem da Alibaba — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 967 em edição (±17)."
+    "descricao": "Modelo de imagem da NVIDIA — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 973 em geração (±10)."
   },
   "a7537dba-f8c0-4e26-9693-c593a69a3db8": {
-    "descricao": "Modelo de imagem da Fal — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 965 em geração (±12)."
+    "descricao": "Modelo de imagem da Fal — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 966 em geração (±12)."
   },
   "d5a99ffc-7fb6-48c3-8543-75c4c07706f0": {
-    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 964 em geração (±13)."
+    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 965 em geração (±13)."
+  },
+  "c64add40-5964-4a33-b25f-26eb1c990f27": {
+    "descricao": "Modelo de imagem da Alibaba — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 963 em edição (±17)."
   },
   "c02b3b9d-2847-46b2-b410-98e29a594fa5": {
-    "descricao": "Modelo de imagem da Alibaba — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 959 em geração (±16)."
-  },
-  "aef67397-7859-4806-8fbb-6b50e391feec": {
-    "descricao": "Modelo de imagem da KlingAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 921 em geração (±16) · Elo de 954 em edição (±14)."
+    "descricao": "Modelo de imagem da Alibaba — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 958 em geração (±15)."
   },
   "29714890-0638-4648-a1df-3fdc2a4b42fa": {
-    "descricao": "Modelo de imagem da Vidu — geração e edição de imagens, medido pela Artificial Analysis. Elo de 896 em geração (±17) · Elo de 953 em edição (±18)."
+    "descricao": "Modelo de imagem da Vidu — geração e edição de imagens, medido pela Artificial Analysis. Elo de 898 em geração (±16) · Elo de 955 em edição (±17)."
+  },
+  "aef67397-7859-4806-8fbb-6b50e391feec": {
+    "descricao": "Modelo de imagem da KlingAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 926 em geração (±15) · Elo de 953 em edição (±13)."
   },
   "2106ec2e-158c-4978-82e0-9049e3d8d90f": {
-    "descricao": "Modelo de imagem da Recraft — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 951 em geração (±12)."
+    "descricao": "Modelo de imagem da Recraft — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 950 em geração (±12)."
   },
   "84727a95-54d0-4237-b629-eae087023171": {
-    "descricao": "Modelo de imagem da KlingAI — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 945 em edição (±14)."
+    "descricao": "Modelo de imagem da KlingAI — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 944 em edição (±13)."
   },
   "6443510e-aedc-423b-9a16-478534b16269": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 840 em geração (±12) · Elo de 940 em edição (±16)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 840 em geração (±12) · Elo de 942 em edição (±16)."
   },
   "95a40d42-7e24-42ac-8e86-ded5ba37c6ea": {
-    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 937 em geração (±17) · Elo de 936 em edição (±18)."
+    "descricao": "Modelo de imagem da OpenAI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 938 em geração (±16) · Elo de 940 em edição (±18)."
   },
   "d48735c9-9f0f-45b6-ad45-cc03eec252c8": {
     "descricao": "Modelo de imagem da Alibaba — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 936 em geração (±11)."
   },
-  "b7c09073-9046-4043-884b-ac541fedbbac": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 930 em geração (±12) · Elo de 933 em edição (±18)."
-  },
   "1522bb2b-0ec1-4cbe-aa0f-3dd04b784035": {
-    "descricao": "Modelo de imagem da Tencent — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 933 em geração (±16)."
+    "descricao": "Modelo de imagem da Tencent — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 934 em geração (±15)."
   },
   "561d9150-bc67-4212-8129-2d239f06fde8": {
-    "descricao": "Modelo de imagem da Bytedance — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 931 em geração (±17)."
+    "descricao": "Modelo de imagem da Bytedance — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 931 em geração (±16)."
+  },
+  "b7c09073-9046-4043-884b-ac541fedbbac": {
+    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 931 em geração (±12) · Elo de 931 em edição (±17)."
   },
   "3338f278-fb1f-4727-b9af-d51ae3ab7e36": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 921 em geração (±17) · Elo de 915 em edição (±19)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração e edição de imagens, medido pela Artificial Analysis. Elo de 924 em geração (±16) · Elo de 916 em edição (±18)."
   },
   "2a91c547-e6e1-46b6-bb73-abd73d518de8": {
     "descricao": "Modelo de imagem da Baidu — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 915 em geração (±10)."
   },
-  "7f4a0972-2e00-4cd1-9c93-57e81b0791a8": {
-    "descricao": "Modelo de imagem da Ideogram — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 913 em geração (±17)."
-  },
   "d45130b5-0e86-48a6-b13c-c56468709cc8": {
-    "descricao": "Modelo de imagem da Bria — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 912 em edição (±19)."
+    "descricao": "Modelo de imagem da Bria — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 913 em edição (±18)."
   },
   "e2fa2f78-4a0c-4e2f-b3cf-53d213a18872": {
-    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 911 em geração (±14)."
+    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 913 em geração (±14)."
+  },
+  "7f4a0972-2e00-4cd1-9c93-57e81b0791a8": {
+    "descricao": "Modelo de imagem da Ideogram — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 910 em geração (±16)."
   },
   "72d1951d-075a-421b-9002-66537114124c": {
     "descricao": "Modelo de imagem da Baidu — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 909 em geração (±10)."
   },
   "a7ce8a95-072f-4ca2-b574-35400c21d005": {
-    "descricao": "Modelo de imagem da Alibaba — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 904 em geração (±17)."
+    "descricao": "Modelo de imagem da Alibaba — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 908 em geração (±16)."
   },
   "508d1de3-59e8-4963-a86f-a605a9e1acb5": {
-    "descricao": "Modelo de imagem da ByteDance Seed — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 902 em edição (±19)."
+    "descricao": "Modelo de imagem da ByteDance Seed — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 898 em edição (±18)."
   },
   "c404f12b-b1a8-47d2-bbff-3aa5f73be475": {
-    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 897 em geração (±17)."
+    "descricao": "Modelo de imagem da Pruna AI — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 896 em geração (±17)."
   },
   "e9c23b00-b46b-428a-9b0f-68308747873b": {
-    "descricao": "Modelo de imagem da Meituan — geração e edição de imagens, medido pela Artificial Analysis. Elo de 858 em geração (±19) · Elo de 896 em edição (±19)."
+    "descricao": "Modelo de imagem da Meituan — geração e edição de imagens, medido pela Artificial Analysis. Elo de 861 em geração (±18) · Elo de 895 em edição (±19)."
   },
   "7f802e5d-8297-41f7-bf2e-cd442b4eb37e": {
-    "descricao": "Modelo de imagem da Alibaba — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 893 em geração (±17)."
+    "descricao": "Modelo de imagem da Alibaba — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 894 em geração (±16)."
   },
   "5eba28d1-5f14-45e5-970a-47cd5da79c54": {
-    "descricao": "Modelo de imagem da Z AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 891 em geração (±17) · Elo de 824 em edição (±21)."
+    "descricao": "Modelo de imagem da Z AI — geração e edição de imagens, medido pela Artificial Analysis. Elo de 891 em geração (±16) · Elo de 827 em edição (±21)."
   },
   "5d5701fe-a1d0-4eab-96b6-8f55b0610e1c": {
-    "descricao": "Modelo de imagem da Alibaba — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 887 em edição (±19)."
+    "descricao": "Modelo de imagem da Alibaba — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 886 em edição (±19)."
   },
   "b4a07a40-c0c2-475a-8326-469bdd6dff47": {
-    "descricao": "Modelo de imagem da Black Forest Labs — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 880 em edição (±20)."
-  },
-  "8d8aa93e-0d6c-4973-9946-e00e52eeb01d": {
-    "descricao": "Modelo de imagem da Leonardo.Ai — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 879 em geração (±17)."
+    "descricao": "Modelo de imagem da Black Forest Labs — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 881 em edição (±19)."
   },
   "9cb8045c-3c85-4023-8585-88ca0eff8452": {
-    "descricao": "Modelo de imagem da HiDream — geração e edição de imagens, medido pela Artificial Analysis. Elo de 810 em geração (±19) · Elo de 878 em edição (±14)."
+    "descricao": "Modelo de imagem da HiDream — geração e edição de imagens, medido pela Artificial Analysis. Elo de 811 em geração (±19) · Elo de 878 em edição (±14)."
+  },
+  "8d8aa93e-0d6c-4973-9946-e00e52eeb01d": {
+    "descricao": "Modelo de imagem da Leonardo.Ai — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 877 em geração (±16)."
   },
   "f1182fcf-b690-413a-9a9b-38cec96e9e09": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 871 em geração (±18)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 874 em geração (±17)."
   },
   "7fd58fea-e8b4-46c9-a421-409db1b54a71": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 868 em geração (±35)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 872 em geração (±30)."
   },
   "2ec24cf9-bef1-44f2-ae97-32f49f7905e2": {
-    "descricao": "Modelo de imagem da Leonardo.Ai — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 863 em geração (±17)."
+    "descricao": "Modelo de imagem da Leonardo.Ai — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 866 em geração (±16)."
   },
   "9d206113-8eec-4e37-9033-3699b4e2c4c1": {
-    "descricao": "Modelo de imagem da Bria — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 853 em geração (±19)."
+    "descricao": "Modelo de imagem da Bria — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 856 em geração (±18)."
   },
   "aa524f71-2f87-4395-b1c1-83dfa20bd87c": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 853 em geração (±18)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 855 em geração (±17)."
   },
   "bbb9085a-55dd-4afe-955d-0326019503a7": {
-    "descricao": "Modelo de imagem da Luma Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 845 em geração (±19)."
-  },
-  "6ec6098b-3530-4de5-b2fc-24cde58933ab": {
-    "descricao": "Modelo de imagem da Tencent — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 832 em geração (±20)."
+    "descricao": "Modelo de imagem da Luma Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 843 em geração (±18)."
   },
   "9f592429-9411-4c1e-bebe-780d2790759a": {
-    "descricao": "Modelo de imagem da Leonardo.Ai — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 831 em geração (±19)."
+    "descricao": "Modelo de imagem da Leonardo.Ai — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 836 em geração (±18)."
+  },
+  "6ec6098b-3530-4de5-b2fc-24cde58933ab": {
+    "descricao": "Modelo de imagem da Tencent — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 834 em geração (±19)."
   },
   "ba1d4694-1170-4cc1-b19a-3067a8c1341c": {
-    "descricao": "Modelo de imagem da Leonardo.Ai — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 828 em geração (±20)."
+    "descricao": "Modelo de imagem da Leonardo.Ai — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 828 em geração (±19)."
   },
   "42f6daca-7146-4620-8977-d190d7fac51a": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 819 em geração (±39)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 818 em geração (±33)."
   },
   "95379740-648d-4251-8ae8-33b3021ad14b": {
     "descricao": "Modelo de imagem da Bria — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 815 em geração (±16)."
   },
   "1189110d-671d-4de9-877c-f9797f161134": {
-    "descricao": "Modelo de imagem da Bytedance — geração e edição de imagens, medido pela Artificial Analysis. Elo de 600 em geração (±34) · Elo de 791 em edição (±24)."
+    "descricao": "Modelo de imagem da Bytedance — geração e edição de imagens, medido pela Artificial Analysis. Elo de 600 em geração (±33) · Elo de 784 em edição (±23)."
   },
   "b2a76bb0-47e8-4781-a497-1f942ca605c7": {
-    "descricao": "Modelo de imagem da VectorSpaceLab — geração e edição de imagens, medido pela Artificial Analysis. Elo de 711 em geração (±26) · Elo de 781 em edição (±22)."
+    "descricao": "Modelo de imagem da VectorSpaceLab — geração e edição de imagens, medido pela Artificial Analysis. Elo de 703 em geração (±25) · Elo de 780 em edição (±22)."
   },
   "61ace12c-0fb5-4262-a0b7-80845c84b40d": {
-    "descricao": "Modelo de imagem da Luma Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 774 em geração (±22)."
+    "descricao": "Modelo de imagem da Luma Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 772 em geração (±22)."
   },
   "69b78994-95af-4acb-adcb-e59c0ea7d2e4": {
-    "descricao": "Modelo de imagem da HiDream — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 767 em edição (±25)."
+    "descricao": "Modelo de imagem da HiDream — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 761 em edição (±24)."
   },
   "d77cfc0a-2fa1-4f8e-9f7f-a666b348b1e9": {
-    "descricao": "Modelo de imagem da Black Forest Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 741 em geração (±19)."
+    "descricao": "Modelo de imagem da Black Forest Labs — geração de imagens a partir de texto, medido pela Artificial Analysis. Elo de 743 em geração (±19)."
   },
   "82b0716c-d24a-4a19-b09c-dd4366ecdb79": {
-    "descricao": "Modelo de imagem da StepFun — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 599 em edição (±37)."
+    "descricao": "Modelo de imagem da StepFun — edição de imagens por instrução, medido pela Artificial Analysis. Elo de 590 em edição (±37)."
   }
 }
