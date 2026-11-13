@@ -439,8 +439,6 @@ function toModel(
   };
 }
 
-const rawModels = (DATA as { models: RawModel[] }).models ?? [];
-
 /**
  * Modelos importados da base de dados do OpenCode (models.dev) —
  * só fornecedores de primeira parte que o OpenRouter aúnão tem,
@@ -449,7 +447,12 @@ const rawModels = (DATA as { models: RawModel[] }).models ?? [];
  */
 const DEV_MODELS =
   (DEV_DATA as unknown as { modelos: RawModel[] }).modelos ?? [];
-if (DEV_MODELS.length > 0) rawModels.push(...DEV_MODELS);
+// Fusão NÃO mutante: o array `DATA.models` do módulo JSON é partilhado
+// com outros consumidores (rota AA, dump) — mutá-lo aqui contamina-os.
+const rawModels = [
+  ...(DATA as { models: RawModel[] }).models ?? [],
+  ...DEV_MODELS,
+];
 
 /**
  * Registos crus de models.dev exportados para os catálogos AO VIVO

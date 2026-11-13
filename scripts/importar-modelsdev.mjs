@@ -45,6 +45,7 @@ const KEEPERS = {
   ai21: "ai21",
   sarvam: "sarvam",
   longcat: "meituan",
+  byteplus: "bytedance-seed",
 };
 
 /** Prefixos de id obrigatórios: descarta modelos ALHEIOS servidos por
@@ -54,6 +55,9 @@ const ID_PREFIXOS = {
   alibaba: ["qwen", "qwq", "qvq"],
   thinkingmachines: ["thinkingmachines/"],
   arcee: ["trinity"],
+  /** BytePlus ModelArk: só a família Seed da própria ByteDance — os
+   *  ids deepseek- e glm- são espelhos de terceiros no endpoint. */
+  byteplus: ["seed", "dola-seed"],
   mistral: [
     "mistral", "mixtral", "ministral", "codestral", "pixtral",
     "devstral", "voxtral", "magistral", "open-mistral", "mathstral",
@@ -86,6 +90,7 @@ const EMPRESAS = {
   ai21: "AI21 Labs",
   sarvam: "Sarvam AI",
   meituan: "Meituan",
+  "bytedance-seed": "ByteDance",
 };
 
 const MESES = [

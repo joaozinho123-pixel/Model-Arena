@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-09T17:23:03.875Z",
+  "generatedAt": "2026-11-13T22:13:28.072Z",
   "fonte": "models.dev — base de dados de modelos usada pelo OpenCode (fornecedores de primeira parte, preços em USD)",
   "contagens": {
-    "candidatos": 243,
-    "sobreposicao": 156,
-    "novos": 72,
+    "candidatos": 254,
+    "sobreposicao": 165,
+    "novos": 74,
     "pulados": {
-      "tipo": 34,
-      "outro org": 36,
-      "modalidade": 7,
+      "tipo": 33,
+      "preço": 7,
+      "outro org": 45,
       "variante": 20,
-      "preço": 9
+      "modalidade": 7
     }
   },
   "modelos": [
@@ -671,6 +671,44 @@
       "raciocinio": true
     },
     {
+      "id": "bytedance-seed/seed-2-0-code-preview-260328",
+      "nome": "Seed 2.0 Code",
+      "provider": "bytedance-seed",
+      "descricao": "ByteDance Seed coding model for multimodal software engineering and long-running agents",
+      "contexto": 262144,
+      "precoEntrada": 0.5,
+      "precoSaida": 3,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "video"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
+      "id": "bytedance-seed/seed-2-0-pro-260328",
+      "nome": "Seed 2.0 Pro",
+      "provider": "bytedance-seed",
+      "descricao": "Flagship ByteDance Seed 2.0 model for complex multimodal reasoning and long-horizon agent workflows",
+      "contexto": 256000,
+      "precoEntrada": 0.5,
+      "precoSaida": 3,
+      "modalidades": {
+        "entrada": [
+          "image",
+          "video"
+        ],
+        "saida": []
+      },
+      "ferramentas": true,
+      "saidaEstruturada": false,
+      "raciocinio": true
+    },
+    {
       "id": "minimax/MiniMax-M2.5-highspeed",
       "nome": "MiniMax-M2.5-highspeed",
       "provider": "minimax",
@@ -1177,7 +1215,7 @@
       "id": "moonshotai/kimi-k3.1-pro-highspeed",
       "nome": "Kimi K3.1 Pro Highspeed",
       "provider": "moonshotai",
-      "descricao": "Multimodal Kimi model with 1M context and always-on reasoning for coding, 3D creation, financial research, and agentic work",
+      "descricao": "Multimodal Kimi model with a 1M-token context window and always-on reasoning, for coding, 3D creation and financial research",
       "contexto": 1048576,
       "precoEntrada": 4,
       "precoSaida": 20,

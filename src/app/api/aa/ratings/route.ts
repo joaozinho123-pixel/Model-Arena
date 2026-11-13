@@ -39,7 +39,7 @@ const TIMEOUT_MS = 8000;
  * seguinte — a mesma chave cobre apenas os endpoints do plano. A
  * lista V2 é paginada (`pagination.has_more`); seguem-se as páginas.
  */
-async function getTodasComPlano(
+export async function getTodasComPlano(
   paths: string[],
   headers: Record<string, string>,
 ): Promise<unknown[]> {

@@ -219,7 +219,7 @@ function papelDe(m) {
   if (/audio|voxtral|sonar|whisper|tts|speech/.test(n))
     return "variante de voz e áudio";
   if (/pro\b|ultra|max\b|large|premier/.test(n)) return "modelo de topo da gama";
-  if (/flash|turbo|lightning|mini|nano|lite|air|small|fast|ultraspeed/.test(n))
+  if (/flash|turbo|lightning|\bmini\b|nano|lite|air|small|fast|ultraspeed/.test(n))
     return "variante rápida e leve";
   if (/preview|exp|beta|alpha|latest/.test(n))
     return "pré-lançamento experimental";
